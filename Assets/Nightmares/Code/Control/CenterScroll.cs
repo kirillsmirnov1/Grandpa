@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Linq;
 using UnityEngine;
@@ -27,7 +26,7 @@ namespace Nightmares.Code.Control
 
         private void Start()
         {
-            StartCoroutine(RecenterOn(0, 0f, () => 1f));
+            StartCoroutine(InitialCentering());
         }
 
         public void OnPointerDown()
@@ -40,6 +39,17 @@ namespace Nightmares.Code.Control
             StartRecentering();
         }
 
+        private IEnumerator InitialCentering()
+        {
+            var dist = GetElementsDistancesFromCenter()[0];
+            while (Mathf.Abs(dist) > .1f)
+            {
+                content.transform.position -= new Vector3(dist,0,0);
+                yield return null;
+                dist = GetElementsDistancesFromCenter()[0];
+            }
+        }
+
         private void StopRecentering()
         {
             StopAllCoroutines();
@@ -47,9 +57,8 @@ namespace Nightmares.Code.Control
 
         private void StartRecentering()
         {
-            var index = FindElementClosestToCenter();
             StopRecentering();
-            StartCoroutine(RecenterOn(index, startDelay, () => Time.deltaTime * speed));
+            StartCoroutine(Recenter());
         }
 
         private int FindElementClosestToCenter()
@@ -72,13 +81,14 @@ namespace Nightmares.Code.Control
             return index;
         }
 
-        private IEnumerator RecenterOn(int iElement, float delay, Func<float> speedFunc)
+        private IEnumerator Recenter()
         {
-            yield return new WaitForSeconds(delay);
+            yield return new WaitForSeconds(startDelay);
+            var iElement = FindElementClosestToCenter();
             var dist = GetElementsDistancesFromCenter()[iElement];
             while (Mathf.Abs(dist) > .1f)
             {
-                content.transform.position -= new Vector3(dist * speedFunc(),0,0);
+                content.transform.position -= new Vector3(dist * Time.deltaTime * speed,0,0);
                 yield return null;
                 dist = GetElementsDistancesFromCenter()[iElement];
             }
