@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Linq;
 using UnityEngine;
@@ -32,14 +31,29 @@ namespace Nightmares.Code.Control
 
         public void OnPointerDown()
         {
-            StopAllCoroutines();
+            StopRecentering();
         }
 
         public void OnPointerUp()
         {
-            Debug.Log("Pointer Up");    
+            StartRecentering();
+        }
+
+        private void StopRecentering()
+        {
+            StopAllCoroutines();
+        }
+
+        private void StartRecentering()
+        {
+            var index = FindElementClosestToCenter();
+            StopRecentering();
+            StartCoroutine(RecenterOn(index));
+        }
+
+        private int FindElementClosestToCenter()
+        {
             var distancesFromCenterScreen = GetElementsDistancesFromCenter();
-            Debug.Log(string.Join("; ", distancesFromCenterScreen));
 
             var minDist = float.PositiveInfinity;
             var index = -1;
@@ -54,8 +68,7 @@ namespace Nightmares.Code.Control
                 }
             }
 
-            StopAllCoroutines();
-            StartCoroutine(RecenterOn(index));
+            return index;
         }
 
         private IEnumerator RecenterOn(int iElement)
