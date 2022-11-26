@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Nightmares.Code.Control
 {
@@ -9,6 +10,8 @@ namespace Nightmares.Code.Control
         [SerializeField] private Transform content;
         [SerializeField] private float speed = 1;
         [SerializeField] private float startDelay = 1f;
+        [SerializeField] private ScrollRect scrollRect;
+        [SerializeField] private float minPixDist = 10;
         
         private Transform[] _elements;
         private float _xMiddle;
@@ -41,6 +44,7 @@ namespace Nightmares.Code.Control
 
         private IEnumerator InitialCentering()
         {
+            scrollRect.inertia = false;
             var dist = GetElementsDistancesFromCenter()[0];
             while (Mathf.Abs(dist) > .1f)
             {
@@ -48,6 +52,7 @@ namespace Nightmares.Code.Control
                 yield return null;
                 dist = GetElementsDistancesFromCenter()[0];
             }
+            scrollRect.inertia = true;
         }
 
         private void StopRecentering()
@@ -88,10 +93,19 @@ namespace Nightmares.Code.Control
             var dist = GetElementsDistancesFromCenter()[iElement];
             while (Mathf.Abs(dist) > .1f)
             {
-                content.transform.position -= new Vector3(dist * Time.deltaTime * speed,0,0);
+                var delta = dist * Time.deltaTime * speed;
+                if (Mathf.Abs(dist) < minPixDist)
+                {
+                    delta = dist;
+                    scrollRect.inertia = false;
+                }
+
+                content.transform.position -= new Vector3(delta,0,0);
                 yield return null;
                 dist = GetElementsDistancesFromCenter()[iElement];
             }
+
+            scrollRect.inertia = true;
         }
 
         private float[] GetElementsDistancesFromCenter()

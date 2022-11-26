@@ -123,8 +123,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   content: {fileID: 965814401726822593}
-  speed: 10
+  speed: 15
   startDelay: 0.2
+  scrollRect: {fileID: 965814401651219628}
+  minPixDist: 10
 --- !u!114 &965814401651219624
 MonoBehaviour:
   m_ObjectHideFlags: 0
