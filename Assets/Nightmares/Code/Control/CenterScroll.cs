@@ -9,8 +9,8 @@ namespace Nightmares.Code.Control
     {
         [SerializeField] private Transform content;
         [SerializeField] private float speed = 1;
-        [SerializeField] private float minDistPerFrame = 1;
-
+        [SerializeField] private float startDelay = 1f;
+        
         private Transform[] _elements;
         private float _xMiddle;
         
@@ -27,7 +27,7 @@ namespace Nightmares.Code.Control
 
         private void Start()
         {
-            StartCoroutine(RecenterOn(0, () => 1f));
+            StartCoroutine(RecenterOn(0, 0f, () => 1f));
         }
 
         public void OnPointerDown()
@@ -49,7 +49,7 @@ namespace Nightmares.Code.Control
         {
             var index = FindElementClosestToCenter();
             StopRecentering();
-            StartCoroutine(RecenterOn(index, () => Time.deltaTime * speed));
+            StartCoroutine(RecenterOn(index, startDelay, () => Time.deltaTime * speed));
         }
 
         private int FindElementClosestToCenter()
@@ -72,8 +72,9 @@ namespace Nightmares.Code.Control
             return index;
         }
 
-        private IEnumerator RecenterOn(int iElement, Func<float> speedFunc)
+        private IEnumerator RecenterOn(int iElement, float delay, Func<float> speedFunc)
         {
+            yield return new WaitForSeconds(delay);
             var dist = GetElementsDistancesFromCenter()[iElement];
             while (Mathf.Abs(dist) > .1f)
             {
