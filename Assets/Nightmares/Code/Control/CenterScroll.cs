@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Linq;
 using UnityEngine;
@@ -26,7 +27,7 @@ namespace Nightmares.Code.Control
 
         private void Start()
         {
-            StartCoroutine(RecenterOn(0));
+            StartCoroutine(RecenterOn(0, () => 1f));
         }
 
         public void OnPointerDown()
@@ -39,6 +40,11 @@ namespace Nightmares.Code.Control
             StartRecentering();
         }
 
+        private void Update()
+        {
+            Debug.Log(GetElementsDistancesFromCenter()[0]);
+        }
+
         private void StopRecentering()
         {
             StopAllCoroutines();
@@ -48,7 +54,7 @@ namespace Nightmares.Code.Control
         {
             var index = FindElementClosestToCenter();
             StopRecentering();
-            StartCoroutine(RecenterOn(index));
+            StartCoroutine(RecenterOn(index, () => Time.deltaTime * speed));
         }
 
         private int FindElementClosestToCenter()
@@ -71,12 +77,12 @@ namespace Nightmares.Code.Control
             return index;
         }
 
-        private IEnumerator RecenterOn(int iElement)
+        private IEnumerator RecenterOn(int iElement, Func<float> speedFunc)
         {
             var dist = GetElementsDistancesFromCenter()[iElement];
             while (Mathf.Abs(dist) > .1f)
             {
-                content.transform.position -= new Vector3(dist * Time.deltaTime * speed,0,0);
+                content.transform.position -= new Vector3(dist * speedFunc(),0,0);
                 yield return null;
                 dist = GetElementsDistancesFromCenter()[iElement];
             }
