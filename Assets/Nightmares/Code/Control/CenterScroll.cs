@@ -40,11 +40,6 @@ namespace Nightmares.Code.Control
             StartRecentering();
         }
 
-        private void Update()
-        {
-            Debug.Log(GetElementsDistancesFromCenter()[0]);
-        }
-
         private void StopRecentering()
         {
             StopAllCoroutines();
