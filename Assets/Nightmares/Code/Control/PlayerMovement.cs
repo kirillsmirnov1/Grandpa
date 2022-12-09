@@ -7,7 +7,9 @@ namespace Nightmares.Code.Control
         public float speed = 1f;
         public float jump = 1f;
 
-        private float _move;
+        public float HorizontalInput { get; set; }
+        public bool JumpInput { get; set; }
+        
         private bool _onGround;
         private Rigidbody2D _rb;
 
@@ -18,10 +20,21 @@ namespace Nightmares.Code.Control
 
         private void Update()
         {
-            _move = Input.GetAxis("Horizontal");
-            _rb.velocity = new Vector2(speed * _move, _rb.velocity.y);
+            GetInput();
+            Move();
+        }
 
-            if (_onGround && (Input.GetButtonDown("Jump") || Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)))
+        private void GetInput()
+        {
+            HorizontalInput = Input.GetAxis("Horizontal");
+            JumpInput = Input.GetButtonDown("Jump") || Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow);
+        }
+
+        private void Move()
+        {
+            _rb.velocity = new Vector2(speed * HorizontalInput, _rb.velocity.y);
+
+            if (_onGround && JumpInput)
             {
                 _onGround = false;
                 _rb.AddForce(new Vector2(_rb.velocity.x, jump), ForceMode2D.Impulse);
