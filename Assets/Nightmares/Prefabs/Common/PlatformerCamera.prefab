@@ -12,8 +12,9 @@ GameObject:
   - component: {fileID: 6997234214219401755}
   - component: {fileID: 6997234214219401753}
   - component: {fileID: 637438976533749813}
+  - component: {fileID: 872480229}
   m_Layer: 0
-  m_Name: Main Camera
+  m_Name: PlatformerCamera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -98,3 +99,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   desiredWidth: 14
+--- !u!114 &872480229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6997234214219401752}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71bd0b724b0640d88c02ffb49c068760, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lerpSpeed: 10
+  target: {fileID: 0}
+  baseTiles: {fileID: 0}
