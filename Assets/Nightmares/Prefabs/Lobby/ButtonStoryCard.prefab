@@ -173,7 +173,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6966325922631499131, guid: f24762e019b978f4086be6f50dae57a3, type: 3}
       propertyPath: m_fontSize
-      value: 64
+      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 6966325922631499131, guid: f24762e019b978f4086be6f50dae57a3, type: 3}
       propertyPath: m_fontSizeMax
@@ -234,3 +234,22 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 1721848804112472114, guid: f24762e019b978f4086be6f50dae57a3, type: 3}
   m_PrefabInstance: {fileID: 1396469577374274285}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &9016442932819463265 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7944796956407209612, guid: f24762e019b978f4086be6f50dae57a3, type: 3}
+  m_PrefabInstance: {fileID: 1396469577374274285}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2287860210844289612
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9016442932819463265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9482a1a5fa7e3c4eb4c7cfd33275fc4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 0
+  sceneToLoad: 1

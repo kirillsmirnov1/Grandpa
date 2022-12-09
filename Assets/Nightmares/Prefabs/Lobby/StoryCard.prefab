@@ -483,6 +483,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2287860210844289612, guid: 44bf498b1205a484daac4de461a68a79, type: 3}
+      propertyPath: type
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8344076279913590678, guid: 44bf498b1205a484daac4de461a68a79, type: 3}
       propertyPath: m_text
       value: tasks
@@ -601,6 +605,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 91a30d6a9a857654bbc92008ccea8c6a, type: 3}
+    - target: {fileID: 2287860210844289612, guid: 44bf498b1205a484daac4de461a68a79, type: 3}
+      propertyPath: type
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8344076279913590678, guid: 44bf498b1205a484daac4de461a68a79, type: 3}
       propertyPath: m_text
       value: play
@@ -719,6 +727,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: f8b3e9ad321190e43b6e3a0a9d96f1b7, type: 3}
+    - target: {fileID: 2287860210844289612, guid: 44bf498b1205a484daac4de461a68a79, type: 3}
+      propertyPath: type
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8344076279913590678, guid: 44bf498b1205a484daac4de461a68a79, type: 3}
       propertyPath: m_text
       value: read
