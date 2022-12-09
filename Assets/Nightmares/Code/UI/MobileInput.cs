@@ -6,8 +6,10 @@ namespace Nightmares.Code.UI
     {
         [SerializeField] private PointerStatus left;
         [SerializeField] private PointerStatus right;
-
+        [SerializeField] private PointerStatus up;
+        
         public float HorizontalInput { get; private set; }
+        public bool JumpInput => up.Down;
 
         private void Update()
         {
