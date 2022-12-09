@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 5160026299368470809}
   - component: {fileID: 5160026299368470808}
   - component: {fileID: 5160026299368470811}
-  - component: {fileID: 5160026299368470810}
   - component: {fileID: 6222196322542898354}
   m_Layer: 5
   m_Name: MobileControlButton
@@ -71,7 +70,7 @@ MonoBehaviour:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: fdb631ececa7a1f47820ceb2c72aba42, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -123,20 +122,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &5160026299368470810
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5160026299368470812}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 86710e43de46f6f4bac7c8e50813a599, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_AspectMode: 2
-  m_AspectRatio: 1
 --- !u!114 &6222196322542898354
 MonoBehaviour:
   m_ObjectHideFlags: 0
