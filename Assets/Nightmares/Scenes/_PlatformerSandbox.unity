@@ -228,6 +228,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &477979101 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5097216556369359226, guid: d130e3f1026b1554596a52ded068a849, type: 3}
+  m_PrefabInstance: {fileID: 6572778145636113569}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &954884957
 GameObject:
   m_ObjectHideFlags: 0
@@ -2263,6 +2268,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   forceMobileControls: 0
+  mobileCanvas: {fileID: 477979101}
 --- !u!4 &1293545351
 Transform:
   m_ObjectHideFlags: 0

@@ -10,10 +10,25 @@ namespace Nightmares.Code.Model
         private static GameMode _instance;
         
         public bool forceMobileControls = false;
+
+        [SerializeField] private GameObject mobileCanvas;
         
         private void Awake()
         {
             _instance = this;
+            EnableMobileCanvas();
+        }
+
+        private void Update()
+        {
+#if UNITY_EDITOR
+            EnableMobileCanvas();
+#endif
+        }
+
+        private void EnableMobileCanvas()
+        {
+            mobileCanvas.SetActive(TouchControlsEnabled);
         }
     }
 }
