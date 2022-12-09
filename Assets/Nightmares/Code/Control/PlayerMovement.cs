@@ -1,3 +1,5 @@
+using Nightmares.Code.Model;
+using Nightmares.Code.UI;
 using UnityEngine;
 
 namespace Nightmares.Code.Control
@@ -7,6 +9,8 @@ namespace Nightmares.Code.Control
         public float speed = 1f;
         public float jump = 1f;
 
+        [SerializeField] private MobileInput mobileInput;
+        
         public float HorizontalInput { get; set; }
         public bool JumpInput { get; set; }
         
@@ -28,6 +32,12 @@ namespace Nightmares.Code.Control
         {
             HorizontalInput = Input.GetAxis("Horizontal");
             JumpInput = Input.GetButtonDown("Jump") || Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow);
+
+            if (GameMode.TouchControlsEnabled)
+            {
+                HorizontalInput += mobileInput.HorizontalInput;
+                JumpInput |= mobileInput.JumpInput;
+            }
         }
 
         private void Move()
