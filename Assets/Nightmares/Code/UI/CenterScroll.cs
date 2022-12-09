@@ -3,7 +3,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Nightmares.Code.Control
+namespace Nightmares.Code.UI
 {
     public class CenterScroll : MonoBehaviour
     {
