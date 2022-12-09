@@ -245,6 +245,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71bd0b724b0640d88c02ffb49c068760, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lerpSpeed: 10
   target: {fileID: 2112912845}
   baseTiles: {fileID: 1222897654}
 --- !u!1 &1222897652

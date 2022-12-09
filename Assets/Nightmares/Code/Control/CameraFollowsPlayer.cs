@@ -5,6 +5,8 @@ namespace Nightmares.Code.Control
 {
     public class CameraFollowsPlayer : MonoBehaviour
     {
+        public float lerpSpeed = 1f;
+        
         public Transform target;
         public TilemapRenderer baseTiles;
 
@@ -21,17 +23,17 @@ namespace Nightmares.Code.Control
             CalculateLimitsFromTileMap(baseTiles);
         }
 
-        private void Update()
+        private void FixedUpdate()
         {
-            FollowPlayer();
+            FollowPlayer(Time.fixedDeltaTime);
         }
 
-        private void FollowPlayer()
+        private void FollowPlayer(float dt)
         {
             var pos = transform.position;
             var newY = Mathf.Clamp(target.position.y, _yMin + _cam.orthographicSize, _yMax - _cam.orthographicSize);
             pos.y = newY;
-            transform.position = pos;
+            transform.position = Vector3.Lerp(transform.position, pos, lerpSpeed * dt);
         }
 
         private void CalculateLimitsFromTileMap(TilemapRenderer tiles)
