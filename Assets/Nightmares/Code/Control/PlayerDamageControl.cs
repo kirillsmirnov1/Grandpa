@@ -1,10 +1,13 @@
-﻿using Nightmares.Code.Model;
+﻿using System;
+using Nightmares.Code.Model;
 using UnityEngine;
 
 namespace Nightmares.Code.Control
 {
     public class PlayerDamageControl : MonoBehaviour
     {
+        public static event Action<Vector3> OnEnemyDestroyed;
+        
         private void OnCollisionEnter2D(Collision2D collision)
         {
             var other = collision.gameObject;
@@ -17,6 +20,7 @@ namespace Nightmares.Code.Control
                 // TODO else
                     // TODO damage player
                     // TODO player damage fx? 
+                OnEnemyDestroyed?.Invoke(other.transform.position);
                 Destroy(other);
             }
         }
