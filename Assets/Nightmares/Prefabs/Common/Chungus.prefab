@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2525622202407566297}
   - component: {fileID: 2525622202407566298}
   - component: {fileID: 2525622202407566301}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Chungus
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -159,3 +159,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   jump: 13.7
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 65
+  mobileInput: {fileID: 0}

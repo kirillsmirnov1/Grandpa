@@ -9,6 +9,7 @@ namespace Nightmares.Code.Control
         public float speed = 1f;
         public float jump = 1f;
 
+        [SerializeField] private LayerMask playerLayer;
         [SerializeField] private MobileInput mobileInput;
         
         public float HorizontalInput { get; set; }
@@ -16,16 +17,30 @@ namespace Nightmares.Code.Control
         
         private bool _onGround;
         private Rigidbody2D _rb;
+        private Collider2D _collider; 
 
         private void Start()
         {
             _rb = GetComponent<Rigidbody2D>();
+            _collider = GetComponent<Collider2D>();
         }
 
         private void Update()
         {
             GetInput();
             Move();
+        }
+
+        private void FixedUpdate()
+        {
+            GroundCheck();
+        }
+
+        private void GroundCheck()
+        {
+            var bounds = _collider.bounds;
+            var hit = Physics2D.CircleCast(bounds.center,bounds.extents.y, Vector2.down, bounds.extents.y + .01f, playerLayer);
+            _onGround = hit.collider != null;
         }
 
         private void GetInput()
@@ -46,16 +61,7 @@ namespace Nightmares.Code.Control
 
             if (_onGround && JumpInput)
             {
-                _onGround = false;
                 _rb.AddForce(new Vector2(_rb.velocity.x, jump), ForceMode2D.Impulse);
-            }
-        }
-
-        private void OnCollisionEnter2D(Collision2D other)
-        {
-            if (other.GetContact(0).point.y < transform.position.y)
-            {
-                _onGround = true;
             }
         }
     }
