@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace Nightmares.Code.UI
@@ -7,9 +8,19 @@ namespace Nightmares.Code.UI
         [SerializeField] private PointerStatus left;
         [SerializeField] private PointerStatus right;
         [SerializeField] private PointerStatus up;
+
+        public event Action onJump;
         
         public float HorizontalInput { get; private set; }
-        public bool JumpInput => up.Down;
+
+        private void OnEnable() 
+            => up.onPointerDown += OnJump;
+
+        private void OnDisable() 
+            => up.onPointerDown -= OnJump;
+
+        private void OnJump() 
+            => onJump?.Invoke();
 
         private void Update()
         {

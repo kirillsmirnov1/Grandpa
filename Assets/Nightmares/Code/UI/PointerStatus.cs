@@ -1,4 +1,4 @@
-using System.Collections;
+using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -7,19 +7,13 @@ namespace Nightmares.Code.UI
     public class PointerStatus : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     {
         public bool Held { get; private set; }
-        public bool Down { get; private set; }
+
+        public event Action onPointerDown;
 
         public void OnPointerDown(PointerEventData eventData)
         {
+            onPointerDown?.Invoke();
             Held = true;
-            Down = true;
-            
-            StartCoroutine(RevertDown());
-            IEnumerator RevertDown()
-            {
-                yield return null;
-                Down = false;
-            }
         }
 
         public void OnPointerUp(PointerEventData eventData)

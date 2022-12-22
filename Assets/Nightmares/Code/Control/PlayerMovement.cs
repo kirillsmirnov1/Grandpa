@@ -25,6 +25,16 @@ namespace Nightmares.Code.Control
             _collider = GetComponent<Collider2D>();
         }
 
+        private void OnEnable()
+        {
+            mobileInput.onJump += TryJump;
+        }
+
+        private void OnDisable()
+        {
+            mobileInput.onJump -= TryJump;
+        }
+        
         private void Update()
         {
             GetInput();
@@ -51,7 +61,6 @@ namespace Nightmares.Code.Control
             if (GameMode.TouchControlsEnabled)
             {
                 HorizontalInput += mobileInput.HorizontalInput;
-                JumpInput |= mobileInput.JumpInput;
             }
         }
 
@@ -59,7 +68,15 @@ namespace Nightmares.Code.Control
         {
             _rb.velocity = new Vector2(speed * HorizontalInput, _rb.velocity.y);
 
-            if (_onGround && JumpInput)
+            if (JumpInput)
+            {
+                TryJump();
+            }
+        }
+
+        private void TryJump()
+        {
+            if (_onGround)
             {
                 _rb.AddForce(new Vector2(_rb.velocity.x, jump), ForceMode2D.Impulse);
             }
