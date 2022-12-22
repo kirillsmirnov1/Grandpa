@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 2525622202407566298}
   - component: {fileID: 2525622202407566301}
   - component: {fileID: 615950326756837432}
+  - component: {fileID: 7449187589596411450}
   m_Layer: 7
   m_Name: Chungus
   m_TagString: Untagged
@@ -174,5 +175,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e937db28a16c47debe3e336f376de440, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7449187589596411450
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2525622202407566299}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f744abcf5e9f4f8db60f6e2d12ace63d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

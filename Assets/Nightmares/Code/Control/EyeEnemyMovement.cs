@@ -13,10 +13,12 @@ namespace Nightmares.Code.Control
         private Rigidbody2D _rb;
         private float _nextDirectionChange;
         private Vector2 _direction;
+        private Transform _player;
         
         private void Awake()
         {
             _rb = GetComponent<Rigidbody2D>();
+            _player = Player.Instance.transform;
             InitialDirectionChange();
         }
 
