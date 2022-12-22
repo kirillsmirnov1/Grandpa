@@ -75,7 +75,12 @@ namespace Nightmares.Code.Control
 
         private void CheckDirectionUpdate()
         {
-            if (Time.time > _nextDirectionChange)
+            if (_playerVisible)
+            {
+                _direction = (_player.position - transform.position).normalized;
+                UpdateDirectionChangeTime();
+            }
+            else if (Time.time > _nextDirectionChange)
             {
                 ChangeDirection();
             }
@@ -98,6 +103,11 @@ namespace Nightmares.Code.Control
         private void ChangeDirection()
         {
             _direction = Random.insideUnitCircle.normalized;
+            UpdateDirectionChangeTime();
+        }
+
+        private void UpdateDirectionChangeTime()
+        {
             _nextDirectionChange = Time.time + dirResetTime;
         }
 
