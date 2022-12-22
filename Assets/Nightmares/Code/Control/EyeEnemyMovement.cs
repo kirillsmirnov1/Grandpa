@@ -1,6 +1,5 @@
 ﻿using Nightmares.Code.Model;
 using UnityEngine;
-using Random = UnityEngine.Random;
 
 namespace Nightmares.Code.Control
 {
@@ -14,6 +13,7 @@ namespace Nightmares.Code.Control
         private float _nextDirectionChange;
         private Vector2 _direction;
         private Transform _player;
+        private bool _playerVisible;
         
         private void Awake()
         {
@@ -25,6 +25,12 @@ namespace Nightmares.Code.Control
         private void OnDrawGizmos()
         {
             Gizmos.DrawRay(transform.position, _direction);
+
+            if (_player != null)
+            {
+                Gizmos.color = _playerVisible ? Color.green : Color.red;
+                Gizmos.DrawLine(transform.position, _player.position);
+            }
         }
 
         private void Update()
@@ -32,6 +38,33 @@ namespace Nightmares.Code.Control
             CheckDirectionUpdate();
             RotateEye();
             Move();
+        }
+
+        private void FixedUpdate()
+        {
+            CheckPlayerVisible();
+        }
+
+        private void CheckPlayerVisible()
+        {
+            var visible = true;
+            var pos = transform.position;
+            var toPlayer = _player.position - pos;
+
+            var hits = Physics2D.RaycastAll(pos, toPlayer, toPlayer.magnitude);
+            foreach (var hit in hits)
+            {
+                var layer = hit.transform.gameObject.layer;
+                if (layer is Constants.LayerEnemy or Constants.LayerPlayer)
+                {
+                    continue;
+                }
+
+                visible = false;
+                break;
+            }
+
+            _playerVisible = visible;
         }
 
         private void RotateEye()
