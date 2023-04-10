@@ -28,6 +28,10 @@ namespace Nightmares.Code.Control
         private void Awake()
         {
             Instance = this;
+        }
+
+        private void Start()
+        {
             Health = maxHealth;
         }
 
