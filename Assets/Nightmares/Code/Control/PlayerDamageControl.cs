@@ -13,15 +13,17 @@ namespace Nightmares.Code.Control
             var other = collision.gameObject;
             if (other.layer == Constants.LayerEnemy)
             {
-                // TODO check collision direction
-                // TODO if enemy below
-                    // TODO destroy enemy
-                    // TODO play particles
-                // TODO else
+                if (Vector3.Dot(Vector3.down, (collision.transform.position - transform.position).normalized) > 0)
+                {
+                    OnEnemyDestroyed?.Invoke(other.transform.position);
+                    Destroy(other);    
+                }
+                else
+                {
+                    Debug.Log("Player should take damage");
                     // TODO damage player
                     // TODO player damage fx? 
-                OnEnemyDestroyed?.Invoke(other.transform.position);
-                Destroy(other);
+                }
             }
         }
     }
