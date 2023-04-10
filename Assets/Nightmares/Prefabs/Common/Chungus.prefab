@@ -177,6 +177,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e937db28a16c47debe3e336f376de440, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 7449187589596411450}
 --- !u!114 &7449187589596411450
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -189,3 +190,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f744abcf5e9f4f8db60f6e2d12ace63d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHealth: 3

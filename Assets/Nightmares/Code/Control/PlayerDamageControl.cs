@@ -6,6 +6,8 @@ namespace Nightmares.Code.Control
 {
     public class PlayerDamageControl : MonoBehaviour
     {
+        [SerializeField] private Player player;
+        
         public static event Action<Vector3> OnEnemyDestroyed;
         public static event Action<Vector3> OnPlayerDamaged; 
 
@@ -21,8 +23,8 @@ namespace Nightmares.Code.Control
                 }
                 else
                 {
+                    player.DoDamage();
                     OnPlayerDamaged?.Invoke(transform.position);
-                    // TODO damage player
                 }
             }
         }
