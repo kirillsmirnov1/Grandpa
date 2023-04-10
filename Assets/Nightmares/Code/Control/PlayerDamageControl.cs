@@ -7,7 +7,8 @@ namespace Nightmares.Code.Control
     public class PlayerDamageControl : MonoBehaviour
     {
         public static event Action<Vector3> OnEnemyDestroyed;
-        
+        public static event Action<Vector3> OnPlayerDamaged; 
+
         private void OnCollisionEnter2D(Collision2D collision)
         {
             var other = collision.gameObject;
@@ -20,9 +21,8 @@ namespace Nightmares.Code.Control
                 }
                 else
                 {
-                    Debug.Log("Player should take damage");
+                    OnPlayerDamaged?.Invoke(transform.position);
                     // TODO damage player
-                    // TODO player damage fx? 
                 }
             }
         }
