@@ -9,6 +9,7 @@ namespace Nightmares.Code.Control
         public static event Action<int> OnPlayerHealthChange; 
 
         [SerializeField] private int maxHealth = 3;
+        public Rigidbody2D rb;
         
         public static Player Instance { get; private set; }
 

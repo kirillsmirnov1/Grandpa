@@ -178,6 +178,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 7449187589596411450}
+  recoilForceMod: 1
 --- !u!114 &7449187589596411450
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -191,3 +192,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 3
+  rb: {fileID: 2525622202407566297}
