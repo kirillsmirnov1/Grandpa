@@ -15,7 +15,6 @@ namespace Nightmares.Code.Control
         private void OnCollisionEnter2D(Collision2D collision)
         {
             var other = collision.gameObject;
-            Debug.Log(other.name);
             if (other.layer == Constants.LayerEnemy)
             {
                 var toEnemy = (collision.transform.position - transform.position).normalized;
