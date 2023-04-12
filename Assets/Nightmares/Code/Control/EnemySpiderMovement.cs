@@ -5,11 +5,16 @@ namespace Nightmares.Code.Control
     public class EnemySpiderMovement : MonoBehaviour
     {
         [SerializeField] private LineRenderer lineRenderer;
+        
+        [Header("Webbing")]
+        [SerializeField] private LayerMask webConnectionTarget;
+        [SerializeField] private float webbingSpeed = 1f;
 
         private SpiderMovementState _state;
 
         private void Start()
         {
+            lineRenderer.positionCount = 2;
             StartWebbingState();
         }
 
@@ -31,7 +36,7 @@ namespace Nightmares.Code.Control
 
         private abstract class SpiderMovementState
         {
-            protected EnemySpiderMovement Ctx { get; private set; }
+            protected EnemySpiderMovement Ctx { get; }
 
             protected SpiderMovementState(EnemySpiderMovement context)
             {
@@ -44,18 +49,33 @@ namespace Nightmares.Code.Control
 
         private class Webbing : SpiderMovementState
         {
+            private Vector3 _targetPos;
+            
             public Webbing(EnemySpiderMovement context) : base(context) { }
 
             public override void Start()
             {
-                Debug.Log($"{Ctx.gameObject.name} starts webbing");
-                // TODO find point to connect to 
+                var hit = Physics2D.Raycast(
+                    Ctx.transform.position, 
+                    Vector2.up, 
+                    float.PositiveInfinity, 
+                    Ctx.webConnectionTarget);
+             
+                if (hit.collider != null)
+                {
+                    _targetPos = hit.point;
+                }
+                else
+                {
+                    _targetPos = new Vector2(0f, float.PositiveInfinity);
+                }
             }
 
             public override void FixedUpdate()
             {
+                Ctx.lineRenderer.SetPositions(new []{Ctx.transform.position, _targetPos});
                 // TODO move up
-                // TODO update line renderer 
+                // TODO check on target distance
             }
         }
     }
