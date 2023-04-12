@@ -53,43 +53,64 @@ namespace Nightmares.Code.Control
         private class Webbing : SpiderMovementState
         {
             private Vector3 _targetPos;
+            private bool _hasTarget;
             
             public Webbing(EnemySpiderMovement context) : base(context) { }
 
             public override void Start()
             {
-                var hit = Physics2D.Raycast(
-                    Ctx.transform.position, 
-                    Vector2.up, 
-                    float.PositiveInfinity, 
-                    Ctx.webConnectionTarget);
-             
-                if (hit.collider != null)
-                {
-                    _targetPos = hit.point;
-                }
-                else
-                {
-                    _targetPos = new Vector2(0f, float.PositiveInfinity);
-                }
+                Ctx.lineRenderer.positionCount = 0;
+                FindTargetPos();
             }
 
             public override void FixedUpdate()
             {
-                Ctx.lineRenderer.SetPositions(new []{Ctx.transform.position, _targetPos});
+                if (!_hasTarget)
+                {
+                    FindTargetPos();
+                    return;
+                }
+                
+                Ctx.lineRenderer.SetPositions(new[] { Ctx.transform.position, _targetPos });
 
+                ApproachTarget();
+            }
+
+            private void FindTargetPos()
+            {
+                var hit = Physics2D.Raycast(
+                    Ctx.transform.position,
+                    Vector2.up,
+                    float.PositiveInfinity,
+                    Ctx.webConnectionTarget);
+
+                if (hit.collider != null)
+                {
+                    _targetPos = hit.point;
+                    _hasTarget = true;
+                    Ctx.lineRenderer.positionCount = 2;
+                }
+            }
+
+            private void ApproachTarget()
+            {
                 var toTarget = _targetPos - Ctx.transform.position;
 
                 if (toTarget.magnitude > Ctx.targetDistance)
                 {
-                    var targetVelocity = (toTarget).normalized * Ctx.webbingSpeed;
-                    Ctx.rb.velocity = Vector2.Lerp(Ctx.rb.velocity, targetVelocity, 
-                        Time.fixedDeltaTime * Ctx.webbingAcceleration);
+                    MoveToTarget(toTarget);
                 }
                 else
                 {
                     // TODO go to next state
                 }
+            }
+
+            private void MoveToTarget(Vector3 toTarget)
+            {
+                var targetVelocity = toTarget.normalized * Ctx.webbingSpeed;
+                Ctx.rb.velocity = Vector2.Lerp(Ctx.rb.velocity, targetVelocity,
+                    Time.fixedDeltaTime * Ctx.webbingAcceleration);
             }
         }
     }
