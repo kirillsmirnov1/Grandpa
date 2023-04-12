@@ -12,6 +12,7 @@ namespace Nightmares.Code.Control
         [SerializeField] private float webbingSpeed = 1f;
         [SerializeField] private float webbingAcceleration = 1f;
         [SerializeField] private float targetDistance = 3f;
+        [SerializeField] private float minHeight = .3f;
         
         private SpiderMovementState _state;
 
@@ -95,8 +96,12 @@ namespace Nightmares.Code.Control
             private void ApproachTarget()
             {
                 var toTarget = _targetPos - Ctx.transform.position;
-
-                if (toTarget.magnitude > Ctx.targetDistance)
+                var webIsLong = toTarget.magnitude > Ctx.targetDistance;
+                var groundHit = Physics2D.Raycast(Ctx.transform.position, Vector2.down, Ctx.minHeight,
+                    Ctx.webConnectionTarget);
+                var closeToGround = groundHit.collider != null;
+                
+                if (webIsLong || closeToGround)
                 {
                     MoveToTarget(toTarget);
                 }
