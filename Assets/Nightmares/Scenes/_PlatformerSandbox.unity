@@ -3208,6 +3208,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy_Spider (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 6471648455523291630, guid: cbd39e5971d61b24a8e3f4b3a4db8774, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6471648455523291631, guid: cbd39e5971d61b24a8e3f4b3a4db8774, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -3398,6 +3402,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy_Spider (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 6471648455523291630, guid: cbd39e5971d61b24a8e3f4b3a4db8774, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6471648455523291631, guid: cbd39e5971d61b24a8e3f4b3a4db8774, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -3563,6 +3571,10 @@ PrefabInstance:
     - target: {fileID: 6471648455523291630, guid: cbd39e5971d61b24a8e3f4b3a4db8774, type: 3}
       propertyPath: m_Name
       value: Enemy_Spider (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6471648455523291630, guid: cbd39e5971d61b24a8e3f4b3a4db8774, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6471648455523291631, guid: cbd39e5971d61b24a8e3f4b3a4db8774, type: 3}
       propertyPath: m_RootOrder
@@ -4150,11 +4162,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6393622527497393980, guid: e685bb53c87fc9247a4f575a33d929ce, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -5.57
       objectReference: {fileID: 0}
     - target: {fileID: 6393622527497393980, guid: e685bb53c87fc9247a4f575a33d929ce, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.3
+      value: 4.62
       objectReference: {fileID: 0}
     - target: {fileID: 6393622527497393980, guid: e685bb53c87fc9247a4f575a33d929ce, type: 3}
       propertyPath: m_LocalPosition.z
