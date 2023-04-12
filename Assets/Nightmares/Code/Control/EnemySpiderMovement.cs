@@ -5,11 +5,14 @@ namespace Nightmares.Code.Control
     public class EnemySpiderMovement : MonoBehaviour
     {
         [SerializeField] private LineRenderer lineRenderer;
+        [SerializeField] private Rigidbody2D rb;
         
         [Header("Webbing")]
         [SerializeField] private LayerMask webConnectionTarget;
         [SerializeField] private float webbingSpeed = 1f;
-
+        [SerializeField] private float webbingAcceleration = 1f;
+        [SerializeField] private float targetDistance = 3f;
+        
         private SpiderMovementState _state;
 
         private void Start()
@@ -74,7 +77,8 @@ namespace Nightmares.Code.Control
             public override void FixedUpdate()
             {
                 Ctx.lineRenderer.SetPositions(new []{Ctx.transform.position, _targetPos});
-                // TODO move up
+                var targetVelocity = (_targetPos - Ctx.transform.position).normalized * Ctx.webbingSpeed; 
+                Ctx.rb.velocity = Vector2.Lerp(Ctx.rb.velocity, targetVelocity, Time.fixedDeltaTime * Ctx.webbingAcceleration);
                 // TODO check on target distance
             }
         }
