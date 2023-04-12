@@ -77,9 +77,19 @@ namespace Nightmares.Code.Control
             public override void FixedUpdate()
             {
                 Ctx.lineRenderer.SetPositions(new []{Ctx.transform.position, _targetPos});
-                var targetVelocity = (_targetPos - Ctx.transform.position).normalized * Ctx.webbingSpeed; 
-                Ctx.rb.velocity = Vector2.Lerp(Ctx.rb.velocity, targetVelocity, Time.fixedDeltaTime * Ctx.webbingAcceleration);
-                // TODO check on target distance
+
+                var toTarget = _targetPos - Ctx.transform.position;
+
+                if (toTarget.magnitude > Ctx.targetDistance)
+                {
+                    var targetVelocity = (toTarget).normalized * Ctx.webbingSpeed;
+                    Ctx.rb.velocity = Vector2.Lerp(Ctx.rb.velocity, targetVelocity, 
+                        Time.fixedDeltaTime * Ctx.webbingAcceleration);
+                }
+                else
+                {
+                    // TODO go to next state
+                }
             }
         }
     }

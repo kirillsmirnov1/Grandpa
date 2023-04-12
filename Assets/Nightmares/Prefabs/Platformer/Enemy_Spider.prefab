@@ -270,6 +270,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy_Spider
       objectReference: {fileID: 0}
+    - target: {fileID: 141276733662471387, guid: aa17ac4a085f3964483ac528cee3791d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3224151158055530518, guid: aa17ac4a085f3964483ac528cee3791d, type: 3}
       propertyPath: m_Constraints
       value: 4
