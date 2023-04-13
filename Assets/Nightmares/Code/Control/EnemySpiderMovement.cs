@@ -13,6 +13,11 @@ namespace Nightmares.Code.Control
         [SerializeField] private float webbingAcceleration = 1f;
         [SerializeField] private float targetDistance = 3f;
         [SerializeField] private float minHeight = .3f;
+
+        [Header("Swinging")]
+        [SerializeField] private float swingLimitX = 1.5f;
+        [SerializeField] private float swingSpeed = 30f;
+        [SerializeField] private float swingAcceleration = .5f;
         
         private SpiderMovementState _state;
 
@@ -30,6 +35,11 @@ namespace Nightmares.Code.Control
         private void StartWebbingState()
         {
             StartState(new Webbing(this));
+        }
+
+        private void StartSwingingState(Vector3 targetPos)
+        {
+            StartState(new Swinging(this, targetPos));
         }
 
         private void StartState(SpiderMovementState newState)
@@ -107,7 +117,7 @@ namespace Nightmares.Code.Control
                 }
                 else
                 {
-                    // TODO go to next state
+                    Ctx.StartSwingingState(_targetPos);
                 }
             }
 
@@ -116,6 +126,55 @@ namespace Nightmares.Code.Control
                 var targetVelocity = toTarget.normalized * Ctx.webbingSpeed;
                 Ctx.rb.velocity = Vector2.Lerp(Ctx.rb.velocity, targetVelocity,
                     Time.fixedDeltaTime * Ctx.webbingAcceleration);
+            }
+        }
+
+        private class Swinging : SpiderMovementState
+        {
+            private readonly Vector3 _topTargetPos;
+            private Vector3 _nextTargetPos;
+            private bool _goingRight;
+            
+            public Swinging(EnemySpiderMovement context, Vector3 targetPos) : base(context)
+            {
+                _topTargetPos = targetPos;
+            }
+
+            public override void Start()
+            {
+                ChangeNextTargetPos();
+            }
+
+            public override void FixedUpdate()
+            {
+                var toTarget = (_nextTargetPos - Ctx.transform.position).normalized;
+                var targetVelocity = toTarget.normalized * Ctx.swingSpeed;
+                Ctx.rb.velocity = Vector2.Lerp(Ctx.rb.velocity, targetVelocity,
+                    Time.fixedDeltaTime * Ctx.swingAcceleration);
+                
+                if ((_goingRight && (_nextTargetPos.x - _topTargetPos.x) > Ctx.swingLimitX)
+                    || (!_goingRight && (_topTargetPos.x - _nextTargetPos.x) > Ctx.swingLimitX))
+                {
+                    ChangeNextTargetPos();
+                }
+                
+                Ctx.lineRenderer.SetPositions(new[] { Ctx.transform.position, _topTargetPos });
+                
+                // TODO check on Player 
+            }
+
+            private void ChangeNextTargetPos()
+            {
+                if (_nextTargetPos.x < _topTargetPos.x)
+                {
+                    _nextTargetPos = _topTargetPos + new Vector3(Ctx.swingLimitX, -Ctx.targetDistance);
+                    _goingRight = true;
+                }
+                else
+                {
+                    _nextTargetPos = _topTargetPos + new Vector3(-Ctx.swingLimitX, -Ctx.targetDistance);
+                    _goingRight = false;
+                }
             }
         }
     }
