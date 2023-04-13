@@ -161,8 +161,8 @@ namespace Nightmares.Code.Control
                 Ctx.rb.velocity = Vector2.Lerp(Ctx.rb.velocity, targetVelocity,
                     Time.fixedDeltaTime * Ctx.swingAcceleration);
                 
-                if ((_goingRight && (_nextTargetPos.x - _topTargetPos.x) >= Ctx.swingLimitX)
-                    || (!_goingRight && (_topTargetPos.x - _nextTargetPos.x) >= Ctx.swingLimitX))
+                if ((_goingRight && Ctx.transform.position.x >= _nextTargetPos.x)
+                    || (!_goingRight && Ctx.transform.position.x <= _nextTargetPos.x))
                 {
                     ChangeNextTargetPos();
                 }
