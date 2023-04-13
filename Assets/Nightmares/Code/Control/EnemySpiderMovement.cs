@@ -60,7 +60,7 @@ namespace Nightmares.Code.Control
 
             public override void Start()
             {
-                Ctx.lineRenderer.positionCount = 0;
+                Ctx.lineRenderer.enabled = false;
                 FindTargetPos();
             }
 
@@ -89,7 +89,7 @@ namespace Nightmares.Code.Control
                 {
                     _targetPos = hit.point;
                     _hasTarget = true;
-                    Ctx.lineRenderer.positionCount = 2;
+                    Ctx.lineRenderer.enabled = true;
                 }
             }
 
