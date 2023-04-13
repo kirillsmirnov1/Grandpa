@@ -181,38 +181,15 @@ namespace Nightmares.Code.Control
 
             private bool ShouldChangeDirections()
             {
-                if (_goingRight)
-                {
-                    var limitReached = Ctx.transform.position.x >= _nextTargetPos.x;
-                    var wallReached = Physics2D.Raycast(
-                            Ctx.transform.position,
-                            Vector2.right,
-                            Ctx.wallCheckDist,
-                            Ctx.webConnectionTarget)
-                        .collider != null;
-                    
-                    if (limitReached || wallReached)
-                    {
-                        return true;
-                    }
-                }
-                else
-                {
-                    var limitReached = Ctx.transform.position.x <= _nextTargetPos.x;
-                    var wallReached = Physics2D.Raycast(
-                            Ctx.transform.position,
-                            Vector2.left,
-                            Ctx.wallCheckDist,
-                            Ctx.webConnectionTarget)
-                        .collider != null;
-                    
-                    if (limitReached || wallReached)
-                    {
-                        return true;
-                    }
-                }
-
-                return false;
+                var limitReached = Mathf.Abs(Ctx.transform.position.x - _nextTargetPos.x) <= .1f;
+                var wallReached = Physics2D.Raycast(
+                        Ctx.transform.position,
+                        _goingRight ? Vector2.right : Vector2.left,
+                        Ctx.wallCheckDist,
+                        Ctx.webConnectionTarget)
+                    .collider != null;
+                
+                return limitReached || wallReached;
             }
 
             private void ChangeNextTargetPos()
