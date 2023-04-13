@@ -18,6 +18,7 @@ namespace Nightmares.Code.Control
         [SerializeField] private float swingLimitX = 1.5f;
         [SerializeField] private float swingSpeed = 30f;
         [SerializeField] private float swingAcceleration = .5f;
+        [SerializeField] private float wallCheckDist = .6f;
         
         private SpiderMovementState _state;
 
@@ -161,8 +162,7 @@ namespace Nightmares.Code.Control
                 Ctx.rb.velocity = Vector2.Lerp(Ctx.rb.velocity, targetVelocity,
                     Time.fixedDeltaTime * Ctx.swingAcceleration);
                 
-                if ((_goingRight && Ctx.transform.position.x >= _nextTargetPos.x)
-                    || (!_goingRight && Ctx.transform.position.x <= _nextTargetPos.x))
+                if (ShouldChangeDirections())
                 {
                     ChangeNextTargetPos();
                 }
@@ -177,6 +177,42 @@ namespace Nightmares.Code.Control
                 base.OnDrawGizmos();
                 Gizmos.color = Color.white;
                 Gizmos.DrawLine(Ctx.transform.position, _nextTargetPos);
+            }
+
+            private bool ShouldChangeDirections()
+            {
+                if (_goingRight)
+                {
+                    var limitReached = Ctx.transform.position.x >= _nextTargetPos.x;
+                    var wallReached = Physics2D.Raycast(
+                            Ctx.transform.position,
+                            Vector2.right,
+                            Ctx.wallCheckDist,
+                            Ctx.webConnectionTarget)
+                        .collider != null;
+                    
+                    if (limitReached || wallReached)
+                    {
+                        return true;
+                    }
+                }
+                else
+                {
+                    var limitReached = Ctx.transform.position.x <= _nextTargetPos.x;
+                    var wallReached = Physics2D.Raycast(
+                            Ctx.transform.position,
+                            Vector2.left,
+                            Ctx.wallCheckDist,
+                            Ctx.webConnectionTarget)
+                        .collider != null;
+                    
+                    if (limitReached || wallReached)
+                    {
+                        return true;
+                    }
+                }
+
+                return false;
             }
 
             private void ChangeNextTargetPos()
