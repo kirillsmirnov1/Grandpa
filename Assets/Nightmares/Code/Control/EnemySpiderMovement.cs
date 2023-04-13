@@ -32,14 +32,19 @@ namespace Nightmares.Code.Control
             _state?.FixedUpdate();
         }
 
+        private void OnDrawGizmos()
+        {
+            _state?.OnDrawGizmos();
+        }
+
         private void StartWebbingState()
         {
             StartState(new Webbing(this));
         }
 
-        private void StartSwingingState(Vector3 targetPos)
+        private void StartSwingingState(Vector3 targetPos, float targetHeight)
         {
-            StartState(new Swinging(this, targetPos));
+            StartState(new Swinging(this, targetPos, targetHeight));
         }
 
         private void StartState(SpiderMovementState newState)
@@ -59,6 +64,7 @@ namespace Nightmares.Code.Control
 
             public abstract void Start();
             public abstract void FixedUpdate();
+            public virtual void OnDrawGizmos(){}
         }
 
         private class Webbing : SpiderMovementState
@@ -117,7 +123,7 @@ namespace Nightmares.Code.Control
                 }
                 else
                 {
-                    Ctx.StartSwingingState(_targetPos);
+                    Ctx.StartSwingingState(_targetPos, _targetPos.y - Ctx.transform.position.y);
                 }
             }
 
@@ -132,12 +138,15 @@ namespace Nightmares.Code.Control
         private class Swinging : SpiderMovementState
         {
             private readonly Vector3 _topTargetPos;
+            private readonly float _targetHeight;
+            
             private Vector3 _nextTargetPos;
             private bool _goingRight;
             
-            public Swinging(EnemySpiderMovement context, Vector3 targetPos) : base(context)
+            public Swinging(EnemySpiderMovement context, Vector3 targetPos, float targetHeight) : base(context)
             {
                 _topTargetPos = targetPos;
+                _targetHeight = targetHeight;
             }
 
             public override void Start()
@@ -152,8 +161,8 @@ namespace Nightmares.Code.Control
                 Ctx.rb.velocity = Vector2.Lerp(Ctx.rb.velocity, targetVelocity,
                     Time.fixedDeltaTime * Ctx.swingAcceleration);
                 
-                if ((_goingRight && (_nextTargetPos.x - _topTargetPos.x) > Ctx.swingLimitX)
-                    || (!_goingRight && (_topTargetPos.x - _nextTargetPos.x) > Ctx.swingLimitX))
+                if ((_goingRight && (_nextTargetPos.x - _topTargetPos.x) >= Ctx.swingLimitX)
+                    || (!_goingRight && (_topTargetPos.x - _nextTargetPos.x) >= Ctx.swingLimitX))
                 {
                     ChangeNextTargetPos();
                 }
@@ -163,17 +172,24 @@ namespace Nightmares.Code.Control
                 // TODO check on Player 
             }
 
+            public override void OnDrawGizmos()
+            {
+                base.OnDrawGizmos();
+                Gizmos.color = Color.white;
+                Gizmos.DrawLine(Ctx.transform.position, _nextTargetPos);
+            }
+
             private void ChangeNextTargetPos()
             {
-                if (_nextTargetPos.x < _topTargetPos.x)
+                if (_goingRight)
                 {
-                    _nextTargetPos = _topTargetPos + new Vector3(Ctx.swingLimitX, -Ctx.targetDistance);
-                    _goingRight = true;
+                    _nextTargetPos = _topTargetPos + new Vector3(-Ctx.swingLimitX, -_targetHeight);
+                    _goingRight = false;
                 }
                 else
                 {
-                    _nextTargetPos = _topTargetPos + new Vector3(-Ctx.swingLimitX, -Ctx.targetDistance);
-                    _goingRight = false;
+                    _nextTargetPos = _topTargetPos + new Vector3(Ctx.swingLimitX, -_targetHeight);
+                    _goingRight = true;
                 }
             }
         }
