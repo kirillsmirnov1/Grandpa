@@ -17,7 +17,7 @@ namespace Nightmares.Code.Control
         [Header("Swinging")]
         [SerializeField] private float swingLimitX = 1.5f;
         [SerializeField] private float swingSpeed = 30f;
-        [SerializeField] private float swingAcceleration = .5f;
+        [SerializeField] private Vector2 swingAcceleration = new Vector2(.5f, .9f);
         [SerializeField] private float wallCheckDist = .6f;
         
         private SpiderMovementState _state;
@@ -157,11 +157,12 @@ namespace Nightmares.Code.Control
 
             public override void FixedUpdate()
             {
-                var toTarget = (_nextTargetPos - Ctx.transform.position).normalized;
+                var toTarget = _nextTargetPos - Ctx.transform.position;
                 var targetVelocity = toTarget.normalized * Ctx.swingSpeed;
-                Ctx.rb.velocity = Vector2.Lerp(Ctx.rb.velocity, targetVelocity,
-                    Time.fixedDeltaTime * Ctx.swingAcceleration);
-                
+                Ctx.rb.velocity = new Vector2(
+                    Mathf.Lerp(Ctx.rb.velocity.x, targetVelocity.x, Time.fixedDeltaTime * Ctx.swingAcceleration.x),
+                    Mathf.Lerp(Ctx.rb.velocity.y, targetVelocity.y, Time.fixedDeltaTime * Ctx.swingAcceleration.y));;
+
                 if (ShouldChangeDirections())
                 {
                     ChangeNextTargetPos();
@@ -196,12 +197,12 @@ namespace Nightmares.Code.Control
             {
                 if (_goingRight)
                 {
-                    _nextTargetPos = _topTargetPos + new Vector3(-Ctx.swingLimitX, -_targetHeight);
+                    _nextTargetPos = _topTargetPos + new Vector3(-Ctx.swingLimitX, -_targetHeight/2f);
                     _goingRight = false;
                 }
                 else
                 {
-                    _nextTargetPos = _topTargetPos + new Vector3(Ctx.swingLimitX, -_targetHeight);
+                    _nextTargetPos = _topTargetPos + new Vector3(Ctx.swingLimitX, -_targetHeight/2f);
                     _goingRight = true;
                 }
             }

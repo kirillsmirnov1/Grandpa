@@ -282,6 +282,10 @@ PrefabInstance:
       propertyPath: m_Radius
       value: 0.32
       objectReference: {fileID: 0}
+    - target: {fileID: 5468381620217014392, guid: aa17ac4a085f3964483ac528cee3791d, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: af34cd0ceb0cf224d92c3e33bfa67828, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aa17ac4a085f3964483ac528cee3791d, type: 3}
 --- !u!1 &6471648455523291630 stripped
@@ -310,6 +314,10 @@ MonoBehaviour:
   webbingAcceleration: 0.5
   targetDistance: 3
   minHeight: 1
+  swingLimitX: 0.5
+  swingSpeed: 15
+  swingAcceleration: {x: 0.8, y: 1.5}
+  wallCheckDist: 0.6
 --- !u!4 &6471648455523291631 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 141276733662471386, guid: aa17ac4a085f3964483ac528cee3791d, type: 3}
