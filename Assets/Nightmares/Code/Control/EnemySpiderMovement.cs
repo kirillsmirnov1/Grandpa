@@ -1,5 +1,6 @@
 using Nightmares.Code.Extensions;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Nightmares.Code.Control
 {
@@ -13,7 +14,7 @@ namespace Nightmares.Code.Control
         [SerializeField] private float webbingSpeed = 1f;
         [SerializeField] private float webbingAcceleration = 1f;
         [SerializeField] private float targetDistance = 3f;
-        [SerializeField] private float minHeight = .3f;
+        [SerializeField] private float minWebbingHeight = 1;
 
         [Header("Swinging")]
         [SerializeField] private float swingLimitX = 1.5f;
@@ -21,6 +22,10 @@ namespace Nightmares.Code.Control
         [SerializeField] private Vector2 swingAcceleration = new Vector2(.5f, .9f);
         [SerializeField] private float wallCheckDist = .6f;
         [SerializeField] private float maxJumpDistance = 5f;
+
+        [Header("Jump")]
+        [SerializeField] private float jumpForce = 1f;
+        [SerializeField] private float groundCheckHeight = .5f;
         
         private SpiderMovementState _state;
 
@@ -48,6 +53,11 @@ namespace Nightmares.Code.Control
         private void StartSwingingState(Vector3 targetPos, float targetHeight)
         {
             StartState(new Swinging(this, targetPos, targetHeight));
+        }
+
+        private void StartJumpState()
+        {
+            StartState(new Jump(this));
         }
 
         private void StartState(SpiderMovementState newState)
@@ -116,7 +126,7 @@ namespace Nightmares.Code.Control
             {
                 var toTarget = _targetPos - Ctx.transform.position;
                 var webIsLong = toTarget.magnitude > Ctx.targetDistance;
-                var groundHit = Physics2D.Raycast(Ctx.transform.position, Vector2.down, Ctx.minHeight,
+                var groundHit = Physics2D.Raycast(Ctx.transform.position, Vector2.down, Ctx.minWebbingHeight,
                     Ctx.webConnectionTarget);
                 var closeToGround = groundHit.collider != null;
                 
@@ -177,7 +187,7 @@ namespace Nightmares.Code.Control
 
                 if (ShouldJump)
                 {
-                    Debug.Log("Should jump");
+                    Ctx.StartJumpState();
                 }
             }
 
@@ -231,6 +241,30 @@ namespace Nightmares.Code.Control
                 {
                     _nextTargetPos = _topTargetPos + new Vector3(Ctx.swingLimitX, -_targetHeight/2f);
                     _goingRight = true;
+                }
+            }
+        }
+
+        private class Jump : SpiderMovementState
+        {
+            public Jump(EnemySpiderMovement context) : base(context) { }
+
+            public override void Start()
+            {
+                Ctx.lineRenderer.enabled = false;
+                var toPlayer = Player.Instance.transform.position - Ctx.transform.position;
+                Ctx.rb.velocity = Vector2.zero;
+                Ctx.rb.AddForce(toPlayer * Ctx.jumpForce, ForceMode2D.Impulse);
+            }
+
+            public override void FixedUpdate()
+            {
+                var groundHit = Physics2D.Raycast(Ctx.transform.position, Vector2.down, Ctx.groundCheckHeight,
+                    Ctx.webConnectionTarget);
+
+                if (groundHit)
+                {
+                    Ctx.StartGoingUpOnWebState();
                 }
             }
         }
