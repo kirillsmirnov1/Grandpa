@@ -1,3 +1,4 @@
+using Nightmares.Code.Extensions;
 using UnityEngine;
 
 namespace Nightmares.Code.Control
@@ -19,6 +20,7 @@ namespace Nightmares.Code.Control
         [SerializeField] private float swingSpeed = 30f;
         [SerializeField] private Vector2 swingAcceleration = new Vector2(.5f, .9f);
         [SerializeField] private float wallCheckDist = .6f;
+        [SerializeField] private float maxJumpDistance = 5f;
         
         private SpiderMovementState _state;
 
@@ -143,11 +145,14 @@ namespace Nightmares.Code.Control
             
             private Vector3 _nextTargetPos;
             private bool _goingRight;
+
+            private Transform _player;
             
             public Swinging(EnemySpiderMovement context, Vector3 targetPos, float targetHeight) : base(context)
             {
                 _topTargetPos = targetPos;
                 _targetHeight = targetHeight;
+                _player = Player.Instance.transform;
             }
 
             public override void Start()
@@ -169,8 +174,25 @@ namespace Nightmares.Code.Control
                 }
                 
                 Ctx.lineRenderer.SetPositions(new[] { Ctx.transform.position, _topTargetPos });
-                
-                // TODO check on Player 
+
+                if (ShouldJump)
+                {
+                    Debug.Log("Should jump");
+                    // TODO go to jump state
+                }
+            }
+
+            private bool ShouldJump
+            {
+                get
+                {
+                    var pos = Ctx.transform.position;
+                    var playerPos = _player.position;
+                    
+                    return playerPos.y < pos.y
+                           && Vector2.Distance(playerPos, pos) < Ctx.maxJumpDistance
+                           && EnemyUtils.CheckEnemySeesPlayer(pos);
+                }
             }
 
             public override void OnDrawGizmos()
