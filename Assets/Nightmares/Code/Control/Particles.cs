@@ -9,13 +9,13 @@ namespace Nightmares.Code.Control
 
         private void Awake()
         {
-            PlayerDamageControl.OnEnemyDestroyed += PlayEnemyDeathParticles;
+            Enemy.OnEnemyDestroyed += PlayEnemyDeathParticles;
             PlayerDamageControl.OnPlayerDamaged += PlayPlayerDamageParticles;
         }
         
         private void OnDestroy()
         {
-            PlayerDamageControl.OnEnemyDestroyed -= PlayEnemyDeathParticles;
+            Enemy.OnEnemyDestroyed -= PlayEnemyDeathParticles;
             PlayerDamageControl.OnPlayerDamaged -= PlayPlayerDamageParticles;
         }
 

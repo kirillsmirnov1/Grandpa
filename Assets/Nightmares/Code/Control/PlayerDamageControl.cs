@@ -9,7 +9,6 @@ namespace Nightmares.Code.Control
         [SerializeField] private Player player;
         [SerializeField] private float recoilForceMod = 1f;
         
-        public static event Action<Vector3> OnEnemyDestroyed;
         public static event Action<Vector3> OnPlayerDamaged; 
 
         private void OnCollisionEnter2D(Collision2D collision)
@@ -21,9 +20,7 @@ namespace Nightmares.Code.Control
                 var enemy = other.GetComponent<Enemy>();
                 if (Vector3.Dot(Vector3.down, toEnemy) > 0) // TODO ? Handle by Enemy as well??
                 {
-                    // TODO Should be handled by Enemy
-                    OnEnemyDestroyed?.Invoke(other.transform.position);
-                    Destroy(other);    
+                    enemy.Damage();  
                 }
                 else
                 {
