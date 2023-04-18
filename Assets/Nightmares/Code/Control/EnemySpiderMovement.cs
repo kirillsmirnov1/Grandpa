@@ -178,7 +178,6 @@ namespace Nightmares.Code.Control
                 if (ShouldJump)
                 {
                     Debug.Log("Should jump");
-                    // TODO go to jump state
                 }
             }
 
@@ -200,6 +199,12 @@ namespace Nightmares.Code.Control
                 base.OnDrawGizmos();
                 Gizmos.color = Color.white;
                 Gizmos.DrawLine(Ctx.transform.position, _nextTargetPos);
+
+                if (ShouldJump)
+                {
+                    Gizmos.color = Color.green;
+                    Gizmos.DrawLine(Ctx.transform.position, _player.position);
+                }
             }
 
             private bool ShouldChangeDirections()
