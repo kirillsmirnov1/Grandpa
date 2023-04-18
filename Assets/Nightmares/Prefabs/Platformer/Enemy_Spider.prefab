@@ -313,11 +313,14 @@ MonoBehaviour:
   webbingSpeed: 30
   webbingAcceleration: 0.5
   targetDistance: 3
-  minHeight: 1
+  minWebbingHeight: 1
   swingLimitX: 0.5
   swingSpeed: 15
   swingAcceleration: {x: 0.8, y: 1.5}
   wallCheckDist: 0.6
+  maxJumpDistance: 5
+  jumpForce: 2
+  groundCheckHeight: 0.5
 --- !u!4 &6471648455523291631 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 141276733662471386, guid: aa17ac4a085f3964483ac528cee3791d, type: 3}
