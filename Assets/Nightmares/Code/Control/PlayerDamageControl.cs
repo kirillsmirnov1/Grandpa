@@ -19,15 +19,16 @@ namespace Nightmares.Code.Control
             {
                 var toEnemy = (collision.transform.position - transform.position).normalized;
                 var enemy = other.GetComponent<Enemy>();
-                if (Vector3.Dot(Vector3.down, toEnemy) > 0)
+                if (Vector3.Dot(Vector3.down, toEnemy) > 0) // TODO ? Handle by Enemy as well??
                 {
+                    // TODO Should be handled by Enemy
                     OnEnemyDestroyed?.Invoke(other.transform.position);
                     Destroy(other);    
                 }
                 else
                 {
                     player.DoDamage();
-                    enemy.rb.AddForce(recoilForceMod * toEnemy, ForceMode2D.Impulse);
+                    enemy.rb.AddForce(recoilForceMod * toEnemy, ForceMode2D.Impulse); // TODO should be handled by Enemy 
                     player.rb.AddForce(-recoilForceMod * toEnemy, ForceMode2D.Impulse);
                     OnPlayerDamaged?.Invoke(transform.position);
                 }
