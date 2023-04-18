@@ -146,7 +146,7 @@ namespace Nightmares.Code.Control
             private Vector3 _nextTargetPos;
             private bool _goingRight;
 
-            private Transform _player;
+            private readonly Transform _player;
             
             public Swinging(EnemySpiderMovement context, Vector3 targetPos, float targetHeight) : base(context)
             {
