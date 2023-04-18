@@ -1,8 +1,7 @@
 using Nightmares.Code.Extensions;
 using UnityEngine;
-using UnityEngine.Serialization;
 
-namespace Nightmares.Code.Control
+namespace Nightmares.Code.Control.Enemy
 {
     public class EnemySpiderMovement : MonoBehaviour
     {

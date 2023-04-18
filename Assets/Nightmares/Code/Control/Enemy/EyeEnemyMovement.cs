@@ -2,7 +2,7 @@
 using Nightmares.Code.Model;
 using UnityEngine;
 
-namespace Nightmares.Code.Control
+namespace Nightmares.Code.Control.Enemy
 {
     public class EyeEnemyMovement : MonoBehaviour
     {

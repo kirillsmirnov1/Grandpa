@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Nightmares.Code.Control
+namespace Nightmares.Code.Control.Enemy
 {
     public class FlyEnemyMovement : MonoBehaviour
     {
