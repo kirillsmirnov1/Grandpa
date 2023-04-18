@@ -27,9 +27,9 @@ namespace Nightmares.Code.Control
         {
             Gizmos.DrawRay(transform.position, _direction);
 
-            if (_player != null)
+            if (_player != null && _playerVisible)
             {
-                Gizmos.color = _playerVisible ? Color.green : Color.red;
+                Gizmos.color = Color.green;
                 Gizmos.DrawLine(transform.position, _player.position);
             }
         }
