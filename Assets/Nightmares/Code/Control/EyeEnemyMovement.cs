@@ -1,4 +1,5 @@
-﻿using Nightmares.Code.Model;
+﻿using Nightmares.Code.Extensions;
+using Nightmares.Code.Model;
 using UnityEngine;
 
 namespace Nightmares.Code.Control
@@ -42,29 +43,7 @@ namespace Nightmares.Code.Control
 
         private void FixedUpdate()
         {
-            CheckPlayerVisible();
-        }
-
-        private void CheckPlayerVisible()
-        {
-            var visible = true;
-            var pos = transform.position;
-            var toPlayer = _player.position - pos;
-
-            var hits = Physics2D.RaycastAll(pos, toPlayer, toPlayer.magnitude);
-            foreach (var hit in hits)
-            {
-                var layer = hit.transform.gameObject.layer;
-                if (layer is Constants.LayerEnemy or Constants.LayerPlayer)
-                {
-                    continue;
-                }
-
-                visible = false;
-                break;
-            }
-
-            _playerVisible = visible;
+            _playerVisible = EnemyUtils.CheckEnemySeesPlayer(transform.position);
         }
 
         private void RotateEye()
