@@ -178,7 +178,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 7449187589596411450}
-  recoilForceMod: 1
+  recoilForceMod: 10
 --- !u!114 &7449187589596411450
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -8,7 +8,12 @@ namespace Nightmares.Code.Control
         public static event Action<Vector3> OnEnemyDestroyed;
         
         [SerializeField] private int startHealth = 1;
+        [SerializeField] private bool throwbacksPlayerOnAttack = false;
+        [SerializeField] private bool thrownBackByPlayerAttack = true;
 
+        public bool ThrowbacksPlayerOnAttack => throwbacksPlayerOnAttack; 
+        public bool ThrownBackByPlayerAttack => thrownBackByPlayerAttack; 
+        
         private int _health;
         
         public Rigidbody2D rb;

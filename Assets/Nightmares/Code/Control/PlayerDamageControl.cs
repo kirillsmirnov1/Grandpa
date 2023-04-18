@@ -20,16 +20,30 @@ namespace Nightmares.Code.Control
                 var enemy = other.GetComponent<Enemy>();
                 if (Vector3.Dot(Vector3.down, toEnemy) > 0) // TODO ? Handle by Enemy as well??
                 {
-                    enemy.Damage();  
+                    enemy.Damage();
+                    if (enemy.ThrowbacksPlayerOnAttack)
+                    {
+                        ThrowbackPlayer(toEnemy);    
+                    }
                 }
                 else
                 {
                     player.DoDamage();
-                    enemy.rb.AddForce(recoilForceMod * toEnemy, ForceMode2D.Impulse); // TODO should be handled by Enemy 
-                    player.rb.AddForce(-recoilForceMod * toEnemy, ForceMode2D.Impulse);
+                    if(enemy.ThrownBackByPlayerAttack)
+                    {
+                        enemy.rb.velocity = Vector2.zero;
+                        enemy.rb.AddForce(recoilForceMod * toEnemy, ForceMode2D.Impulse);  
+                    }
+                    ThrowbackPlayer(toEnemy);
                     OnPlayerDamaged?.Invoke(transform.position);
                 }
             }
+        }
+
+        private void ThrowbackPlayer(Vector3 toEnemy)
+        {
+            player.rb.velocity = Vector2.zero;
+            player.rb.AddForce(-recoilForceMod * toEnemy, ForceMode2D.Impulse);
         }
     }
 }
