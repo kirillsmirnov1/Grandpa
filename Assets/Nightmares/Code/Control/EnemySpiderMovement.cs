@@ -27,7 +27,7 @@ namespace Nightmares.Code.Control
         private void Start()
         {
             lineRenderer.positionCount = 2;
-            StartWebbingState();
+            StartGoingUpOnWebState();
         }
 
         private void FixedUpdate()
@@ -40,9 +40,9 @@ namespace Nightmares.Code.Control
             _state?.OnDrawGizmos();
         }
 
-        private void StartWebbingState()
+        private void StartGoingUpOnWebState()
         {
-            StartState(new Webbing(this));
+            StartState(new GoingUpOnWeb(this));
         }
 
         private void StartSwingingState(Vector3 targetPos, float targetHeight)
@@ -70,12 +70,12 @@ namespace Nightmares.Code.Control
             public virtual void OnDrawGizmos(){}
         }
 
-        private class Webbing : SpiderMovementState
+        private class GoingUpOnWeb : SpiderMovementState
         {
             private Vector3 _targetPos;
             private bool _hasTarget;
             
-            public Webbing(EnemySpiderMovement context) : base(context) { }
+            public GoingUpOnWeb(EnemySpiderMovement context) : base(context) { }
 
             public override void Start()
             {
