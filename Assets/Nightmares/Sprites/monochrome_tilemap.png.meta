@@ -140,7 +140,15 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: -2, y: 5}
+        - {x: -5, y: 2}
+        - {x: -5, y: -2}
+        - {x: -2, y: -5}
+        - {x: 2, y: -5}
+        - {x: 5, y: -4}
+        - {x: 5, y: 2}
+        - {x: 4, y: 5}
       tessellationDetail: 0
       bones: []
       spriteID: 30badf9f675796e4ba2c087e51dd11b9
@@ -1904,7 +1912,15 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: -8, y: 8}
+        - {x: -8, y: 0}
+        - {x: -4, y: 4}
+        - {x: -1, y: 1}
+        - {x: 1, y: 1}
+        - {x: 4, y: 4}
+        - {x: 8, y: 0}
+        - {x: 8, y: 8}
       tessellationDetail: 0
       bones: []
       spriteID: ce427214577d8554882e9dab937c2b26
@@ -8549,11 +8565,11 @@ TextureImporter:
       monochrome_tilemap_137: 635254445
       monochrome_tilemap_288: -2117943660
       monochrome_tilemap_391: -1124984837
-      monochrome_tilemap_130: -1359948314
+      monochrome_tilemap_380: -1004753998
       monochrome_tilemap_362: 1668524091
       monochrome_tilemap_331: 1886652394
       monochrome_tilemap_110: -1675517776
-      monochrome_tilemap_380: -1004753998
+      monochrome_tilemap_130: -1359948314
       monochrome_tilemap_260: -396529126
       monochrome_tilemap_365: -604850832
       monochrome_tilemap_48: 830753702
