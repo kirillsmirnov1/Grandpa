@@ -1,6 +1,4 @@
-﻿using System;
-using Nightmares.Code.Extensions;
-using Unity.VisualScripting;
+﻿using Nightmares.Code.Extensions;
 using UnityEngine;
 
 namespace Nightmares.Code.Control.Enemy
