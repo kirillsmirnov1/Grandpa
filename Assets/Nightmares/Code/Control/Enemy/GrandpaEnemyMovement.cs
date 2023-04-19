@@ -1,4 +1,6 @@
 ﻿using System;
+using Nightmares.Code.Extensions;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Nightmares.Code.Control.Enemy
@@ -12,17 +14,24 @@ namespace Nightmares.Code.Control.Enemy
 
         [SerializeField] private float idleWallCheckDistance = 1f;
         [SerializeField] private LayerMask idleLayersWallCheck;
-
+        [SerializeField] private RenderExtensions mainSprite;
+        
         private State _state;
 
         private void Start()
         {
             StartState(new IdleMovement(this));
+            mainSprite.onBecameVisible += OnVisible;
         }
 
         private void FixedUpdate()
         {
             _state?.FixedUpdate();
+        }
+
+        private void OnVisible()
+        {
+            // TODO show ui
         }
 
         private void StartState(State newState)
