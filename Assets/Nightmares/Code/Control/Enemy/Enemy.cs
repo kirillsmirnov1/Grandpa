@@ -5,6 +5,7 @@ namespace Nightmares.Code.Control.Enemy
 {
     public class Enemy : MonoBehaviour
     {
+        public event Action<float> OnEnemyHealthChange;
         public static event Action<Vector3> OnEnemyDestroyed;
         
         [SerializeField] private int startHealth = 1;
@@ -12,21 +13,31 @@ namespace Nightmares.Code.Control.Enemy
         [SerializeField] private bool thrownBackByPlayerAttack = true;
 
         public bool ThrowbacksPlayerOnAttack => throwbacksPlayerOnAttack; 
-        public bool ThrownBackByPlayerAttack => thrownBackByPlayerAttack; 
-        
+        public bool ThrownBackByPlayerAttack => thrownBackByPlayerAttack;
+
+        private int Health
+        {
+            get => _health;
+            set
+            {
+                if(value == _health) return;
+                _health = value;
+                OnEnemyHealthChange?.Invoke(1f * _health / startHealth);
+            }
+        }
         private int _health;
         
         public Rigidbody2D rb;
 
         private void OnEnable()
         {
-            _health = startHealth;
+            Health = startHealth;
         }
 
         public void Damage()
         {
-            _health--;
-            if (_health <= 0)
+            Health--;
+            if (Health <= 0)
             {
                 OnEnemyDestroyed?.Invoke(transform.position);
                 Destroy(gameObject);

@@ -1,4 +1,5 @@
 ﻿using Nightmares.Code.Extensions;
+using Nightmares.Code.UI;
 using UnityEngine;
 
 namespace Nightmares.Code.Control.Enemy
@@ -13,6 +14,9 @@ namespace Nightmares.Code.Control.Enemy
         [SerializeField] private float idleWallCheckDistance = 1f;
         [SerializeField] private LayerMask idleLayersWallCheck;
         [SerializeField] private RenderExtensions mainSprite;
+
+        [SerializeField] private HealthSlider healthSlider;
+        [SerializeField] private Enemy enemyRef;
         
         private State _state;
 
@@ -20,6 +24,7 @@ namespace Nightmares.Code.Control.Enemy
         {
             StartState(new IdleMovement(this));
             mainSprite.onBecameVisible += OnVisible;
+            enemyRef.OnEnemyHealthChange += UpdateSlider;
         }
 
         private void FixedUpdate()
@@ -29,7 +34,14 @@ namespace Nightmares.Code.Control.Enemy
 
         private void OnVisible()
         {
-            // TODO show ui
+            healthSlider.gameObject.SetActive(true);
+            healthSlider.Init("Grandpa", 1f);
+        }
+
+        private void UpdateSlider(float newHealthPercent)
+        {
+            healthSlider.UpdateSlider(newHealthPercent);
+            if(newHealthPercent == 0f) healthSlider.gameObject.SetActive(false);
         }
 
         private void StartState(State newState)

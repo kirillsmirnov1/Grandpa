@@ -16,7 +16,7 @@ namespace Nightmares.Code.UI
             UpdateSlider(startValue);
         }
 
-        private void UpdateSlider(float newValue)
+        public void UpdateSlider(float newValue)
         {
             slider.value = newValue;
         }
