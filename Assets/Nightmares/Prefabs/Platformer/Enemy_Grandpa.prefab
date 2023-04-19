@@ -355,6 +355,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05cdf80cbc62421fbc87e1648a444828, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 1
+  movementSpeed: 30
   rb: {fileID: 5360159552988861570}
   staffRb: {fileID: 9014869060666721527}
+  idleWallCheckDistance: 1
+  idleLayersWallCheck:
+    serializedVersion: 2
+    m_Bits: 65

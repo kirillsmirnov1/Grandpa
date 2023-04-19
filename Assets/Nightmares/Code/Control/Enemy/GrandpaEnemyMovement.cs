@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace Nightmares.Code.Control.Enemy
 {
@@ -8,5 +9,69 @@ namespace Nightmares.Code.Control.Enemy
         
         [SerializeField] private Rigidbody2D rb;
         [SerializeField] private Rigidbody2D staffRb;
+
+        [SerializeField] private float idleWallCheckDistance = 1f;
+        [SerializeField] private LayerMask idleLayersWallCheck;
+
+        private State _state;
+
+        private void Start()
+        {
+            StartState(new IdleMovement(this));
+        }
+
+        private void FixedUpdate()
+        {
+            _state?.FixedUpdate();
+        }
+
+        private void StartState(State newState)
+        {
+            _state = newState;
+            _state.Start();
+        }
+        
+        private abstract class State
+        {
+            protected GrandpaEnemyMovement Ctx;
+            public State(GrandpaEnemyMovement ctx) => Ctx = ctx;
+            public abstract void Start();
+            public abstract void FixedUpdate();
+        }
+        
+        private class IdleMovement : State
+        {
+            private float _direction = 1f;
+            
+            public IdleMovement(GrandpaEnemyMovement ctx) : base(ctx) { }
+
+            public override void Start()
+            {
+                CheckDirection();
+            }
+
+            public override void FixedUpdate()
+            {
+                CheckDirection();
+                Move();
+            }
+
+            private void CheckDirection()
+            {
+                var hit = Physics2D.Raycast(Ctx.transform.position, new Vector2(_direction, 0f),
+                    Ctx.idleWallCheckDistance, Ctx.idleLayersWallCheck);
+
+                if (hit.collider != null)
+                {
+                    _direction *= -1f;
+                    Ctx.transform.Rotate(0, 180, 0);
+                }
+            }
+
+            private void Move()
+            {
+                Ctx.rb.velocity = new Vector2(_direction * Time.fixedDeltaTime * Ctx.movementSpeed, 0);
+            }
+        }
     }
 }
