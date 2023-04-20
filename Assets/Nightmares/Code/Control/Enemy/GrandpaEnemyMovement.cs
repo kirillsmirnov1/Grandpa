@@ -13,6 +13,7 @@ namespace Nightmares.Code.Control.Enemy
         
         [Header("Idle movement")]
         [SerializeField] private float movementSpeed = 1f;
+        [SerializeField] private float minMovementDuration = 1f;
         [SerializeField] private float idleWallCheckDistance = 1f;
         [SerializeField] private LayerMask idleLayersWallCheck;
         
@@ -69,11 +70,13 @@ namespace Nightmares.Code.Control.Enemy
         private class IdleMovement : State
         {
             private float _direction = 1f;
+            private float _movementStartTime;
             
             public IdleMovement(GrandpaEnemyMovement ctx) : base(ctx) { }
 
             public override void Start()
             {
+                _movementStartTime = Time.time;
                 Ctx.enemyStaff.enabled = false;
                 CheckDirection();
             }
@@ -104,6 +107,8 @@ namespace Nightmares.Code.Control.Enemy
 
             private void CheckOnPlayer()
             {
+                if(Time.time - _movementStartTime < Ctx.minMovementDuration) return;
+                
                 if (EnemyUtils.CheckEnemySeesPlayer(Ctx.transform.position))
                 {
                     Ctx.StartState(new ThrowStaff(Ctx));
