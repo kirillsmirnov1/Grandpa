@@ -38,7 +38,7 @@ namespace Nightmares.Code.Control.Enemy
 
         public void OnStaffReturned()
         {
-            StartState(new IdleMovement(this));
+            _state?.OnStaffReturned();
         }
 
         private void OnVisible()
@@ -65,14 +65,19 @@ namespace Nightmares.Code.Control.Enemy
             public State(GrandpaEnemyMovement ctx) => Ctx = ctx;
             public abstract void Start();
             public abstract void FixedUpdate();
+
+            public virtual void OnStaffReturned() { }
         }
 
         private class IdleMovement : State
         {
             private float _direction = 1f;
             private float _movementStartTime;
-            
-            public IdleMovement(GrandpaEnemyMovement ctx) : base(ctx) { }
+
+            public IdleMovement(GrandpaEnemyMovement ctx, float direction = 1f) : base(ctx)
+            {
+                _direction = direction;
+            }
 
             public override void Start()
             {
@@ -118,6 +123,8 @@ namespace Nightmares.Code.Control.Enemy
 
         private class ThrowStaff : State
         {
+            private float _direction;
+            
             public ThrowStaff(GrandpaEnemyMovement ctx) : base(ctx) { }
 
             public override void Start()
@@ -125,8 +132,8 @@ namespace Nightmares.Code.Control.Enemy
                 var playerPos = Player.Instance.transform.position;
                 var selfPos = Ctx.transform.position;
 
-                var direction = selfPos.x - playerPos.x;
-                Ctx.transform.rotation = Quaternion.Euler(0, direction > 0 ? 180 : 0, 0);
+                _direction = Mathf.Sign(playerPos.x - selfPos.x);
+                Ctx.transform.rotation = Quaternion.Euler(0, _direction > 0 ? 0 : 180, 0);
 
                 ActuallyThrowStaff(playerPos, selfPos);
             }
@@ -142,6 +149,11 @@ namespace Nightmares.Code.Control.Enemy
                 Ctx.enemyStaff.enabled = true;
                 var force = (playerPos - selfPos) * Ctx.staffThrowForce;
                 Ctx.staffRb.AddForce(force, ForceMode2D.Impulse);
+            }
+
+            public override void OnStaffReturned()
+            {
+                Ctx.StartState(new IdleMovement(Ctx, _direction));
             }
         }
     }
