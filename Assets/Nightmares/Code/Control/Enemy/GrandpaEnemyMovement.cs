@@ -17,6 +17,8 @@ namespace Nightmares.Code.Control.Enemy
 
         [SerializeField] private HealthSlider healthSlider;
         [SerializeField] private Enemy enemyRef;
+
+        [SerializeField] private float staffThrowForce = 10f;
         
         private State _state;
 
@@ -109,14 +111,24 @@ namespace Nightmares.Code.Control.Enemy
             public override void Start()
             {
                 var playerPos = Player.Instance.transform.position;
+                var selfPos = Ctx.transform.position;
 
-                var direction = Ctx.transform.position.x - playerPos.x;
+                var direction = selfPos.x - playerPos.x;
                 Ctx.transform.rotation = Quaternion.Euler(0, direction > 0 ? 180 : 0, 0);
+
+                ActuallyThrowStaff(playerPos, selfPos);
             }
 
             public override void FixedUpdate()
             {
                 Ctx.rb.velocity = Vector2.zero;
+            }
+
+            private void ActuallyThrowStaff(Vector3 playerPos, Vector3 selfPos)
+            {
+                Ctx.staffRb.simulated = true;
+                var force = (playerPos - selfPos) * Ctx.staffThrowForce;
+                Ctx.staffRb.AddForce(force, ForceMode2D.Impulse);
             }
         }
     }

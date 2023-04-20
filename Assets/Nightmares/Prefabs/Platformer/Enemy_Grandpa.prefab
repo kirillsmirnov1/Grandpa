@@ -166,7 +166,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!1 &5732230597997151160
 GameObject:
@@ -378,6 +378,7 @@ MonoBehaviour:
   mainSprite: {fileID: 5886627377641421373}
   healthSlider: {fileID: 0}
   enemyRef: {fileID: 8690421036399405363}
+  staffThrowForce: 3
 --- !u!114 &8690421036399405363 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2181979932344323495, guid: aa17ac4a085f3964483ac528cee3791d, type: 3}
