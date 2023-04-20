@@ -9,15 +9,18 @@ namespace Nightmares.Code.Control.Enemy
         [SerializeField] private GrandpaEnemyMovement grandpa;
         [SerializeField] private float moveSpeed = 1000f;
         [SerializeField] private float rotateSpeed = 5000f;
+        [SerializeField] private float timeFromThrow = 3f;
         
         private Vector3 _defaultLocalPos;
         private Quaternion _defaultRotation;
+        private float _throwTime;
 
         private Action _onUpdate;
         
         protected override void OnEnable()
         {
             base.OnEnable();
+            _throwTime = Time.time;
             _defaultLocalPos = transform.localPosition;
             _defaultRotation = transform.localRotation;
         }
@@ -31,7 +34,6 @@ namespace Nightmares.Code.Control.Enemy
         {
             if (col.gameObject.layer != Constants.LayerEnemy)
             {
-                rb.simulated = false;
                 _onUpdate = GoToGrandpa;
             }
         }
@@ -40,6 +42,10 @@ namespace Nightmares.Code.Control.Enemy
 
         private void GoToGrandpa()
         {
+            if(Time.time - _throwTime < timeFromThrow) return;
+            
+            rb.simulated = false;
+
             transform.localPosition = Vector3.Lerp(transform.localPosition, _defaultLocalPos, moveSpeed * Time.deltaTime);
             transform.localRotation = Quaternion.Lerp(transform.localRotation, _defaultRotation, rotateSpeed * Time.deltaTime);
 

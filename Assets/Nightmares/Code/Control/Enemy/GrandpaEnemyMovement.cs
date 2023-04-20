@@ -19,6 +19,8 @@ namespace Nightmares.Code.Control.Enemy
         [SerializeField] private Enemy enemyRef;
 
         [SerializeField] private float staffThrowForce = 10f;
+        [SerializeField] private EnemyStaff enemyStaff;
+        
         
         private State _state;
 
@@ -73,6 +75,7 @@ namespace Nightmares.Code.Control.Enemy
 
             public override void Start()
             {
+                Ctx.enemyStaff.enabled = false;
                 CheckDirection();
             }
 
@@ -132,6 +135,7 @@ namespace Nightmares.Code.Control.Enemy
             private void ActuallyThrowStaff(Vector3 playerPos, Vector3 selfPos)
             {
                 Ctx.staffRb.simulated = true;
+                Ctx.enemyStaff.enabled = true;
                 var force = (playerPos - selfPos) * Ctx.staffThrowForce;
                 Ctx.staffRb.AddForce(force, ForceMode2D.Impulse);
             }
