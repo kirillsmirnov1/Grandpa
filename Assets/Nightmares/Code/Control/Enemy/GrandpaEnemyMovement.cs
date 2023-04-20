@@ -34,6 +34,11 @@ namespace Nightmares.Code.Control.Enemy
             _state?.FixedUpdate();
         }
 
+        public void OnStaffReturned()
+        {
+            StartState(new IdleMovement(this));
+        }
+
         private void OnVisible()
         {
             healthSlider.gameObject.SetActive(true);
@@ -51,7 +56,7 @@ namespace Nightmares.Code.Control.Enemy
             _state = newState;
             _state.Start();
         }
-        
+
         private abstract class State
         {
             protected GrandpaEnemyMovement Ctx;
@@ -59,7 +64,7 @@ namespace Nightmares.Code.Control.Enemy
             public abstract void Start();
             public abstract void FixedUpdate();
         }
-        
+
         private class IdleMovement : State
         {
             private float _direction = 1f;

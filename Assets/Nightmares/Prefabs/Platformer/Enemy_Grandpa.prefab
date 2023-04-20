@@ -108,6 +108,7 @@ GameObject:
   - component: {fileID: 3352355367626581378}
   - component: {fileID: 7061815526406974316}
   - component: {fileID: 9014869060666721527}
+  - component: {fileID: 6043045780070618045}
   m_Layer: 8
   m_Name: StaffHolder
   m_TagString: Untagged
@@ -168,6 +169,25 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
+--- !u!114 &6043045780070618045
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2274400824115654124}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dab976aec7400714a8c04e57fef82404, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startHealth: 1
+  throwbacksPlayerOnAttack: 0
+  thrownBackByPlayerAttack: 1
+  rb: {fileID: 9014869060666721527}
+  grandpa: {fileID: 2127573990450454334}
+  moveSpeed: 3
+  rotateSpeed: 10
 --- !u!1 &5732230597997151160
 GameObject:
   m_ObjectHideFlags: 0
@@ -179,7 +199,7 @@ GameObject:
   - component: {fileID: 8863864193921073510}
   - component: {fileID: 8021869506986674398}
   m_Layer: 8
-  m_Name: Staff
+  m_Name: StaffSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

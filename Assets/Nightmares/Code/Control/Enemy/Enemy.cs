@@ -29,12 +29,12 @@ namespace Nightmares.Code.Control.Enemy
         
         public Rigidbody2D rb;
 
-        private void OnEnable()
+        protected virtual void OnEnable()
         {
             Health = startHealth;
         }
 
-        public void Damage()
+        public virtual void Damage()
         {
             Health--;
             if (Health <= 0)
