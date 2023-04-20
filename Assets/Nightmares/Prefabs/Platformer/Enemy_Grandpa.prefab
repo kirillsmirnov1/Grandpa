@@ -389,17 +389,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05cdf80cbc62421fbc87e1648a444828, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 30
   rb: {fileID: 5360159552988861570}
-  staffRb: {fileID: 9014869060666721527}
+  healthSlider: {fileID: 0}
+  enemyRef: {fileID: 8690421036399405363}
+  mainSprite: {fileID: 5886627377641421373}
+  movementSpeed: 30
   idleWallCheckDistance: 1
   idleLayersWallCheck:
     serializedVersion: 2
     m_Bits: 65
-  mainSprite: {fileID: 5886627377641421373}
-  healthSlider: {fileID: 0}
-  enemyRef: {fileID: 8690421036399405363}
   staffThrowForce: 3
+  staffRb: {fileID: 9014869060666721527}
   enemyStaff: {fileID: 6043045780070618045}
 --- !u!114 &8690421036399405363 stripped
 MonoBehaviour:

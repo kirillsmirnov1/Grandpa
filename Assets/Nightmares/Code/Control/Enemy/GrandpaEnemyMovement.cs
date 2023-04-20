@@ -6,21 +6,20 @@ namespace Nightmares.Code.Control.Enemy
 {
     public class GrandpaEnemyMovement : MonoBehaviour
     {
-        [SerializeField] private float movementSpeed = 1f;
-        
         [SerializeField] private Rigidbody2D rb;
-        [SerializeField] private Rigidbody2D staffRb;
-
-        [SerializeField] private float idleWallCheckDistance = 1f;
-        [SerializeField] private LayerMask idleLayersWallCheck;
-        [SerializeField] private RenderExtensions mainSprite;
-
         [SerializeField] private HealthSlider healthSlider;
         [SerializeField] private Enemy enemyRef;
-
-        [SerializeField] private float staffThrowForce = 10f;
-        [SerializeField] private EnemyStaff enemyStaff;
+        [SerializeField] private RenderExtensions mainSprite;
         
+        [Header("Idle movement")]
+        [SerializeField] private float movementSpeed = 1f;
+        [SerializeField] private float idleWallCheckDistance = 1f;
+        [SerializeField] private LayerMask idleLayersWallCheck;
+        
+        [Header("Staff throwing")]
+        [SerializeField] private float staffThrowForce = 10f;
+        [SerializeField] private Rigidbody2D staffRb;
+        [SerializeField] private EnemyStaff enemyStaff;
         
         private State _state;
 
