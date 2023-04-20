@@ -73,6 +73,7 @@ namespace Nightmares.Code.Control.Enemy
             {
                 CheckDirection();
                 Move();
+                CheckOnPlayer();
             }
 
             private void CheckDirection()
@@ -90,6 +91,32 @@ namespace Nightmares.Code.Control.Enemy
             private void Move()
             {
                 Ctx.rb.velocity = new Vector2(_direction * Time.fixedDeltaTime * Ctx.movementSpeed, 0);
+            }
+
+            private void CheckOnPlayer()
+            {
+                if (EnemyUtils.CheckEnemySeesPlayer(Ctx.transform.position))
+                {
+                    Ctx.StartState(new ThrowStaff(Ctx));
+                }
+            }
+        }
+
+        private class ThrowStaff : State
+        {
+            public ThrowStaff(GrandpaEnemyMovement ctx) : base(ctx) { }
+
+            public override void Start()
+            {
+                var playerPos = Player.Instance.transform.position;
+
+                var direction = Ctx.transform.position.x - playerPos.x;
+                Ctx.transform.rotation = Quaternion.Euler(0, direction > 0 ? 180 : 0, 0);
+            }
+
+            public override void FixedUpdate()
+            {
+                Ctx.rb.velocity = Vector2.zero;
             }
         }
     }
