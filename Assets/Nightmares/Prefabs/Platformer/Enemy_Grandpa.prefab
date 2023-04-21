@@ -435,10 +435,10 @@ MonoBehaviour:
   idleLayersWallCheck:
     serializedVersion: 2
     m_Bits: 65
-  staffThrowForce: 3
+  staffThrowForce: 25
   staffRb: {fileID: 9014869060666721527}
   enemyStaff: {fileID: 6043045780070618045}
-  fliesToSpawnOnHit: 5
+  fliesToSpawnOnHit: 10
   flyPrefab: {fileID: 6968884574411229060, guid: 417a239324fb41b4c82c5efaa7580935, type: 3}
   flySpawnAnchor: {fileID: 240606768616524786}
 --- !u!114 &8690421036399405363 stripped

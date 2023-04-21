@@ -183,7 +183,7 @@ namespace Nightmares.Code.Control.Enemy
             {
                 Ctx.staffRb.simulated = true;
                 Ctx.enemyStaff.enabled = true;
-                var force = (playerPos - selfPos) * Ctx.staffThrowForce;
+                var force = (playerPos - selfPos).normalized * Ctx.staffThrowForce;
                 Ctx.staffRb.AddForce(force, ForceMode2D.Impulse);
             }
 
