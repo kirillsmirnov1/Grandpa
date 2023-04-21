@@ -18,7 +18,7 @@ namespace Nightmares.Code.Control
             {
                 var toEnemy = (collision.transform.position - transform.position).normalized;
                 var enemy = other.GetComponent<Enemy.Enemy>();
-                if (Vector3.Dot(Vector3.down, toEnemy) > 0) // TODO ? Handle by Enemy as well??
+                if (Vector3.Dot(Vector3.down, toEnemy) <= 0) // TODO ? Handle by Enemy as well??
                 {
                     player.DoDamage();
                     if (enemy.ThrownBackByPlayerAttack)
