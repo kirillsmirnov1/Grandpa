@@ -346,7 +346,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3224151158055530518, guid: aa17ac4a085f3964483ac528cee3791d, type: 3}
       propertyPath: m_Constraints
-      value: 4
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5468381620217014392, guid: aa17ac4a085f3964483ac528cee3791d, type: 3}
       propertyPath: m_Radius
@@ -394,6 +394,7 @@ MonoBehaviour:
   enemyRef: {fileID: 8690421036399405363}
   mainSprite: {fileID: 5886627377641421373}
   movementSpeed: 30
+  minMovementDuration: 1
   idleWallCheckDistance: 1
   idleLayersWallCheck:
     serializedVersion: 2
