@@ -184,6 +184,7 @@ MonoBehaviour:
   startHealth: 1
   throwbacksPlayerOnAttack: 0
   thrownBackByPlayerAttack: 1
+  sprite: {fileID: 0}
   rb: {fileID: 9014869060666721527}
   grandpa: {fileID: 2127573990450454334}
   moveSpeed: 3
@@ -359,6 +360,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy_Grandpa
       objectReference: {fileID: 0}
+    - target: {fileID: 2181979932344323495, guid: aa17ac4a085f3964483ac528cee3791d, type: 3}
+      propertyPath: sprite
+      value: 
+      objectReference: {fileID: 577800709}
     - target: {fileID: 2181979932344323495, guid: aa17ac4a085f3964483ac528cee3791d, type: 3}
       propertyPath: startHealth
       value: 5

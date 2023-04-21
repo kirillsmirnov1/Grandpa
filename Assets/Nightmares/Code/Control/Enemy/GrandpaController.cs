@@ -56,7 +56,9 @@ namespace Nightmares.Code.Control.Enemy
         {
             for (int i = 0; i < fliesToSpawnOnHit; i++)
             {
-                Instantiate(flyPrefab, flySpawnAnchor.position, Quaternion.identity);
+                Instantiate(flyPrefab, flySpawnAnchor.position, Quaternion.identity)
+                    .GetComponent<Enemy>()
+                    .StartInvincibleState();
             }
         }
 
