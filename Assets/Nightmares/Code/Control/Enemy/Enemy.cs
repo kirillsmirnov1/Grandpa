@@ -36,6 +36,7 @@ namespace Nightmares.Code.Control.Enemy
         protected virtual void OnEnable()
         {
             Health = startHealth;
+            CanBeDamaged = true;
         }
 
         public virtual void Damage()
@@ -60,6 +61,7 @@ namespace Nightmares.Code.Control.Enemy
 
             CanBeDamaged = false;
             DOTween.Sequence()
+                .AppendCallback(() => CanBeDamaged = false)
                 .Append(sprite.DOColor(disabledColor, .1f))
                 .Append(sprite.DOColor(defaultColor, .1f))
                 .SetLoops(10)
