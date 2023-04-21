@@ -1,4 +1,4 @@
-﻿using System;
+﻿using DG.Tweening;
 using Nightmares.Code.Extensions;
 using Nightmares.Code.UI;
 using UnityEngine;
@@ -39,12 +39,12 @@ namespace Nightmares.Code.Control.Enemy
 
         private void OnEnable()
         {
-            enemyRef.OnEnemyHealthChange += SpawnFlies;
+            enemyRef.OnEnemyHealthChange += OnHealthChange;
         }
 
         private void OnDisable()
         {
-            enemyRef.OnEnemyHealthChange -= SpawnFlies;
+            enemyRef.OnEnemyHealthChange -= OnHealthChange;
         }
 
         private void FixedUpdate()
@@ -52,13 +52,23 @@ namespace Nightmares.Code.Control.Enemy
             _state?.FixedUpdate();
         }
 
-        private void SpawnFlies(float _)
+        private void OnHealthChange(float newHealth)
         {
+            if(newHealth == 1f) return;
+            SpawnFlies();
+        }
+        private void SpawnFlies()
+        {
+            var seq = DOTween.Sequence();
             for (int i = 0; i < fliesToSpawnOnHit; i++)
             {
-                Instantiate(flyPrefab, flySpawnAnchor.position, Quaternion.identity)
-                    .GetComponent<Enemy>()
-                    .StartInvincibleState();
+                seq.AppendInterval(.05f);
+                seq.AppendCallback(() =>
+                {
+                    Instantiate(flyPrefab, flySpawnAnchor.position, Quaternion.identity)
+                        .GetComponent<Enemy>()
+                        .StartInvincibleState();
+                });
             }
         }
 
