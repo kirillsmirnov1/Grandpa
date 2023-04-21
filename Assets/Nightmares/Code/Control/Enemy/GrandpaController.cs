@@ -1,4 +1,5 @@
-﻿using Nightmares.Code.Extensions;
+﻿using System;
+using Nightmares.Code.Extensions;
 using Nightmares.Code.UI;
 using UnityEngine;
 
@@ -21,6 +22,11 @@ namespace Nightmares.Code.Control.Enemy
         [SerializeField] private float staffThrowForce = 10f;
         [SerializeField] private Rigidbody2D staffRb;
         [SerializeField] private EnemyStaff enemyStaff;
+
+        [Header("Damage Handling")]
+        [SerializeField] private int fliesToSpawnOnHit = 5;
+        [SerializeField] private GameObject flyPrefab; // TODO use factory later
+        [SerializeField] private Transform flySpawnAnchor;
         
         private State _state;
 
@@ -31,9 +37,27 @@ namespace Nightmares.Code.Control.Enemy
             enemyRef.OnEnemyHealthChange += UpdateSlider;
         }
 
+        private void OnEnable()
+        {
+            enemyRef.OnEnemyHealthChange += SpawnFlies;
+        }
+
+        private void OnDisable()
+        {
+            enemyRef.OnEnemyHealthChange -= SpawnFlies;
+        }
+
         private void FixedUpdate()
         {
             _state?.FixedUpdate();
+        }
+
+        private void SpawnFlies(float _)
+        {
+            for (int i = 0; i < fliesToSpawnOnHit; i++)
+            {
+                Instantiate(flyPrefab, flySpawnAnchor.position, Quaternion.identity);
+            }
         }
 
         public void OnStaffReturned()

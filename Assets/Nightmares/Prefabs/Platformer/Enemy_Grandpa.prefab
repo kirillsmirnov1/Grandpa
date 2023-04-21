@@ -189,6 +189,37 @@ MonoBehaviour:
   moveSpeed: 3
   rotateSpeed: 10
   timeFromThrow: 1.5
+--- !u!1 &5235942490409618434
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 240606768616524786}
+  m_Layer: 8
+  m_Name: TopOfTheHeadAnchor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &240606768616524786
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5235942490409618434}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.87, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7433343618829221966}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5732230597997151160
 GameObject:
   m_ObjectHideFlags: 0
@@ -402,6 +433,9 @@ MonoBehaviour:
   staffThrowForce: 3
   staffRb: {fileID: 9014869060666721527}
   enemyStaff: {fileID: 6043045780070618045}
+  fliesToSpawnOnHit: 5
+  flyPrefab: {fileID: 6968884574411229060, guid: 417a239324fb41b4c82c5efaa7580935, type: 3}
+  flySpawnAnchor: {fileID: 240606768616524786}
 --- !u!114 &8690421036399405363 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2181979932344323495, guid: aa17ac4a085f3964483ac528cee3791d, type: 3}
