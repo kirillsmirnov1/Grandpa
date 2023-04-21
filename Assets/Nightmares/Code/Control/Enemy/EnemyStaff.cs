@@ -6,7 +6,7 @@ namespace Nightmares.Code.Control.Enemy
 {
     public class EnemyStaff : Enemy
     {
-        [SerializeField] private GrandpaEnemyMovement grandpa;
+        [SerializeField] private GrandpaController grandpa;
         [SerializeField] private float moveSpeed = 1000f;
         [SerializeField] private float rotateSpeed = 5000f;
         [SerializeField] private float timeFromThrow = 3f;

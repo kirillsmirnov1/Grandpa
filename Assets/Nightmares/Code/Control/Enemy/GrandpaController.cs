@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Nightmares.Code.Control.Enemy
 {
-    public class GrandpaEnemyMovement : MonoBehaviour
+    public class GrandpaController : MonoBehaviour
     {
         [SerializeField] private Rigidbody2D rb;
         [SerializeField] private HealthSlider healthSlider;
@@ -61,8 +61,8 @@ namespace Nightmares.Code.Control.Enemy
 
         private abstract class State
         {
-            protected GrandpaEnemyMovement Ctx;
-            public State(GrandpaEnemyMovement ctx) => Ctx = ctx;
+            protected GrandpaController Ctx;
+            public State(GrandpaController ctx) => Ctx = ctx;
             public abstract void Start();
             public abstract void FixedUpdate();
 
@@ -74,7 +74,7 @@ namespace Nightmares.Code.Control.Enemy
             private float _direction = 1f;
             private float _movementStartTime;
 
-            public IdleMovement(GrandpaEnemyMovement ctx, float direction = 1f) : base(ctx)
+            public IdleMovement(GrandpaController ctx, float direction = 1f) : base(ctx)
             {
                 _direction = direction;
             }
@@ -125,7 +125,7 @@ namespace Nightmares.Code.Control.Enemy
         {
             private float _direction;
             
-            public ThrowStaff(GrandpaEnemyMovement ctx) : base(ctx) { }
+            public ThrowStaff(GrandpaController ctx) : base(ctx) { }
 
             public override void Start()
             {
