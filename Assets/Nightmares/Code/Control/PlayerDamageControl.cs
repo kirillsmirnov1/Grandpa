@@ -22,15 +22,18 @@ namespace Nightmares.Code.Control
                 var angle = Mathf.Acos(dot) * 180 / Mathf.PI;
                 if (angle > enemy.AttackFromTopAngle)
                 {
-                    player.DoDamage();
                     if (enemy.ThrownBackByPlayerAttack)
                     {
                         enemy.rb.velocity = Vector2.zero;
                         enemy.rb.AddForce(recoilForceMod * toEnemy, ForceMode2D.Impulse);
                     }
 
-                    ThrowbackPlayer(toEnemy);
-                    OnPlayerDamaged?.Invoke(transform.position);
+                    if (player.CanBeDamaged)
+                    {
+                        ThrowbackPlayer(toEnemy);
+                        player.DoDamage();
+                        OnPlayerDamaged?.Invoke(transform.position);
+                    }
                 }
                 else if (enemy.CanBeDamaged)
                 {

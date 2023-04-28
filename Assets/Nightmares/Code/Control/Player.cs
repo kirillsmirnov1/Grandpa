@@ -10,9 +10,11 @@ namespace Nightmares.Code.Control
 
         [SerializeField] private int maxHealth = 3;
         public Rigidbody2D rb;
+        [SerializeField] private Invincibility invincibility;
         
         public static Player Instance { get; private set; }
-
+        public bool CanBeDamaged => invincibility.CanBeDamaged;
+        
         public int Health
         {
             get => _health;
@@ -44,6 +46,10 @@ namespace Nightmares.Code.Control
                 OnPlayerDeath?.Invoke();
                 Debug.Log("Player is dead");
                 gameObject.SetActive(false);
+            }
+            else
+            {
+                invincibility.StartInvincibleState();
             }
         }
     }
