@@ -50,7 +50,7 @@ MonoBehaviour:
   startHealth: 1
   throwbacksPlayerOnAttack: 0
   thrownBackByPlayerAttack: 1
-  attackFromTopAngle: 90
+  attackFromTopAngle: 180
   invincibility: {fileID: 316629295934508081}
   rb: {fileID: 3224151158055530518}
 --- !u!50 &3224151158055530518
