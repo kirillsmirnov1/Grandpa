@@ -1,4 +1,5 @@
-﻿using DG.Tweening;
+﻿using System.Collections.Generic;
+using DG.Tweening;
 using Nightmares.Code.Extensions;
 using Nightmares.Code.UI;
 using UnityEngine;
@@ -30,6 +31,7 @@ namespace Nightmares.Code.Control.Enemy
         [SerializeField] private Transform flySpawnAnchor;
         
         private State _state;
+        private List<Enemy> _spawnedFlies;
 
         private void Start()
         {
@@ -40,6 +42,7 @@ namespace Nightmares.Code.Control.Enemy
 
         private void OnEnable()
         {
+            _spawnedFlies = new List<Enemy>();
             enemyRef.OnEnemyHealthChange += OnHealthChange;
         }
 
@@ -55,9 +58,21 @@ namespace Nightmares.Code.Control.Enemy
 
         private void OnHealthChange(float newHealth)
         {
+            if (newHealth == 0f) DestroySpawnedFlies();
             if(newHealth is 1f or 0f) return;
             SpawnFlies();
             ThrowPlayerOut();
+        }
+
+        private void DestroySpawnedFlies()
+        {
+            var seq = DOTween.Sequence();
+            foreach (var spawnedFly in _spawnedFlies)
+            {
+                if(spawnedFly == null) continue;
+                seq.AppendInterval(.05f);
+                seq.AppendCallback(() => spawnedFly?.Damage());
+            }
         }
 
         private void ThrowPlayerOut()
@@ -76,9 +91,10 @@ namespace Nightmares.Code.Control.Enemy
                 seq.AppendInterval(.05f);
                 seq.AppendCallback(() =>
                 {
-                    Instantiate(flyPrefab, flySpawnAnchor.position, Quaternion.identity)
-                        .GetComponent<Enemy>()
-                        .StartInvincibleState();
+                    var fly = Instantiate(flyPrefab, flySpawnAnchor.position, Quaternion.identity)
+                        .GetComponent<Enemy>();
+                    fly.StartInvincibleState();
+                    _spawnedFlies.Add(fly);
                 });
             }
         }
