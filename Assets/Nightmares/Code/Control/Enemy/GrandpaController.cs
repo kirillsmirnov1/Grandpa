@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using DG.Tweening;
 using Nightmares.Code.Extensions;
 using Nightmares.Code.UI;
@@ -8,6 +9,8 @@ namespace Nightmares.Code.Control.Enemy
 {
     public class GrandpaController : MonoBehaviour
     {
+        public static event Action OnGrandpaDefeated;
+        
         [SerializeField] private Rigidbody2D rb;
         [SerializeField] private Collider2D grandpaCollider;
         [SerializeField] private HealthSlider healthSlider;
@@ -64,10 +67,19 @@ namespace Nightmares.Code.Control.Enemy
 
         private void OnHealthChange(float newHealth)
         {
-            if (newHealth == 0f) DestroySpawnedFlies();
-            if(newHealth is 1f or 0f) return;
-            SpawnFlies();
-            ThrowPlayerOut();
+            switch (newHealth)
+            {
+                case 0f:
+                    DestroySpawnedFlies();
+                    OnGrandpaDefeated?.Invoke();
+                    break;
+                case 1f:
+                    break;
+                default:
+                    SpawnFlies();
+                    ThrowPlayerOut();
+                    break;
+            }
         }
 
         private void DestroySpawnedFlies()
