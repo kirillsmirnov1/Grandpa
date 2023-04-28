@@ -9,6 +9,7 @@ namespace Nightmares.Code.Control.Enemy
     public class GrandpaController : MonoBehaviour
     {
         [SerializeField] private Rigidbody2D rb;
+        [SerializeField] private Collider2D grandpaCollider;
         [SerializeField] private HealthSlider healthSlider;
         [SerializeField] private Enemy enemyRef;
         [SerializeField] private RenderExtensions mainSprite;
@@ -22,6 +23,7 @@ namespace Nightmares.Code.Control.Enemy
         [Header("Staff throwing")]
         [SerializeField] private float staffThrowForce = 10f;
         [SerializeField] private Rigidbody2D staffRb;
+        [SerializeField] private Collider2D staffCollider;
         [SerializeField] private EnemyStaff enemyStaff;
         [SerializeField] private float shakeDistance = .3f;
         [SerializeField] private float shakeDuration = 1f;
@@ -41,6 +43,7 @@ namespace Nightmares.Code.Control.Enemy
             StartState(new IdleMovement(this));
             mainSprite.onBecameVisible += OnVisible;
             enemyRef.OnEnemyHealthChange += UpdateSlider;
+            Physics2D.IgnoreCollision(grandpaCollider, staffCollider);
         }
 
         private void OnEnable()

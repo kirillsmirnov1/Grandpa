@@ -399,6 +399,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aa17ac4a085f3964483ac528cee3791d, type: 3}
+--- !u!58 &3260316752232205548 stripped
+CircleCollider2D:
+  m_CorrespondingSourceObject: {fileID: 5468381620217014392, guid: aa17ac4a085f3964483ac528cee3791d, type: 3}
+  m_PrefabInstance: {fileID: 7412187023513035924}
+  m_PrefabAsset: {fileID: 0}
 --- !u!50 &5360159552988861570 stripped
 Rigidbody2D:
   m_CorrespondingSourceObject: {fileID: 3224151158055530518, guid: aa17ac4a085f3964483ac528cee3791d, type: 3}
@@ -427,6 +432,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 5360159552988861570}
+  grandpaCollider: {fileID: 3260316752232205548}
   healthSlider: {fileID: 0}
   enemyRef: {fileID: 8690421036399405363}
   mainSprite: {fileID: 5886627377641421373}
@@ -438,6 +444,7 @@ MonoBehaviour:
     m_Bits: 65
   staffThrowForce: 25
   staffRb: {fileID: 9014869060666721527}
+  staffCollider: {fileID: 7061815526406974316}
   enemyStaff: {fileID: 6043045780070618045}
   shakeDistance: 0.2
   shakeDuration: 1
