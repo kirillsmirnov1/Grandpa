@@ -454,7 +454,7 @@ MonoBehaviour:
   shakeDuration: 1
   shakeVibrato: 30
   playerThrowForce: {x: 15, y: 0.25}
-  fliesToSpawnOnHit: 10
+  fliesToSpawnOnHit: 6
   flyPrefab: {fileID: 6968884574411229060, guid: 417a239324fb41b4c82c5efaa7580935, type: 3}
   flySpawnAnchor: {fileID: 240606768616524786}
 --- !u!114 &8690421036399405363 stripped
