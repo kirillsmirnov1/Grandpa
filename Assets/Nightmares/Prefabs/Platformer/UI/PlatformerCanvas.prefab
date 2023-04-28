@@ -625,10 +625,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: YouLostBanner
       objectReference: {fileID: 0}
-    - target: {fileID: 2336576129680509810, guid: b8e137f31e2e77244846f779cc1a8a5a, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8296545468217280182, guid: b8e137f31e2e77244846f779cc1a8a5a, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
