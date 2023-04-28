@@ -184,7 +184,7 @@ MonoBehaviour:
   startHealth: 1
   throwbacksPlayerOnAttack: 0
   thrownBackByPlayerAttack: 1
-  attackFromTopAngle: 360
+  attackFromTopAngle: 0
   invincibility: {fileID: 0}
   rb: {fileID: 9014869060666721527}
   grandpa: {fileID: 2127573990450454334}

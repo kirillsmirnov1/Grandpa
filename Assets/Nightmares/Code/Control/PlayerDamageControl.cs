@@ -20,8 +20,10 @@ namespace Nightmares.Code.Control
                 var enemy = other.GetComponent<Enemy.Enemy>();
                 var dot = Vector3.Dot(Vector3.down, toEnemy);
                 var angle = Mathf.Acos(dot) * 180 / Mathf.PI;
+
                 if (angle > enemy.AttackFromTopAngle)
                 {
+                    // Damage player
                     if (enemy.ThrownBackByPlayerAttack)
                     {
                         enemy.rb.velocity = Vector2.zero;
@@ -37,6 +39,7 @@ namespace Nightmares.Code.Control
                 }
                 else if (enemy.CanBeDamaged)
                 {
+                    // Damage enemy
                     enemy.Damage();
                     if (enemy.ThrowbacksPlayerOnAttack)
                     {
