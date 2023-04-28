@@ -29,7 +29,7 @@ namespace Nightmares.Code.Control.Enemy
             }
         }
 
-        public bool CanBeDamaged => invincibility.CanBeDamaged;
+        public bool CanBeDamaged => invincibility != null && invincibility.CanBeDamaged;
 
         private int _health;
 
