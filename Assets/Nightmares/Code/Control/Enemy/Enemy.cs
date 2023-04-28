@@ -13,7 +13,9 @@ namespace Nightmares.Code.Control.Enemy
         [SerializeField] private bool throwbacksPlayerOnAttack = false;
         [SerializeField] private bool thrownBackByPlayerAttack = true;
         [SerializeField] private SpriteRenderer sprite;
-        
+        [SerializeField] private float attackFromTopAngle = 90f;
+
+        public float AttackFromTopAngle => attackFromTopAngle / 2f; 
         public bool ThrowbacksPlayerOnAttack => throwbacksPlayerOnAttack; 
         public bool ThrownBackByPlayerAttack => thrownBackByPlayerAttack;
 

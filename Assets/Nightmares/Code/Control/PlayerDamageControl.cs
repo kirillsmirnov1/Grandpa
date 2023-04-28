@@ -20,7 +20,7 @@ namespace Nightmares.Code.Control
                 var enemy = other.GetComponent<Enemy.Enemy>();
                 var dot = Vector3.Dot(Vector3.down, toEnemy);
                 var angle = Mathf.Acos(dot) * 180 / Mathf.PI;
-                if (angle > 45) // TODO ? Handle by Enemy as well??
+                if (angle > enemy.AttackFromTopAngle)
                 {
                     player.DoDamage();
                     if (enemy.ThrownBackByPlayerAttack)
