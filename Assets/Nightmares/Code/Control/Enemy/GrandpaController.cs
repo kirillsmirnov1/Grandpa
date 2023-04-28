@@ -23,7 +23,10 @@ namespace Nightmares.Code.Control.Enemy
         [SerializeField] private float staffThrowForce = 10f;
         [SerializeField] private Rigidbody2D staffRb;
         [SerializeField] private EnemyStaff enemyStaff;
-
+        [SerializeField] private float shakeDistance = .3f;
+        [SerializeField] private float shakeDuration = 1f;
+        [SerializeField] private int shakeVibrato = 30;
+        
         [Header("Damage Handling")] 
         [SerializeField] private Vector2 playerThrowForce;
         [SerializeField] private int fliesToSpawnOnHit = 5;
@@ -198,7 +201,12 @@ namespace Nightmares.Code.Control.Enemy
                 _direction = Mathf.Sign(playerPos.x - selfPos.x);
                 Ctx.transform.rotation = Quaternion.Euler(0, _direction > 0 ? 0 : 180, 0);
 
-                ActuallyThrowStaff(playerPos, selfPos);
+                DOTween.Sequence()
+                    .Append(Ctx.enemyStaff.transform.DOShakePosition(
+                        Ctx.shakeDuration, 
+                        Ctx.shakeDistance, 
+                        Ctx.shakeVibrato))
+                    .AppendCallback(() => ActuallyThrowStaff(playerPos, Ctx.transform.position));
             }
 
             public override void FixedUpdate()
