@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2181979932344323495}
   - component: {fileID: 3224151158055530518}
   - component: {fileID: 5468381620217014392}
+  - component: {fileID: 316629295934508081}
   m_Layer: 8
   m_Name: Enemy
   m_TagString: Untagged
@@ -46,6 +47,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5744b41e090f5041a758a092e641d61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startHealth: 1
+  throwbacksPlayerOnAttack: 0
+  thrownBackByPlayerAttack: 1
+  attackFromTopAngle: 90
+  invincibility: {fileID: 316629295934508081}
   rb: {fileID: 3224151158055530518}
 --- !u!50 &3224151158055530518
 Rigidbody2D:
@@ -84,3 +90,16 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &316629295934508081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 141276733662471387}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c06c68ad38649efbdd81f683e4e7d3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprite: {fileID: 0}

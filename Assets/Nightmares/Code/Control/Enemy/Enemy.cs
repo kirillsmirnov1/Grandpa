@@ -1,5 +1,4 @@
 using System;
-using DG.Tweening;
 using UnityEngine;
 
 namespace Nightmares.Code.Control.Enemy
@@ -12,8 +11,8 @@ namespace Nightmares.Code.Control.Enemy
         [SerializeField] private int startHealth = 1;
         [SerializeField] private bool throwbacksPlayerOnAttack = false;
         [SerializeField] private bool thrownBackByPlayerAttack = true;
-        [SerializeField] private SpriteRenderer sprite;
         [SerializeField] private float attackFromTopAngle = 90f;
+        [SerializeField] private Invincibility invincibility;
 
         public float AttackFromTopAngle => attackFromTopAngle / 2f; 
         public bool ThrowbacksPlayerOnAttack => throwbacksPlayerOnAttack; 
@@ -29,16 +28,16 @@ namespace Nightmares.Code.Control.Enemy
                 OnEnemyHealthChange?.Invoke(1f * _health / startHealth);
             }
         }
+
+        public bool CanBeDamaged => invincibility.CanBeDamaged;
+
         private int _health;
-        
-        public bool CanBeDamaged { get; private set; }
-        
+
         public Rigidbody2D rb;
 
         protected virtual void OnEnable()
         {
             Health = startHealth;
-            CanBeDamaged = true;
         }
 
         public virtual void Damage()
@@ -57,18 +56,7 @@ namespace Nightmares.Code.Control.Enemy
 
         public void StartInvincibleState()
         {
-            var defaultColor = sprite.color;
-            var disabledColor = defaultColor;
-            disabledColor.a = .1f;
-
-            CanBeDamaged = false;
-            DOTween.Sequence()
-                .AppendCallback(() => CanBeDamaged = false)
-                .Append(sprite.DOColor(disabledColor, .1f))
-                .Append(sprite.DOColor(defaultColor, .1f))
-                .SetLoops(10)
-                .AppendCallback(() => CanBeDamaged = true)
-                ;
+            invincibility.StartInvincibleState();
         }
     }
 }
