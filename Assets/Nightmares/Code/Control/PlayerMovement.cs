@@ -11,13 +11,15 @@ namespace Nightmares.Code.Control
 
         [SerializeField] private LayerMask playerLayer;
         [SerializeField] private MobileInput mobileInput;
+        [SerializeField] private float throwForceDecreaseSpeed = 100f;
         
         public float HorizontalInput { get; set; }
         public bool JumpInput { get; set; }
         
         private bool _onGround;
         private Rigidbody2D _rb;
-        private Collider2D _collider; 
+        private Collider2D _collider;
+        private Vector2 _throwForce;
 
         private void Start()
         {
@@ -44,6 +46,7 @@ namespace Nightmares.Code.Control
         private void FixedUpdate()
         {
             GroundCheck();
+            _throwForce = Vector2.Lerp(_throwForce, Vector2.zero, Time.fixedDeltaTime * throwForceDecreaseSpeed);
         }
 
         private void GroundCheck()
@@ -66,7 +69,7 @@ namespace Nightmares.Code.Control
 
         private void Move()
         {
-            _rb.velocity = new Vector2(speed * HorizontalInput, _rb.velocity.y);
+            _rb.velocity = new Vector2(speed * HorizontalInput, _rb.velocity.y) + _throwForce;
 
             if (JumpInput)
             {
@@ -80,6 +83,11 @@ namespace Nightmares.Code.Control
             {
                 _rb.AddForce(new Vector2(_rb.velocity.x, jump), ForceMode2D.Impulse);
             }
+        }
+
+        public void Throw(Vector2 throwForce)
+        {
+            _throwForce = throwForce;
         }
     }
 }

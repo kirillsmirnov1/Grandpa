@@ -23,7 +23,8 @@ namespace Nightmares.Code.Control.Enemy
         [SerializeField] private Rigidbody2D staffRb;
         [SerializeField] private EnemyStaff enemyStaff;
 
-        [Header("Damage Handling")]
+        [Header("Damage Handling")] 
+        [SerializeField] private Vector2 playerThrowForce;
         [SerializeField] private int fliesToSpawnOnHit = 5;
         [SerializeField] private GameObject flyPrefab; // TODO use factory later
         [SerializeField] private Transform flySpawnAnchor;
@@ -54,9 +55,19 @@ namespace Nightmares.Code.Control.Enemy
 
         private void OnHealthChange(float newHealth)
         {
-            if(newHealth == 1f) return;
+            if(newHealth is 1f or 0f) return;
             SpawnFlies();
+            ThrowPlayerOut();
         }
+
+        private void ThrowPlayerOut()
+        {
+            var throwForce = new Vector2(
+                (transform.position.x > 0 ? -1 : 1) * playerThrowForce.x, 
+                    playerThrowForce.y);
+            Player.Instance.GetComponent<PlayerMovement>().Throw(throwForce);
+        }
+
         private void SpawnFlies()
         {
             var seq = DOTween.Sequence();
