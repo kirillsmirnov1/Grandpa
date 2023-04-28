@@ -185,6 +185,7 @@ MonoBehaviour:
   throwbacksPlayerOnAttack: 0
   thrownBackByPlayerAttack: 1
   sprite: {fileID: 0}
+  attackFromTopAngle: 360
   rb: {fileID: 9014869060666721527}
   grandpa: {fileID: 2127573990450454334}
   moveSpeed: 3
