@@ -1,7 +1,5 @@
 ﻿using System;
-using Nightmares.Code.Extensions;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 namespace Nightmares.Code.Control
 {
