@@ -1,4 +1,5 @@
-﻿using DG.Tweening;
+﻿using System;
+using DG.Tweening;
 using Nightmares.Code.Control.Enemy;
 using Nightmares.Code.Extensions;
 using UnityEngine;
@@ -8,6 +9,9 @@ namespace Nightmares.Code.Control
 {
     public class PlatformerFlowHandler : MonoBehaviour
     {
+        public static event Action OnWin;
+        public static event Action OnDefeat;
+        
         [SerializeField] private CanvasGroup victoryBanner;
         [SerializeField] private CanvasGroup defeatBanner;
 
@@ -29,14 +33,22 @@ namespace Nightmares.Code.Control
         {
             if(_gameOverTriggered) return;
             _gameOverTriggered = true;
-            this.DelayAction(() => ShowBanner(victoryBanner), 1.5f);
+            this.DelayAction(() =>
+            {
+                OnWin?.Invoke();
+                ShowBanner(victoryBanner);
+            }, 1.5f);
         }
 
         private void OnPlayerDeath()
         {
             if(_gameOverTriggered) return;
             _gameOverTriggered = true;
-            this.DelayAction(() => ShowBanner(defeatBanner), 1.5f);
+            this.DelayAction(() =>
+            {
+                OnDefeat?.Invoke();
+                ShowBanner(defeatBanner);
+            }, 1.5f);
         }
 
         private void ShowBanner(CanvasGroup banner)
