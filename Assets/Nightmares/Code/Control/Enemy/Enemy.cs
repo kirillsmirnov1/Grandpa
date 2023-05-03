@@ -6,6 +6,7 @@ namespace Nightmares.Code.Control.Enemy
     public class Enemy : MonoBehaviour
     {
         public event Action<float> OnEnemyHealthChange;
+        public static event Action OnEnemyDamaged;
         public static event Action<Vector3> OnEnemyDestroyed;
         
         [SerializeField] private int startHealth = 1;
@@ -43,6 +44,7 @@ namespace Nightmares.Code.Control.Enemy
         public virtual void Damage()
         {
             Health--;
+            OnEnemyDamaged?.Invoke();
             if (Health <= 0)
             {
                 OnEnemyDestroyed?.Invoke(transform.position);
