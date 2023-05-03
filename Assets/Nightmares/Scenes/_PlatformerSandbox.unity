@@ -256,6 +256,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 2de24311b9764f540b69a4caa09753a3, type: 3}
   - {fileID: 8300000, guid: e76b8220d3faa634f960d8b3bd330fd0, type: 3}
   - {fileID: 8300000, guid: 479a9a6ffab572c45be4727b1ef99295, type: 3}
+  playerHitSound: {fileID: 8300000, guid: 40295b307aa8ae045bfb4e8a33c316d6, type: 3}
   winSound: {fileID: 8300000, guid: f592e8ef1369abb4cb24d5215488f9d2, type: 3}
   defeatSound: {fileID: 8300000, guid: 77ed8ce5425b3a04cbfdceeced50ea42, type: 3}
   sfxAudioSource: {fileID: 106596375}
@@ -3957,7 +3958,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 0ce67010393614143a35dce4fad58aac, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.5
+  m_Volume: 0.25
   m_Pitch: 1
   Loop: 1
   Mute: 0

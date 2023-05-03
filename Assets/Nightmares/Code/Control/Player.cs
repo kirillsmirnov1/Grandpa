@@ -5,7 +5,8 @@ namespace Nightmares.Code.Control
 {
     public class Player : MonoBehaviour
     {
-        public static event Action OnPlayerDeath; 
+        public static event Action OnPlayerDeath;
+        public static event Action OnPlayerDamage;
         public static event Action<int> OnPlayerHealthChange; 
 
         [SerializeField] private int maxHealth = 3;
@@ -41,6 +42,7 @@ namespace Nightmares.Code.Control
         public void DoDamage()
         {
             Health--;
+            OnPlayerDamage?.Invoke();
             if (Health <= 0)
             {
                 OnPlayerDeath?.Invoke();

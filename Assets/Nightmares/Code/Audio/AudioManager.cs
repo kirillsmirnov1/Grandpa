@@ -8,6 +8,7 @@ namespace Nightmares.Code.Audio
     public class AudioManager : MonoBehaviour
     {
         [SerializeField] private AudioClip[] enemyHitClip;
+        [SerializeField] private AudioClip playerHitSound;
         [SerializeField] private AudioClip winSound;
         [SerializeField] private AudioClip defeatSound;
 
@@ -20,6 +21,7 @@ namespace Nightmares.Code.Audio
             Enemy.OnEnemyDamaged += PlayEnemyDamagedSound;
             PlatformerFlowHandler.OnWin += OnVictory;
             PlatformerFlowHandler.OnDefeat += OnDefeat;
+            Player.OnPlayerDamage += OnPlayerDamage;
         }
 
         private void OnDestroy()
@@ -27,6 +29,12 @@ namespace Nightmares.Code.Audio
             Enemy.OnEnemyDamaged -= PlayEnemyDamagedSound;
             PlatformerFlowHandler.OnWin -= OnVictory;
             PlatformerFlowHandler.OnDefeat -= OnDefeat;
+            Player.OnPlayerDamage -= OnPlayerDamage;
+        }
+
+        private void OnPlayerDamage()
+        {
+            sfxAudioSource.PlayOneShot(playerHitSound);
         }
 
         private void OnDefeat()
