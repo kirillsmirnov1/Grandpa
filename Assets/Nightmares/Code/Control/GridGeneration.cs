@@ -8,11 +8,14 @@ namespace Nightmares.Code.Control
         [SerializeField] private Vector2Int dimensions = new Vector2Int(9, 40);
         [SerializeField] private Tilemap tilemap;
         
-        [Header("Tiles")]
+        [Header("Wall Tiles")]
         [SerializeField] private Tile wallLeft;
         [SerializeField] private Tile wallRight;
         [SerializeField] private Tile wallTop;
         [SerializeField] private Tile wallBottom;
+
+        [Header("Platform Tile")]
+        [SerializeField] private Tile platformMidTile;
 
         [ContextMenu("Clean Tile Map")]
         public void CleanTileMap()
