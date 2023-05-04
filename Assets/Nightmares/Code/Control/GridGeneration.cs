@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 using Random = UnityEngine.Random;
@@ -33,10 +32,8 @@ namespace Nightmares.Code.Control
         {
             CleanTileMap();
             
-            SpawnRow(wallTop, -levelDimensions.x / 2, levelDimensions.x / 2, 0);
             SpawnWalls();
-            SpawnRow(wallBottom, -levelDimensions.x / 2, levelDimensions.x / 2, -levelDimensions.y);
-            
+
             SpawnPlatforms();
         }
 
@@ -50,7 +47,7 @@ namespace Nightmares.Code.Control
 
         private void SpawnWalls()
         {
-            var xLeft = -levelDimensions.x / 2;
+            var xLeft = -levelDimensions.x / 2 - 1;
             var xRight = levelDimensions.x / 2;
             for (int y = 1; y < levelDimensions.y; y++)
             {
@@ -90,8 +87,8 @@ namespace Nightmares.Code.Control
             int maxPlatformWidth = MaxPlatformWidth();
             return new[]
             {
-                new Vector2Int(-levelDimensions.x / 2 + 1, -levelDimensions.x / 2 + maxPlatformWidth),
-                new Vector2Int(-maxPlatformWidth / 2, maxPlatformWidth / 2),
+                new Vector2Int(-levelDimensions.x / 2 , -levelDimensions.x / 2 + maxPlatformWidth - 1),
+                new Vector2Int(-maxPlatformWidth / 2 - 1, maxPlatformWidth / 2),
                 new Vector2Int(levelDimensions.x / 2 - maxPlatformWidth, levelDimensions.x / 2 - 1),
             };
         }
