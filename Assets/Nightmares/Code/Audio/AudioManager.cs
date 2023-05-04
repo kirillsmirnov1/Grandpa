@@ -19,16 +19,16 @@ namespace Nightmares.Code.Audio
         private void Awake()
         {
             Enemy.OnEnemyDamaged += PlayEnemyDamagedSound;
-            PlatformerFlowHandler.OnWin += OnVictory;
-            PlatformerFlowHandler.OnDefeat += OnDefeat;
+            PlatformerGameManager.OnWin += OnVictory;
+            PlatformerGameManager.OnDefeat += OnDefeat;
             Player.OnPlayerDamage += OnPlayerDamage;
         }
 
         private void OnDestroy()
         {
             Enemy.OnEnemyDamaged -= PlayEnemyDamagedSound;
-            PlatformerFlowHandler.OnWin -= OnVictory;
-            PlatformerFlowHandler.OnDefeat -= OnDefeat;
+            PlatformerGameManager.OnWin -= OnVictory;
+            PlatformerGameManager.OnDefeat -= OnDefeat;
             Player.OnPlayerDamage -= OnPlayerDamage;
         }
 

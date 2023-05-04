@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 
 namespace Nightmares.Code.Control
 {
-    public class PlatformerFlowHandler : MonoBehaviour
+    public class PlatformerGameManager : MonoBehaviour
     {
         public static event Action OnWin;
         public static event Action OnDefeat;

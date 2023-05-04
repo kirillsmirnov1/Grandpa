@@ -61,7 +61,7 @@ namespace Nightmares.Code.Control
             HorizontalInput = Input.GetAxis("Horizontal");
             JumpInput = Input.GetButtonDown("Jump") || Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow);
 
-            if (GameMode.TouchControlsEnabled)
+            if (TouchControlsEnabler.TouchControlsEnabled)
             {
                 HorizontalInput += mobileInput.HorizontalInput;
             }
