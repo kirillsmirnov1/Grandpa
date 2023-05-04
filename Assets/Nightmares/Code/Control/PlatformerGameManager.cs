@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using DG.Tweening;
 using Nightmares.Code.Control.Enemy;
 using Nightmares.Code.Extensions;
@@ -14,6 +15,7 @@ namespace Nightmares.Code.Control
      
         [SerializeField] private Vector2Int levelDimensions = new(13, 40);
         [SerializeField] private GridGeneration gridGeneration;
+        [SerializeField] private EnemySpawn enemySpawn;
         [SerializeField] private CanvasGroup victoryBanner;
         [SerializeField] private CanvasGroup defeatBanner;
 
@@ -27,10 +29,11 @@ namespace Nightmares.Code.Control
             GrandpaController.OnGrandpaDefeated += OnVictory;
         }
 
-        private void Start()
+        private IEnumerator Start()
         {
             gridGeneration.SpawnTileMap();
-            // TODO spawn enemies
+            yield return null;
+            enemySpawn.SpawnEnemies();
         }
 
         private void OnDestroy()
