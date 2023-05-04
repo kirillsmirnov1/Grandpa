@@ -67,12 +67,10 @@ namespace Nightmares.Code.Control
             {
                 var range = ranges[nextRangeIndex];
                 
-                var left = Random.Range(range.x, range.y);
-                var right = Random.Range(left, range.y + 1);
+                var left = Random.Range(range.x, range.y - 1);
+                var right = Random.Range(left + 1, range.y + 1);
 
                 SpawnPlatform(left, right, -y);
-                
-                Debug.Log($"x: {left} → {right}, y: {y}");
                 
                 y += Random.Range(verticalGap.x, verticalGap.y + 1);
                 nextRangeIndex = Random.Range(0, 3);
