@@ -35,7 +35,7 @@ namespace Nightmares.Code.Control
             
             SpawnRow(wallTop, -levelDimensions.x / 2, levelDimensions.x / 2, 0);
             SpawnWalls();
-            SpawnRow(wallBottom, -levelDimensions.x / 2, levelDimensions.x / 2, levelDimensions.y);
+            SpawnRow(wallBottom, -levelDimensions.x / 2, levelDimensions.x / 2, -levelDimensions.y);
             
             SpawnPlatforms();
         }
@@ -54,8 +54,8 @@ namespace Nightmares.Code.Control
             var xRight = levelDimensions.x / 2;
             for (int y = 1; y < levelDimensions.y; y++)
             {
-                tilemap.SetTile(new Vector3Int(xLeft, y), wallLeft);
-                tilemap.SetTile(new Vector3Int(xRight, y), wallRight);
+                tilemap.SetTile(new Vector3Int(xLeft, -y), wallLeft);
+                tilemap.SetTile(new Vector3Int(xRight, -y), wallRight);
             }
         }
 
@@ -70,8 +70,10 @@ namespace Nightmares.Code.Control
                 var left = Random.Range(range.x, range.y);
                 var right = Random.Range(left, range.y + 1);
 
-                SpawnPlatform(left, right, y);
-
+                SpawnPlatform(left, right, -y);
+                
+                Debug.Log($"x: {left} → {right}, y: {y}");
+                
                 y += Random.Range(verticalGap.x, verticalGap.y + 1);
                 nextRangeIndex = Random.Range(0, 3);
             }
