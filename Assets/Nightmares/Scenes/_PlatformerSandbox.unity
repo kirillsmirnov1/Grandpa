@@ -455,6 +455,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3610476438384332875, guid: ea6c05fab75820c46afcbfd83792c60a, type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 320371697}
     - target: {fileID: 8432189614937608472, guid: ea6c05fab75820c46afcbfd83792c60a, type: 3}
       propertyPath: m_Size.x
       value: 0
@@ -2922,6 +2926,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4426f47f140543819effd2143204c878, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  levelDimensions: {x: 13, y: 40}
   gridGeneration: {fileID: 943665382}
   victoryBanner: {fileID: 7387377254324785668}
   defeatBanner: {fileID: 1930105756}

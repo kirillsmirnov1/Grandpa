@@ -6,20 +6,20 @@ namespace Nightmares.Code.Control
 {
     public class GridGeneration : MonoBehaviour
     {
-        [SerializeField] private Vector2Int levelDimensions = new(13, 40);
         [SerializeField] private Vector2Int verticalGap = new(3, 5);
 
         [Header("Components")]
         [SerializeField] private Tilemap tilemap;
-        
+        [SerializeField] private PlatformerGameManager gameManager;
+
         [Header("Wall Tiles")]
         [SerializeField] private Tile wallLeft;
         [SerializeField] private Tile wallRight;
-        [SerializeField] private Tile wallTop;
-        [SerializeField] private Tile wallBottom;
 
         [Header("Platform Tile")]
         [SerializeField] private Tile platformMidTile;
+        
+        private Vector2Int _levelDimensions;
 
         [ContextMenu("Clean Tile Map")]
         public void CleanTileMap()
@@ -30,6 +30,8 @@ namespace Nightmares.Code.Control
         [ContextMenu("Spawn Tile Map")]
         public void SpawnTileMap()
         {
+            _levelDimensions = gameManager.LevelDimensions;
+            
             CleanTileMap();
             
             SpawnWalls();
@@ -47,9 +49,9 @@ namespace Nightmares.Code.Control
 
         private void SpawnWalls()
         {
-            var xLeft = -levelDimensions.x / 2 - 1;
-            var xRight = levelDimensions.x / 2;
-            for (int y = 1; y < levelDimensions.y; y++)
+            var xLeft = -_levelDimensions.x / 2 - 1;
+            var xRight = _levelDimensions.x / 2;
+            for (int y = 1; y < _levelDimensions.y; y++)
             {
                 tilemap.SetTile(new Vector3Int(xLeft, -y), wallLeft);
                 tilemap.SetTile(new Vector3Int(xRight, -y), wallRight);
@@ -60,7 +62,7 @@ namespace Nightmares.Code.Control
         {
             var ranges = GenerateRanges();
             var nextRangeIndex = 0;
-            for (int y = verticalGap.y; y < levelDimensions.y - verticalGap.y; )
+            for (int y = verticalGap.y; y < _levelDimensions.y - verticalGap.y; )
             {
                 var range = ranges[nextRangeIndex];
                 
@@ -100,16 +102,16 @@ namespace Nightmares.Code.Control
             int maxPlatformWidth = MaxPlatformWidth();
             return new[]
             {
-                new Vector2Int(-levelDimensions.x / 2 , -levelDimensions.x / 2 + maxPlatformWidth - 1),
+                new Vector2Int(-_levelDimensions.x / 2 , -_levelDimensions.x / 2 + maxPlatformWidth - 1),
                 new Vector2Int(-maxPlatformWidth / 2 - 1, maxPlatformWidth / 2),
-                new Vector2Int(levelDimensions.x / 2 - maxPlatformWidth, levelDimensions.x / 2 - 1),
+                new Vector2Int(_levelDimensions.x / 2 - maxPlatformWidth, _levelDimensions.x / 2 - 1),
             };
         }
 
         private int MaxPlatformWidth()
         {
-            var maxPlatformWidth = levelDimensions.x / 3 + 1;
-            if (levelDimensions.x % 2 == 0)
+            var maxPlatformWidth = _levelDimensions.x / 3 + 1;
+            if (_levelDimensions.x % 2 == 0)
             {
                 if (maxPlatformWidth % 2 != 0)
                 {

@@ -11,12 +11,15 @@ namespace Nightmares.Code.Control
     {
         public static event Action OnWin;
         public static event Action OnDefeat;
-        
+     
+        [SerializeField] private Vector2Int levelDimensions = new(13, 40);
         [SerializeField] private GridGeneration gridGeneration;
         [SerializeField] private CanvasGroup victoryBanner;
         [SerializeField] private CanvasGroup defeatBanner;
 
         private bool _gameOverTriggered;
+
+        public Vector2Int LevelDimensions => levelDimensions; 
         
         private void Awake()
         {
