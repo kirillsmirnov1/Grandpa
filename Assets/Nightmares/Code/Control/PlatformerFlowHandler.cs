@@ -12,6 +12,7 @@ namespace Nightmares.Code.Control
         public static event Action OnWin;
         public static event Action OnDefeat;
         
+        [SerializeField] private GridGeneration gridGeneration;
         [SerializeField] private CanvasGroup victoryBanner;
         [SerializeField] private CanvasGroup defeatBanner;
 
@@ -21,6 +22,12 @@ namespace Nightmares.Code.Control
         {
             Player.OnPlayerDeath += OnPlayerDeath;
             GrandpaController.OnGrandpaDefeated += OnVictory;
+        }
+
+        private void Start()
+        {
+            gridGeneration.SpawnTileMap();
+            // TODO spawn enemies
         }
 
         private void OnDestroy()

@@ -643,31 +643,39 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8432189614937608472, guid: ea6c05fab75820c46afcbfd83792c60a, type: 3}
       propertyPath: m_Size.x
-      value: 14
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8432189614937608472, guid: ea6c05fab75820c46afcbfd83792c60a, type: 3}
       propertyPath: m_Size.y
-      value: 39
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8432189614937608472, guid: ea6c05fab75820c46afcbfd83792c60a, type: 3}
       propertyPath: m_Origin.x
-      value: -7
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8432189614937608472, guid: ea6c05fab75820c46afcbfd83792c60a, type: 3}
       propertyPath: m_Origin.y
-      value: -39
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8432189614937608472, guid: ea6c05fab75820c46afcbfd83792c60a, type: 3}
       propertyPath: m_Tiles.Array.size
-      value: 124
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8432189614937608472, guid: ea6c05fab75820c46afcbfd83792c60a, type: 3}
       propertyPath: m_TileAssetArray.Array.size
-      value: 3
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8432189614937608472, guid: ea6c05fab75820c46afcbfd83792c60a, type: 3}
+      propertyPath: m_TileColorArray.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8432189614937608472, guid: ea6c05fab75820c46afcbfd83792c60a, type: 3}
+      propertyPath: m_TileMatrixArray.Array.size
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8432189614937608472, guid: ea6c05fab75820c46afcbfd83792c60a, type: 3}
       propertyPath: m_TileSpriteArray.Array.size
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8432189614937608472, guid: ea6c05fab75820c46afcbfd83792c60a, type: 3}
       propertyPath: m_Tiles.Array.data[0].first.x
@@ -3084,6 +3092,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4426f47f140543819effd2143204c878, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gridGeneration: {fileID: 943665382}
   victoryBanner: {fileID: 7387377254324785668}
   defeatBanner: {fileID: 1930105756}
 --- !u!4 &320371698
@@ -3519,6 +3528,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6968884574411229061, guid: 417a239324fb41b4c82c5efaa7580935, type: 3}
   m_PrefabInstance: {fileID: 926243878}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &943665382 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3610476438384332875, guid: ea6c05fab75820c46afcbfd83792c60a, type: 3}
+  m_PrefabInstance: {fileID: 306184842}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61f9cf87e59a0b04cba0921597c86c3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &954884957
 GameObject:
   m_ObjectHideFlags: 0
