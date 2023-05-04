@@ -70,8 +70,21 @@ namespace Nightmares.Code.Control
                 SpawnPlatform(left, right, -y);
                 
                 y += Random.Range(verticalGap.x, verticalGap.y + 1);
-                nextRangeIndex = Random.Range(0, 3);
+                
+                nextRangeIndex = GetNextRangeIndex(nextRangeIndex);
             }
+        }
+
+        private static int GetNextRangeIndex(int rangeIndex)
+        {
+            int next;
+            do
+            {
+                next = Random.Range(0, 3);
+            } while (next == rangeIndex);
+
+            rangeIndex = next;
+            return rangeIndex;
         }
 
         private void SpawnPlatform(int xLeft, int xRight, int y)
