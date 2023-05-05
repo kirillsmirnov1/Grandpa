@@ -24,9 +24,9 @@ namespace Nightmares.Code.Control
             PlayParticlesAtPos(playerDamageParticles, pos);
         }
 
-        private void PlayEnemyDeathParticles(Vector3 pos)
+        private void PlayEnemyDeathParticles(Enemy.Enemy enemy)
         {
-            PlayParticlesAtPos(enemyDeathParticles, pos);
+            PlayParticlesAtPos(enemyDeathParticles, enemy.transform.position);
         }
 
         private void PlayParticlesAtPos(ParticleSystem particles, Vector3 pos)

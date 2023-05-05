@@ -7,7 +7,7 @@ namespace Nightmares.Code.Control.Enemy
     {
         public event Action<float> OnEnemyHealthChange;
         public static event Action OnEnemyDamaged;
-        public static event Action<Vector3> OnEnemyDestroyed;
+        public static event Action<Enemy> OnEnemyDestroyed;
         
         [SerializeField] private int startHealth = 1;
         [SerializeField] private int points;
@@ -49,7 +49,7 @@ namespace Nightmares.Code.Control.Enemy
             OnEnemyDamaged?.Invoke();
             if (Health <= 0)
             {
-                OnEnemyDestroyed?.Invoke(transform.position);
+                OnEnemyDestroyed?.Invoke(this);
                 Destroy(gameObject);
             }
             else
