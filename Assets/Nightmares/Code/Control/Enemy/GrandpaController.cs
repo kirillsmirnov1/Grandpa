@@ -60,6 +60,7 @@ namespace Nightmares.Code.Control.Enemy
         private void OnEnable()
         {
             _spawnedFlies = new List<Enemy>();
+            healthSlider.gameObject.SetActive(false);
             enemyRef.OnEnemyHealthChange += OnHealthChange;
         }
 
