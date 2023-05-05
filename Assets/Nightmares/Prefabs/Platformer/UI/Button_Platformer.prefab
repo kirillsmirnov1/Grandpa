@@ -104,6 +104,10 @@ PrefabInstance:
       value: restart
       objectReference: {fileID: 0}
     - target: {fileID: 6966325922631499131, guid: f24762e019b978f4086be6f50dae57a3, type: 3}
+      propertyPath: m_fontSize
+      value: 64.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6966325922631499131, guid: f24762e019b978f4086be6f50dae57a3, type: 3}
       propertyPath: m_fontAsset
       value: 
       objectReference: {fileID: 11400000, guid: 2057f3c37c0db1e4caeae1b6dbe0235e, type: 2}
@@ -134,6 +138,14 @@ PrefabInstance:
     - target: {fileID: 7944796956407209612, guid: f24762e019b978f4086be6f50dae57a3, type: 3}
       propertyPath: m_Name
       value: Button_Platformer
+      objectReference: {fileID: 0}
+    - target: {fileID: 8699861931064823281, guid: f24762e019b978f4086be6f50dae57a3, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -30
+      objectReference: {fileID: 0}
+    - target: {fileID: 8699861931064823281, guid: f24762e019b978f4086be6f50dae57a3, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f24762e019b978f4086be6f50dae57a3, type: 3}
