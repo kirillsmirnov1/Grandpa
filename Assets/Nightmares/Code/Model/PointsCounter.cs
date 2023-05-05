@@ -1,4 +1,6 @@
-﻿using TMPro;
+﻿using System;
+using Nightmares.Code.Control.Enemy;
+using TMPro;
 using UnityEngine;
 
 namespace Nightmares.Code.Model
@@ -23,6 +25,18 @@ namespace Nightmares.Code.Model
         private void Awake()
         {
             Points = 0;
+
+            Enemy.OnEnemyDestroyed += OnEnemyDestroyed;
+        }
+
+        private void OnDestroy()
+        {
+            Enemy.OnEnemyDestroyed -= OnEnemyDestroyed;
+        }
+
+        private void OnEnemyDestroyed(Enemy enemy)
+        {
+            Points += enemy.Points;
         }
     }
 }
