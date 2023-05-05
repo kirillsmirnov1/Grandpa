@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using DG.Tweening;
 using Nightmares.Code.Extensions;
+using Nightmares.Code.Model;
 using Nightmares.Code.UI;
 using UnityEngine;
 
@@ -39,10 +40,10 @@ namespace Nightmares.Code.Control.Enemy
         
         [Header("Damage Handling")] 
         [SerializeField] private Vector2 playerThrowForce;
-        [SerializeField] private int fliesToSpawnOnHit = 5;
         [SerializeField] private GameObject flyPrefab; // TODO use factory later
         [SerializeField] private Transform flySpawnAnchor;
-        
+
+        private int _fliesToSpawnOnHit;
         private State _state;
         private List<Enemy> _spawnedFlies;
 
@@ -50,6 +51,7 @@ namespace Nightmares.Code.Control.Enemy
 
         private void Start()
         {
+            _fliesToSpawnOnHit = Mathf.FloorToInt(Prefs.GrandpaDifficulty * 0.5f + 1.5f);
             mainSprite.onBecameVisible += OnVisible;
             enemyRef.OnEnemyHealthChange += UpdateSlider;
             Physics2D.IgnoreCollision(grandpaCollider, staffCollider);
@@ -110,7 +112,7 @@ namespace Nightmares.Code.Control.Enemy
         private void SpawnFlies()
         {
             var seq = DOTween.Sequence();
-            for (int i = 0; i < fliesToSpawnOnHit; i++)
+            for (int i = 0; i < _fliesToSpawnOnHit; i++)
             {
                 seq.AppendInterval(.05f);
                 seq.AppendCallback(() =>
