@@ -5,10 +5,9 @@ namespace Nightmares.Code.Model
 {
     public class TouchControlsEnabler : MonoBehaviour
     {
-        public static bool TouchControlsEnabled 
-            => _instance.forceMobileControls 
-               || Application.platform == RuntimePlatform.Android
-               || Prefs.ForcedMobileControls;
+        public static bool TouchControlsEnabled
+            => _instance.forceMobileControls
+               || Application.platform == RuntimePlatform.Android;
         
         private static TouchControlsEnabler _instance;
         
@@ -33,7 +32,7 @@ namespace Nightmares.Code.Model
         private void EnableMobileCanvas()
         {
 #if UNITY_WEBGL
-            forceEnableMobileControlsButton.gameObject.SetActive(!Prefs.ForcedMobileControls);
+            forceEnableMobileControlsButton.gameObject.SetActive(true);
             forceEnableMobileControlsButton.onClick.AddListener(OnForceEnableMobileControlsButtonClick);
 #else
             forceEnableMobileControlsButton.gameObject.SetActive(false);
@@ -43,7 +42,7 @@ namespace Nightmares.Code.Model
 #if UNITY_WEBGL
         private void OnForceEnableMobileControlsButtonClick()
         {
-            Prefs.ForcedMobileControls = true;
+            forceMobileControls = true;
             forceEnableMobileControlsButton.gameObject.SetActive(false);
             EnableMobileCanvas();
         }
