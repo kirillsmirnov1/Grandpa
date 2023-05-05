@@ -20,6 +20,7 @@ namespace Nightmares.Code.Control
         [SerializeField] private EnemySpawn enemySpawn;
         [SerializeField] private CanvasGroup victoryBanner;
         [SerializeField] private CanvasGroup defeatBanner;
+        [SerializeField] private CameraFollowsPlayer cameraFollowsPlayer;
 
         private bool _gameOverTriggered;
 
@@ -65,6 +66,12 @@ namespace Nightmares.Code.Control
             {
                 callback?.Invoke();
                 ShowBanner(bannerCG);
+                
+                var player = Player.Instance;
+
+                cameraFollowsPlayer.enabled = false;
+                player.gameObject.SetActive(false);
+                player.transform.position = new Vector3(0, 100);
             }, 1.5f);
         }
 

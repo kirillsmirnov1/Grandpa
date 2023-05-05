@@ -123,6 +123,17 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &31801218 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 872480229, guid: d9eb32e56fbcf0745ab237947b4f60e9, type: 3}
+  m_PrefabInstance: {fileID: 6997234214579237476}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71bd0b724b0640d88c02ffb49c068760, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &106596372
 GameObject:
   m_ObjectHideFlags: 0
@@ -2828,6 +2839,7 @@ MonoBehaviour:
   enemySpawn: {fileID: 1656254755}
   victoryBanner: {fileID: 7387377254324785668}
   defeatBanner: {fileID: 1930105756}
+  cameraFollowsPlayer: {fileID: 31801218}
 --- !u!4 &320371698
 Transform:
   m_ObjectHideFlags: 0
@@ -3349,7 +3361,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2065791525948684845, guid: d130e3f1026b1554596a52ded068a849, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 250
       objectReference: {fileID: 0}
     - target: {fileID: 2065791525948684845, guid: d130e3f1026b1554596a52ded068a849, type: 3}
       propertyPath: m_SizeDelta.y
@@ -3373,7 +3385,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2065791526832830416, guid: d130e3f1026b1554596a52ded068a849, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 250
       objectReference: {fileID: 0}
     - target: {fileID: 2065791526832830416, guid: d130e3f1026b1554596a52ded068a849, type: 3}
       propertyPath: m_SizeDelta.y
@@ -3485,7 +3497,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6572778145462748026, guid: d130e3f1026b1554596a52ded068a849, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 250
       objectReference: {fileID: 0}
     - target: {fileID: 6572778145462748026, guid: d130e3f1026b1554596a52ded068a849, type: 3}
       propertyPath: m_SizeDelta.y
