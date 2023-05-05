@@ -15,7 +15,8 @@ namespace Nightmares.Code.Control
         [Header("Wall Tiles")]
         [SerializeField] private Tile wallLeft;
         [SerializeField] private Tile wallRight;
-
+        [SerializeField] private Tile wallTop;
+        
         [Header("Platform Tile")]
         [SerializeField] private Tile platformMidTile;
         
@@ -33,9 +34,9 @@ namespace Nightmares.Code.Control
             _levelDimensions = gameManager.LevelDimensions;
             
             CleanTileMap();
-            
-            SpawnWalls();
 
+            SpawnRow(wallTop, _levelDimensions.x / 2 - 1, _levelDimensions.x / 2, 0);
+            SpawnWalls();
             SpawnPlatforms();
         }
 
