@@ -186,3 +186,4 @@ MonoBehaviour:
   speed: 1.6
   dirResetTime: 5
   eyeRotationSpeed: 3
+  maxPlayerDistance: 6

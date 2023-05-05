@@ -9,6 +9,7 @@ namespace Nightmares.Code.Control.Enemy
         [SerializeField] private float speed = 1;
         [SerializeField] private float dirResetTime = 2f;
         [SerializeField] private float eyeRotationSpeed = 3f;
+        [SerializeField] private float maxPlayerDistance = 5f;
         
         private Rigidbody2D _rb;
         private float _nextDirectionChange;
@@ -43,7 +44,8 @@ namespace Nightmares.Code.Control.Enemy
 
         private void FixedUpdate()
         {
-            _playerVisible = EnemyUtils.CheckEnemySeesPlayer(transform.position);
+            _playerVisible = Vector2.Distance(transform.position, _player.position) < maxPlayerDistance
+                             && EnemyUtils.CheckEnemySeesPlayer(transform.position);
         }
 
         private void RotateEye()
