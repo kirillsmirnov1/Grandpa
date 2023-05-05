@@ -19,13 +19,17 @@ namespace Nightmares.Code.Control
         private void Awake()
         {
             _cam = GetComponent<Camera>();
-            _yMax = 1f;
-            _yMin = -gameManager.LevelDimensions.y - gameManager.GrandpasRoomHeight;
         }
 
         private void FixedUpdate()
         {
             FollowPlayer(Time.fixedDeltaTime);
+        }
+
+        public void InitDimensions()
+        {
+            _yMax = 1f;
+            _yMin = -gameManager.LevelDimensions.y - gameManager.GrandpasRoomHeight;
         }
 
         private void FollowPlayer(float dt)

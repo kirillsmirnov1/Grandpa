@@ -39,7 +39,7 @@ namespace Nightmares.Code.Control
         private IEnumerator Start()
         {
             levelDimensions.y = Prefs.GrandpaDifficulty * yHeightPerDifficultyLevel;
-            
+            cameraFollowsPlayer.InitDimensions();
             yield return null;
             
             gridGeneration.SpawnTileMap();
