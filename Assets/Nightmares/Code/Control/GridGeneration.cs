@@ -52,7 +52,7 @@ namespace Nightmares.Code.Control
         {
             var xLeft = -_levelDimensions.x / 2 - 1;
             var xRight = _levelDimensions.x / 2;
-            for (int y = 1; y < _levelDimensions.y; y++)
+            for (int y = 1; y <= _levelDimensions.y; y++)
             {
                 tilemap.SetTile(new Vector3Int(xLeft, -y), wallLeft);
                 tilemap.SetTile(new Vector3Int(xRight, -y), wallRight);
@@ -63,7 +63,7 @@ namespace Nightmares.Code.Control
         {
             var ranges = GenerateRanges();
             var nextRangeIndex = 0;
-            for (int y = verticalGap.y; y < _levelDimensions.y - gameManager.GrandpasRoomHeight - verticalGap.x; )
+            for (int y = verticalGap.y; y < _levelDimensions.y - verticalGap.x; )
             {
                 var range = ranges[nextRangeIndex];
                 

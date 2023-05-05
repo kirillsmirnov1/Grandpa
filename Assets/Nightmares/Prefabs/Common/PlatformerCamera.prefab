@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 973875ec3f4e7ab488d81565f613e4fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  desiredWidth: 14
+  desiredWidth: 11
 --- !u!114 &872480229
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -113,4 +113,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lerpSpeed: 10
   target: {fileID: 0}
-  baseTiles: {fileID: 0}
+  gameManager: {fileID: 0}

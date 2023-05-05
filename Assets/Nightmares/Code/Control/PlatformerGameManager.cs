@@ -16,6 +16,7 @@ namespace Nightmares.Code.Control
         [SerializeField] private Vector2Int levelDimensions = new(13, 40);
         [SerializeField] private int grandpasRoomHeight = 8;
         [SerializeField] private GridGeneration gridGeneration;
+        [SerializeField] private Transform grandpaWrap;
         [SerializeField] private EnemySpawn enemySpawn;
         [SerializeField] private CanvasGroup victoryBanner;
         [SerializeField] private CanvasGroup defeatBanner;
@@ -34,6 +35,8 @@ namespace Nightmares.Code.Control
         private IEnumerator Start()
         {
             gridGeneration.SpawnTileMap();
+            grandpaWrap.position = new Vector3(0, -levelDimensions.y);
+            grandpaWrap.gameObject.SetActive(true);
             yield return null;
             enemySpawn.SpawnEnemies();
         }
