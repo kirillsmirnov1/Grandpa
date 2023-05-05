@@ -44,7 +44,7 @@ namespace Nightmares.Code.Model
         {
             forceMobileControls = true;
             forceEnableMobileControlsButton.gameObject.SetActive(false);
-            EnableMobileCanvas();
+            mobileCanvas.SetActive(true);
         }
 #endif
     }
