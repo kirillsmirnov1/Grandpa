@@ -6,6 +6,7 @@ namespace Nightmares.Code.Control.Enemy
     {
         [SerializeField] private GameObject[] enemyPrefabs;
         [SerializeField] private int[] spawnCost;
+        [SerializeField] private float step = 1;
         [SerializeField] private AnimationCurve budget;
         [SerializeField] private PlatformerGameManager gameManager;
 
@@ -15,7 +16,7 @@ namespace Nightmares.Code.Control.Enemy
         {
             var levelDimensions = gameManager.LevelDimensions;
             float yLimit = levelDimensions.y;
-            for (float y = 0; y < yLimit; y++)
+            for (float y = 0; y < yLimit; y += step)
             {
                 _balance += budget.Evaluate(y / yLimit);
                 if (_balance >= 1)

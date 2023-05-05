@@ -2832,6 +2832,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4426f47f140543819effd2143204c878, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  yHeightPerDifficultyLevel: 50
   levelDimensions: {x: 11, y: 50}
   grandpasRoomHeight: 13
   gridGeneration: {fileID: 943665382}
@@ -3185,6 +3186,7 @@ MonoBehaviour:
   - {fileID: 6393622527497393981, guid: e685bb53c87fc9247a4f575a33d929ce, type: 3}
   - {fileID: 6471648455523291630, guid: cbd39e5971d61b24a8e3f4b3a4db8774, type: 3}
   spawnCost: 010000000300000006000000
+  step: 2
   budget:
     serializedVersion: 2
     m_Curve:
