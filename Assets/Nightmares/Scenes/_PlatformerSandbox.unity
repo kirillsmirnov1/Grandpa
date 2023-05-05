@@ -3183,10 +3183,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPrefabs:
-  - {fileID: 6968884574411229060, guid: 417a239324fb41b4c82c5efaa7580935, type: 3}
-  - {fileID: 6393622527497393981, guid: e685bb53c87fc9247a4f575a33d929ce, type: 3}
-  - {fileID: 6471648455523291630, guid: cbd39e5971d61b24a8e3f4b3a4db8774, type: 3}
-  spawnCost: 010000000300000006000000
+  - {fileID: 9152557826200809208, guid: 417a239324fb41b4c82c5efaa7580935, type: 3}
+  - {fileID: 5118530713565167169, guid: e685bb53c87fc9247a4f575a33d929ce, type: 3}
+  - {fileID: 5079480643448699026, guid: cbd39e5971d61b24a8e3f4b3a4db8774, type: 3}
   step: 2
   budget:
     serializedVersion: 2

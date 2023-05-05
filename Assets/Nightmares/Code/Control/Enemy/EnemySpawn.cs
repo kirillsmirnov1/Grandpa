@@ -1,19 +1,22 @@
-﻿using UnityEngine;
+﻿using System.Linq;
+using UnityEngine;
 
 namespace Nightmares.Code.Control.Enemy
 {
     public class EnemySpawn : MonoBehaviour
     {
-        [SerializeField] private GameObject[] enemyPrefabs;
-        [SerializeField] private int[] spawnCost;
+        [SerializeField] private Enemy[] enemyPrefabs;
         [SerializeField] private float step = 1;
         [SerializeField] private AnimationCurve budget;
         [SerializeField] private PlatformerGameManager gameManager;
 
         private float _balance;
+        private int[] _spawnCost;
         
         public void SpawnEnemies()
         {
+            _spawnCost = enemyPrefabs.Select(e => e.Points).ToArray();
+            
             var levelDimensions = gameManager.LevelDimensions;
             float yLimit = levelDimensions.y;
             for (float y = 0; y < yLimit; y += step)
@@ -22,11 +25,11 @@ namespace Nightmares.Code.Control.Enemy
                 if (_balance >= 1)
                 {
                     var enemyIndex = Random.Range(0, enemyPrefabs.Length);
-                    while (spawnCost[enemyIndex] > _balance)
+                    while (_spawnCost[enemyIndex] > _balance)
                     {
                         enemyIndex--;
                     }
-                    _balance -= spawnCost[enemyIndex];
+                    _balance -= _spawnCost[enemyIndex];
                     SpawnEnemy(enemyIndex, -y);
                 }
             }
