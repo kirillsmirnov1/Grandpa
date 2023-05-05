@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using UnityEngine.Tilemaps;
 
 namespace Nightmares.Code.Control
 {
@@ -8,7 +7,7 @@ namespace Nightmares.Code.Control
         public float lerpSpeed = 1f;
         
         public Transform target;
-        public TilemapRenderer baseTiles;
+        [SerializeField] private PlatformerGameManager gameManager;
 
         private Camera _cam;
         
@@ -20,7 +19,8 @@ namespace Nightmares.Code.Control
         private void Awake()
         {
             _cam = GetComponent<Camera>();
-            CalculateLimitsFromTileMap(baseTiles);
+            _yMax = 1f;
+            _yMin = -gameManager.LevelDimensions.y - gameManager.GrandpasRoomHeight;
         }
 
         private void FixedUpdate()
@@ -34,12 +34,6 @@ namespace Nightmares.Code.Control
             var newY = Mathf.Clamp(target.position.y, _yMin + _cam.orthographicSize, _yMax - _cam.orthographicSize);
             pos.y = newY;
             transform.position = Vector3.Lerp(transform.position, pos, lerpSpeed * dt);
-        }
-
-        private void CalculateLimitsFromTileMap(TilemapRenderer tiles)
-        {
-            _yMax = tiles.bounds.max.y;
-            _yMin = tiles.bounds.min.y;
         }
     }
 }
