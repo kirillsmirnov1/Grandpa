@@ -14,6 +14,7 @@ namespace Nightmares.Code.Control
         public static event Action OnDefeat;
      
         [SerializeField] private Vector2Int levelDimensions = new(13, 40);
+        [SerializeField] private int grandpasRoomHeight = 8;
         [SerializeField] private GridGeneration gridGeneration;
         [SerializeField] private EnemySpawn enemySpawn;
         [SerializeField] private CanvasGroup victoryBanner;
@@ -21,7 +22,8 @@ namespace Nightmares.Code.Control
 
         private bool _gameOverTriggered;
 
-        public Vector2Int LevelDimensions => levelDimensions; 
+        public Vector2Int LevelDimensions => levelDimensions;
+        public int GrandpasRoomHeight => grandpasRoomHeight;
         
         private void Awake()
         {

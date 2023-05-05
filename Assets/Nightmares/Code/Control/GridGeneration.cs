@@ -63,7 +63,7 @@ namespace Nightmares.Code.Control
         {
             var ranges = GenerateRanges();
             var nextRangeIndex = 0;
-            for (int y = verticalGap.y; y < _levelDimensions.y - verticalGap.y; )
+            for (int y = verticalGap.y; y < _levelDimensions.y - gameManager.GrandpasRoomHeight - verticalGap.x; )
             {
                 var range = ranges[nextRangeIndex];
                 
