@@ -35,7 +35,7 @@ namespace Nightmares.Code.Control
             
             CleanTileMap();
 
-            SpawnRow(wallTop, _levelDimensions.x / 2 - 1, _levelDimensions.x / 2, 0);
+            SpawnRow(wallTop, -_levelDimensions.x / 2 - 1, _levelDimensions.x / 2, 0);
             SpawnWalls();
             SpawnPlatforms();
         }
