@@ -6,6 +6,7 @@ using Nightmares.Code.Extensions;
 using Nightmares.Code.Model;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 namespace Nightmares.Code.Control
 {
@@ -24,6 +25,7 @@ namespace Nightmares.Code.Control
         [SerializeField] private CanvasGroup defeatBanner;
         [SerializeField] private CameraFollowsPlayer cameraFollowsPlayer;
         [SerializeField] private Player player;
+        [SerializeField] private RectTransform mobileInputs;
         
         private bool _gameOverTriggered;
 
@@ -61,6 +63,8 @@ namespace Nightmares.Code.Control
             yield return null;
             
             enemySpawn.SpawnEnemies();
+            
+            LayoutRebuilder.ForceRebuildLayoutImmediate(mobileInputs);
         }
 
         private void OnDestroy()

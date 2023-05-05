@@ -2842,6 +2842,7 @@ MonoBehaviour:
   defeatBanner: {fileID: 1930105756}
   cameraFollowsPlayer: {fileID: 31801218}
   player: {fileID: 2112912847}
+  mobileInputs: {fileID: 6572778145636113570}
 --- !u!4 &320371698
 Transform:
   m_ObjectHideFlags: 0
@@ -3556,6 +3557,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d130e3f1026b1554596a52ded068a849, type: 3}
+--- !u!224 &6572778145636113570 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 6572778145284645918, guid: d130e3f1026b1554596a52ded068a849, type: 3}
+  m_PrefabInstance: {fileID: 6572778145636113569}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6997234214579237476
 PrefabInstance:
   m_ObjectHideFlags: 0
