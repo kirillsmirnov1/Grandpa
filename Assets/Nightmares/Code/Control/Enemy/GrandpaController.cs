@@ -13,9 +13,13 @@ namespace Nightmares.Code.Control.Enemy
         
         [SerializeField] private Rigidbody2D rb;
         [SerializeField] private Collider2D grandpaCollider;
-        [SerializeField] private HealthSlider healthSlider;
         [SerializeField] private Enemy enemyRef;
         [SerializeField] private RenderExtensions mainSprite;
+
+        [Header("Health Slider")]
+        [SerializeField] private CanvasGroup healthSliderCanvasGroup;
+        [SerializeField] private RectTransform healthSliderRect;
+        [SerializeField] private HealthSlider healthSlider;
         
         [Header("Idle movement")]
         [SerializeField] private float movementSpeed = 1f;
@@ -143,9 +147,19 @@ namespace Nightmares.Code.Control.Enemy
 
         private void ShowHealthBar()
         {
+            if(HealthBarShown) return;
             HealthBarShown = true;
+            
             healthSlider.gameObject.SetActive(true);
             healthSlider.Init("Grandpa", 1f);
+
+            var anchorPosY = healthSliderRect.anchoredPosition.y;
+            healthSliderCanvasGroup.alpha = 0;
+            healthSliderRect.anchoredPosition -= new Vector2(0, healthSliderRect.rect.height);
+            
+            DOTween.Sequence()
+                .Join(healthSliderCanvasGroup.DOFade(1f, 1f))
+                .Join(healthSliderRect.DOAnchorPosY(anchorPosY, 1f));
         }
 
         private abstract class State
@@ -209,7 +223,7 @@ namespace Nightmares.Code.Control.Enemy
                 if (Mathf.Abs(pos.y - playerPos.y) < Ctx.minVerticalDistanceToPlayer 
                     && EnemyUtils.CheckEnemySeesPlayer(Ctx.transform.position))
                 {
-                    if (!Ctx.HealthBarShown) Ctx.ShowHealthBar();
+                    Ctx.ShowHealthBar();
                     Ctx.StartState(new ThrowStaff(Ctx));
                 }
             }

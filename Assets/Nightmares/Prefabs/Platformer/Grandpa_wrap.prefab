@@ -1451,12 +1451,29 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8552642185880951947, guid: a61a0a49341fb284db110cba6a83ba95, type: 3}
   m_PrefabInstance: {fileID: 1460443842228685246}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 8326417529027732960}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c493a425c4438444f8c241e1bf8e8981, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &8326417529027732960 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7478765183133428830, guid: a61a0a49341fb284db110cba6a83ba95, type: 3}
+  m_PrefabInstance: {fileID: 1460443842228685246}
+  m_PrefabAsset: {fileID: 0}
+--- !u!225 &6881481527182422060
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8326417529027732960}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!224 &8326417529027732961 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7478765183133428831, guid: a61a0a49341fb284db110cba6a83ba95, type: 3}
@@ -1535,6 +1552,14 @@ PrefabInstance:
       propertyPath: healthSlider
       value: 
       objectReference: {fileID: 7130780608586241333}
+    - target: {fileID: 2127573990450454334, guid: 7bc039fbf2455cd48b51dff0dc7bd48f, type: 3}
+      propertyPath: healthSliderRect
+      value: 
+      objectReference: {fileID: 8326417529027732961}
+    - target: {fileID: 2127573990450454334, guid: 7bc039fbf2455cd48b51dff0dc7bd48f, type: 3}
+      propertyPath: healthSliderCanvasGroup
+      value: 
+      objectReference: {fileID: 6881481527182422060}
     - target: {fileID: 7433343618829221966, guid: 7bc039fbf2455cd48b51dff0dc7bd48f, type: 3}
       propertyPath: m_RootOrder
       value: 0
