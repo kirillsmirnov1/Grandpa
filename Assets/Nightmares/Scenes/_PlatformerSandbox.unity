@@ -2832,7 +2832,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4426f47f140543819effd2143204c878, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelDimensions: {x: 11, y: 40}
+  levelDimensions: {x: 11, y: 50}
   grandpasRoomHeight: 13
   gridGeneration: {fileID: 943665382}
   grandpaWrap: {fileID: 1212598688}

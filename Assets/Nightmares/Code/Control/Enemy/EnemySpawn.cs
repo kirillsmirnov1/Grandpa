@@ -18,9 +18,13 @@ namespace Nightmares.Code.Control.Enemy
             for (float y = 0; y < yLimit; y++)
             {
                 _balance += budget.Evaluate(y / yLimit);
-                while (_balance >= 1)
+                if (_balance >= 1)
                 {
                     var enemyIndex = Random.Range(0, enemyPrefabs.Length);
+                    while (spawnCost[enemyIndex] > _balance)
+                    {
+                        enemyIndex--;
+                    }
                     _balance -= spawnCost[enemyIndex];
                     SpawnEnemy(enemyIndex, -y);
                 }
