@@ -49,23 +49,22 @@ namespace Nightmares.Code.Control
 
         private void OnVictory()
         {
-            if(_gameOverTriggered) return;
-            _gameOverTriggered = true;
-            this.DelayAction(() =>
-            {
-                OnWin?.Invoke();
-                ShowBanner(victoryBanner);
-            }, 1.5f);
+            HandleGameOver(victoryBanner, OnWin);
         }
 
         private void OnPlayerDeath()
+        {
+            HandleGameOver(defeatBanner, OnDefeat);
+        }
+
+        private void HandleGameOver(CanvasGroup bannerCG, Action callback)
         {
             if(_gameOverTriggered) return;
             _gameOverTriggered = true;
             this.DelayAction(() =>
             {
-                OnDefeat?.Invoke();
-                ShowBanner(defeatBanner);
+                callback?.Invoke();
+                ShowBanner(bannerCG);
             }, 1.5f);
         }
 
