@@ -4,6 +4,7 @@ using DG.Tweening;
 using Nightmares.Code.Control.Enemy;
 using Nightmares.Code.Extensions;
 using Nightmares.Code.Model;
+using Nightmares.Code.UI;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -21,11 +22,11 @@ namespace Nightmares.Code.Control
         [SerializeField] private GridGeneration gridGeneration;
         [SerializeField] private Transform grandpaWrap;
         [SerializeField] private EnemySpawn enemySpawn;
-        [SerializeField] private CanvasGroup victoryBanner;
-        [SerializeField] private CanvasGroup defeatBanner;
+        [SerializeField] private GameOverBanner gameOverBanner;
         [SerializeField] private CameraFollowsPlayer cameraFollowsPlayer;
         [SerializeField] private Player player;
         [SerializeField] private RectTransform mobileInputs;
+        [SerializeField] private PointsCounter pointsCounter;
         
         private bool _gameOverTriggered;
 
@@ -75,22 +76,23 @@ namespace Nightmares.Code.Control
 
         private void OnVictory()
         {
-            HandleGameOver(true, victoryBanner, OnWin);
+            HandleGameOver(true, OnWin);
         }
 
         private void OnPlayerDeath()
         {
-            HandleGameOver(false, defeatBanner, OnDefeat);
+            HandleGameOver(false, OnDefeat);
         }
 
-        private void HandleGameOver(bool victory, CanvasGroup bannerCG, Action callback)
+        private void HandleGameOver(bool victory, Action callback)
         {
             if(_gameOverTriggered) return;
             _gameOverTriggered = true;
             this.DelayAction(() =>
             {
                 callback?.Invoke();
-                ShowBanner(bannerCG);
+                ShowBanner(gameOverBanner.GetComponent<CanvasGroup>());
+                gameOverBanner.Set(victory, pointsCounter.Points, Prefs.GrandpaDifficulty);
                 
                 var player = Player.Instance;
 
