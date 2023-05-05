@@ -182,6 +182,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startHealth: 1
+  points: 0
   throwbacksPlayerOnAttack: 0
   thrownBackByPlayerAttack: 1
   attackFromTopAngle: 0
@@ -366,6 +367,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 577800709}
     - target: {fileID: 2181979932344323495, guid: aa17ac4a085f3964483ac528cee3791d, type: 3}
+      propertyPath: points
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 2181979932344323495, guid: aa17ac4a085f3964483ac528cee3791d, type: 3}
       propertyPath: sprite
       value: 
       objectReference: {fileID: 577800709}
@@ -437,9 +442,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 5360159552988861570}
   grandpaCollider: {fileID: 3260316752232205548}
-  healthSlider: {fileID: 0}
   enemyRef: {fileID: 8690421036399405363}
   mainSprite: {fileID: 5886627377641421373}
+  healthSliderCanvasGroup: {fileID: 0}
+  healthSliderRect: {fileID: 0}
+  healthSlider: {fileID: 0}
   movementSpeed: 30
   minMovementDuration: 1
   idleWallCheckDistance: 1
@@ -455,7 +462,6 @@ MonoBehaviour:
   shakeDuration: 1
   shakeVibrato: 30
   playerThrowForce: {x: 15, y: 0.25}
-  fliesToSpawnOnHit: 6
   flyPrefab: {fileID: 6968884574411229060, guid: 417a239324fb41b4c82c5efaa7580935, type: 3}
   flySpawnAnchor: {fileID: 240606768616524786}
 --- !u!114 &8690421036399405363 stripped

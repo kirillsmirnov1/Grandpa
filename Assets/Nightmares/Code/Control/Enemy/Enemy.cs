@@ -10,11 +10,13 @@ namespace Nightmares.Code.Control.Enemy
         public static event Action<Vector3> OnEnemyDestroyed;
         
         [SerializeField] private int startHealth = 1;
+        [SerializeField] private int points;
         [SerializeField] private bool throwbacksPlayerOnAttack = false;
         [SerializeField] private bool thrownBackByPlayerAttack = true;
         [SerializeField] private float attackFromTopAngle = 90f;
         [SerializeField] private Invincibility invincibility;
 
+        public int Points => points;
         public float AttackFromTopAngle => attackFromTopAngle / 2f; 
         public bool ThrowbacksPlayerOnAttack => throwbacksPlayerOnAttack; 
         public bool ThrownBackByPlayerAttack => thrownBackByPlayerAttack;
