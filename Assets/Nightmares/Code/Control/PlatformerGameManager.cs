@@ -3,6 +3,7 @@ using System.Collections;
 using DG.Tweening;
 using Nightmares.Code.Control.Enemy;
 using Nightmares.Code.Extensions;
+using Nightmares.Code.Model;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -12,7 +13,8 @@ namespace Nightmares.Code.Control
     {
         public static event Action OnWin;
         public static event Action OnDefeat;
-     
+
+        [SerializeField] private int yHeightPerDifficultyLevel = 50;
         [SerializeField] private Vector2Int levelDimensions = new(13, 40);
         [SerializeField] private int grandpasRoomHeight = 8;
         [SerializeField] private GridGeneration gridGeneration;
@@ -36,6 +38,10 @@ namespace Nightmares.Code.Control
 
         private IEnumerator Start()
         {
+            levelDimensions.y = Prefs.GrandpaDifficulty * yHeightPerDifficultyLevel;
+            
+            yield return null;
+            
             gridGeneration.SpawnTileMap();
 
             yield return null;
@@ -65,15 +71,15 @@ namespace Nightmares.Code.Control
 
         private void OnVictory()
         {
-            HandleGameOver(victoryBanner, OnWin);
+            HandleGameOver(true, victoryBanner, OnWin);
         }
 
         private void OnPlayerDeath()
         {
-            HandleGameOver(defeatBanner, OnDefeat);
+            HandleGameOver(false, defeatBanner, OnDefeat);
         }
 
-        private void HandleGameOver(CanvasGroup bannerCG, Action callback)
+        private void HandleGameOver(bool victory, CanvasGroup bannerCG, Action callback)
         {
             if(_gameOverTriggered) return;
             _gameOverTriggered = true;
@@ -87,6 +93,8 @@ namespace Nightmares.Code.Control
                 cameraFollowsPlayer.enabled = false;
                 player.gameObject.SetActive(false);
                 player.transform.position = new Vector3(0, 100);
+
+                Prefs.GrandpaDifficulty += victory ? 1 : -1;
             }, 1.5f);
         }
 
