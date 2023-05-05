@@ -22,7 +22,8 @@ namespace Nightmares.Code.Control.Enemy
         [SerializeField] private float minMovementDuration = 1f;
         [SerializeField] private float idleWallCheckDistance = 1f;
         [SerializeField] private LayerMask idleLayersWallCheck;
-        
+        [SerializeField] private float minVerticalDistanceToPlayer = 7;
+
         [Header("Staff throwing")]
         [SerializeField] private float staffThrowForce = 10f;
         [SerializeField] private Rigidbody2D staffRb;
@@ -201,8 +202,12 @@ namespace Nightmares.Code.Control.Enemy
             private void CheckOnPlayer()
             {
                 if(Time.time - _movementStartTime < Ctx.minMovementDuration) return;
+
+                var pos = Ctx.transform.position;
+                var playerPos = Player.Instance.transform.position;
                 
-                if (EnemyUtils.CheckEnemySeesPlayer(Ctx.transform.position))
+                if (Mathf.Abs(pos.y - playerPos.y) < Ctx.minVerticalDistanceToPlayer 
+                    && EnemyUtils.CheckEnemySeesPlayer(Ctx.transform.position))
                 {
                     if (!Ctx.HealthBarShown) Ctx.ShowHealthBar();
                     Ctx.StartState(new ThrowStaff(Ctx));

@@ -446,6 +446,7 @@ MonoBehaviour:
   idleLayersWallCheck:
     serializedVersion: 2
     m_Bits: 65
+  minVerticalDistanceToPlayer: 5
   staffThrowForce: 25
   staffRb: {fileID: 9014869060666721527}
   staffCollider: {fileID: 7061815526406974316}
