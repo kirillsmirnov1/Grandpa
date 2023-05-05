@@ -16,7 +16,8 @@ namespace Nightmares.Code.UI
         [SerializeField] private Image mainImage;
         [SerializeField] private TextMeshProUGUI headerText;
         [SerializeField] private TextMeshProUGUI bodyText;
-
+        [SerializeField] private TextMeshProUGUI buttonText;
+        
         public void Set(bool victory, int score, int difficulty)
         {
             mainImage.sprite = victory ? winSprite : loseSprite;
@@ -25,6 +26,8 @@ namespace Nightmares.Code.UI
             headerText.text = victory ? "You won!" : "You lost!";
             bodyText.text = $"score: {score}\n" +
                             $"difficulty: {difficulty}";
+
+            buttonText.text = victory ? "make it harder!" : "restart";
         }
     }
 }
