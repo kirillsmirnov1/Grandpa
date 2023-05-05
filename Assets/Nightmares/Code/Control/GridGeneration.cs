@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 using Random = UnityEngine.Random;
@@ -19,6 +20,8 @@ namespace Nightmares.Code.Control
         
         [Header("Platform Tile")]
         [SerializeField] private Tile platformMidTile;
+
+        public List<Vector3> platforms = new();
         
         private Vector2Int _levelDimensions;
 
@@ -96,6 +99,7 @@ namespace Nightmares.Code.Control
             {
                 tilemap.SetTile(new Vector3Int(x, y), platformMidTile);
             }
+            platforms.Add(new Vector3(xLeft, xRight, y));
         }
 
         private Vector2Int[] GenerateRanges()

@@ -21,7 +21,8 @@ namespace Nightmares.Code.Control
         [SerializeField] private CanvasGroup victoryBanner;
         [SerializeField] private CanvasGroup defeatBanner;
         [SerializeField] private CameraFollowsPlayer cameraFollowsPlayer;
-
+        [SerializeField] private Player player;
+        
         private bool _gameOverTriggered;
 
         public Vector2Int LevelDimensions => levelDimensions;
@@ -36,9 +37,23 @@ namespace Nightmares.Code.Control
         private IEnumerator Start()
         {
             gridGeneration.SpawnTileMap();
+
+            yield return null;
+            
+            if (gridGeneration.platforms.Count > 0)
+            {
+                var topPlatform = gridGeneration.platforms[0];
+                player.transform.position =
+                    new Vector3((topPlatform.x + topPlatform.y) / 2f, topPlatform.y + 1);
+            }
+            
+            player.gameObject.SetActive(true);
+
             grandpaWrap.position = new Vector3(0, -levelDimensions.y);
             grandpaWrap.gameObject.SetActive(true);
+            
             yield return null;
+            
             enemySpawn.SpawnEnemies();
         }
 

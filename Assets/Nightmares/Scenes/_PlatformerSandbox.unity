@@ -2840,6 +2840,7 @@ MonoBehaviour:
   victoryBanner: {fileID: 7387377254324785668}
   defeatBanner: {fileID: 1930105756}
   cameraFollowsPlayer: {fileID: 31801218}
+  player: {fileID: 2112912847}
 --- !u!4 &320371698
 Transform:
   m_ObjectHideFlags: 0
@@ -3194,6 +3195,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2525622202407566302, guid: 175eebf4281c5fd46950563c5183817c, type: 3}
   m_PrefabInstance: {fileID: 2525622204476409363}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2112912847 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7449187589596411450, guid: 175eebf4281c5fd46950563c5183817c, type: 3}
+  m_PrefabInstance: {fileID: 2525622204476409363}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f744abcf5e9f4f8db60f6e2d12ace63d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1460443841455249811
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3296,7 +3308,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2525622202407566299, guid: 175eebf4281c5fd46950563c5183817c, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2525622202407566301, guid: 175eebf4281c5fd46950563c5183817c, type: 3}
       propertyPath: mobileInput
@@ -3365,7 +3377,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2065791525948684845, guid: d130e3f1026b1554596a52ded068a849, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 250
       objectReference: {fileID: 0}
     - target: {fileID: 2065791525948684845, guid: d130e3f1026b1554596a52ded068a849, type: 3}
       propertyPath: m_SizeDelta.y
@@ -3389,7 +3401,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2065791526832830416, guid: d130e3f1026b1554596a52ded068a849, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 250
       objectReference: {fileID: 0}
     - target: {fileID: 2065791526832830416, guid: d130e3f1026b1554596a52ded068a849, type: 3}
       propertyPath: m_SizeDelta.y
@@ -3501,7 +3513,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6572778145462748026, guid: d130e3f1026b1554596a52ded068a849, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 250
       objectReference: {fileID: 0}
     - target: {fileID: 6572778145462748026, guid: d130e3f1026b1554596a52ded068a849, type: 3}
       propertyPath: m_SizeDelta.y
