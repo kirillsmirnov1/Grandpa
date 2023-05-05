@@ -41,9 +41,10 @@ namespace Nightmares.Code.Control.Enemy
         private State _state;
         private List<Enemy> _spawnedFlies;
 
+        public bool HealthBarShown { get; set; }
+
         private void Start()
         {
-            StartState(new IdleMovement(this));
             mainSprite.onBecameVisible += OnVisible;
             enemyRef.OnEnemyHealthChange += UpdateSlider;
             Physics2D.IgnoreCollision(grandpaCollider, staffCollider);
@@ -124,8 +125,7 @@ namespace Nightmares.Code.Control.Enemy
 
         private void OnVisible()
         {
-            healthSlider.gameObject.SetActive(true);
-            healthSlider.Init("Grandpa", 1f);
+            StartState(new IdleMovement(this));
         }
 
         private void UpdateSlider(float newHealthPercent)
@@ -138,6 +138,13 @@ namespace Nightmares.Code.Control.Enemy
         {
             _state = newState;
             _state.Start();
+        }
+
+        private void ShowHealthBar()
+        {
+            HealthBarShown = true;
+            healthSlider.gameObject.SetActive(true);
+            healthSlider.Init("Grandpa", 1f);
         }
 
         private abstract class State
@@ -197,6 +204,7 @@ namespace Nightmares.Code.Control.Enemy
                 
                 if (EnemyUtils.CheckEnemySeesPlayer(Ctx.transform.position))
                 {
+                    if (!Ctx.HealthBarShown) Ctx.ShowHealthBar();
                     Ctx.StartState(new ThrowStaff(Ctx));
                 }
             }
