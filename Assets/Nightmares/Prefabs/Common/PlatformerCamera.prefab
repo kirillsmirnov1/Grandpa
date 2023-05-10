@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 6997234214219401956}
   - component: {fileID: 6997234214219401755}
   - component: {fileID: 6997234214219401753}
-  - component: {fileID: 637438976533749813}
   - component: {fileID: 872480229}
+  - component: {fileID: 5628306308330352554}
   m_Layer: 0
   m_Name: PlatformerCamera
   m_TagString: MainCamera
@@ -86,20 +86,6 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6997234214219401752}
   m_Enabled: 1
---- !u!114 &637438976533749813
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6997234214219401752}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 973875ec3f4e7ab488d81565f613e4fe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  desiredWidth: 11
-  minHeight: 14
 --- !u!114 &872480229
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -115,3 +101,23 @@ MonoBehaviour:
   lerpSpeed: 10
   target: {fileID: 0}
   gameManager: {fileID: 0}
+--- !u!114 &5628306308330352554
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6997234214219401752}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a160d838ff8b4b4693ac20007e008c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AssetsPPU: 16
+  m_RefResolutionX: 180
+  m_RefResolutionY: 240
+  m_UpscaleRT: 0
+  m_PixelSnapping: 0
+  m_CropFrameX: 0
+  m_CropFrameY: 0
+  m_StretchFill: 0
