@@ -94,10 +94,11 @@ namespace Nightmares.Code.Control.Enemy
 
             public override void FixedUpdate()
             {
-                if (!_hasTarget || _targetPos.y < Ctx.transform.position.y)
+                if (!_hasTarget 
+                    || _targetPos.y < Ctx.transform.position.y
+                    || RaycastUp(1f).collider != null)
                 {
                     FindTargetPos();
-                    return;
                 }
                 
                 Ctx.lineRenderer.SetPositions(new[] { Ctx.transform.position, _targetPos });
@@ -107,11 +108,7 @@ namespace Nightmares.Code.Control.Enemy
 
             private void FindTargetPos()
             {
-                var hit = Physics2D.Raycast(
-                    Ctx.transform.position,
-                    Vector2.up,
-                    float.PositiveInfinity,
-                    Ctx.webConnectionTarget);
+                var hit = RaycastUp();
 
                 if (hit.collider != null)
                 {
@@ -119,6 +116,15 @@ namespace Nightmares.Code.Control.Enemy
                     _hasTarget = true;
                     Ctx.lineRenderer.enabled = true;
                 }
+            }
+
+            private RaycastHit2D RaycastUp(float distance = float.PositiveInfinity)
+            {
+                return Physics2D.Raycast(
+                    Ctx.transform.position,
+                    Vector2.up,
+                    distance,
+                    Ctx.webConnectionTarget);
             }
 
             private void ApproachTarget()
