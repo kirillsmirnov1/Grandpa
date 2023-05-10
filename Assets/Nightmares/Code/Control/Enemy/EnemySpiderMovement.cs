@@ -94,7 +94,7 @@ namespace Nightmares.Code.Control.Enemy
 
             public override void FixedUpdate()
             {
-                if (!_hasTarget)
+                if (!_hasTarget || _targetPos.y < Ctx.transform.position.y)
                 {
                     FindTargetPos();
                     return;
