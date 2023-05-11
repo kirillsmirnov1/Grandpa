@@ -8,6 +8,7 @@ namespace Nightmares.Code.Control
     {
         public float speed = 1f;
         public float jump = 1f;
+        public float longJump = 1f;
 
         [SerializeField] private LayerMask playerLayer;
         [SerializeField] private MobileInput mobileInput;
@@ -20,6 +21,7 @@ namespace Nightmares.Code.Control
         private Rigidbody2D _rb;
         private Collider2D _collider;
         private Vector2 _throwForce;
+        private float _jumpTime;
 
         private void Start()
         {
@@ -59,7 +61,10 @@ namespace Nightmares.Code.Control
         private void GetInput()
         {
             HorizontalInput = Input.GetAxis("Horizontal");
-            JumpInput = Input.GetButtonDown("Jump") || Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow);
+            JumpInput = Input.GetButton("Jump") 
+                        || Input.GetKey(KeyCode.W) 
+                        || Input.GetKey(KeyCode.UpArrow)
+                        || mobileInput.VerticalInput > 0;
 
             if (TouchControlsEnabler.TouchControlsEnabled)
             {
@@ -70,8 +75,18 @@ namespace Nightmares.Code.Control
         private void Move()
         {
             _rb.velocity = new Vector2(speed * HorizontalInput, _rb.velocity.y) + _throwForce;
-
+            
             if (JumpInput)
+            {
+                if (Time.time - _jumpTime < .5f)
+                {
+                    _rb.AddForce(new Vector2(_rb.velocity.x, longJump), ForceMode2D.Force);
+                }
+            }
+
+            if (Input.GetButtonDown("Jump")
+                || Input.GetKeyDown(KeyCode.W)
+                || Input.GetKeyDown(KeyCode.UpArrow))
             {
                 TryJump();
             }
@@ -82,6 +97,7 @@ namespace Nightmares.Code.Control
             if (_onGround)
             {
                 _rb.AddForce(new Vector2(_rb.velocity.x, jump), ForceMode2D.Impulse);
+                _jumpTime = Time.time;
             }
         }
 

@@ -161,7 +161,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  jump: 13.7
+  jump: 8
+  longJump: 5
   playerLayer:
     serializedVersion: 2
     m_Bits: 65

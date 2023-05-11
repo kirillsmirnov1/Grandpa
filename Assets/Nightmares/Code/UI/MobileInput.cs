@@ -12,6 +12,7 @@ namespace Nightmares.Code.UI
         public event Action onJump;
         
         public float HorizontalInput { get; private set; }
+        public float VerticalInput { get; private set; }
 
         private void OnEnable() 
             => up.onPointerDown += OnJump;
@@ -30,6 +31,8 @@ namespace Nightmares.Code.UI
                 {right: var r} when r.Held => 1f,
                 _ => 0f
             };
+
+            VerticalInput = up.Held ? 1f : 0f;
         }
     }
 }

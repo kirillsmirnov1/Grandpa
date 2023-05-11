@@ -3144,7 +3144,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e88baf6f58b8185488850f411728d5d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  forceMobileControls: 0
+  forceMobileControls: 1
   mobileCanvas: {fileID: 1930847584}
   forceEnableMobileControlsButton: {fileID: 355303374}
 --- !u!4 &1293545351
