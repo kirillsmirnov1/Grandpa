@@ -39,6 +39,7 @@ namespace Nightmares.Code.Control
                 }
                 else if (enemy.CanBeDamaged)
                 {
+                    player.rb.velocity = Vector2.zero;
                     // Damage enemy
                     enemy.Damage();
                     if (enemy.ThrowbacksPlayerOnAttack)
