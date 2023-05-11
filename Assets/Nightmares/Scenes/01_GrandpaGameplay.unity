@@ -3466,6 +3466,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8007189554687196444, guid: dc66afbced7c18f4e94e8f345fd0cea1, type: 3}
+      propertyPath: showHealthBarOnVisible
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8326417529027732960, guid: dc66afbced7c18f4e94e8f345fd0cea1, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -3743,6 +3747,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 872480229, guid: d9eb32e56fbcf0745ab237947b4f60e9, type: 3}
+      propertyPath: ease
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 872480229, guid: d9eb32e56fbcf0745ab237947b4f60e9, type: 3}
       propertyPath: target
       value: 
       objectReference: {fileID: 2112912845}
@@ -3754,6 +3762,10 @@ PrefabInstance:
       propertyPath: gameManager
       value: 
       objectReference: {fileID: 320371697}
+    - target: {fileID: 872480229, guid: d9eb32e56fbcf0745ab237947b4f60e9, type: 3}
+      propertyPath: tweenDownDuration
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 6997234214219401752, guid: d9eb32e56fbcf0745ab237947b4f60e9, type: 3}
       propertyPath: m_Name
       value: PlatformerCamera

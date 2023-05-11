@@ -11,7 +11,8 @@ namespace Nightmares.Code.Control.Enemy
     public class GrandpaController : MonoBehaviour
     {
         public static event Action OnGrandpaDefeated;
-        
+
+        [SerializeField] private bool showHealthBarOnVisible;
         [SerializeField] private Rigidbody2D rb;
         [SerializeField] private Collider2D grandpaCollider;
         [SerializeField] private Enemy enemyRef;
@@ -135,6 +136,7 @@ namespace Nightmares.Code.Control.Enemy
         private void OnVisible()
         {
             StartState(new IdleMovement(this));
+            if(showHealthBarOnVisible) ShowHealthBar();
         }
 
         private void UpdateSlider(float newHealthPercent)
@@ -162,7 +164,8 @@ namespace Nightmares.Code.Control.Enemy
             healthSliderRect.anchoredPosition -= new Vector2(0, healthSliderRect.rect.height);
             
             DOTween.Sequence()
-                .Join(healthSliderCanvasGroup.DOFade(1f, 1f))
+                .AppendInterval(showHealthBarOnVisible ? .5f : 0f)
+                .Append(healthSliderCanvasGroup.DOFade(1f, 1f))
                 .Join(healthSliderRect.DOAnchorPosY(anchorPosY, 1f));
         }
 
