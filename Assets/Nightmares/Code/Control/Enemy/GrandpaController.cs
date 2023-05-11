@@ -42,6 +42,7 @@ namespace Nightmares.Code.Control.Enemy
         [SerializeField] private Vector2 playerThrowForce;
         [SerializeField] private GameObject flyPrefab; // TODO use factory later
         [SerializeField] private Transform flySpawnAnchor;
+        [SerializeField] private Vector2 flySpawnK = new Vector2(.5f, 1.5f);
 
         private int _fliesToSpawnOnHit;
         private State _state;
@@ -51,7 +52,7 @@ namespace Nightmares.Code.Control.Enemy
 
         private void Start()
         {
-            _fliesToSpawnOnHit = Mathf.FloorToInt(Prefs.GrandpaDifficulty * 0.5f + 1.5f);
+            _fliesToSpawnOnHit = Mathf.FloorToInt(Prefs.GrandpaDifficulty * flySpawnK.x + flySpawnK.y);
             mainSprite.onBecameVisible += OnVisible;
             enemyRef.OnEnemyHealthChange += UpdateSlider;
             Physics2D.IgnoreCollision(grandpaCollider, staffCollider);

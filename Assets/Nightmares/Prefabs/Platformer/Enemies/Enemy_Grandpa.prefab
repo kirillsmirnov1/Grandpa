@@ -464,6 +464,7 @@ MonoBehaviour:
   playerThrowForce: {x: 15, y: 0.25}
   flyPrefab: {fileID: 6968884574411229060, guid: 417a239324fb41b4c82c5efaa7580935, type: 3}
   flySpawnAnchor: {fileID: 240606768616524786}
+  flySpawnK: {x: 0.5, y: 1.5}
 --- !u!114 &8690421036399405363 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2181979932344323495, guid: aa17ac4a085f3964483ac528cee3791d, type: 3}
