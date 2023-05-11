@@ -68,6 +68,14 @@ namespace Nightmares.Code.Control
             LayoutRebuilder.ForceRebuildLayoutImmediate(mobileInputs);
         }
 
+        private void Update()
+        {
+            if (_gameOverTriggered && Input.GetKeyDown(KeyCode.R))
+            {
+                ReloadScene();
+            }
+        }
+
         private void OnDestroy()
         {
             Player.OnPlayerDeath -= OnPlayerDeath;
