@@ -9,6 +9,7 @@ namespace Nightmares.Code.Control
         public float speed = 1f;
         public float jump = 1f;
         public float longJump = 1f;
+        [SerializeField] private float longJumpDuration = .5f;
 
         [SerializeField] private LayerMask playerLayer;
         [SerializeField] private MobileInput mobileInput;
@@ -49,6 +50,18 @@ namespace Nightmares.Code.Control
         {
             GroundCheck();
             _throwForce = Vector2.Lerp(_throwForce, Vector2.zero, Time.fixedDeltaTime * throwForceDecreaseSpeed);
+            ContiniousJump();
+        }
+
+        private void ContiniousJump()
+        {
+            if (JumpInput)
+            {
+                if (Time.time - _jumpTime < longJumpDuration)
+                {
+                    _rb.AddForce(new Vector2(_rb.velocity.x, longJump), ForceMode2D.Force);
+                }
+            }
         }
 
         private void GroundCheck()
@@ -75,14 +88,6 @@ namespace Nightmares.Code.Control
         private void Move()
         {
             _rb.velocity = new Vector2(speed * HorizontalInput, _rb.velocity.y) + _throwForce;
-            
-            if (JumpInput)
-            {
-                if (Time.time - _jumpTime < .5f)
-                {
-                    _rb.AddForce(new Vector2(_rb.velocity.x, longJump), ForceMode2D.Force);
-                }
-            }
 
             if (Input.GetButtonDown("Jump")
                 || Input.GetKeyDown(KeyCode.W)
