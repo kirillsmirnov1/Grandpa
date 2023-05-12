@@ -21,6 +21,10 @@ namespace Nightmares.Code.Control
         public List<Vector3> platforms = new();
         
         private Vector2Int _levelDimensions;
+        private int _leftWall;
+        private int _rightWall;
+        private int _topWall;
+        private int _bottomWall;
 
         [ContextMenu("Clean Tile Map")]
         public void CleanTileMap()
@@ -31,26 +35,35 @@ namespace Nightmares.Code.Control
         [ContextMenu("Spawn Tile Map")]
         public void SpawnTileMap()
         {
-            _levelDimensions = gameManager.LevelDimensions;
-            
+            UpdDimensions();
+
             CleanTileMap();
 
             // Top wall
             SpawnWallRegion(wallRuleTile, 
-                new Vector2Int(-_levelDimensions.x / 2 - 2, 0), 
-                new Vector2Int(_levelDimensions.x / 2 + 1, 1));
+                new Vector2Int(_leftWall - 1, _topWall), 
+                new Vector2Int(_rightWall + 1, _topWall + 1));
             
             // Left wall
             SpawnWallRegion(wallRuleTile, 
-                new Vector2Int(-_levelDimensions.x / 2 - 2, -_levelDimensions.y), 
-                new Vector2Int(-_levelDimensions.x / 2 - 1, -1));
+                new Vector2Int(_leftWall - 1, _bottomWall), 
+                new Vector2Int(_leftWall, _topWall - 1));
             
             // Right wall
             SpawnWallRegion(wallRuleTile, 
-                new Vector2Int(_levelDimensions.x / 2, -_levelDimensions.y), 
-                new Vector2Int(_levelDimensions.x / 2 + 1, -1));
+                new Vector2Int(_rightWall, _bottomWall), 
+                new Vector2Int(_rightWall + 1, _topWall - 1));
 
             SpawnPlatforms();
+        }
+
+        private void UpdDimensions()
+        {
+            _levelDimensions = gameManager.LevelDimensions;
+            _leftWall = -_levelDimensions.x / 2 - 1;
+            _rightWall = _levelDimensions.x / 2;
+            _topWall = 0;
+            _bottomWall = -_levelDimensions.y;
         }
 
         private void SpawnWallRegion(TileBase tile, Vector2Int from, Vector2Int to)
@@ -68,16 +81,16 @@ namespace Nightmares.Code.Control
         {
             var ranges = GenerateRanges();
             var nextRangeIndex = 0;
-            for (int y = verticalGap.y; y < _levelDimensions.y - verticalGap.x; )
+            for (int y = -verticalGap.y; y >= _bottomWall + verticalGap.x; )
             {
                 var range = ranges[nextRangeIndex];
                 
                 var left = Random.Range(range.x, range.y - 1);
                 var right = Random.Range(left + 1, range.y + 1);
 
-                SpawnPlatform(left, right, -y);
+                SpawnPlatform(left, right, y);
                 
-                y += Random.Range(verticalGap.x, verticalGap.y + 1);
+                y -= Random.Range(verticalGap.x, verticalGap.y + 1);
                 
                 nextRangeIndex = GetNextRangeIndex(nextRangeIndex);
             }
@@ -90,9 +103,8 @@ namespace Nightmares.Code.Control
             {
                 next = Random.Range(0, 3);
             } while (next == rangeIndex);
-
-            rangeIndex = next;
-            return rangeIndex;
+            
+            return next;
         }
 
         private void SpawnPlatform(int xLeft, int xRight, int y)
