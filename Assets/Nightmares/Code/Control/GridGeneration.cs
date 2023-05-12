@@ -96,9 +96,14 @@ namespace Nightmares.Code.Control
 
         private void SpawnPlatform(int xLeft, int xRight, int y)
         {
+            var tileToUse =
+                tilemap.GetTile(new Vector3Int(xLeft - 1, y)) == wallRuleTile
+                || tilemap.GetTile(new Vector3Int(xRight + 1, y)) == wallRuleTile
+                    ? wallRuleTile
+                    : platform;
             for (int x = xLeft; x <= xRight; x++)
             {
-                tilemap.SetTile(new Vector3Int(x, y), platform);
+                tilemap.SetTile(new Vector3Int(x, y), tileToUse);
             }
             platforms.Add(new Vector3(xLeft, xRight, y));
         }
