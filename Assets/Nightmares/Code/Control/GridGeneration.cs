@@ -120,7 +120,6 @@ namespace Nightmares.Code.Control
                         tilemap.SetTile(new Vector3Int(x, y), wallRuleTile);
                     }
                 }
-                // TODO somehow distribute all that stuff
             }
         }
 
