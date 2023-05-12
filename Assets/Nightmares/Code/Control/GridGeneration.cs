@@ -117,10 +117,10 @@ namespace Nightmares.Code.Control
                      left ? x <= xRange.y : x >= xRange.x; 
                      x += left ? 1 : -1)
                 {
-                    for (int y = yCenter; y >= yCenter - totalHeight; y--)
+                    for (int y = yCenter - totalHeight; y <= yCenter; y++)
                     {
                         var pos = new Vector3Int(x, y);
-                        if (CanPutTileOn(pos, left ? 0 : 2, left ? 2 : 0, 0, 2))
+                        if (CanPutTileOn(pos, left ? 0 : 2, left ? 2 : 0, 2, 0))
                         {
                             tilemap.SetTile(pos, wallRuleTile);
                         }

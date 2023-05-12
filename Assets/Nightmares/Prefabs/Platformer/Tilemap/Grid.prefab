@@ -68,17 +68,17 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 1
       value: 0.32
-      inSlope: -0.06333333
-      outSlope: -0.06333333
+      inSlope: -0.029999997
+      outSlope: -0.029999997
       tangentMode: 34
       weightedMode: 0
       inWeight: 0
       outWeight: 0.33333334
     - serializedVersion: 3
       time: 5
-      value: 0.06666667
-      inSlope: -0.06333333
-      outSlope: -0.06333333
+      value: 0.2
+      inSlope: -0.029999997
+      outSlope: -0.029999997
       tangentMode: 34
       weightedMode: 0
       inWeight: 0.33333334
@@ -182,6 +182,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  spawnPlatforms: 1
   platform: {fileID: 11400000, guid: 3452acbc2e411b04aaf5b160e1ac16f1, type: 2}
   verticalGap: {x: 2, y: 3}
   platforms: []
