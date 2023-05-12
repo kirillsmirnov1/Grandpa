@@ -14,9 +14,7 @@ namespace Nightmares.Code.Control
         [SerializeField] private PlatformerGameManager gameManager;
 
         [Header("Wall Tiles")]
-        [SerializeField] private Tile wallLeft;
-        [SerializeField] private Tile wallRight;
-        [SerializeField] private Tile wallTop;
+        [SerializeField] private RuleTile wallRuleTile;
         
         [Header("Platform Tile")]
         [SerializeField] private Tile platformMidTile;
@@ -38,15 +36,16 @@ namespace Nightmares.Code.Control
             
             CleanTileMap();
 
-            SpawnRow(wallTop, -_levelDimensions.x / 2 - 1, _levelDimensions.x / 2, 0);
+            SpawnTopRow(wallRuleTile, -_levelDimensions.x / 2 - 1, _levelDimensions.x / 2, 0);
             SpawnWalls();
             SpawnPlatforms();
         }
 
-        private void SpawnRow(Tile tile, int xFrom, int xTo, int y)
+        private void SpawnTopRow(TileBase tile, int xFrom, int xTo, int y)
         {
-            for (int x = xFrom + 1; x < xTo; x++)
+            for (int x = xFrom-1; x <= xTo+1; x++)
             {
+                tilemap.SetTile(new Vector3Int(x, y+1), tile);
                 tilemap.SetTile(new Vector3Int(x, y), tile);
             }
         }
@@ -57,8 +56,10 @@ namespace Nightmares.Code.Control
             var xRight = _levelDimensions.x / 2;
             for (int y = 1; y <= _levelDimensions.y; y++)
             {
-                tilemap.SetTile(new Vector3Int(xLeft, -y), wallLeft);
-                tilemap.SetTile(new Vector3Int(xRight, -y), wallRight);
+                tilemap.SetTile(new Vector3Int(xLeft, -y), wallRuleTile);
+                tilemap.SetTile(new Vector3Int(xLeft - 1, -y), wallRuleTile);
+                tilemap.SetTile(new Vector3Int(xRight, -y), wallRuleTile);
+                tilemap.SetTile(new Vector3Int(xRight + 1, -y), wallRuleTile);
             }
         }
 
