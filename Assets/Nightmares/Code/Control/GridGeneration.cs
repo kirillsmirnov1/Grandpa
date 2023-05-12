@@ -6,8 +6,6 @@ namespace Nightmares.Code.Control
 {
     public class GridGeneration : MonoBehaviour
     {
-        [SerializeField] private Vector2Int verticalGap = new(3, 5);
-
         [Header("Components")]
         [SerializeField] private Tilemap tilemap;
         [SerializeField] private PlatformerGameManager gameManager;
@@ -17,6 +15,7 @@ namespace Nightmares.Code.Control
         
         [Header("Platform Tile")]
         [SerializeField] private RuleTile platform;
+        [SerializeField] private Vector2Int verticalGap = new(3, 5);
 
         public List<Vector3> platforms = new();
         
