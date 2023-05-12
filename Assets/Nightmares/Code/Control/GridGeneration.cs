@@ -11,7 +11,8 @@ namespace Nightmares.Code.Control
         [Range(1, 5)]
         [SerializeField] private int debugDifficulty = 1;
         [SerializeField] private float operationStepDuration = .1f;
-        
+        [SerializeField] private bool slowDown = false;
+
         [Header("Components")]
         [SerializeField] private Tilemap tilemap;
         [SerializeField] private PlatformerGameManager gameManager;
@@ -127,7 +128,7 @@ namespace Nightmares.Code.Control
 
                 SpawnLedge(yCenter, totalHeight, xRange, onLeft);
 
-                yield return _wfs;
+                if(slowDown) yield return _wfs;
             }
         }
 
@@ -135,10 +136,21 @@ namespace Nightmares.Code.Control
         {
             var positions = new List<Vector3Int>();
 
-            // TODO refactor into non-rect spawn
+            var pi = Mathf.PI;
+            var rangeStart = Random.Range(0f, pi);
+            var radRange = new Vector2(rangeStart, Random.Range(rangeStart, pi));
+            
             for (int y = yCenter - totalHeight; y <= yCenter; y++)
             {
-                for (var x = xRange.x; x <= xRange.y; x++)
+                var radVal = Mathf.Lerp(radRange.x, radRange.y, Mathf.InverseLerp(yCenter - totalHeight, yCenter, y));
+                var sinVal = Mathf.Sin(radVal);
+
+                Debug.Log(sinVal);
+
+                var from = onLeft ? xRange.x : Mathf.FloorToInt(Mathf.Lerp(xRange.y, xRange.x, sinVal));
+                var to = onLeft ? Mathf.CeilToInt(Mathf.Lerp(xRange.x, xRange.y, sinVal)) : xRange.y;
+                
+                for (var x = from; x <= to; x++)
                 {
                     var pos = new Vector3Int(x, y);
                     if (CanPutTileOn(pos,
@@ -149,8 +161,10 @@ namespace Nightmares.Code.Control
                         positions.Add(pos);
                     }
                 }
+
             }
 
+            Debug.Log("");
             foreach (var pos in positions)
             {
                 tilemap.SetTile(pos, wallRuleTile);
@@ -187,7 +201,7 @@ namespace Nightmares.Code.Control
                 
                 nextRangeIndex = GetNextRangeIndex(nextRangeIndex);
 
-                yield return _wfs;
+                if(slowDown) yield return _wfs;
             }
         }
 
