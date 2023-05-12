@@ -120,35 +120,40 @@ namespace Nightmares.Code.Control
                     (int) Random.Range(ledgeHeightMin.Evaluate(difficulty), ledgeHeightMax.Evaluate(difficulty));
                 var maxWidth = (int)((_rightWall - _leftWall - 1) 
                                 * Random.Range(ledgeWidthMin.Evaluate(difficulty), ledgeWidthMax.Evaluate(difficulty)));
-                var left = Random.Range(0, 2) == 0;
-                var xRange = left
+                var onLeft = Random.Range(0, 2) == 0;
+                var xRange = onLeft
                     ? new Vector2Int(_leftWall + 1, _leftWall + maxWidth)
                     : new Vector2Int(_rightWall - maxWidth, _rightWall - 1);
 
-                var positions = new List<Vector3Int>();
-                
-                // TODO refactor into non-rect spawn
-                for (int y = yCenter - totalHeight; y <= yCenter; y++)
-                {
-                    for (var x = xRange.x; x <= xRange.y; x++)
-                    {
-                        var pos = new Vector3Int(x, y);
-                        if (CanPutTileOn(pos, 
-                                left ? Mathf.Min(2, x - _leftWall - 1) : 2, 
-                                left ? 2 : Mathf.Min(2, _rightWall - x - 1), 
-                                2, 2))
-                        {
-                            positions.Add(pos);
-                        }
-                    }
-                }
-
-                foreach (var pos in positions)
-                {
-                    tilemap.SetTile(pos, wallRuleTile);
-                }
+                SpawnLedge(yCenter, totalHeight, xRange, onLeft);
 
                 yield return _wfs;
+            }
+        }
+
+        private void SpawnLedge(int yCenter, int totalHeight, Vector2Int xRange, bool onLeft)
+        {
+            var positions = new List<Vector3Int>();
+
+            // TODO refactor into non-rect spawn
+            for (int y = yCenter - totalHeight; y <= yCenter; y++)
+            {
+                for (var x = xRange.x; x <= xRange.y; x++)
+                {
+                    var pos = new Vector3Int(x, y);
+                    if (CanPutTileOn(pos,
+                            onLeft ? Mathf.Min(2, x - _leftWall - 1) : 2,
+                            onLeft ? 2 : Mathf.Min(2, _rightWall - x - 1),
+                            2, 2))
+                    {
+                        positions.Add(pos);
+                    }
+                }
+            }
+
+            foreach (var pos in positions)
+            {
+                tilemap.SetTile(pos, wallRuleTile);
             }
         }
 
