@@ -4189,7 +4189,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: monochrome_tilemap_192
+      name: monochrome_tilemap_192_wall
       rect:
         serializedVersion: 2
         x: 240
@@ -4210,7 +4210,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: monochrome_tilemap_193
+      name: monochrome_tilemap_193_wall
       rect:
         serializedVersion: 2
         x: 256
@@ -4231,7 +4231,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: monochrome_tilemap_194
+      name: monochrome_tilemap_194_wall
       rect:
         serializedVersion: 2
         x: 272
@@ -4252,7 +4252,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: monochrome_tilemap_195
+      name: monochrome_tilemap_195_wall
       rect:
         serializedVersion: 2
         x: 288
@@ -4609,7 +4609,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: monochrome_tilemap_212
+      name: monochrome_tilemap_212_wall
       rect:
         serializedVersion: 2
         x: 240
@@ -4630,7 +4630,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: monochrome_tilemap_213
+      name: monochrome_tilemap_213_wall
       rect:
         serializedVersion: 2
         x: 256
@@ -4651,7 +4651,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: monochrome_tilemap_214
+      name: monochrome_tilemap_214_wall
       rect:
         serializedVersion: 2
         x: 272
@@ -4672,7 +4672,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: monochrome_tilemap_215
+      name: monochrome_tilemap_215_wall
       rect:
         serializedVersion: 2
         x: 288
@@ -5029,7 +5029,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: monochrome_tilemap_232
+      name: monochrome_tilemap_232_wall
       rect:
         serializedVersion: 2
         x: 240
@@ -5050,7 +5050,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: monochrome_tilemap_233
+      name: monochrome_tilemap_233_wall
       rect:
         serializedVersion: 2
         x: 256
@@ -5071,7 +5071,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: monochrome_tilemap_234
+      name: monochrome_tilemap_234_wall
       rect:
         serializedVersion: 2
         x: 272
@@ -5092,7 +5092,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: monochrome_tilemap_235
+      name: monochrome_tilemap_235_wall
       rect:
         serializedVersion: 2
         x: 288
@@ -5449,7 +5449,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: monochrome_tilemap_252
+      name: monochrome_tilemap_252_wall
       rect:
         serializedVersion: 2
         x: 240
@@ -5470,7 +5470,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: monochrome_tilemap_253
+      name: monochrome_tilemap_253_wall
       rect:
         serializedVersion: 2
         x: 256
@@ -5491,7 +5491,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: monochrome_tilemap_254
+      name: monochrome_tilemap_254_wall
       rect:
         serializedVersion: 2
         x: 272
@@ -5512,7 +5512,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: monochrome_tilemap_255
+      name: monochrome_tilemap_255_wall
       rect:
         serializedVersion: 2
         x: 288
@@ -8484,7 +8484,6 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable:
       monochrome_tilemap_345: -1628137245
-      monochrome_tilemap_232: 477208451
       monochrome_tilemap_295: 2117181083
       monochrome_tilemap_377: -686124346
       monochrome_tilemap_87: 1548476105
@@ -8492,7 +8491,6 @@ TextureImporter:
       monochrome_tilemap_163: 1405940492
       monochrome_tilemap_179: 2033235834
       monochrome_tilemap_270: 358366752
-      monochrome_tilemap_215: -1047352561
       monochrome_tilemap_120: 1082791173
       monochrome_tilemap_203: -1926636491
       monochrome_tilemap_65: 687513593
@@ -8500,10 +8498,10 @@ TextureImporter:
       monochrome_tilemap_349: 1059205940
       monochrome_tilemap_22: -2066435055
       monochrome_tilemap_73: 1898568396
-      monochrome_tilemap_235: -1764775913
       monochrome_tilemap_302: 1884357298
       monochrome_tilemap_359: 1384914781
       monochrome_tilemap_80: 45332921
+      monochrome_tilemap_213_wall: 1779902940
       monochrome_tilemap_162: 1206425847
       monochrome_tilemap_358: 2068442022
       monochrome_tilemap_318: -1756307138
@@ -8528,7 +8526,6 @@ TextureImporter:
       monochrome_tilemap_312: -740736533
       monochrome_tilemap_326: 406763781
       monochrome_tilemap_205: 550467345
-      monochrome_tilemap_255: 1866561791
       monochrome_tilemap_258: 54994678
       monochrome_tilemap_40: 1655635859
       monochrome_tilemap_220: -585609418
@@ -8543,7 +8540,6 @@ TextureImporter:
       monochrome_tilemap_241: 265991442
       monochrome_tilemap_18: 1975018298
       monochrome_tilemap_227: 1802984580
-      monochrome_tilemap_195: 1195019049
       monochrome_tilemap_161: -1753400117
       monochrome_tilemap_299: -2146088281
       monochrome_tilemap_197: 863036969
@@ -8558,6 +8554,7 @@ TextureImporter:
       monochrome_tilemap_160: -62240923
       monochrome_tilemap_61: 1091443427
       monochrome_tilemap_97: -554298248
+      monochrome_tilemap_232_wall: 477208451
       monochrome_tilemap_262: -1393680333
       monochrome_tilemap_393: -1665893890
       monochrome_tilemap_201: -879955707
@@ -8565,9 +8562,11 @@ TextureImporter:
       monochrome_tilemap_10: 1246688342
       monochrome_tilemap_223: -2083132669
       monochrome_tilemap_67: 1050731165
+      monochrome_tilemap_233_wall: 113363811
       monochrome_tilemap_100: 743771760
       monochrome_tilemap_206: 322042045
       monochrome_tilemap_189: 1330218475
+      monochrome_tilemap_192_wall: 2117747255
       monochrome_tilemap_314: 1426448784
       monochrome_tilemap_178: 1691944658
       monochrome_tilemap_15: 844506138
@@ -8576,16 +8575,18 @@ TextureImporter:
       monochrome_tilemap_71: -1936013316
       monochrome_tilemap_137: 635254445
       monochrome_tilemap_288: -2117943660
+      monochrome_tilemap_214_wall: 1276202579
       monochrome_tilemap_391: -1124984837
-      monochrome_tilemap_380: -1004753998
+      monochrome_tilemap_253_wall: 2127874163
+      monochrome_tilemap_130: -1359948314
       monochrome_tilemap_362: 1668524091
       monochrome_tilemap_331: 1886652394
       monochrome_tilemap_110: -1675517776
-      monochrome_tilemap_130: -1359948314
+      monochrome_tilemap_380: -1004753998
       monochrome_tilemap_260: -396529126
+      monochrome_tilemap_235_wall: -1764775913
       monochrome_tilemap_365: -604850832
       monochrome_tilemap_48: 830753702
-      monochrome_tilemap_252: 1684736823
       monochrome_tilemap_47: -2109538029
       monochrome_tilemap_354: -1958012594
       monochrome_tilemap_8: -1580551833
@@ -8621,6 +8622,7 @@ TextureImporter:
       monochrome_tilemap_282: -289988864
       monochrome_tilemap_102: -1254443956
       monochrome_tilemap_308: 1095184028
+      monochrome_tilemap_255_wall: 1866561791
       monochrome_tilemap_381: -387243585
       monochrome_tilemap_145: -999849895
       monochrome_tilemap_56: 1449720729
@@ -8651,14 +8653,15 @@ TextureImporter:
       monochrome_tilemap_306: 1724227569
       monochrome_tilemap_268: -72652888
       monochrome_tilemap_355: 137475720
+      monochrome_tilemap_194_wall: 911063038
       monochrome_tilemap_6: 1227379846
       monochrome_tilemap_226: -1007442783
       monochrome_tilemap_305: -21774333
       monochrome_tilemap_324: 1994041083
       monochrome_tilemap_148: -1836139268
       monochrome_tilemap_34: 224001928
+      monochrome_tilemap_193_wall: -1434975611
       monochrome_tilemap_94: 1028449690
-      monochrome_tilemap_254: 1125193486
       monochrome_tilemap_78: 94943752
       monochrome_tilemap_43: 1572026268
       monochrome_tilemap_175: -1673921072
@@ -8669,6 +8672,7 @@ TextureImporter:
       monochrome_tilemap_109: 268444350
       monochrome_tilemap_274: 1163565794
       monochrome_tilemap_325: 969558132
+      monochrome_tilemap_215_wall: -1047352561
       monochrome_tilemap_147: 1339868284
       monochrome_tilemap_221: -141751551
       monochrome_tilemap_279: 1701731394
@@ -8676,10 +8680,9 @@ TextureImporter:
       monochrome_tilemap_390: 163687912
       monochrome_tilemap_35: -44431235
       monochrome_tilemap_133: -995977103
-      monochrome_tilemap_214: 1276202579
+      monochrome_tilemap_293: 872134245
       monochrome_tilemap_121: 1013499448
       monochrome_tilemap_83: -863986747
-      monochrome_tilemap_293: 872134245
       monochrome_tilemap_118: -2032941587
       monochrome_tilemap_333: 732330523
       monochrome_tilemap_12: 314910014
@@ -8704,6 +8707,7 @@ TextureImporter:
       monochrome_tilemap_53: 150491140
       monochrome_tilemap_124: 970912304
       monochrome_tilemap_340: 1666861392
+      monochrome_tilemap_195_wall: 1195019049
       monochrome_tilemap_21: 598040709
       monochrome_tilemap_4: 1588042337
       monochrome_tilemap_129: -1630193616
@@ -8718,7 +8722,6 @@ TextureImporter:
       monochrome_tilemap_150: 722890950
       monochrome_tilemap_25: -902412551
       monochrome_tilemap_317: -1053382903
-      monochrome_tilemap_212: -43615995
       monochrome_tilemap_238: -1606946476
       monochrome_tilemap_46: -884103103
       monochrome_tilemap_259: -1584213969
@@ -8744,11 +8747,10 @@ TextureImporter:
       monochrome_tilemap_289: 2034234544
       monochrome_tilemap_287: -1423408830
       monochrome_tilemap_36: 1508694006
-      monochrome_tilemap_194: 911063038
-      monochrome_tilemap_185: 921475825
       monochrome_tilemap_70: -1341615402
-      monochrome_tilemap_332: -1567215827
+      monochrome_tilemap_185: 921475825
       monochrome_tilemap_269: -937885136
+      monochrome_tilemap_332: -1567215827
       monochrome_tilemap_244: 977959430
       monochrome_tilemap_320: -1560547614
       monochrome_tilemap_169: 1451143035
@@ -8757,12 +8759,11 @@ TextureImporter:
       monochrome_tilemap_191: -1281462909
       monochrome_tilemap_378: 33077218
       monochrome_tilemap_128: -654747585
+      monochrome_tilemap_212_wall: -43615995
       monochrome_tilemap_337: -1820986772
       monochrome_tilemap_171: 404397539
       monochrome_tilemap_228: 490115073
-      monochrome_tilemap_192: 2117747255
       monochrome_tilemap_329: -473390560
-      monochrome_tilemap_193: -1434975611
       monochrome_tilemap_44: -896940836
       monochrome_tilemap_351: 1184767974
       monochrome_tilemap_243: -1880004677
@@ -8771,7 +8772,6 @@ TextureImporter:
       monochrome_tilemap_151: 550066416
       monochrome_tilemap_23: -1400516632
       monochrome_tilemap_173: 1657807058
-      monochrome_tilemap_233: 113363811
       monochrome_tilemap_58: -1231443332
       monochrome_tilemap_294: 1525797094
       monochrome_tilemap_230: -1750278228
@@ -8783,12 +8783,12 @@ TextureImporter:
       monochrome_tilemap_spiders_web: -1664651231
       monochrome_tilemap_81: 2115534658
       monochrome_tilemap_42: 67391639
-      monochrome_tilemap_213: 1779902940
       monochrome_tilemap_225: -1876217509
       monochrome_tilemap_166: -652613992
       monochrome_tilemap_50: -217403850
       monochrome_tilemap_158: 983169323
       monochrome_tilemap_108: 1365503152
+      monochrome_tilemap_234_wall: -1762980980
       monochrome_tilemap_182: 1461313659
       monochrome_tilemap_341: 104394350
       monochrome_tilemap_301: 816940405
@@ -8802,6 +8802,7 @@ TextureImporter:
       monochrome_tilemap_334: -2096043269
       monochrome_tilemap_60: -741919461
       monochrome_tilemap_33: -1906425050
+      monochrome_tilemap_254_wall: 1125193486
       monochrome_tilemap_149: -2129652927
       monochrome_tilemap_167: -782518648
       monochrome_tilemap_159: 1142592020
@@ -8818,7 +8819,6 @@ TextureImporter:
       monochrome_tilemap_371: 1867685697
       monochrome_tilemap_343: 230584925
       monochrome_tilemap_63: 924983195
-      monochrome_tilemap_234: -1762980980
       monochrome_tilemap_389: 1078846468
       monochrome_tilemap_361: 221889876
       monochrome_tilemap_285: 310606927
@@ -8829,12 +8829,13 @@ TextureImporter:
       monochrome_tilemap_135: 404149814
       monochrome_tilemap_66: 49671839
       monochrome_tilemap_68: -857928446
-      monochrome_tilemap_126: 1365656589
-      monochrome_tilemap_394: -253279234
       monochrome_tilemap_202: -213027279
+      monochrome_tilemap_126: 1365656589
+      monochrome_tilemap_252_wall: 1684736823
+      monochrome_tilemap_208: -382501355
+      monochrome_tilemap_394: -253279234
       monochrome_tilemap_123: -2028552945
       monochrome_tilemap_277: -970975184
-      monochrome_tilemap_208: -382501355
       monochrome_tilemap_168: -2121211346
       monochrome_tilemap_39: -767469181
       monochrome_tilemap_307: 875661383
@@ -8870,7 +8871,6 @@ TextureImporter:
       monochrome_tilemap_298: -322442890
       monochrome_tilemap_142: 1572774136
       monochrome_tilemap_190: -282320775
-      monochrome_tilemap_253: 2127874163
       monochrome_tilemap_292: 1861999785
       monochrome_tilemap_113: 243829614
       monochrome_tilemap_122: -124092456
