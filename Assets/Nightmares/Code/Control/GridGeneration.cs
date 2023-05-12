@@ -17,7 +17,7 @@ namespace Nightmares.Code.Control
         [SerializeField] private RuleTile wallRuleTile;
         
         [Header("Platform Tile")]
-        [SerializeField] private Tile platformMidTile;
+        [SerializeField] private RuleTile platform;
 
         public List<Vector3> platforms = new();
         
@@ -98,7 +98,7 @@ namespace Nightmares.Code.Control
         {
             for (int x = xLeft; x <= xRight; x++)
             {
-                tilemap.SetTile(new Vector3Int(x, y), platformMidTile);
+                tilemap.SetTile(new Vector3Int(x, y), platform);
             }
             platforms.Add(new Vector3(xLeft, xRight, y));
         }
