@@ -92,7 +92,9 @@ namespace Nightmares.Code.Control
 
         private void SpawnLedges()
         {
-            var ledgeCount = (int)(_levelDimensions.y * ledgesPerUnit.Evaluate(debugDifficulty));
+            var difficulty = debugDifficulty;
+            
+            var ledgeCount = (int)(_levelDimensions.y * ledgesPerUnit.Evaluate(difficulty));
             var ledgeYPos = Enumerable.Range(0, ledgeCount)
                 .Select(_ => Random.Range(_bottomWall + verticalGap.y, _topWall - verticalGap.y))
                 .OrderByDescending(x => x)
@@ -100,8 +102,24 @@ namespace Nightmares.Code.Control
 
             foreach (var yCenter in ledgeYPos)
             {
-                // TODO calculate width
-                // TODO generate height
+                var totalHeight = 
+                    (int) Random.Range(ledgeHeightMin.Evaluate(difficulty), ledgeHeightMax.Evaluate(difficulty));
+                var maxWidth = (int)((_rightWall - _leftWall - 1) 
+                                * Random.Range(ledgeWidthMin.Evaluate(difficulty), ledgeWidthMax.Evaluate(difficulty)));
+                var side = Random.Range(0, 2);
+                var xRange = side == 0
+                    ? new Vector2Int(_leftWall + 1, _leftWall + maxWidth)
+                    : new Vector2Int(_rightWall - maxWidth, _rightWall - 1);
+
+                // TODO refactor into non-rect spawn
+                // TODO check on having a way for the player to go 
+                for (int x = xRange.x; x <= xRange.y; x++)
+                {
+                    for (int y = yCenter; y >= yCenter - totalHeight; y--)
+                    {
+                        tilemap.SetTile(new Vector3Int(x, y), wallRuleTile);
+                    }
+                }
                 // TODO somehow distribute all that stuff
             }
         }
