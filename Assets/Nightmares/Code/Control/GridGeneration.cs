@@ -139,7 +139,6 @@ namespace Nightmares.Code.Control
                                 2, 2))
                         {
                             positions.Add(pos);
-                            
                         }
                     }
                 }
