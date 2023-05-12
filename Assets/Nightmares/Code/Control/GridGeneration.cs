@@ -18,6 +18,7 @@ namespace Nightmares.Code.Control
         [SerializeField] private RuleTile wallRuleTile;
 
         [Header("Ledges")]
+        [SerializeField] private bool spawnLedges = true;
         [SerializeField] private AnimationCurve ledgesPerUnit;
         [SerializeField] private AnimationCurve ledgeWidthMin;
         [SerializeField] private AnimationCurve ledgeWidthMax;
@@ -66,7 +67,7 @@ namespace Nightmares.Code.Control
                 new Vector2Int(_rightWall, _bottomWall), 
                 new Vector2Int(_rightWall + 1, _topWall - 1));
 
-            SpawnLedges();
+            if(spawnLedges) SpawnLedges();
             
             if(spawnPlatforms) SpawnPlatforms();
         }
@@ -180,6 +181,8 @@ namespace Nightmares.Code.Control
                     ? 1 // Right wall connection
                     : 0; // Free platform
             
+            // TODO fix free platform spawn
+
             var tileToUse = type == 0 ? platform : wallRuleTile;
             for (int x = xLeft; x <= xRight; x++)
             {
