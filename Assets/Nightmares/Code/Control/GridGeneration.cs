@@ -180,22 +180,27 @@ namespace Nightmares.Code.Control
                 : tilemap.GetTile(new Vector3Int(xRight + 1, y)) == wallRuleTile 
                     ? 1 // Right wall connection
                     : 0; // Free platform
-            
-            // TODO fix free platform spawn
 
             var tileToUse = type == 0 ? platform : wallRuleTile;
+            var positions = new List<Vector3Int>();
             for (int x = xLeft; x <= xRight; x++)
             {
                 var pos = new Vector3Int(x, y);
                 if (CanPutTileOn(pos,
-                        emptyLeft: type == -1 ? 0 : 2,
-                        emptyRight: type == 1 ? 0 : 2,
+                        emptyLeft: type == -1 ? 0 : 1,
+                        emptyRight: type == 1 ? 0 : 1,
                         emptyUp: 2,
                         emptyDown: 2))
                 {
-                    tilemap.SetTile(pos, tileToUse);
+                    positions.Add(pos);
                 }
             }
+
+            foreach (var pos in positions)
+            {
+                tilemap.SetTile(pos, tileToUse);
+            }
+            
             platforms.Add(new Vector3(xLeft, xRight, y));
         }
 
