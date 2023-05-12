@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -6,6 +7,9 @@ namespace Nightmares.Code.Control
 {
     public class GridGeneration : MonoBehaviour
     {
+        [Range(1, 5)]
+        [SerializeField] private int debugDifficulty = 1;
+        
         [Header("Components")]
         [SerializeField] private Tilemap tilemap;
         [SerializeField] private PlatformerGameManager gameManager;
@@ -88,7 +92,18 @@ namespace Nightmares.Code.Control
 
         private void SpawnLedges()
         {
-            // TODO    
+            var ledgeCount = (int)(_levelDimensions.y * ledgesPerUnit.Evaluate(debugDifficulty));
+            var ledgeYPos = Enumerable.Range(0, ledgeCount)
+                .Select(_ => Random.Range(_bottomWall + verticalGap.y, _topWall - verticalGap.y))
+                .OrderByDescending(x => x)
+                .ToList();
+
+            foreach (var yCenter in ledgeYPos)
+            {
+                // TODO calculate width
+                // TODO generate height
+                // TODO somehow distribute all that stuff
+            }
         }
 
         private void SpawnPlatforms()
