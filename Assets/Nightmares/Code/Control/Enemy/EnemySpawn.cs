@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 namespace Nightmares.Code.Control.Enemy
 {
@@ -9,7 +10,8 @@ namespace Nightmares.Code.Control.Enemy
         [SerializeField] private float step = 1;
         [SerializeField] private AnimationCurve budget;
         [SerializeField] private PlatformerGameManager gameManager;
-
+        [SerializeField] private Tilemap mainTileMap;
+        
         private float _balance;
         private int[] _spawnCost;
         
@@ -36,9 +38,26 @@ namespace Nightmares.Code.Control.Enemy
 
             void SpawnEnemy(int enemyIndex, float yPos)
             {
+                var pos = new Vector3Int((int)Random.Range(-levelDimensions.x / 2f + 1, levelDimensions.x / 2f - 1), (int)yPos);
+
+                if (mainTileMap.HasTile(pos))
+                {
+                    var dimensions = gameManager.LevelDimensions;
+                    var from = -dimensions.x / 2 - 1;
+                    var to = dimensions.x / 2;
+
+                    for (int x = from; x <= to; x++)
+                    {
+                        var nextPos = new Vector3Int(x, pos.y);
+                        if(mainTileMap.HasTile(nextPos)) continue;
+                        pos = nextPos;
+                        break;
+                    }
+                }
+                
                 Instantiate(
                     enemyPrefabs[enemyIndex],
-                    new Vector3(Random.Range(-levelDimensions.x / 2f + 1, levelDimensions.x / 2f - 1), yPos),
+                    pos,
                     Quaternion.identity,
                     transform);
             }

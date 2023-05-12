@@ -123,6 +123,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1839735485 &25284826 stripped
+Tilemap:
+  m_CorrespondingSourceObject: {fileID: 8432189614937608472, guid: ea6c05fab75820c46afcbfd83792c60a, type: 3}
+  m_PrefabInstance: {fileID: 306184842}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &31801218 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 872480229, guid: d9eb32e56fbcf0745ab237947b4f60e9, type: 3}
@@ -20966,6 +20971,7 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   gameManager: {fileID: 320371697}
+  mainTileMap: {fileID: 25284826}
 --- !u!1 &1930847584 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6572778145284645919, guid: d130e3f1026b1554596a52ded068a849, type: 3}
@@ -21162,7 +21168,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2065791525948684845, guid: d130e3f1026b1554596a52ded068a849, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 250
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2065791525948684845, guid: d130e3f1026b1554596a52ded068a849, type: 3}
       propertyPath: m_SizeDelta.y
@@ -21186,7 +21192,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2065791526832830416, guid: d130e3f1026b1554596a52ded068a849, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 250
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2065791526832830416, guid: d130e3f1026b1554596a52ded068a849, type: 3}
       propertyPath: m_SizeDelta.y
@@ -21298,7 +21304,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6572778145462748026, guid: d130e3f1026b1554596a52ded068a849, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 250
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6572778145462748026, guid: d130e3f1026b1554596a52ded068a849, type: 3}
       propertyPath: m_SizeDelta.y
