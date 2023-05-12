@@ -30,6 +30,7 @@ namespace Nightmares.Code.Control
         public void CleanTileMap()
         {
             tilemap.ClearAllTiles();
+            platforms.Clear();
         }
 
         [ContextMenu("Spawn Tile Map")]
