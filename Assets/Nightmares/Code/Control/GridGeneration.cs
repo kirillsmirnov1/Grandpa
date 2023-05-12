@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
-using Random = UnityEngine.Random;
 
 namespace Nightmares.Code.Control
 {
@@ -36,30 +35,32 @@ namespace Nightmares.Code.Control
             
             CleanTileMap();
 
-            SpawnTopRow(wallRuleTile, -_levelDimensions.x / 2 - 1, _levelDimensions.x / 2, 0);
-            SpawnWalls();
+            // Top wall
+            SpawnWallRegion(wallRuleTile, 
+                new Vector2Int(-_levelDimensions.x / 2 - 2, 0), 
+                new Vector2Int(_levelDimensions.x / 2 + 1, 1));
+            
+            // Left wall
+            SpawnWallRegion(wallRuleTile, 
+                new Vector2Int(-_levelDimensions.x / 2 - 2, -_levelDimensions.y), 
+                new Vector2Int(-_levelDimensions.x / 2 - 1, -1));
+            
+            // Right wall
+            SpawnWallRegion(wallRuleTile, 
+                new Vector2Int(_levelDimensions.x / 2, -_levelDimensions.y), 
+                new Vector2Int(_levelDimensions.x / 2 + 1, -1));
+
             SpawnPlatforms();
         }
 
-        private void SpawnTopRow(TileBase tile, int xFrom, int xTo, int y)
+        private void SpawnWallRegion(TileBase tile, Vector2Int from, Vector2Int to)
         {
-            for (int x = xFrom-1; x <= xTo+1; x++)
+            for (int x = from.x; x <= to.x; x++)
             {
-                tilemap.SetTile(new Vector3Int(x, y+1), tile);
-                tilemap.SetTile(new Vector3Int(x, y), tile);
-            }
-        }
-
-        private void SpawnWalls()
-        {
-            var xLeft = -_levelDimensions.x / 2 - 1;
-            var xRight = _levelDimensions.x / 2;
-            for (int y = 1; y <= _levelDimensions.y; y++)
-            {
-                tilemap.SetTile(new Vector3Int(xLeft, -y), wallRuleTile);
-                tilemap.SetTile(new Vector3Int(xLeft - 1, -y), wallRuleTile);
-                tilemap.SetTile(new Vector3Int(xRight, -y), wallRuleTile);
-                tilemap.SetTile(new Vector3Int(xRight + 1, -y), wallRuleTile);
+                for (int y = from.y; y <= to.y; y++)
+                {
+                    tilemap.SetTile(new Vector3Int(x, y), tile);
+                }
             }
         }
 
