@@ -24,7 +24,8 @@ namespace Nightmares.Code.Control
         [SerializeField] private AnimationCurve ledgeHeightMin;
         [SerializeField] private AnimationCurve ledgeHeightMax;
         
-        [Header("Platform Tile")]
+        [Header("Platforms")]
+        [SerializeField] private bool spawnPlatforms = true;
         [SerializeField] private RuleTile platform;
         [SerializeField] private Vector2Int verticalGap = new(3, 5);
 
@@ -67,7 +68,7 @@ namespace Nightmares.Code.Control
 
             SpawnLedges();
             
-            SpawnPlatforms();
+            if(spawnPlatforms) SpawnPlatforms();
         }
 
         private void UpdDimensions()
@@ -119,7 +120,7 @@ namespace Nightmares.Code.Control
                     for (int y = yCenter; y >= yCenter - totalHeight; y--)
                     {
                         var pos = new Vector3Int(x, y);
-                        if (CanPutTileOn(pos, emptyLeft: !left, emptyRight: left))
+                        if (CanPutTileOn(pos, left ? 0 : 2, left ? 2 : 0))
                         {
                             tilemap.SetTile(pos, wallRuleTile);
                         }
@@ -128,11 +129,23 @@ namespace Nightmares.Code.Control
             }
         }
 
-        private bool CanPutTileOn(Vector3Int pos, bool emptyLeft, bool emptyRight) // TODO refactor into distances
+        private bool CanPutTileOn(Vector3Int pos, int emptyLeft, int emptyRight)
         {
             if (tilemap.HasTile(pos)) return false;
-            if (emptyLeft && tilemap.HasTile(pos - Vector3Int.right)) return false;
-            if (emptyRight && tilemap.HasTile(pos + Vector3Int.right)) return false;
+
+            // TODO refactor into one 2d cycle 
+            
+            // Left check
+            for (int x = pos.x - 1; x >= pos.x - emptyLeft; x--)
+            {
+                if (tilemap.HasTile(new Vector3Int(x, pos.y))) return false;
+            }
+            
+            // Right check
+            for (int x = pos.x + 1; x <= pos.x + emptyRight; x++)
+            {
+                if (tilemap.HasTile(new Vector3Int(x, pos.y))) return false;
+            }
 
             return true;
         }
