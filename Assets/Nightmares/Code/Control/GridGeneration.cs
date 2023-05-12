@@ -133,7 +133,10 @@ namespace Nightmares.Code.Control
                     for (int y = yCenter - totalHeight; y <= yCenter; y++)
                     {
                         var pos = new Vector3Int(x, y);
-                        if (CanPutTileOn(pos, left ? 0 : 2, left ? 2 : 0, 2, 2))
+                        if (CanPutTileOn(pos, 
+                                left ? Mathf.Min(2, x - _leftWall - 1) : 2, 
+                                left ? 2 : Mathf.Min(2, _rightWall - x - 1), 
+                                2, 2))
                         {
                             positions.Add(pos);
                             
