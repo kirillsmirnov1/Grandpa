@@ -120,7 +120,7 @@ namespace Nightmares.Code.Control
                     for (int y = yCenter; y >= yCenter - totalHeight; y--)
                     {
                         var pos = new Vector3Int(x, y);
-                        if (CanPutTileOn(pos, left ? 0 : 2, left ? 2 : 0))
+                        if (CanPutTileOn(pos, left ? 0 : 2, left ? 2 : 0, 0, 2))
                         {
                             tilemap.SetTile(pos, wallRuleTile);
                         }
@@ -129,22 +129,14 @@ namespace Nightmares.Code.Control
             }
         }
 
-        private bool CanPutTileOn(Vector3Int pos, int emptyLeft, int emptyRight)
+        private bool CanPutTileOn(Vector3Int pos, int emptyLeft, int emptyRight, int emptyUp, int emptyDown)
         {
-            if (tilemap.HasTile(pos)) return false;
-
-            // TODO refactor into one 2d cycle 
-            
-            // Left check
-            for (int x = pos.x - 1; x >= pos.x - emptyLeft; x--)
+            for (int x = pos.x - emptyLeft; x <= pos.x + emptyRight; x++)
             {
-                if (tilemap.HasTile(new Vector3Int(x, pos.y))) return false;
-            }
-            
-            // Right check
-            for (int x = pos.x + 1; x <= pos.x + emptyRight; x++)
-            {
-                if (tilemap.HasTile(new Vector3Int(x, pos.y))) return false;
+                for (int y = pos.y - emptyDown; y <= pos.y + emptyUp; y++)
+                {
+                    if (tilemap.HasTile(new Vector3Int(x, y))) return false;
+                }       
             }
 
             return true;
