@@ -106,21 +106,35 @@ namespace Nightmares.Code.Control
                     (int) Random.Range(ledgeHeightMin.Evaluate(difficulty), ledgeHeightMax.Evaluate(difficulty));
                 var maxWidth = (int)((_rightWall - _leftWall - 1) 
                                 * Random.Range(ledgeWidthMin.Evaluate(difficulty), ledgeWidthMax.Evaluate(difficulty)));
-                var side = Random.Range(0, 2);
-                var xRange = side == 0
+                var left = Random.Range(0, 2) == 0;
+                var xRange = left
                     ? new Vector2Int(_leftWall + 1, _leftWall + maxWidth)
                     : new Vector2Int(_rightWall - maxWidth, _rightWall - 1);
 
                 // TODO refactor into non-rect spawn
-                // TODO check on having a way for the player to go 
-                for (int x = xRange.x; x <= xRange.y; x++)
+                for (var x = left ? xRange.x : xRange.y; 
+                     left ? x <= xRange.y : x >= xRange.x; 
+                     x += left ? 1 : -1)
                 {
                     for (int y = yCenter; y >= yCenter - totalHeight; y--)
                     {
-                        tilemap.SetTile(new Vector3Int(x, y), wallRuleTile);
+                        var pos = new Vector3Int(x, y);
+                        if (CanPutTileOn(pos, emptyLeft: !left, emptyRight: left))
+                        {
+                            tilemap.SetTile(pos, wallRuleTile);
+                        }
                     }
                 }
             }
+        }
+
+        private bool CanPutTileOn(Vector3Int pos, bool emptyLeft, bool emptyRight) // TODO refactor into distances
+        {
+            if (tilemap.HasTile(pos)) return false;
+            if (emptyLeft && tilemap.HasTile(pos - Vector3Int.right)) return false;
+            if (emptyRight && tilemap.HasTile(pos + Vector3Int.right)) return false;
+
+            return true;
         }
 
         private void SpawnPlatforms()
