@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -9,6 +10,7 @@ namespace Nightmares.Code.Control
     {
         [Range(1, 5)]
         [SerializeField] private int debugDifficulty = 1;
+        [SerializeField] private float operationStepDuration = .1f;
         
         [Header("Components")]
         [SerializeField] private Tilemap tilemap;
@@ -38,9 +40,12 @@ namespace Nightmares.Code.Control
         private int _topWall;
         private int _bottomWall;
 
+        private WaitForSeconds _wfs;
+
         [ContextMenu("Clean Tile Map")]
         public void CleanTileMap()
         {
+            StopAllCoroutines();
             tilemap.ClearAllTiles();
             platforms.Clear();
         }
@@ -48,28 +53,35 @@ namespace Nightmares.Code.Control
         [ContextMenu("Spawn Tile Map")]
         public void SpawnTileMap()
         {
-            UpdDimensions();
-
             CleanTileMap();
+            _wfs = new WaitForSeconds(operationStepDuration);
 
-            // Top wall
-            SpawnWallRegion(wallRuleTile, 
-                new Vector2Int(_leftWall - 1, _topWall), 
-                new Vector2Int(_rightWall + 1, _topWall + 1));
-            
-            // Left wall
-            SpawnWallRegion(wallRuleTile, 
-                new Vector2Int(_leftWall - 1, _bottomWall), 
-                new Vector2Int(_leftWall, _topWall - 1));
-            
-            // Right wall
-            SpawnWallRegion(wallRuleTile, 
-                new Vector2Int(_rightWall, _bottomWall), 
-                new Vector2Int(_rightWall + 1, _topWall - 1));
+            StartCoroutine(Impl());
+            IEnumerator Impl()
+            {
+                UpdDimensions();
 
-            if(spawnLedges) SpawnLedges();
-            
-            if(spawnPlatforms) SpawnPlatforms();
+                // Top wall
+                SpawnWallRegion(wallRuleTile,
+                    new Vector2Int(_leftWall - 1, _topWall),
+                    new Vector2Int(_rightWall + 1, _topWall + 1));
+
+                // Left wall
+                SpawnWallRegion(wallRuleTile,
+                    new Vector2Int(_leftWall - 1, _bottomWall),
+                    new Vector2Int(_leftWall, _topWall - 1));
+
+                // Right wall
+                SpawnWallRegion(wallRuleTile,
+                    new Vector2Int(_rightWall, _bottomWall),
+                    new Vector2Int(_rightWall + 1, _topWall - 1));
+
+                if (spawnLedges) yield return SpawnLedges();
+
+                if (spawnPlatforms) yield return SpawnPlatforms();
+
+                yield return null;
+            }
         }
 
         private void UpdDimensions()
@@ -92,7 +104,7 @@ namespace Nightmares.Code.Control
             }
         }
 
-        private void SpawnLedges()
+        private IEnumerator SpawnLedges()
         {
             var difficulty = debugDifficulty;
             
@@ -133,6 +145,8 @@ namespace Nightmares.Code.Control
                 {
                     tilemap.SetTile(pos, wallRuleTile);
                 }
+
+                yield return _wfs;
             }
         }
 
@@ -149,7 +163,7 @@ namespace Nightmares.Code.Control
             return true;
         }
 
-        private void SpawnPlatforms()
+        private IEnumerator SpawnPlatforms()
         {
             var ranges = GenerateRanges();
             var nextRangeIndex = 0;
@@ -165,6 +179,8 @@ namespace Nightmares.Code.Control
                 y -= Random.Range(verticalGap.x, verticalGap.y + 1);
                 
                 nextRangeIndex = GetNextRangeIndex(nextRangeIndex);
+
+                yield return _wfs;
             }
         }
 

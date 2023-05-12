@@ -59,9 +59,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   debugDifficulty: 5
+  operationStepDuration: 0
   tilemap: {fileID: 8432189614937608472}
   gameManager: {fileID: 0}
   wallRuleTile: {fileID: 11400000, guid: 6d5350c6f693f0b448a743ad6afea28c, type: 2}
+  spawnLedges: 1
   ledgesPerUnit:
     serializedVersion: 2
     m_Curve:
