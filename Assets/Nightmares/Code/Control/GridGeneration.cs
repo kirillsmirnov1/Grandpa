@@ -113,19 +113,25 @@ namespace Nightmares.Code.Control
                     ? new Vector2Int(_leftWall + 1, _leftWall + maxWidth)
                     : new Vector2Int(_rightWall - maxWidth, _rightWall - 1);
 
+                var positions = new List<Vector3Int>();
+                
                 // TODO refactor into non-rect spawn
-                for (var x = left ? xRange.x : xRange.y; 
-                     left ? x <= xRange.y : x >= xRange.x; 
-                     x += left ? 1 : -1)
+                for (var x = xRange.x; x <= xRange.y; x++)
                 {
                     for (int y = yCenter - totalHeight; y <= yCenter; y++)
                     {
                         var pos = new Vector3Int(x, y);
-                        if (CanPutTileOn(pos, left ? 0 : 2, left ? 2 : 0, 2, 0))
+                        if (CanPutTileOn(pos, left ? 0 : 2, left ? 2 : 0, 2, 2))
                         {
-                            tilemap.SetTile(pos, wallRuleTile);
+                            positions.Add(pos);
+                            
                         }
                     }
+                }
+
+                foreach (var pos in positions)
+                {
+                    tilemap.SetTile(pos, wallRuleTile);
                 }
             }
         }
