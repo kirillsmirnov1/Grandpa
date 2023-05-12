@@ -12,6 +12,13 @@ namespace Nightmares.Code.Control
 
         [Header("Wall Tiles")]
         [SerializeField] private RuleTile wallRuleTile;
+
+        [Header("Ledges")]
+        [SerializeField] private AnimationCurve ledgesPerUnit;
+        [SerializeField] private AnimationCurve ledgeWidthMin;
+        [SerializeField] private AnimationCurve ledgeWidthMax;
+        [SerializeField] private AnimationCurve ledgeHeightMin;
+        [SerializeField] private AnimationCurve ledgeHeightMax;
         
         [Header("Platform Tile")]
         [SerializeField] private RuleTile platform;
@@ -54,6 +61,8 @@ namespace Nightmares.Code.Control
                 new Vector2Int(_rightWall, _bottomWall), 
                 new Vector2Int(_rightWall + 1, _topWall - 1));
 
+            SpawnLedges();
+            
             SpawnPlatforms();
         }
 
@@ -75,6 +84,11 @@ namespace Nightmares.Code.Control
                     tilemap.SetTile(new Vector3Int(x, y), tile);
                 }
             }
+        }
+
+        private void SpawnLedges()
+        {
+            // TODO    
         }
 
         private void SpawnPlatforms()
