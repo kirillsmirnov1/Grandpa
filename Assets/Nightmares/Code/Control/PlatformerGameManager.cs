@@ -45,9 +45,9 @@ namespace Nightmares.Code.Control
             cameraFollowsPlayer.InitDimensions();
             yield return null;
             
-            gridGeneration.SpawnTileMap();
+            gridGeneration.SpawnTileMap(out var impl);
 
-            yield return null;
+            yield return impl;
             
             if (gridGeneration.platforms.Count > 0)
             {

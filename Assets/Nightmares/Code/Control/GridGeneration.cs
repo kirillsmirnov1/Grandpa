@@ -52,12 +52,13 @@ namespace Nightmares.Code.Control
         }
 
         [ContextMenu("Spawn Tile Map")]
-        public void SpawnTileMap()
+        public void SpawnTileMap() => SpawnTileMap(out _);
+        public void SpawnTileMap(out Coroutine impl)
         {
             CleanTileMap();
             _wfs = new WaitForSeconds(operationStepDuration);
 
-            StartCoroutine(Impl());
+            impl = StartCoroutine(Impl());
             IEnumerator Impl()
             {
                 UpdDimensions();
