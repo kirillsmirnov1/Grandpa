@@ -128,9 +128,9 @@ namespace Nightmares.Code.Control
                 var positions = new List<Vector3Int>();
                 
                 // TODO refactor into non-rect spawn
-                for (var x = xRange.x; x <= xRange.y; x++)
+                for (int y = yCenter - totalHeight; y <= yCenter; y++)
                 {
-                    for (int y = yCenter - totalHeight; y <= yCenter; y++)
+                    for (var x = xRange.x; x <= xRange.y; x++)
                     {
                         var pos = new Vector3Int(x, y);
                         if (CanPutTileOn(pos, 
