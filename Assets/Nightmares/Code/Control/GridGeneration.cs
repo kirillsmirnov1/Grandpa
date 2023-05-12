@@ -116,10 +116,13 @@ namespace Nightmares.Code.Control
                 .OrderByDescending(x => x)
                 .ToList();
 
-            foreach (var yCenter in ledgeYPos)
+            foreach (var yStart in ledgeYPos)
             {
                 var totalHeight = 
                     (int) Random.Range(ledgeHeightMin.Evaluate(difficulty), ledgeHeightMax.Evaluate(difficulty));
+                var yEnd = yStart - totalHeight;
+                yEnd = Mathf.Max(yEnd, _bottomWall + verticalGap.y);
+                
                 var maxWidth = (int)((_rightWall - _leftWall - 1) 
                                 * Random.Range(ledgeWidthMin.Evaluate(difficulty), ledgeWidthMax.Evaluate(difficulty)));
                 var onLeft = Random.Range(0, 2) == 0;
@@ -127,13 +130,13 @@ namespace Nightmares.Code.Control
                     ? new Vector2Int(_leftWall + 1, _leftWall + maxWidth)
                     : new Vector2Int(_rightWall - maxWidth, _rightWall - 1);
 
-                SpawnLedge(yCenter, totalHeight, xRange, onLeft);
+                SpawnLedge(yStart, yEnd, xRange, onLeft);
 
                 if(slowDown) yield return _wfs;
             }
         }
 
-        private void SpawnLedge(int yCenter, int totalHeight, Vector2Int xRange, bool onLeft)
+        private void SpawnLedge(int yTop, int yBottom, Vector2Int xRange, bool onLeft)
         {
             var positions = new List<Vector3Int>();
 
@@ -141,12 +144,10 @@ namespace Nightmares.Code.Control
             var rangeStart = Random.Range(0f, pi);
             var radRange = new Vector2(rangeStart, Random.Range(rangeStart, pi));
             
-            for (int y = yCenter - totalHeight; y <= yCenter; y++)
+            for (int y = yBottom; y <= yTop; y++)
             {
-                var radVal = Mathf.Lerp(radRange.x, radRange.y, Mathf.InverseLerp(yCenter - totalHeight, yCenter, y));
+                var radVal = Mathf.Lerp(radRange.x, radRange.y, Mathf.InverseLerp(yBottom, yTop, y));
                 var sinVal = Mathf.Sin(radVal);
-
-                Debug.Log(sinVal);
 
                 var from = onLeft ? xRange.x : Mathf.FloorToInt(Mathf.Lerp(xRange.y, xRange.x, sinVal));
                 var to = onLeft ? Mathf.CeilToInt(Mathf.Lerp(xRange.x, xRange.y, sinVal)) : xRange.y;
@@ -165,7 +166,6 @@ namespace Nightmares.Code.Control
 
             }
 
-            Debug.Log("");
             foreach (var pos in positions)
             {
                 tilemap.SetTile(pos, wallRuleTile);
