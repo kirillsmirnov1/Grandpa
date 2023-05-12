@@ -125,6 +125,18 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -22777,8 +22789,9 @@ TextureImporter:
       1BitPack_479: -707346841
       1BitPack_726: 609184961
       1BitPack_146: -1788185365
-      1BitPack_519: -1329625298
+      1BitPack_crown_0: -1808842390
       1BitPack_1056: 1807770069
+      1BitPack_519: -1329625298
       1BitPack_444: -1135615803
       1BitPack_509: 1744048157
       1BitPack_672: -2122235340
@@ -22788,7 +22801,6 @@ TextureImporter:
       1BitPack_439: -466099963
       1BitPack_525: -332736329
       1BitPack_267: -2025012129
-      1BitPack_crown_0: -1808842390
       1BitPack_692: -2083804550
       1BitPack_754: -879139455
       1BitPack_407: -1624560212
@@ -23072,20 +23084,20 @@ TextureImporter:
       1BitPack_179: 1460442320
       1BitPack_333: -1276181051
       1BitPack_562: -56239252
-      1BitPack_446: -1011345613
+      1BitPack_623: -22582589
       1BitPack_339: -1668312327
       1BitPack_457: 1261801942
       1BitPack_743: 239624108
       1BitPack_977: 1158683909
       1BitPack_305: 1459774353
-      1BitPack_623: -22582589
+      1BitPack_446: -1011345613
+      1BitPack_923: -2040172984
       1BitPack_610: -59727556
       1BitPack_666: -1638711196
       1BitPack_62: -1920912687
       1BitPack_735: 2032928317
       1BitPack_592: -771213424
       1BitPack_554: -299288958
-      1BitPack_923: -2040172984
       1BitPack_409: -776486876
       1BitPack_606: 1007943459
       1BitPack_896: 88165927
@@ -23331,8 +23343,8 @@ TextureImporter:
       1BitPack_171: 914993101
       1BitPack_356: 1363703265
       1BitPack_17: -678449328
-      1BitPack_1002: -28242420
       1BitPack_527: 1064025066
+      1BitPack_1002: -28242420
       1BitPack_441: 259101849
       1BitPack_162: 1806217650
       1BitPack_1055: -642566571
