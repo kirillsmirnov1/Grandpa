@@ -53,7 +53,7 @@ namespace Nightmares.Code.Control.Enemy
 
         private void Start()
         {
-            _fliesToSpawnOnHit = Mathf.FloorToInt(Prefs.GrandpaDifficulty * flySpawnK.x + flySpawnK.y);
+            _fliesToSpawnOnHit = Mathf.FloorToInt(PlatformerGameManager.Instance.Difficulty * flySpawnK.x + flySpawnK.y);
             mainSprite.onBecameVisible += OnVisible;
             enemyRef.OnEnemyHealthChange += UpdateSlider;
             Physics2D.IgnoreCollision(grandpaCollider, staffCollider);

@@ -16,6 +16,8 @@ namespace Nightmares.Code.Control
         public static event Action OnWin;
         public static event Action OnDefeat;
 
+        public static PlatformerGameManager Instance;
+
         [SerializeField] private int yHeightPerDifficultyLevel = 50;
         [SerializeField] private Vector2Int levelDimensions = new(13, 40);
         [SerializeField] private int grandpasRoomHeight = 8;
@@ -32,16 +34,20 @@ namespace Nightmares.Code.Control
 
         public Vector2Int LevelDimensions => levelDimensions;
         public int GrandpasRoomHeight => grandpasRoomHeight;
+
+        public int Difficulty => Prefs.GrandpaDifficulty;
         
         private void Awake()
         {
+            Instance = this;
+            
             Player.OnPlayerDeath += OnPlayerDeath;
             GrandpaController.OnGrandpaDefeated += OnVictory;
         }
 
         private IEnumerator Start()
         {
-            levelDimensions.y = Prefs.GrandpaDifficulty * yHeightPerDifficultyLevel;
+            levelDimensions.y = Difficulty * yHeightPerDifficultyLevel;
             cameraFollowsPlayer.InitDimensions();
             yield return null;
             
@@ -100,7 +106,7 @@ namespace Nightmares.Code.Control
             {
                 callback?.Invoke();
                 ShowBanner(gameOverBanner.GetComponent<CanvasGroup>());
-                gameOverBanner.Set(victory, pointsCounter.Points, Prefs.GrandpaDifficulty);
+                gameOverBanner.Set(victory, pointsCounter.Points, Difficulty);
                 
                 var player = Player.Instance;
 

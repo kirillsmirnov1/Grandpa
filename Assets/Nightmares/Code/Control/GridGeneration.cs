@@ -8,8 +8,6 @@ namespace Nightmares.Code.Control
 {
     public class GridGeneration : MonoBehaviour
     {
-        [Range(1, 5)]
-        [SerializeField] private int debugDifficulty = 1;
         [SerializeField] private float operationStepDuration = .1f;
         [SerializeField] private bool slowDown = false;
 
@@ -108,7 +106,7 @@ namespace Nightmares.Code.Control
 
         private IEnumerator SpawnLedges()
         {
-            var difficulty = debugDifficulty;
+            var difficulty = gameManager.Difficulty;
             
             var ledgeCount = (int)(_levelDimensions.y * ledgesPerUnit.Evaluate(difficulty));
             var ledgeYPos = Enumerable.Range(0, ledgeCount)
