@@ -14,6 +14,8 @@ namespace Nightmares.Code.Control
         [SerializeField] private LayerMask playerLayer;
         [SerializeField] private MobileInput mobileInput;
         [SerializeField] private float throwForceDecreaseSpeed = 100f;
+        [SerializeField] private SpriteRenderer spriteRenderer;
+        [SerializeField] private Animator animator;
         
         public float HorizontalInput { get; set; }
         public bool JumpInput { get; set; }
@@ -23,6 +25,10 @@ namespace Nightmares.Code.Control
         private Collider2D _collider;
         private Vector2 _throwForce;
         private float _jumpTime;
+        
+        private static readonly int Anim_Jump = Animator.StringToHash("jump");
+        private static readonly int Anim_Walk = Animator.StringToHash("walk");
+        private static readonly int Anim_Idle = Animator.StringToHash("idle");
 
         private void Start()
         {
@@ -44,6 +50,7 @@ namespace Nightmares.Code.Control
         {
             GetInput();
             Move();
+            UpdateAnimator();
         }
 
         private void FixedUpdate()
@@ -51,6 +58,26 @@ namespace Nightmares.Code.Control
             GroundCheck();
             _throwForce = Vector2.Lerp(_throwForce, Vector2.zero, Time.fixedDeltaTime * throwForceDecreaseSpeed);
             ContiniousJump();
+        }
+
+        private void UpdateAnimator()
+        {
+            if (!_onGround)
+            {
+                animator.SetTrigger(Anim_Jump);
+            }
+            else
+            {
+                if (_rb.velocity.sqrMagnitude > .1f)
+                {
+                    animator.SetTrigger(Anim_Walk);
+                    spriteRenderer.flipX = _rb.velocity.x < 0;
+                }
+                else
+                {
+                    animator.SetTrigger(Anim_Idle);
+                }
+            }
         }
 
         private void ContiniousJump()

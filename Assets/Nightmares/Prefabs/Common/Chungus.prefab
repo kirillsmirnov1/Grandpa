@@ -169,6 +169,8 @@ MonoBehaviour:
     m_Bits: 65
   mobileInput: {fileID: 0}
   throwForceDecreaseSpeed: 5
+  spriteRenderer: {fileID: 2525622202407566303}
+  animator: {fileID: 2525622202407566296}
 --- !u!114 &615950326756837432
 MonoBehaviour:
   m_ObjectHideFlags: 0
