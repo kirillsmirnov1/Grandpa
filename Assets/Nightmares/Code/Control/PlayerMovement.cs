@@ -24,6 +24,10 @@ namespace Nightmares.Code.Control
         private Collider2D _collider;
         private Vector2 _throwForce;
         private float _jumpTime;
+        
+        private static readonly int Anim_Jump = Animator.StringToHash("jump");
+        private static readonly int Anim_Walk = Animator.StringToHash("walk");
+        private static readonly int Anim_Idle = Animator.StringToHash("idle");
 
         private void Start()
         {
@@ -59,17 +63,17 @@ namespace Nightmares.Code.Control
         {
             if (!_onGround)
             {
-                animator.SetTrigger("jump");
+                animator.SetTrigger(Anim_Jump);
             }
             else
             {
                 if (_rb.velocity.sqrMagnitude > .1f)
                 {
-                    animator.SetTrigger("walk");
+                    animator.SetTrigger(Anim_Walk);
                 }
                 else
                 {
-                    animator.SetTrigger("idle");
+                    animator.SetTrigger(Anim_Idle);
                 }
             }
         }
