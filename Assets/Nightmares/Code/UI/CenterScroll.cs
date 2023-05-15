@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 namespace Nightmares.Code.UI
 {
-    public class CenterScroll : MonoBehaviour
+    public class CenterScroll : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
     {
         [SerializeField] private Transform content;
         [SerializeField] private float speed = 1;
@@ -32,12 +33,12 @@ namespace Nightmares.Code.UI
             StartCoroutine(InitialCentering());
         }
 
-        public void OnPointerDown()
+        public void OnPointerDown(PointerEventData eventData)
         {
             StopRecentering();
         }
 
-        public void OnPointerUp()
+        public void OnPointerUp(PointerEventData eventData)
         {
             StartRecentering();
         }
