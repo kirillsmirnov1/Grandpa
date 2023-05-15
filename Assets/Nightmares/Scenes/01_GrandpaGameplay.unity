@@ -20626,6 +20626,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4426f47f140543819effd2143204c878, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  debugDifficulty: 0
   yHeightPerDifficultyLevel: 50
   levelDimensions: {x: 11, y: 100}
   grandpasRoomHeight: 13

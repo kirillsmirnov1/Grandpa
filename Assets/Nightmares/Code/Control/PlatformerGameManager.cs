@@ -7,6 +7,7 @@ using Nightmares.Code.Model;
 using Nightmares.Code.UI;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace Nightmares.Code.Control
@@ -17,6 +18,11 @@ namespace Nightmares.Code.Control
         public static event Action OnDefeat;
 
         public static PlatformerGameManager Instance;
+
+#if UNITY_EDITOR
+        [Range(0, 5)]
+        [SerializeField] private int debugDifficulty = 0;
+#endif
 
         [Header("Level dimensions")]
         [SerializeField] private int yHeightPerDifficultyLevel = 50;
@@ -37,8 +43,11 @@ namespace Nightmares.Code.Control
 
         public Vector2Int LevelDimensions => levelDimensions;
         public int GrandpasRoomHeight => grandpasRoomHeight;
-
+#if UNITY_EDITOR
+        public int Difficulty => debugDifficulty == 0 ? Prefs.GrandpaDifficulty : debugDifficulty;
+#else
         public int Difficulty => Prefs.GrandpaDifficulty;
+#endif
         
         private void Awake()
         {
