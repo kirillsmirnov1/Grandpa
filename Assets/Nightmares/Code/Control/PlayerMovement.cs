@@ -14,6 +14,7 @@ namespace Nightmares.Code.Control
         [SerializeField] private LayerMask playerLayer;
         [SerializeField] private MobileInput mobileInput;
         [SerializeField] private float throwForceDecreaseSpeed = 100f;
+        [SerializeField] private SpriteRenderer spriteRenderer;
         [SerializeField] private Animator animator;
         
         public float HorizontalInput { get; set; }
@@ -70,6 +71,7 @@ namespace Nightmares.Code.Control
                 if (_rb.velocity.sqrMagnitude > .1f)
                 {
                     animator.SetTrigger(Anim_Walk);
+                    spriteRenderer.flipX = _rb.velocity.x < 0;
                 }
                 else
                 {
