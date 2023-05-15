@@ -7,7 +7,6 @@ using Nightmares.Code.Model;
 using Nightmares.Code.UI;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace Nightmares.Code.Control
@@ -20,7 +19,7 @@ namespace Nightmares.Code.Control
         public static PlatformerGameManager Instance;
 
 #if UNITY_EDITOR
-        [Range(0, 5)]
+        [Range(0, Constants.GrandpaMaxDifficulty)]
         [SerializeField] private int debugDifficulty = 0;
 #endif
 

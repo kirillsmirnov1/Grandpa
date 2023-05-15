@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Nightmares.Code.Control;
+using UnityEngine;
 
 namespace Nightmares.Code.Model
 {
@@ -8,8 +9,8 @@ namespace Nightmares.Code.Model
 
         public static int GrandpaDifficulty
         {
-            get => PlayerPrefs.GetInt(KeyGrandpaDifficulty, 1);
-            set => PlayerPrefs.SetInt(KeyGrandpaDifficulty, Mathf.Max(1, value));
+            get => Mathf.Clamp(PlayerPrefs.GetInt(KeyGrandpaDifficulty, 1), 1, Constants.GrandpaMaxDifficulty);
+            set => PlayerPrefs.SetInt(KeyGrandpaDifficulty, Mathf.Clamp(value, 1, Constants.GrandpaMaxDifficulty));
         }
     }
 }
