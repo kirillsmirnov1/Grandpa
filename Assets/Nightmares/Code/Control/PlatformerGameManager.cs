@@ -58,7 +58,7 @@ namespace Nightmares.Code.Control
 
         private IEnumerator Start()
         {
-            levelDimensions.y = Difficulty * yHeightPerDifficultyLevel;
+            levelDimensions.y += (Difficulty - 1) * yHeightPerDifficultyLevel;
             cameraFollowsPlayer.InitDimensions();
             yield return null;
             
