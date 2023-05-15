@@ -37,6 +37,7 @@ namespace Nightmares.Code.Control
         [SerializeField] private Player player;
         [SerializeField] private RectTransform mobileInputs;
         [SerializeField] private PointsCounter pointsCounter;
+        [SerializeField] private StartBanner startBanner;
         
         private bool _gameOverTriggered;
 
@@ -56,32 +57,37 @@ namespace Nightmares.Code.Control
             GrandpaController.OnGrandpaDefeated += OnVictory;
         }
 
-        private IEnumerator Start()
+        private void Start()
+        {
+            startBanner.Show(() => StartCoroutine(StartGame()));
+        }
+
+        private IEnumerator StartGame()
         {
             levelDimensions.y += (Difficulty - 1) * yHeightPerDifficultyLevel;
             cameraFollowsPlayer.InitDimensions();
             yield return null;
-            
+
             gridGeneration.SpawnTileMap(out var impl);
 
             yield return impl;
-            
+
             if (gridGeneration.platforms.Count > 0)
             {
                 var topPlatform = gridGeneration.platforms[0];
                 player.transform.position =
                     new Vector3((topPlatform.x + topPlatform.y) / 2f, topPlatform.y + 1);
             }
-            
+
             player.gameObject.SetActive(true);
 
             grandpaWrap.position = new Vector3(0, -levelDimensions.y);
             grandpaWrap.gameObject.SetActive(true);
-            
+
             yield return null;
-            
+
             enemySpawn.SpawnEnemies();
-            
+
             LayoutRebuilder.ForceRebuildLayoutImmediate(mobileInputs);
         }
 
