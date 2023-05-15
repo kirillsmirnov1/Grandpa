@@ -131,6 +131,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f24308717ae61844931a264a4b3b55e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  numberPrefab: {fileID: 4322425583799646130, guid: 9e9c6e247cb744a4995cf984764ea9fa, type: 3}
+  difficultyCenterScroll: {fileID: 6158311587328336452}
+  difficultyScrollContent: {fileID: 886734469489397837}
   startButton: {fileID: 5134044414189437803}
 --- !u!222 &3639151176693209624
 CanvasRenderer:
@@ -415,7 +418,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7874107372711584931}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8ccd340b3f9108440b5a6e7a9777901e, type: 3}
   m_Name: 
@@ -516,7 +519,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 130293968690941537, guid: 3bac9a2692da32a4e95709534cd97b5e, type: 3}
       propertyPath: m_fontSize
-      value: 72
+      value: 102.4
       objectReference: {fileID: 0}
     - target: {fileID: 130293968690941537, guid: 3bac9a2692da32a4e95709534cd97b5e, type: 3}
       propertyPath: m_fontColor.b
@@ -646,7 +649,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 130293968690941537, guid: 3bac9a2692da32a4e95709534cd97b5e, type: 3}
       propertyPath: m_fontSize
-      value: 201.1
+      value: 305.35
       objectReference: {fileID: 0}
     - target: {fileID: 130293968690941537, guid: 3bac9a2692da32a4e95709534cd97b5e, type: 3}
       propertyPath: m_margin.w
