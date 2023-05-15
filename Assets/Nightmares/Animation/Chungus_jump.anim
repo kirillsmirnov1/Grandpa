@@ -21,9 +21,9 @@ AnimationClip:
   - curve:
     - time: 0
       value: {fileID: -1527587580, guid: 69b703e982cb7a94793277a351196e01, type: 3}
-    - time: 0.06666667
+    - time: 0.33333334
       value: {fileID: -1393680333, guid: 69b703e982cb7a94793277a351196e01, type: 3}
-    - time: 0.13333334
+    - time: 0.6666667
       value: {fileID: -1527587580, guid: 69b703e982cb7a94793277a351196e01, type: 3}
     attribute: m_Sprite
     path: 
