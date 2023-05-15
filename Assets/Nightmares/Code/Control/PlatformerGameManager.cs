@@ -18,9 +18,12 @@ namespace Nightmares.Code.Control
 
         public static PlatformerGameManager Instance;
 
+        [Header("Level dimensions")]
         [SerializeField] private int yHeightPerDifficultyLevel = 50;
         [SerializeField] private Vector2Int levelDimensions = new(13, 40);
         [SerializeField] private int grandpasRoomHeight = 8;
+        
+        [Header("Components")]
         [SerializeField] private GridGeneration gridGeneration;
         [SerializeField] private Transform grandpaWrap;
         [SerializeField] private EnemySpawn enemySpawn;
