@@ -14,6 +14,7 @@ namespace Nightmares.Code.Control
         [SerializeField] private LayerMask playerLayer;
         [SerializeField] private MobileInput mobileInput;
         [SerializeField] private float throwForceDecreaseSpeed = 100f;
+        [SerializeField] private Animator animator;
         
         public float HorizontalInput { get; set; }
         public bool JumpInput { get; set; }
@@ -44,6 +45,7 @@ namespace Nightmares.Code.Control
         {
             GetInput();
             Move();
+            UpdateAnimator();
         }
 
         private void FixedUpdate()
@@ -51,6 +53,25 @@ namespace Nightmares.Code.Control
             GroundCheck();
             _throwForce = Vector2.Lerp(_throwForce, Vector2.zero, Time.fixedDeltaTime * throwForceDecreaseSpeed);
             ContiniousJump();
+        }
+
+        private void UpdateAnimator()
+        {
+            if (!_onGround)
+            {
+                animator.SetTrigger("jump");
+            }
+            else
+            {
+                if (_rb.velocity.sqrMagnitude > .1f)
+                {
+                    animator.SetTrigger("walk");
+                }
+                else
+                {
+                    animator.SetTrigger("idle");
+                }
+            }
         }
 
         private void ContiniousJump()
