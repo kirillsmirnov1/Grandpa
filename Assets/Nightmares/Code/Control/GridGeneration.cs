@@ -1,4 +1,6 @@
+using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -6,14 +8,26 @@ namespace Nightmares.Code.Control
 {
     public class GridGeneration : MonoBehaviour
     {
+        [SerializeField] private float operationStepDuration = .1f;
+        [SerializeField] private bool slowDown = false;
+
         [Header("Components")]
         [SerializeField] private Tilemap tilemap;
         [SerializeField] private PlatformerGameManager gameManager;
 
         [Header("Wall Tiles")]
         [SerializeField] private RuleTile wallRuleTile;
+
+        [Header("Ledges")]
+        [SerializeField] private bool spawnLedges = true;
+        [SerializeField] private AnimationCurve ledgesPerUnit;
+        [SerializeField] private AnimationCurve ledgeWidthMin;
+        [SerializeField] private AnimationCurve ledgeWidthMax;
+        [SerializeField] private AnimationCurve ledgeHeightMin;
+        [SerializeField] private AnimationCurve ledgeHeightMax;
         
-        [Header("Platform Tile")]
+        [Header("Platforms")]
+        [SerializeField] private bool spawnPlatforms = true;
         [SerializeField] private RuleTile platform;
         [SerializeField] private Vector2Int verticalGap = new(3, 5);
 
@@ -25,36 +39,49 @@ namespace Nightmares.Code.Control
         private int _topWall;
         private int _bottomWall;
 
+        private WaitForSeconds _wfs;
+
         [ContextMenu("Clean Tile Map")]
         public void CleanTileMap()
         {
+            StopAllCoroutines();
             tilemap.ClearAllTiles();
             platforms.Clear();
         }
 
         [ContextMenu("Spawn Tile Map")]
-        public void SpawnTileMap()
+        public void SpawnTileMap() => SpawnTileMap(out _);
+        public void SpawnTileMap(out Coroutine impl)
         {
-            UpdDimensions();
-
             CleanTileMap();
+            _wfs = new WaitForSeconds(operationStepDuration);
 
-            // Top wall
-            SpawnWallRegion(wallRuleTile, 
-                new Vector2Int(_leftWall - 1, _topWall), 
-                new Vector2Int(_rightWall + 1, _topWall + 1));
-            
-            // Left wall
-            SpawnWallRegion(wallRuleTile, 
-                new Vector2Int(_leftWall - 1, _bottomWall), 
-                new Vector2Int(_leftWall, _topWall - 1));
-            
-            // Right wall
-            SpawnWallRegion(wallRuleTile, 
-                new Vector2Int(_rightWall, _bottomWall), 
-                new Vector2Int(_rightWall + 1, _topWall - 1));
+            impl = StartCoroutine(Impl());
+            IEnumerator Impl()
+            {
+                UpdDimensions();
 
-            SpawnPlatforms();
+                // Top wall
+                SpawnWallRegion(wallRuleTile,
+                    new Vector2Int(_leftWall - 1, _topWall),
+                    new Vector2Int(_rightWall + 1, _topWall + 1));
+
+                // Left wall
+                SpawnWallRegion(wallRuleTile,
+                    new Vector2Int(_leftWall - 1, _bottomWall),
+                    new Vector2Int(_leftWall, _topWall - 1));
+
+                // Right wall
+                SpawnWallRegion(wallRuleTile,
+                    new Vector2Int(_rightWall, _bottomWall),
+                    new Vector2Int(_rightWall + 1, _topWall - 1));
+
+                if (spawnLedges) yield return SpawnLedges();
+
+                if (spawnPlatforms) yield return SpawnPlatforms();
+
+                yield return null;
+            }
         }
 
         private void UpdDimensions()
@@ -77,7 +104,86 @@ namespace Nightmares.Code.Control
             }
         }
 
-        private void SpawnPlatforms()
+        private IEnumerator SpawnLedges()
+        {
+            var difficulty = gameManager.Difficulty;
+            
+            var ledgeCount = (int)(_levelDimensions.y * ledgesPerUnit.Evaluate(difficulty));
+            var ledgeYPos = Enumerable.Range(0, ledgeCount)
+                .Select(_ => Random.Range(_bottomWall + verticalGap.y, _topWall - verticalGap.y))
+                .OrderByDescending(x => x)
+                .ToList();
+
+            foreach (var yStart in ledgeYPos)
+            {
+                var totalHeight = 
+                    (int) Random.Range(ledgeHeightMin.Evaluate(difficulty), ledgeHeightMax.Evaluate(difficulty));
+                var yEnd = yStart - totalHeight;
+                yEnd = Mathf.Max(yEnd, _bottomWall + verticalGap.y);
+                
+                var maxWidth = (int)((_rightWall - _leftWall - 1) 
+                                * Random.Range(ledgeWidthMin.Evaluate(difficulty), ledgeWidthMax.Evaluate(difficulty)));
+                var onLeft = Random.Range(0, 2) == 0;
+                var xRange = onLeft
+                    ? new Vector2Int(_leftWall + 1, _leftWall + maxWidth)
+                    : new Vector2Int(_rightWall - maxWidth, _rightWall - 1);
+
+                SpawnLedge(yStart, yEnd, xRange, onLeft);
+
+                if(slowDown) yield return _wfs;
+            }
+        }
+
+        private void SpawnLedge(int yTop, int yBottom, Vector2Int xRange, bool onLeft)
+        {
+            var positions = new List<Vector3Int>();
+
+            var pi = Mathf.PI;
+            var rangeStart = Random.Range(0f, pi);
+            var radRange = new Vector2(rangeStart, Random.Range(rangeStart, pi));
+            
+            for (int y = yBottom; y <= yTop; y++)
+            {
+                var radVal = Mathf.Lerp(radRange.x, radRange.y, Mathf.InverseLerp(yBottom, yTop, y));
+                var sinVal = Mathf.Sin(radVal);
+
+                var from = onLeft ? xRange.x : Mathf.FloorToInt(Mathf.Lerp(xRange.y, xRange.x, sinVal));
+                var to = onLeft ? Mathf.CeilToInt(Mathf.Lerp(xRange.x, xRange.y, sinVal)) : xRange.y;
+                
+                for (var x = from; x <= to; x++)
+                {
+                    var pos = new Vector3Int(x, y);
+                    if (CanPutTileOn(pos,
+                            onLeft ? Mathf.Min(2, x - _leftWall - 1) : 2,
+                            onLeft ? 2 : Mathf.Min(2, _rightWall - x - 1),
+                            2, 2))
+                    {
+                        positions.Add(pos);
+                    }
+                }
+
+            }
+
+            foreach (var pos in positions)
+            {
+                tilemap.SetTile(pos, wallRuleTile);
+            }
+        }
+
+        private bool CanPutTileOn(Vector3Int pos, int emptyLeft, int emptyRight, int emptyUp, int emptyDown)
+        {
+            for (int x = pos.x - emptyLeft; x <= pos.x + emptyRight; x++)
+            {
+                for (int y = pos.y - emptyDown; y <= pos.y + emptyUp; y++)
+                {
+                    if (tilemap.HasTile(new Vector3Int(x, y))) return false;
+                }       
+            }
+
+            return true;
+        }
+
+        private IEnumerator SpawnPlatforms()
         {
             var ranges = GenerateRanges();
             var nextRangeIndex = 0;
@@ -93,6 +199,8 @@ namespace Nightmares.Code.Control
                 y -= Random.Range(verticalGap.x, verticalGap.y + 1);
                 
                 nextRangeIndex = GetNextRangeIndex(nextRangeIndex);
+
+                if(slowDown) yield return _wfs;
             }
         }
 
@@ -109,15 +217,32 @@ namespace Nightmares.Code.Control
 
         private void SpawnPlatform(int xLeft, int xRight, int y)
         {
-            var tileToUse =
-                tilemap.GetTile(new Vector3Int(xLeft - 1, y)) == wallRuleTile
-                || tilemap.GetTile(new Vector3Int(xRight + 1, y)) == wallRuleTile
-                    ? wallRuleTile
-                    : platform;
+            int type = tilemap.GetTile(new Vector3Int(xLeft - 1, y)) == wallRuleTile
+                ? -1 // Left wall connection
+                : tilemap.GetTile(new Vector3Int(xRight + 1, y)) == wallRuleTile 
+                    ? 1 // Right wall connection
+                    : 0; // Free platform
+
+            var tileToUse = type == 0 ? platform : wallRuleTile;
+            var positions = new List<Vector3Int>();
             for (int x = xLeft; x <= xRight; x++)
             {
-                tilemap.SetTile(new Vector3Int(x, y), tileToUse);
+                var pos = new Vector3Int(x, y);
+                if (CanPutTileOn(pos,
+                        emptyLeft: type == -1 ? 0 : 1,
+                        emptyRight: type == 1 ? 0 : 1,
+                        emptyUp: 2,
+                        emptyDown: 2))
+                {
+                    positions.Add(pos);
+                }
             }
+
+            foreach (var pos in positions)
+            {
+                tilemap.SetTile(pos, tileToUse);
+            }
+            
             platforms.Add(new Vector3(xLeft, xRight, y));
         }
 

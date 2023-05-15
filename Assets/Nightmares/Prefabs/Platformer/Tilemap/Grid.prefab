@@ -58,14 +58,136 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61f9cf87e59a0b04cba0921597c86c3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelDimensions: {x: 13, y: 40}
-  verticalGap: {x: 2, y: 3}
+  debugDifficulty: 5
+  operationStepDuration: 0
   tilemap: {fileID: 8432189614937608472}
-  wallLeft: {fileID: 11400000, guid: 0571f616a97a2034da1945ed9fe24673, type: 2}
-  wallRight: {fileID: 11400000, guid: a473a21d7b5b11a49b13019bdba70938, type: 2}
-  wallTop: {fileID: 11400000, guid: 298e049736d56ba45acc69aff25bea3d, type: 2}
-  wallBottom: {fileID: 11400000, guid: 3ae1344d28440614abb76d1089ab4ea1, type: 2}
-  platformMidTile: {fileID: 11400000, guid: 886d4efcfa1ef014c8336ad0a6dd89a3, type: 2}
+  gameManager: {fileID: 0}
+  wallRuleTile: {fileID: 11400000, guid: 6d5350c6f693f0b448a743ad6afea28c, type: 2}
+  spawnLedges: 1
+  ledgesPerUnit:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 1
+      value: 0.32
+      inSlope: -0.029999997
+      outSlope: -0.029999997
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 5
+      value: 0.2
+      inSlope: -0.029999997
+      outSlope: -0.029999997
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  ledgeWidthMin:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 1
+      value: 0.1
+      inSlope: 0.050000004
+      outSlope: 0.050000004
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 5
+      value: 0.3
+      inSlope: 0.050000004
+      outSlope: 0.050000004
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  ledgeWidthMax:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 1
+      value: 0.3
+      inSlope: 0.125
+      outSlope: 0.125
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 5
+      value: 0.8
+      inSlope: 0.125
+      outSlope: 0.125
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  ledgeHeightMin:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 1
+      value: 2
+      inSlope: 0.25
+      outSlope: 0.25
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 5
+      value: 3
+      inSlope: 0.25
+      outSlope: 0.25
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  ledgeHeightMax:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 1
+      value: 2
+      inSlope: 1.5
+      outSlope: 1.5
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 5
+      value: 8
+      inSlope: 1.5
+      outSlope: 1.5
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spawnPlatforms: 1
+  platform: {fileID: 11400000, guid: 3452acbc2e411b04aaf5b160e1ac16f1, type: 2}
+  verticalGap: {x: 2, y: 3}
+  platforms: []
 --- !u!1001 &4456003471231738312
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -75,11 +197,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5247749419737346256, guid: 96f07eb955fb3014a97063e3cc6f4fb0, type: 3}
       propertyPath: m_Size.x
-      value: 13
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5247749419737346256, guid: 96f07eb955fb3014a97063e3cc6f4fb0, type: 3}
       propertyPath: m_Size.y
-      value: 41
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5247749419737346256, guid: 96f07eb955fb3014a97063e3cc6f4fb0, type: 3}
       propertyPath: m_Size.z
@@ -87,11 +209,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5247749419737346256, guid: 96f07eb955fb3014a97063e3cc6f4fb0, type: 3}
       propertyPath: m_Origin.x
-      value: -6
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5247749419737346256, guid: 96f07eb955fb3014a97063e3cc6f4fb0, type: 3}
       propertyPath: m_Origin.y
-      value: -40
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5247749419737346256, guid: 96f07eb955fb3014a97063e3cc6f4fb0, type: 3}
       propertyPath: m_Origin.z
@@ -99,23 +221,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5247749419737346256, guid: 96f07eb955fb3014a97063e3cc6f4fb0, type: 3}
       propertyPath: m_Tiles.Array.size
-      value: 122
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5247749419737346256, guid: 96f07eb955fb3014a97063e3cc6f4fb0, type: 3}
       propertyPath: m_TileAssetArray.Array.size
-      value: 5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5247749419737346256, guid: 96f07eb955fb3014a97063e3cc6f4fb0, type: 3}
       propertyPath: m_TileColorArray.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5247749419737346256, guid: 96f07eb955fb3014a97063e3cc6f4fb0, type: 3}
       propertyPath: m_TileMatrixArray.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5247749419737346256, guid: 96f07eb955fb3014a97063e3cc6f4fb0, type: 3}
       propertyPath: m_TileSpriteArray.Array.size
-      value: 5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5247749419737346256, guid: 96f07eb955fb3014a97063e3cc6f4fb0, type: 3}
       propertyPath: m_Tiles.Array.data[0].first.x
