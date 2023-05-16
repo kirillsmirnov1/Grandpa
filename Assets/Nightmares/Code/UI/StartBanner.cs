@@ -1,4 +1,5 @@
 using System;
+using Nightmares.Code.Model;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -28,7 +29,7 @@ namespace Nightmares.Code.UI
         public void Show(Action startCallback)
         {
             _startCallback = startCallback;
-            for (int i = 0; i < 5; i++) // TODO use max difficulty unlocked
+            for (int i = 0; i < Prefs.GrandpaDifficultyMaxUnlocked; i++)
             {
                 var letter = Instantiate(numberPrefab, difficultyScrollContent);
                 letter.text = $"{i + 1}";
@@ -75,6 +76,7 @@ namespace Nightmares.Code.UI
 
         private void OnStartButtonClick()
         {
+            Prefs.GrandpaDifficulty = difficultyCenterScroll.FindElementClosestToCenter() + 1;
             _startCallback?.Invoke();
             gameObject.SetActive(false);
         }

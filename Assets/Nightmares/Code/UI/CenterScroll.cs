@@ -80,7 +80,7 @@ namespace Nightmares.Code.UI
             StartCoroutine(Recenter());
         }
 
-        private int FindElementClosestToCenter()
+        public int FindElementClosestToCenter()
         {
             var distancesFromCenterScreen = GetElementsDistancesFromCenter();
 

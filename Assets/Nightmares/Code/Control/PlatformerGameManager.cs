@@ -131,7 +131,10 @@ namespace Nightmares.Code.Control
                 player.gameObject.SetActive(false);
                 player.transform.position = new Vector3(0, 100);
 
-                Prefs.GrandpaDifficulty += victory ? 1 : -1;
+                if (victory)
+                {
+                    Prefs.GrandpaDifficultyMaxUnlocked++;
+                }
             }, 1.5f);
         }
 
