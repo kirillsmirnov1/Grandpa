@@ -12,8 +12,9 @@ namespace Nightmares.Code.UI
         [Header("Components")]
         [SerializeField] private CenterScroll difficultyCenterScroll;
         [SerializeField] private RectTransform difficultyScrollContent;
+        
+        [Header("Buttons")]
         [SerializeField] private Button startButton;
-
         [SerializeField] private Button leftButton;
         [SerializeField] private Button rightButton;
 
