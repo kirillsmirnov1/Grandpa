@@ -1,5 +1,4 @@
-﻿using Nightmares.Code.Control;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Nightmares.Code.Model
 {
@@ -17,7 +16,12 @@ namespace Nightmares.Code.Model
         public static int GrandpaDifficultyMaxUnlocked
         {
             get => Mathf.Clamp(PlayerPrefs.GetInt(KeyGrandpaDifficultyMax, 1), 1, Constants.GrandpaMaxDifficulty);
-            set => PlayerPrefs.SetInt(KeyGrandpaDifficultyMax, Mathf.Clamp(value, 1, Constants.GrandpaMaxDifficulty));
+            set
+            {
+                if(value <= GrandpaDifficultyMaxUnlocked) return;
+                var clamp = Mathf.Clamp(value, 1, Constants.GrandpaMaxDifficulty);
+                PlayerPrefs.SetInt(KeyGrandpaDifficultyMax, clamp);
+            }
         }
     }
 }
