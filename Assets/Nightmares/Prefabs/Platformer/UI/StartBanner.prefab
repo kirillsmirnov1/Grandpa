@@ -282,7 +282,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f24308717ae61844931a264a4b3b55e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  wallSpeed: -2.5
   numberPrefab: {fileID: 4322425583799646130, guid: 9e9c6e247cb744a4995cf984764ea9fa, type: 3}
+  walls:
+  - {fileID: 2852431508789832829}
+  - {fileID: 6205231264691202062}
   difficultyCenterScroll: {fileID: 6158311587328336452}
   difficultyScrollContent: {fileID: 886734469489397837}
   startButton: {fileID: 5134044414189437803}
