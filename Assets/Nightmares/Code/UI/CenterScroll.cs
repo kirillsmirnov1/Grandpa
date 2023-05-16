@@ -49,11 +49,11 @@ namespace Nightmares.Code.UI
             ScrollTo(closest + entriesToScroll);
         }
         
-        public void ScrollTo(int elementIndex)
+        public void ScrollTo(int elementIndex, bool instant = false)
         {
             if(elementIndex < 0 || elementIndex >= _elements.Length) return;
             StopAllCoroutines();
-            StartCoroutine(RecenterOn(elementIndex));
+            StartCoroutine(RecenterOn(elementIndex, instant));
         }
 
         private IEnumerator InitialCentering()
@@ -107,13 +107,13 @@ namespace Nightmares.Code.UI
             yield return RecenterOn(iElement);
         }
 
-        private IEnumerator RecenterOn(int elementIndex)
+        private IEnumerator RecenterOn(int elementIndex, bool instant = false)
         {
             var dist = GetElementsDistancesFromCenter()[elementIndex];
             while (Mathf.Abs(dist) > .1f)
             {
                 var delta = dist * Time.deltaTime * speed;
-                if (Mathf.Abs(dist) < minPixDist)
+                if (Mathf.Abs(dist) < minPixDist || instant)
                 {
                     delta = dist;
                     scrollRect.inertia = false;

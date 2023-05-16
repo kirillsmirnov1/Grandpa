@@ -37,7 +37,7 @@ namespace Nightmares.Code.UI
             }
             difficultyCenterScroll.enabled = true;
             gameObject.SetActive(true);
-            this.DelayAction(() => difficultyCenterScroll.ScrollTo(Prefs.GrandpaDifficulty - 1), 0);
+            this.DelayAction(() => difficultyCenterScroll.ScrollTo(Prefs.GrandpaDifficulty - 1, true), 0);
         }
         
         private void OnEnable()
