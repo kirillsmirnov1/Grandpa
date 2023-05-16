@@ -49,7 +49,7 @@ namespace Nightmares.Code.UI
         private void OnLeftButtonClick() => ScrollDifficulty(-1);
         private void ScrollDifficulty(int difficultyChange)
         {
-            // TODO 
+            difficultyCenterScroll.ScrollBy(difficultyChange);
         }
 
         private void OnStartButtonClick()
