@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 namespace Nightmares.Code.UI
 {
-    public class CenterScroll : MonoBehaviour
+    public class CenterScroll : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
     {
         [SerializeField] private Transform content;
         [SerializeField] private float speed = 1;
@@ -32,14 +33,27 @@ namespace Nightmares.Code.UI
             StartCoroutine(InitialCentering());
         }
 
-        public void OnPointerDown()
+        public void OnPointerDown(PointerEventData eventData)
         {
             StopRecentering();
         }
 
-        public void OnPointerUp()
+        public void OnPointerUp(PointerEventData eventData)
         {
             StartRecentering();
+        }
+
+        public void ScrollBy(int entriesToScroll)
+        {
+            var closest = FindElementClosestToCenter();
+            ScrollTo(closest + entriesToScroll);
+        }
+        
+        public void ScrollTo(int elementIndex, bool instant = false)
+        {
+            if(elementIndex < 0 || elementIndex >= _elements.Length) return;
+            StopAllCoroutines();
+            StartCoroutine(RecenterOn(elementIndex, instant));
         }
 
         private IEnumerator InitialCentering()
@@ -66,7 +80,7 @@ namespace Nightmares.Code.UI
             StartCoroutine(Recenter());
         }
 
-        private int FindElementClosestToCenter()
+        public int FindElementClosestToCenter()
         {
             var distancesFromCenterScreen = GetElementsDistancesFromCenter();
 
@@ -90,11 +104,16 @@ namespace Nightmares.Code.UI
         {
             yield return new WaitForSeconds(startDelay);
             var iElement = FindElementClosestToCenter();
-            var dist = GetElementsDistancesFromCenter()[iElement];
+            yield return RecenterOn(iElement);
+        }
+
+        private IEnumerator RecenterOn(int elementIndex, bool instant = false)
+        {
+            var dist = GetElementsDistancesFromCenter()[elementIndex];
             while (Mathf.Abs(dist) > .1f)
             {
                 var delta = dist * Time.deltaTime * speed;
-                if (Mathf.Abs(dist) < minPixDist)
+                if (Mathf.Abs(dist) < minPixDist || instant)
                 {
                     delta = dist;
                     scrollRect.inertia = false;
@@ -102,7 +121,7 @@ namespace Nightmares.Code.UI
 
                 content.transform.position -= new Vector3(delta,0,0);
                 yield return null;
-                dist = GetElementsDistancesFromCenter()[iElement];
+                dist = GetElementsDistancesFromCenter()[elementIndex];
             }
 
             scrollRect.inertia = true;

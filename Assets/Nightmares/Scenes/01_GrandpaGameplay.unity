@@ -20638,6 +20638,7 @@ MonoBehaviour:
   player: {fileID: 2112912847}
   mobileInputs: {fileID: 6572778145636113570}
   pointsCounter: {fileID: 300854522}
+  startBanner: {fileID: 7387377254324785667}
 --- !u!4 &320371698
 Transform:
   m_ObjectHideFlags: 0
@@ -21917,6 +21918,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 09dc07ef43aff2a4ebe1f970944c8d1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7387377254324785667 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5444109866494539057, guid: 550f7e321c7140d49acf41b3a5180033, type: 3}
+  m_PrefabInstance: {fileID: 7387377254324785665}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f24308717ae61844931a264a4b3b55e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &7640827698761016688
