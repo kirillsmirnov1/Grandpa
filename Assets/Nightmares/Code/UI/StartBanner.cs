@@ -45,6 +45,13 @@ namespace Nightmares.Code.UI
             startButton.onClick.RemoveListener(OnStartButtonClick);
         }
 
+        private void Update()
+        {
+            if(Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D)) OnRightButtonClick();
+            if(Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A)) OnLeftButtonClick();
+            if(Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return)) OnStartButtonClick();
+        }
+
         private void OnRightButtonClick() => ScrollDifficulty(1);
         private void OnLeftButtonClick() => ScrollDifficulty(-1);
         private void ScrollDifficulty(int difficultyChange)
