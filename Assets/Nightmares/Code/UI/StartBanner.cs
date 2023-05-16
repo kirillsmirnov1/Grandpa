@@ -14,6 +14,9 @@ namespace Nightmares.Code.UI
         [SerializeField] private RectTransform difficultyScrollContent;
         [SerializeField] private Button startButton;
 
+        [SerializeField] private Button leftButton;
+        [SerializeField] private Button rightButton;
+
         private Action _startCallback;
         
         public void Show(Action startCallback)
@@ -30,12 +33,23 @@ namespace Nightmares.Code.UI
         
         private void OnEnable()
         {
+            leftButton.onClick.AddListener(OnLeftButtonClick);
+            rightButton.onClick.AddListener(OnRightButtonClick);
             startButton.onClick.AddListener(OnStartButtonClick);
         }
 
         private void OnDisable()
         {
+            leftButton.onClick.RemoveListener(OnLeftButtonClick);
+            rightButton.onClick.RemoveListener(OnRightButtonClick);
             startButton.onClick.RemoveListener(OnStartButtonClick);
+        }
+
+        private void OnRightButtonClick() => ScrollDifficulty(1);
+        private void OnLeftButtonClick() => ScrollDifficulty(-1);
+        private void ScrollDifficulty(int difficultyChange)
+        {
+            // TODO 
         }
 
         private void OnStartButtonClick()
