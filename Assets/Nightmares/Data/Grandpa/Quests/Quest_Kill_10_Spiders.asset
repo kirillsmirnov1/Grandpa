@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7afca1fbd901428a80d4b98991007ae3, type: 3}
+  m_Name: Quest_Kill_10_Spiders
+  m_EditorClassIdentifier: 
+  displayName: Kill 10 Spiders in a single run
+  minLevel: 0
+  tasks:
+  - value: {fileID: 11400000, guid: 5411154fc904c45469a03e9f91bcf710, type: 2}
+    comparison: 3
+    intTarget: 10
+  guid: 919e3978e4fb9ac439eda5f83642ddf0

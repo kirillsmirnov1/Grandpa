@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7afca1fbd901428a80d4b98991007ae3, type: 3}
+  m_Name: Quest_Kill_10_Eyes
+  m_EditorClassIdentifier: 
+  displayName: Kill 10 Eyes in a single run
+  minLevel: 0
+  tasks:
+  - value: {fileID: 11400000, guid: e3a7ea7cceb75204496e76cf83e6662d, type: 2}
+    comparison: 3
+    intTarget: 10
+  guid: ab82668d94ebdc4498ad2aa8df4887af
