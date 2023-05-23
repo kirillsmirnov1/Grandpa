@@ -471,6 +471,17 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: 8c715fbfd6b63504996668bf4afb4c9b, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 09458aa28b53b5a4da42d02fa75d764f, type: 3}
+--- !u!114 &7358236175205566287 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8808811602568441528, guid: 09458aa28b53b5a4da42d02fa75d764f, type: 3}
+  m_PrefabInstance: {fileID: 2027353943509625335}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d9385ba18e9d604c8f86109a087fd84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2495314141561962587
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -819,6 +830,34 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8867303909757970584}
     m_Modifications:
+    - target: {fileID: 193439413102795584, guid: 68b1559ccd2daac43baaf791dc45acb0, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 193439413102795584, guid: 68b1559ccd2daac43baaf791dc45acb0, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 193439413102795584, guid: 68b1559ccd2daac43baaf791dc45acb0, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 7358236175205566287}
+    - target: {fileID: 193439413102795584, guid: 68b1559ccd2daac43baaf791dc45acb0, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 193439413102795584, guid: 68b1559ccd2daac43baaf791dc45acb0, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Show
+      objectReference: {fileID: 0}
+    - target: {fileID: 193439413102795584, guid: 68b1559ccd2daac43baaf791dc45acb0, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Nightmares.Code.UI.Quests.QuestListView, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 193439413102795584, guid: 68b1559ccd2daac43baaf791dc45acb0, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 2819367440129958321, guid: 68b1559ccd2daac43baaf791dc45acb0, type: 3}
       propertyPath: m_Name
       value: StartBanner
