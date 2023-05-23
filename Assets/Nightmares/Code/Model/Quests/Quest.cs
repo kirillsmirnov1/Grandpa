@@ -6,7 +6,7 @@ using UnityEditor;
 
 namespace Nightmares.Code.Model.Quests
 {
-    [CreateAssetMenu(fileName = "New Quest", menuName = "Data/Quests", order = 0)]
+    [CreateAssetMenu(fileName = "New Quest", menuName = "Data/Quest", order = 0)]
     public class Quest : ScriptableObject
     {
         [SerializeField] private string displayName;
