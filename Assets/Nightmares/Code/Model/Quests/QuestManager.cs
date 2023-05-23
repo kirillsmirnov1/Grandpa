@@ -8,7 +8,7 @@ namespace Nightmares.Code.Model.Quests
         /// <summary>
         /// All available quests
         /// </summary>
-        [SerializeField] private Quest[] quests;
+        [SerializeField] public Quest[] quests;
 
         public void PrepareForSession()
         {

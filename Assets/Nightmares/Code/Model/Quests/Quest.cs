@@ -9,8 +9,8 @@ namespace Nightmares.Code.Model.Quests
     [CreateAssetMenu(fileName = "New Quest", menuName = "Data/Quest", order = 0)]
     public class Quest : ScriptableObject
     {
-        [SerializeField] private string displayName;
-        [SerializeField] private int minLevel;
+        [SerializeField] public string displayName;
+        [SerializeField] public int minLevel;
         [SerializeField] private QuestTask[] tasks;
 
         [SerializeField, HideInInspector] private string guid;
