@@ -225,6 +225,15 @@
       },
       "url": "https://packages.unity.com"
     },
+    "trulden.unity-utils": {
+      "version": "https://github.com/kirillsmirnov1/unity-utils.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {
+        "com.unity.textmeshpro": "2.1.1"
+      },
+      "hash": "e501ea84b09f5ab9ba2fe7c0e2d05da404d28415"
+    },
     "com.unity.modules.ai": {
       "version": "1.0.0",
       "depth": 0,
