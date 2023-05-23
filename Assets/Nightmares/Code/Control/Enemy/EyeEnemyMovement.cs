@@ -51,7 +51,8 @@ namespace Nightmares.Code.Control.Enemy
         private void RotateEye()
         {
             var desiredRotation = Quaternion.Euler(0, 0, _direction.ToAngleInDegrees()); 
-            transform.rotation = Quaternion.Lerp(transform.rotation, desiredRotation, eyeRotationSpeed * Time.deltaTime);
+            // TODO move iris 
+            // transform.rotation = Quaternion.Lerp(transform.rotation, desiredRotation, eyeRotationSpeed * Time.deltaTime);
         }
 
         private void CheckDirectionUpdate()
