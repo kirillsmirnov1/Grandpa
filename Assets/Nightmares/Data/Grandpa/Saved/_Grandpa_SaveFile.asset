@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58b5537ba8dc4d04bd75616b34de21ce, type: 3}
+  m_Name: _Grandpa_SaveFile
+  m_EditorClassIdentifier: 
+  logSave: 0
+  varRefs:
+  - variable: {fileID: 11400000, guid: 13fcc6e1703707a4d9837675154d32cb, type: 2}
+    defaultValue: {fileID: 11400000, guid: bab7c7d55fdab824ca63879a063d19ce, type: 2}
+  - variable: {fileID: 11400000, guid: 8c715fbfd6b63504996668bf4afb4c9b, type: 2}
+    defaultValue: {fileID: 11400000, guid: bab7c7d55fdab824ca63879a063d19ce, type: 2}
