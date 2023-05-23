@@ -6230,7 +6230,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 1BitPack_289
+      name: 1BitPack_289_book_0
       rect:
         serializedVersion: 2
         x: 720
@@ -6251,7 +6251,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 1BitPack_290
+      name: 1BitPack_290_book_1
       rect:
         serializedVersion: 2
         x: 736
@@ -16247,7 +16247,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 1BitPack_766
+      name: 1BitPack_766_map
       rect:
         serializedVersion: 2
         x: 512
@@ -16268,7 +16268,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 1BitPack_767
+      name: 1BitPack_767_scroll_0
       rect:
         serializedVersion: 2
         x: 528
@@ -16289,7 +16289,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 1BitPack_768
+      name: 1BitPack_768_scroll_1
       rect:
         serializedVersion: 2
         x: 544
@@ -22977,6 +22977,7 @@ TextureImporter:
       1BitPack_855: -85899546
       1BitPack_1071: -1015979879
       1BitPack_21: 2027308427
+      1BitPack_289_book_0: 105809264
       1BitPack_175: -385725564
       1BitPack_934: -1593764314
       1BitPack_996: 1975149968
@@ -23133,6 +23134,7 @@ TextureImporter:
       1BitPack_72: -89755270
       1BitPack_523: 1993010493
       1BitPack_584: 1112379540
+      1BitPack_767_scroll_0: -2047408420
       1BitPack_80: -2033410756
       1BitPack_424: -775394756
       1BitPack_1024: -104124126
@@ -23274,13 +23276,11 @@ TextureImporter:
       1BitPack_763: 647088985
       1BitPack_813: -1139202488
       1BitPack_158: -1932371565
-      1BitPack_766: -1848461706
       1BitPack_490: -1668316749
       1BitPack_307: 2080321646
       1BitPack_121: -713917124
       1BitPack_1047: 1851341160
       1BitPack_854: -1767724591
-      1BitPack_767: -2047408420
       1BitPack_815: 1330790665
       1BitPack_398: 2069597996
       1BitPack_7: -1769552315
@@ -23355,6 +23355,7 @@ TextureImporter:
       1BitPack_935: -67579962
       1BitPack_501: -1376466266
       1BitPack_777: -1696332385
+      1BitPack_290_book_1: -300775952
       1BitPack_718: -2141475454
       1BitPack_107: -381404026
       1BitPack_395: -1380996678
@@ -23415,13 +23416,12 @@ TextureImporter:
       1BitPack_1010: 648584895
       1BitPack_498: -1751330030
       1BitPack_280: -706373281
-      1BitPack_289: 105809264
       1BitPack_833: 1686592445
       1BitPack_191: -964710370
-      1BitPack_203: -14201117
       1BitPack_805: 410506053
-      1BitPack_380: -370550518
+      1BitPack_203: -14201117
       1BitPack_992: -1436987349
+      1BitPack_380: -370550518
       1BitPack_892: 902685487
       1BitPack_1032: 2085408473
       1BitPack_786: -477668248
@@ -23470,17 +23470,17 @@ TextureImporter:
       1BitPack_602: 226701725
       1BitPack_187: -1107536521
       1BitPack_529: -239508831
-      1BitPack_290: -300775952
+      1BitPack_884: -229279100
       1BitPack_164: -1828147353
       1BitPack_1039: 1592371956
       1BitPack_436: 1284291244
-      1BitPack_884: -229279100
       1BitPack_564: 1514782446
       1BitPack_976: 501414359
       1BitPack_197: 210965650
       1BitPack_369: 800550476
       1BitPack_655: 1489194677
       1BitPack_418: 185054076
+      1BitPack_768_scroll_1: 1421399316
       1BitPack_319: 2102087929
       1BitPack_1022: -916109629
       1BitPack_651: 2140241439
@@ -23509,6 +23509,7 @@ TextureImporter:
       1BitPack_226: -626105958
       1BitPack_801: -667906786
       1BitPack_16: 556008530
+      1BitPack_766_map: -1848461706
       1BitPack_231: -1066832572
       1BitPack_739: 2097695398
       1BitPack_149: -701094359
@@ -23563,7 +23564,6 @@ TextureImporter:
       1BitPack_608: 1267236949
       1BitPack_329: -1938057526
       1BitPack_541: 1439002829
-      1BitPack_768: 1421399316
       1BitPack_671: -873883840
       1BitPack_826: 1529756241
       1BitPack_903: -113677784
