@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityUtils.Variables;
 
 namespace Nightmares.Code.Control.Enemy
 {
@@ -14,7 +15,13 @@ namespace Nightmares.Code.Control.Enemy
         [SerializeField] private bool throwbacksPlayerOnAttack = false;
         [SerializeField] private bool thrownBackByPlayerAttack = true;
         [SerializeField] private float attackFromTopAngle = 90f;
+        
+        [Header("Components")]
         [SerializeField] private Invincibility invincibility;
+        public Rigidbody2D rb;
+        
+        [Header("Variables")]
+        [SerializeField] private IntVariable[] incrementOnDeath;
 
         public int Points => points;
         public float AttackFromTopAngle => attackFromTopAngle / 2f; 
@@ -36,8 +43,6 @@ namespace Nightmares.Code.Control.Enemy
 
         private int _health;
 
-        public Rigidbody2D rb;
-
         protected virtual void OnEnable()
         {
             Health = startHealth;
@@ -49,13 +54,23 @@ namespace Nightmares.Code.Control.Enemy
             OnEnemyDamaged?.Invoke();
             if (Health <= 0)
             {
-                OnEnemyDestroyed?.Invoke(this);
-                Destroy(gameObject);
+                Kill();
             }
             else
             {
                 StartInvincibleState();
             }
+        }
+
+        private void Kill()
+        {
+            foreach (var variable in incrementOnDeath)
+            {
+                variable.Value++;
+            }
+            
+            OnEnemyDestroyed?.Invoke(this);
+            Destroy(gameObject);
         }
 
         public void StartInvincibleState()
