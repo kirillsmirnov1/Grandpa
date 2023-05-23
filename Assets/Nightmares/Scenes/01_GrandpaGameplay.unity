@@ -20685,6 +20685,7 @@ MonoBehaviour:
   mobileInputs: {fileID: 6572778145636113570}
   pointsCounter: {fileID: 300854522}
   startBanner: {fileID: 7387377254324785667}
+  questManager: {fileID: 11400000, guid: 5e934a4898bcc7d4596bc8bc3c2a3f7b, type: 2}
   currentDifficulty: {fileID: 11400000, guid: 13fcc6e1703707a4d9837675154d32cb, type: 2}
   maxUnlockedDifficulty: {fileID: 11400000, guid: 8c715fbfd6b63504996668bf4afb4c9b, type: 2}
 --- !u!4 &320371698
@@ -21687,6 +21688,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7698434807904705007, guid: 550f7e321c7140d49acf41b3a5180033, type: 3}
       propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8122157659508352168, guid: 550f7e321c7140d49acf41b3a5180033, type: 3}
+      propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8636926621536143827, guid: 550f7e321c7140d49acf41b3a5180033, type: 3}
