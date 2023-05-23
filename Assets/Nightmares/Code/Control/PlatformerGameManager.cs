@@ -8,6 +8,7 @@ using Nightmares.Code.UI;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityUtils.Variables;
 
 namespace Nightmares.Code.Control
 {
@@ -38,13 +39,17 @@ namespace Nightmares.Code.Control
         [SerializeField] private RectTransform mobileInputs;
         [SerializeField] private PointsCounter pointsCounter;
         [SerializeField] private StartBanner startBanner;
+
+        [Header("Data")]
+        [SerializeField] private IntVariable currentDifficulty;
+        [SerializeField] private IntVariable maxUnlockedDifficulty;
         
         private bool _gameOverTriggered;
 
         public Vector2Int LevelDimensions => levelDimensions;
         public int GrandpasRoomHeight => grandpasRoomHeight;
 #if UNITY_EDITOR
-        public int Difficulty => debugDifficulty == 0 ? Prefs.GrandpaDifficulty : debugDifficulty;
+        public int Difficulty => debugDifficulty == 0 ? currentDifficulty.Value : debugDifficulty;
 #else
         public int Difficulty => Prefs.GrandpaDifficulty;
 #endif
@@ -133,7 +138,7 @@ namespace Nightmares.Code.Control
 
                 if (victory)
                 {
-                    Prefs.GrandpaDifficultyMaxUnlocked++;
+                    maxUnlockedDifficulty.Value = Mathf.Min(maxUnlockedDifficulty.Value + 1, Constants.GrandpaMaxDifficulty);
                 }
             }, 1.5f);
         }

@@ -4,6 +4,7 @@ using Nightmares.Code.Model;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityUtils.Variables;
 
 namespace Nightmares.Code.UI
 {
@@ -25,19 +26,23 @@ namespace Nightmares.Code.UI
         [SerializeField] private Button leftButton;
         [SerializeField] private Button rightButton;
 
+        [Header("Data")]
+        [SerializeField] private IntVariable maxUnlockedDifficulty;
+        [SerializeField] private IntVariable currentDifficulty;
+        
         private Action _startCallback;
         
         public void Show(Action startCallback)
         {
             _startCallback = startCallback;
-            for (int i = 0; i < Prefs.GrandpaDifficultyMaxUnlocked; i++)
+            for (int i = 0; i < maxUnlockedDifficulty.Value; i++)
             {
                 var letter = Instantiate(numberPrefab, difficultyScrollContent);
                 letter.text = $"{i + 1}";
             }
             difficultyCenterScroll.enabled = true;
             gameObject.SetActive(true);
-            this.DelayAction(() => difficultyCenterScroll.ScrollTo(Prefs.GrandpaDifficulty - 1, true), 0);
+            this.DelayAction(() => difficultyCenterScroll.ScrollTo(currentDifficulty.Value - 1, true), 0);
         }
         
         private void OnEnable()
@@ -78,7 +83,7 @@ namespace Nightmares.Code.UI
 
         private void OnStartButtonClick()
         {
-            Prefs.GrandpaDifficulty = difficultyCenterScroll.FindElementClosestToCenter() + 1;
+            currentDifficulty.Value = difficultyCenterScroll.FindElementClosestToCenter() + 1;
             _startCallback?.Invoke();
             gameObject.SetActive(false);
         }
