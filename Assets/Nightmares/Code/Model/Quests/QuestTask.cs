@@ -7,6 +7,7 @@ namespace Nightmares.Code.Model.Quests
     [Serializable]
     public struct QuestTask
     {
+        [SerializeField] private bool resetAtSessionStart;
         [SerializeField] private AVariable value;
         [SerializeField] private QuestComparison comparison;
         [SerializeField] private int intTarget;
@@ -27,6 +28,12 @@ namespace Nightmares.Code.Model.Quests
                     _ => throw new ArgumentOutOfRangeException()
                 };
             }
+        }
+
+        public void PrepareForSession()
+        {
+            if (!resetAtSessionStart) return;
+            (value as IntVariable).Value = 0;
         }
     }
 }

@@ -15,7 +15,8 @@ MonoBehaviour:
   displayName: Kill 10 Flies in a single run
   minLevel: 0
   tasks:
-  - value: {fileID: 11400000, guid: fe3680502e8d03f4e9afb1bc842eb5d5, type: 2}
+  - resetAtSessionStart: 1
+    value: {fileID: 11400000, guid: fe3680502e8d03f4e9afb1bc842eb5d5, type: 2}
     comparison: 3
     intTarget: 10
   guid: c5eb2e16099b7c040aed3f176fa84925

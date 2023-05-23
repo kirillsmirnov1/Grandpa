@@ -30,5 +30,13 @@ namespace Nightmares.Code.Model.Quests
             EditorUtility.SetDirty(this);
         }
 #endif
+
+        public void PrepareForSession()
+        {
+            foreach (var task in tasks)
+            {
+                task.PrepareForSession();
+            }
+        }
     }
 }

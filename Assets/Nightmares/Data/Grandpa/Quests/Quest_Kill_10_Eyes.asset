@@ -15,7 +15,8 @@ MonoBehaviour:
   displayName: Kill 10 Eyes in a single run
   minLevel: 0
   tasks:
-  - value: {fileID: 11400000, guid: e3a7ea7cceb75204496e76cf83e6662d, type: 2}
+  - resetAtSessionStart: 1
+    value: {fileID: 11400000, guid: e3a7ea7cceb75204496e76cf83e6662d, type: 2}
     comparison: 3
     intTarget: 10
   guid: ab82668d94ebdc4498ad2aa8df4887af
