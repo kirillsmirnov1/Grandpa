@@ -562,6 +562,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6768658809248763086}
     m_Modifications:
+    - target: {fileID: 1725440582714292062, guid: f168954fbd4e12648bbe6bbbb5c38ae2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3131548381579764144, guid: f168954fbd4e12648bbe6bbbb5c38ae2, type: 3}
       propertyPath: m_Pivot.x
       value: 1
@@ -592,11 +596,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3131548381579764144, guid: f168954fbd4e12648bbe6bbbb5c38ae2, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 150
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 3131548381579764144, guid: f168954fbd4e12648bbe6bbbb5c38ae2, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 150
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 3131548381579764144, guid: f168954fbd4e12648bbe6bbbb5c38ae2, type: 3}
       propertyPath: m_LocalPosition.x
@@ -647,8 +651,28 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3549475733471670199, guid: f168954fbd4e12648bbe6bbbb5c38ae2, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -60865917, guid: 26aced60120dedd40b4ac557838339af, type: 3}
+    - target: {fileID: 3549475733471670199, guid: f168954fbd4e12648bbe6bbbb5c38ae2, type: 3}
       propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3549475733471670199, guid: f168954fbd4e12648bbe6bbbb5c38ae2, type: 3}
+      propertyPath: m_Color.b
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3549475733471670199, guid: f168954fbd4e12648bbe6bbbb5c38ae2, type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3549475733471670199, guid: f168954fbd4e12648bbe6bbbb5c38ae2, type: 3}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3549475733471670199, guid: f168954fbd4e12648bbe6bbbb5c38ae2, type: 3}
+      propertyPath: m_PreserveAspect
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4912403140568740979, guid: f168954fbd4e12648bbe6bbbb5c38ae2, type: 3}
       propertyPath: m_AnchorMax.x
