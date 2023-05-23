@@ -18,5 +18,11 @@ namespace Nightmares.Code.Model
             if (v.y < 0) angle = 360 - angle;
             return angle;
         }
+
+        public static Vector2 AngleToV2(float angle)
+        {
+            var rads = angle * Mathf.Deg2Rad;
+            return new Vector2(Mathf.Cos(rads), Mathf.Sin(rads));
+        }
     }
 }

@@ -8,8 +8,12 @@ namespace Nightmares.Code.Control.Enemy
     {
         [SerializeField] private float speed = 1;
         [SerializeField] private float dirResetTime = 2f;
-        [SerializeField] private float eyeRotationSpeed = 3f;
         [SerializeField] private float maxPlayerDistance = 5f;
+        
+        [Header("Iris")]
+        [SerializeField] private float eyeRotationSpeed = 3f;
+        [SerializeField] private float magnitude = .1f;
+        [SerializeField] private Transform iris;
         
         private Rigidbody2D _rb;
         private float _nextDirectionChange;
@@ -50,9 +54,10 @@ namespace Nightmares.Code.Control.Enemy
 
         private void RotateEye()
         {
-            var desiredRotation = Quaternion.Euler(0, 0, _direction.ToAngleInDegrees()); 
-            // TODO move iris 
-            // transform.rotation = Quaternion.Lerp(transform.rotation, desiredRotation, eyeRotationSpeed * Time.deltaTime);
+            var desiredAngle = Quaternion.Euler(0, 0, _direction.ToAngleInDegrees()).eulerAngles.z;
+            var targetPos = MathfUtils.AngleToV2(desiredAngle) * magnitude;
+            var nextPos = Vector2.Lerp(iris.localPosition, targetPos, eyeRotationSpeed * Time.deltaTime);
+            iris.localPosition = nextPos;
         }
 
         private void CheckDirectionUpdate()

@@ -273,5 +273,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1.6
   dirResetTime: 5
-  eyeRotationSpeed: 3
   maxPlayerDistance: 6
+  eyeRotationSpeed: 3
+  magnitude: 0.09
+  iris: {fileID: 388436860665622087}
