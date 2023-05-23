@@ -51,7 +51,7 @@ namespace Nightmares.Code.Control
 #if UNITY_EDITOR
         public int Difficulty => debugDifficulty == 0 ? currentDifficulty.Value : debugDifficulty;
 #else
-        public int Difficulty => Prefs.GrandpaDifficulty;
+        public int Difficulty => currentDifficulty.Value;
 #endif
         
         private void Awake()
