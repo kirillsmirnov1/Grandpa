@@ -16,9 +16,9 @@ namespace Nightmares.Code.UI.Quests
 
         public void Set(bool unlocked, bool completed, string txt)
         {
-            statusImage.gameObject.SetActive(unlocked);
+            // statusImage.gameObject.SetActive(unlocked);
             statusImage.sprite = completed ? questComplete : questIncomplete;
-            questText.text = unlocked ? txt : "???????????????";
+            questText.text = unlocked ? txt : "????????????";
         }
     }
 }
