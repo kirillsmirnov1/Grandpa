@@ -1,10 +1,12 @@
+using Nightmares.Code.Model.Quests;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityUtils.View;
 
 namespace Nightmares.Code.UI.Quests
 {
-    public class QuestEntryView : MonoBehaviour
+    public class QuestEntryView : ListViewEntry<QuestDisplayData>
     {
         [Header("Sprites")]
         [SerializeField] private Sprite questComplete;
@@ -14,11 +16,11 @@ namespace Nightmares.Code.UI.Quests
         [SerializeField] private Image statusImage;
         [SerializeField] private TextMeshProUGUI questText;
 
-        public void Set(bool unlocked, bool completed, string txt)
+        public override void Fill(QuestDisplayData data)
         {
-            // statusImage.gameObject.SetActive(unlocked);
-            statusImage.sprite = completed ? questComplete : questIncomplete;
-            questText.text = unlocked ? txt : "????????????";
+            base.Fill(data);
+            statusImage.sprite = data.IsCompleted ? questComplete : questIncomplete;
+            questText.text = data.IsUnlocked ? data.Description : "????????????";
         }
     }
 }
