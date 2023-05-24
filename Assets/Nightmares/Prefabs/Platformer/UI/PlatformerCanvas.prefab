@@ -457,10 +457,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7824204939627220319, guid: 09458aa28b53b5a4da42d02fa75d764f, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 100
-      objectReference: {fileID: 0}
     - target: {fileID: 8808811602568441528, guid: 09458aa28b53b5a4da42d02fa75d764f, type: 3}
       propertyPath: quests
       value: 
