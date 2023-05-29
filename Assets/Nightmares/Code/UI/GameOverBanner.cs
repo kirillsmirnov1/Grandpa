@@ -27,7 +27,7 @@ namespace Nightmares.Code.UI
             bodyText.text = $"score: {score}\n" +
                             $"difficulty: {difficulty}";
 
-            buttonText.text = victory ? "make it harder!" : "restart";
+            buttonText.text = "continue";
         }
     }
 }
