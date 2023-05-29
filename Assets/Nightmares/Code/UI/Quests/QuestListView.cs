@@ -55,7 +55,7 @@ namespace Nightmares.Code.UI.Quests
         private QuestDisplayData ToDisplayData(Quest quest) => new() {
             Description = quest.displayName,
             IsUnlocked = quest.minLevel <= maxUnlockedLevel,
-            IsCompleted = quest.Complete
+            IsCompleted = quest.IsCompleted
         };
     }
 }

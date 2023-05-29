@@ -23,10 +23,10 @@ namespace Nightmares.Code.Model.Quests
             
             foreach (var quest in quests)
             {
-                quest.PrepareForSession();
+                quest.PrepareForSession(_completedQuests.Contains(quest.UID));
             }
 
-            _activeQuests = quests.Where(q => !q.Complete).ToArray();
+            _activeQuests = quests.Where(q => !q.IsCompleted).ToArray();
         }
 
         public void SaveCompletedQuests()
@@ -36,7 +36,7 @@ namespace Nightmares.Code.Model.Quests
             
             foreach (var quest in newCompleted)
             {
-                _completedQuests.Add(quest.displayName);
+                _completedQuests.Add(quest.UID);
             }
 
             completedQuestsSave.Value = _completedQuests.ToList();
@@ -49,6 +49,6 @@ namespace Nightmares.Code.Model.Quests
             _completedQuests = new HashSet<string>(completedQuestsSave.Value);
         }
 
-        public Quest[] CompletedInSession => _activeQuests.Where(q => q.Complete).ToArray();
+        public Quest[] CompletedInSession => _activeQuests.Where(q => q.CanBeCompleted).ToArray();
     }
 }

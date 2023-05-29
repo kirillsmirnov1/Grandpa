@@ -15,7 +15,8 @@ namespace Nightmares.Code.Model.Quests
 
         [SerializeField, HideInInspector] private string guid;
         
-        public bool Complete => tasks.All(t => t.Complete);
+        public bool IsCompleted { get; private set; }
+        public bool CanBeCompleted => tasks.All(t => t.Complete);
         public string UID => guid;
 
 #if UNITY_EDITOR
@@ -31,8 +32,10 @@ namespace Nightmares.Code.Model.Quests
         }
 #endif
 
-        public void PrepareForSession()
+        public void PrepareForSession(bool isCompleted)
         {
+            IsCompleted = isCompleted;
+            
             foreach (var task in tasks)
             {
                 task.PrepareForSession();
