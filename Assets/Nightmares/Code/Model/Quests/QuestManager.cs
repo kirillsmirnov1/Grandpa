@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Linq;
+using UnityEngine;
 
 namespace Nightmares.Code.Model.Quests
 {
@@ -10,12 +11,18 @@ namespace Nightmares.Code.Model.Quests
         /// </summary>
         [SerializeField] public Quest[] quests;
 
+        private Quest[] _activeQuests;
+        
         public void PrepareForSession()
         {
             foreach (var quest in quests)
             {
                 quest.PrepareForSession();
             }
+
+            _activeQuests = quests.Where(q => !q.Complete).ToArray();
         }
+
+        public Quest[] CompletedInSession => _activeQuests.Where(q => q.Complete).ToArray();
     }
 }
