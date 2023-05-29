@@ -15,7 +15,8 @@ namespace Nightmares.Code.UI
         [Header("Components")]
         [SerializeField] private Image mainImage;
         [SerializeField] private TextMeshProUGUI headerText;
-        [SerializeField] private TextMeshProUGUI bodyText;
+        [SerializeField] private TextMeshProUGUI bodyTextScore;
+        [SerializeField] private TextMeshProUGUI bodyTextQuests;
         [SerializeField] private TextMeshProUGUI buttonText;
         
         public void Set(bool victory, int score, int difficulty, string[] completedQuests)
@@ -24,11 +25,14 @@ namespace Nightmares.Code.UI
             mainImage.color = victory ? winColor : loseColor;
             
             headerText.text = victory ? "You won!" : "You lost!";
-            bodyText.text = $"score: {score}\n" +
+            bodyTextScore.text = $"score: {score}\n" +
                             $"difficulty: {difficulty}";
 
-            if (completedQuests != null && completedQuests.Length != 0)
-                bodyText.text += $"\n× × ×\nEndured Torments:\n\n{string.Join("\n\n", completedQuests)}";
+            var hasCompletedQuests = completedQuests != null && completedQuests.Length != 0; 
+            bodyTextQuests.gameObject.SetActive(hasCompletedQuests);
+            
+            if (hasCompletedQuests)
+                bodyTextQuests.text = $"\n\n× × ×\n\nEndured Torments:\n\n{string.Join("\n\n", completedQuests)}";
 
             buttonText.text = "continue";
         }
