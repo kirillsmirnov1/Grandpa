@@ -1,5 +1,7 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
+using UnityUtils.Variables;
 
 namespace Nightmares.Code.Model.Quests
 {
@@ -10,17 +12,41 @@ namespace Nightmares.Code.Model.Quests
         /// All available quests
         /// </summary>
         [SerializeField] public Quest[] quests;
+        [SerializeField] private StringArrayVariable completedQuestsSave;
 
         private Quest[] _activeQuests;
-        
+        private HashSet<string> _completedQuests;
+
         public void PrepareForSession()
         {
+            InitSavedQuests();
+            
             foreach (var quest in quests)
             {
                 quest.PrepareForSession();
             }
 
             _activeQuests = quests.Where(q => !q.Complete).ToArray();
+        }
+
+        public void SaveCompletedQuests()
+        {
+            var newCompleted = CompletedInSession;
+            if (newCompleted == null || newCompleted.Length == 0) return;
+            
+            foreach (var quest in newCompleted)
+            {
+                _completedQuests.Add(quest.displayName);
+            }
+
+            completedQuestsSave.Value = _completedQuests.ToList();
+        }
+
+        private void InitSavedQuests()
+        {
+            if(_completedQuests != null) return;
+
+            _completedQuests = new HashSet<string>(completedQuestsSave.Value);
         }
 
         public Quest[] CompletedInSession => _activeQuests.Where(q => q.Complete).ToArray();

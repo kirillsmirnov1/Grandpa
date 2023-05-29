@@ -18,3 +18,5 @@ MonoBehaviour:
     defaultValue: {fileID: 11400000, guid: bab7c7d55fdab824ca63879a063d19ce, type: 2}
   - variable: {fileID: 11400000, guid: 8c715fbfd6b63504996668bf4afb4c9b, type: 2}
     defaultValue: {fileID: 11400000, guid: bab7c7d55fdab824ca63879a063d19ce, type: 2}
+  - variable: {fileID: 11400000, guid: e7eb8f33655ba9445965e240179042a0, type: 2}
+    defaultValue: {fileID: 11400000, guid: 75b37008e3625e3458c75660159fe2aa, type: 2}

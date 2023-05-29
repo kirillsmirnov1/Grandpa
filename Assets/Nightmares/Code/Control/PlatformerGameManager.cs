@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Linq;
 using DG.Tweening;
 using Nightmares.Code.Control.Enemy;
 using Nightmares.Code.Extensions;
@@ -127,6 +128,10 @@ namespace Nightmares.Code.Control
         {
             if(_gameOverTriggered) return;
             _gameOverTriggered = true;
+
+            Debug.Log(string.Join("\n", questManager.CompletedInSession.Select(q => q.displayName)));
+            questManager.SaveCompletedQuests();
+            
             this.DelayAction(() =>
             {
                 callback?.Invoke();
