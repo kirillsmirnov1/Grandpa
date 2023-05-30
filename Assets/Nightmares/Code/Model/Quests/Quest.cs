@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using System.Text;
 using UnityEngine;
 #if UNITY_EDITOR
 using UnityEditor;
@@ -44,12 +45,28 @@ namespace Nightmares.Code.Model.Quests
 
         public QuestDisplayData ToDisplayData(int maxUnlockedLevel)
         {
-            return new QuestDisplayData()
+            return new QuestDisplayData
             {
-                Description = displayName,
+                Description = displayName + TasksDescription,
                 IsUnlocked = minLevel <= maxUnlockedLevel,
                 IsCompleted = IsCompleted
             };
+        }
+
+        private string TasksDescription
+        {
+            get
+            {
+                if (IsCompleted) return "";
+                var str = new StringBuilder();
+                foreach (var task in tasks)
+                {
+                    if(!task.ShowProgress) continue;
+                    if (str.Length == 0) str.Append("\n");
+                    str.Append(task.CurrentProgress + " ");
+                }
+                return str.ToString();
+            }
         }
     }
 }

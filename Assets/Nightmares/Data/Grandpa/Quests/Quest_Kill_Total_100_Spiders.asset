@@ -16,6 +16,7 @@ MonoBehaviour:
   minLevel: 0
   tasks:
   - resetAtSessionStart: 0
+    showProgress: 1
     value: {fileID: 11400000, guid: b62de765f4235ea40a670221a74a3cf8, type: 2}
     comparison: 3
     intTarget: 100

@@ -7,11 +7,17 @@ namespace Nightmares.Code.Model.Quests
     [Serializable]
     public struct QuestTask
     {
+        [Header("Flags")]
         [SerializeField] private bool resetAtSessionStart;
+        [SerializeField] private bool showProgress;
+
+        [Header("Values")]
         [SerializeField] private AVariable value;
         [SerializeField] private QuestComparison comparison;
         [SerializeField] private int intTarget;
 
+        public bool ShowProgress => showProgress;
+        
         public bool Complete
         {
             get
@@ -29,6 +35,8 @@ namespace Nightmares.Code.Model.Quests
                 };
             }
         }
+
+        public string CurrentProgress => $"[{(value as IntVariable).Value} / {intTarget}]";
 
         public void PrepareForSession()
         {
