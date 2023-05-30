@@ -41,5 +41,15 @@ namespace Nightmares.Code.Model.Quests
                 task.PrepareForSession();
             }
         }
+
+        public QuestDisplayData ToDisplayData(int maxUnlockedLevel)
+        {
+            return new QuestDisplayData()
+            {
+                Description = displayName,
+                IsUnlocked = minLevel <= maxUnlockedLevel,
+                IsCompleted = IsCompleted
+            };
+        }
     }
 }

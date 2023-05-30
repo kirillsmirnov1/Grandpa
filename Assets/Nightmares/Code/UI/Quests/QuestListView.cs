@@ -32,7 +32,7 @@ namespace Nightmares.Code.UI.Quests
         public void Show(Quest[] questsToShow)
         {
             gameObject.SetActive(true);
-            SetEntries(questsToShow.Select(ToDisplayData).ToList());
+            SetEntries(questsToShow.Select(q => q.ToDisplayData(maxUnlockedLevel)).ToList());
 
             Animate(true);
         }
@@ -55,11 +55,5 @@ namespace Nightmares.Code.UI.Quests
                 .Join(panel.DOAnchorPosY(show ? 0 : -dY, animDuration))
                 .AppendCallback(() => callback?.Invoke());
         }
-
-        private QuestDisplayData ToDisplayData(Quest quest) => new() {
-            Description = quest.displayName,
-            IsUnlocked = quest.minLevel <= maxUnlockedLevel,
-            IsCompleted = quest.IsCompleted
-        };
     }
 }
