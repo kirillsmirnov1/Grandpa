@@ -288,12 +288,16 @@ PrefabInstance:
       objectReference: {fileID: 1111099398}
     - target: {fileID: 2181979932344323495, guid: aa17ac4a085f3964483ac528cee3791d, type: 3}
       propertyPath: incrementOnDeath.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2181979932344323495, guid: aa17ac4a085f3964483ac528cee3791d, type: 3}
       propertyPath: incrementOnDeath.Array.data[0]
       value: 
       objectReference: {fileID: 11400000, guid: 5411154fc904c45469a03e9f91bcf710, type: 2}
+    - target: {fileID: 2181979932344323495, guid: aa17ac4a085f3964483ac528cee3791d, type: 3}
+      propertyPath: incrementOnDeath.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: b62de765f4235ea40a670221a74a3cf8, type: 2}
     - target: {fileID: 3224151158055530518, guid: aa17ac4a085f3964483ac528cee3791d, type: 3}
       propertyPath: m_Constraints
       value: 4

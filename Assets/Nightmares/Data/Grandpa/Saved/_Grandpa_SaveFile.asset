@@ -20,3 +20,9 @@ MonoBehaviour:
     defaultValue: {fileID: 11400000, guid: bab7c7d55fdab824ca63879a063d19ce, type: 2}
   - variable: {fileID: 11400000, guid: e7eb8f33655ba9445965e240179042a0, type: 2}
     defaultValue: {fileID: 11400000, guid: 75b37008e3625e3458c75660159fe2aa, type: 2}
+  - variable: {fileID: 11400000, guid: a50c058ccc275c442a1f063e0076dedb, type: 2}
+    defaultValue: {fileID: 11400000, guid: 2d4d4dee495a1544fb2eaa45084c1a16, type: 2}
+  - variable: {fileID: 11400000, guid: 0e92a7b15cd66dd43ac71fc1ff11eccf, type: 2}
+    defaultValue: {fileID: 11400000, guid: 2d4d4dee495a1544fb2eaa45084c1a16, type: 2}
+  - variable: {fileID: 11400000, guid: b62de765f4235ea40a670221a74a3cf8, type: 2}
+    defaultValue: {fileID: 11400000, guid: 2d4d4dee495a1544fb2eaa45084c1a16, type: 2}
