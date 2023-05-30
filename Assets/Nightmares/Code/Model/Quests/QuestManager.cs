@@ -36,6 +36,7 @@ namespace Nightmares.Code.Model.Quests
             
             foreach (var quest in newCompleted)
             {
+                quest.IsCompleted = true;
                 _completedQuests.Add(quest.UID);
             }
 

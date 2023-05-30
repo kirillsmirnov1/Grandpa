@@ -23,12 +23,16 @@ namespace Nightmares.Code.UI.Quests
         [SerializeField] private float lowering = .3f;
 
         private Sequence _animSeq;
-        
+
         public void Show()
         {
+            Show(quests.quests);
+        }
+        
+        public void Show(Quest[] questsToShow)
+        {
             gameObject.SetActive(true);
-            var allQuests = quests.quests;
-            SetEntries(allQuests.Select(ToDisplayData).ToList());
+            SetEntries(questsToShow.Select(ToDisplayData).ToList());
 
             Animate(true);
         }

@@ -15,7 +15,7 @@ namespace Nightmares.Code.Model.Quests
 
         [SerializeField, HideInInspector] private string guid;
         
-        public bool IsCompleted { get; private set; }
+        public bool IsCompleted { get; set; }
         public bool CanBeCompleted => tasks.All(t => t.Complete);
         public string UID => guid;
 

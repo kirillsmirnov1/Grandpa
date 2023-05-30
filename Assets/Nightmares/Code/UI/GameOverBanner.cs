@@ -1,3 +1,5 @@
+using Nightmares.Code.Model.Quests;
+using Nightmares.Code.UI.Quests;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -16,10 +18,10 @@ namespace Nightmares.Code.UI
         [SerializeField] private Image mainImage;
         [SerializeField] private TextMeshProUGUI headerText;
         [SerializeField] private TextMeshProUGUI bodyTextScore;
-        [SerializeField] private TextMeshProUGUI bodyTextQuests;
+        [SerializeField] private QuestListView questListView;
         [SerializeField] private TextMeshProUGUI buttonText;
         
-        public void Set(bool victory, int score, int difficulty, string[] completedQuests)
+        public void Set(bool victory, int score, int difficulty, Quest[] completedQuests)
         {
             mainImage.sprite = victory ? winSprite : loseSprite;
             mainImage.color = victory ? winColor : loseColor;
@@ -29,10 +31,12 @@ namespace Nightmares.Code.UI
                             $"difficulty: {difficulty}";
 
             var hasCompletedQuests = completedQuests != null && completedQuests.Length != 0; 
-            bodyTextQuests.gameObject.SetActive(hasCompletedQuests);
-            
+            questListView.gameObject.SetActive(hasCompletedQuests);
+
             if (hasCompletedQuests)
-                bodyTextQuests.text = $"\n\n× × ×\n\nEndured Torments:\n\n{string.Join("\n\n", completedQuests)}";
+            {
+                questListView.Show(completedQuests);
+            }
 
             buttonText.text = "continue";
         }

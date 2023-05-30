@@ -129,15 +129,14 @@ namespace Nightmares.Code.Control
             if(_gameOverTriggered) return;
             _gameOverTriggered = true;
 
-            var completedQuestsNames = questManager.CompletedInSession.Select(q => q.displayName).ToArray();
-            
             questManager.SaveCompletedQuests();
-            
+            var completedQuests = questManager.CompletedInSession;
+
             this.DelayAction(() =>
             {
                 callback?.Invoke();
                 ShowBanner(gameOverBanner.GetComponent<CanvasGroup>());
-                gameOverBanner.Set(victory, pointsCounter.Points, Difficulty, completedQuestsNames);
+                gameOverBanner.Set(victory, pointsCounter.Points, Difficulty, completedQuests);
                 
                 var player = Player.Instance;
 
