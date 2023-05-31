@@ -68,8 +68,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: The Big Evil Enemy Boss
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 2057f3c37c0db1e4caeae1b6dbe0235e, type: 2}
-  m_sharedMaterial: {fileID: 1884000594243618265, guid: 2057f3c37c0db1e4caeae1b6dbe0235e, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: e69fd87d409188449b29092796bfefed, type: 2}
+  m_sharedMaterial: {fileID: 9087763262593998066, guid: e69fd87d409188449b29092796bfefed, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -93,7 +93,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 26.45
+  m_fontSize: 20
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
