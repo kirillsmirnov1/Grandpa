@@ -172,6 +172,18 @@ PrefabInstance:
       propertyPath: sprite
       value: 
       objectReference: {fileID: 1699968367}
+    - target: {fileID: 2181979932344323495, guid: aa17ac4a085f3964483ac528cee3791d, type: 3}
+      propertyPath: incrementOnDeath.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2181979932344323495, guid: aa17ac4a085f3964483ac528cee3791d, type: 3}
+      propertyPath: incrementOnDeath.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: fe3680502e8d03f4e9afb1bc842eb5d5, type: 2}
+    - target: {fileID: 2181979932344323495, guid: aa17ac4a085f3964483ac528cee3791d, type: 3}
+      propertyPath: incrementOnDeath.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: a50c058ccc275c442a1f063e0076dedb, type: 2}
     - target: {fileID: 3224151158055530518, guid: aa17ac4a085f3964483ac528cee3791d, type: 3}
       propertyPath: m_Constraints
       value: 4

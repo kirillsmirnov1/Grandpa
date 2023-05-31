@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections;
+using System.Linq;
 using DG.Tweening;
 using Nightmares.Code.Control.Enemy;
 using Nightmares.Code.Extensions;
 using Nightmares.Code.Model;
+using Nightmares.Code.Model.Quests;
 using Nightmares.Code.UI;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -41,6 +43,7 @@ namespace Nightmares.Code.Control
         [SerializeField] private StartBanner startBanner;
 
         [Header("Data")]
+        [SerializeField] private QuestManager questManager;
         [SerializeField] private IntVariable currentDifficulty;
         [SerializeField] private IntVariable maxUnlockedDifficulty;
         
@@ -64,6 +67,7 @@ namespace Nightmares.Code.Control
 
         private void Start()
         {
+            questManager.PrepareForSession();
             startBanner.Show(() => StartCoroutine(StartGame()));
         }
 
@@ -124,11 +128,15 @@ namespace Nightmares.Code.Control
         {
             if(_gameOverTriggered) return;
             _gameOverTriggered = true;
+
+            questManager.SaveCompletedQuests();
+            var completedQuests = questManager.CompletedInSession;
+
             this.DelayAction(() =>
             {
                 callback?.Invoke();
                 ShowBanner(gameOverBanner.GetComponent<CanvasGroup>());
-                gameOverBanner.Set(victory, pointsCounter.Points, Difficulty);
+                gameOverBanner.Set(victory, pointsCounter.Points, Difficulty, completedQuests);
                 
                 var player = Player.Instance;
 

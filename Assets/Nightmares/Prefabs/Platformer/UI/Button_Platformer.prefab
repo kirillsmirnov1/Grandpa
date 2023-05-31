@@ -9,12 +9,12 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 995866901567395381, guid: f24762e019b978f4086be6f50dae57a3, type: 3}
       propertyPath: m_Type
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 995866901567395381, guid: f24762e019b978f4086be6f50dae57a3, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: b2800f31b21d08847b3f4e2d2c5bd193, type: 3}
+      objectReference: {fileID: -466099963, guid: 26aced60120dedd40b4ac557838339af, type: 3}
     - target: {fileID: 1721848804112472114, guid: f24762e019b978f4086be6f50dae57a3, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -105,7 +105,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6966325922631499131, guid: f24762e019b978f4086be6f50dae57a3, type: 3}
       propertyPath: m_fontSize
-      value: 64.8
+      value: 64
       objectReference: {fileID: 0}
     - target: {fileID: 6966325922631499131, guid: f24762e019b978f4086be6f50dae57a3, type: 3}
       propertyPath: m_fontAsset
@@ -133,7 +133,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6966325922631499131, guid: f24762e019b978f4086be6f50dae57a3, type: 3}
       propertyPath: m_VerticalAlignment
-      value: 512
+      value: 4096
       objectReference: {fileID: 0}
     - target: {fileID: 7944796956407209612, guid: f24762e019b978f4086be6f50dae57a3, type: 3}
       propertyPath: m_Name
@@ -141,10 +141,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8699861931064823281, guid: f24762e019b978f4086be6f50dae57a3, type: 3}
       propertyPath: m_SizeDelta.x
-      value: -30
+      value: -40
+      objectReference: {fileID: 0}
+    - target: {fileID: 8699861931064823281, guid: f24762e019b978f4086be6f50dae57a3, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: -40
       objectReference: {fileID: 0}
     - target: {fileID: 8699861931064823281, guid: f24762e019b978f4086be6f50dae57a3, type: 3}
       propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8699861931064823281, guid: f24762e019b978f4086be6f50dae57a3, type: 3}
+      propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

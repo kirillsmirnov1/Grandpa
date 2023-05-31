@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7afca1fbd901428a80d4b98991007ae3, type: 3}
+  m_Name: Quest_Kill_Total_100_Eyes
+  m_EditorClassIdentifier: 
+  displayName: Kill 100 Eyes
+  minLevel: 0
+  tasks:
+  - resetAtSessionStart: 0
+    showProgress: 1
+    value: {fileID: 11400000, guid: 0e92a7b15cd66dd43ac71fc1ff11eccf, type: 2}
+    comparison: 3
+    intTarget: 100
+  guid: 2ce610f23c83b2c4bb39af4e6c777c65

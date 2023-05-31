@@ -72,7 +72,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 5e6e5de8a432e764d8ff31372d620329, type: 3}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 0
@@ -235,6 +235,18 @@ PrefabInstance:
       propertyPath: sprite
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 2181979932344323495, guid: aa17ac4a085f3964483ac528cee3791d, type: 3}
+      propertyPath: incrementOnDeath.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2181979932344323495, guid: aa17ac4a085f3964483ac528cee3791d, type: 3}
+      propertyPath: incrementOnDeath.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: e3a7ea7cceb75204496e76cf83e6662d, type: 2}
+    - target: {fileID: 2181979932344323495, guid: aa17ac4a085f3964483ac528cee3791d, type: 3}
+      propertyPath: incrementOnDeath.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 0e92a7b15cd66dd43ac71fc1ff11eccf, type: 2}
     - target: {fileID: 3224151158055530518, guid: aa17ac4a085f3964483ac528cee3791d, type: 3}
       propertyPath: m_Constraints
       value: 4
