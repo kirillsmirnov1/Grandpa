@@ -28,7 +28,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 2252644343808
-    m_Key: Torments_Endured
+    m_Key: Torments
     m_Metadata:
       m_Items: []
   - m_Id: 2571981873152
@@ -49,6 +49,10 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 4263695671296
     m_Key: boss_grandpa_wheelchair_name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6795008466944
+    m_Key: TORMENTS_ENDURED
     m_Metadata:
       m_Items: []
   m_Metadata:

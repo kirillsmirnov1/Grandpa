@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using System.Text;
 using UnityEngine;
+using UnityEngine.Localization;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
@@ -10,7 +11,7 @@ namespace Nightmares.Code.Model.Quests
     [CreateAssetMenu(fileName = "New Quest", menuName = "Data/Quest", order = 0)]
     public class Quest : ScriptableObject
     {
-        [SerializeField] public string displayName;
+        [SerializeField] private LocalizedString description;
         [SerializeField] public int minLevel;
         [SerializeField] private QuestTask[] tasks;
 
@@ -47,7 +48,7 @@ namespace Nightmares.Code.Model.Quests
         {
             return new QuestDisplayData
             {
-                Description = displayName + TasksDescription,
+                Description = description.GetLocalizedString() + TasksDescription,
                 IsUnlocked = minLevel <= maxUnlockedLevel,
                 IsCompleted = IsCompleted
             };

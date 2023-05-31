@@ -33,7 +33,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 2252644343808
-    m_Localized: ENDURED TORMENTS
+    m_Localized: TORMENTS
     m_Metadata:
       m_Items: []
   - m_Id: 2571981873152
@@ -54,6 +54,10 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 4263695671296
     m_Localized: Grandpa
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6795008466944
+    m_Localized: ENDURED TORMENTS
     m_Metadata:
       m_Items: []
   references:

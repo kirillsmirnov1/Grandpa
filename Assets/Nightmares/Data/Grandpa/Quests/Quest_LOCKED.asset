@@ -12,7 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7afca1fbd901428a80d4b98991007ae3, type: 3}
   m_Name: Quest_LOCKED
   m_EditorClassIdentifier: 
-  displayName: no
+  description:
+    m_TableReference:
+      m_TableCollectionName: GUID:9d6881e2ad053f849b1b76d809a72eb0
+    m_TableEntryReference:
+      m_KeyId: 2243999883264
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   minLevel: 10
   tasks:
   - resetAtSessionStart: 0
@@ -21,3 +29,6 @@ MonoBehaviour:
     comparison: 0
     intTarget: 0
   guid: 29cf12b6e1cf94949b1930b39476b005
+  references:
+    version: 2
+    RefIds: []
