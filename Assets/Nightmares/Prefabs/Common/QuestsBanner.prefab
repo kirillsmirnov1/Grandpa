@@ -233,6 +233,8 @@ GameObject:
   - component: {fileID: 6768658809248763086}
   - component: {fileID: 4157422949375662107}
   - component: {fileID: 1867910443140119832}
+  - component: {fileID: 8375793582390790680}
+  - component: {fileID: 6907224424996310942}
   m_Layer: 5
   m_Name: QuestPanel
   m_TagString: Untagged
@@ -301,6 +303,33 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 0.37
+--- !u!114 &8375793582390790680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7245333433039060607}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9397d7975e9efb4d94264cd1c84922c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fitter: {fileID: 6907224424996310942}
+--- !u!114 &6907224424996310942
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7245333433039060607}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86710e43de46f6f4bac7c8e50813a599, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AspectMode: 2
+  m_AspectRatio: 0.73716635
 --- !u!1 &7458322672635851884
 GameObject:
   m_ObjectHideFlags: 0
