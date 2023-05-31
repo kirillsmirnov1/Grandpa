@@ -47,6 +47,10 @@ MonoBehaviour:
     m_Key: button_close
     m_Metadata:
       m_Items: []
+  - m_Id: 4263695671296
+    m_Key: boss_grandpa_wheelchair_name
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

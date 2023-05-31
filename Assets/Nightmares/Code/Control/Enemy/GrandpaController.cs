@@ -5,6 +5,7 @@ using Nightmares.Code.Extensions;
 using Nightmares.Code.Model;
 using Nightmares.Code.UI;
 using UnityEngine;
+using UnityEngine.Localization;
 
 namespace Nightmares.Code.Control.Enemy
 {
@@ -22,6 +23,7 @@ namespace Nightmares.Code.Control.Enemy
         [SerializeField] private CanvasGroup healthSliderCanvasGroup;
         [SerializeField] private RectTransform healthSliderRect;
         [SerializeField] private HealthSlider healthSlider;
+        [SerializeField] private LocalizedString sliderText;
         
         [Header("Idle movement")]
         [SerializeField] private float movementSpeed = 1f;
@@ -157,7 +159,7 @@ namespace Nightmares.Code.Control.Enemy
             HealthBarShown = true;
             
             healthSlider.gameObject.SetActive(true);
-            healthSlider.Init("Grandpa", 1f);
+            healthSlider.Init(sliderText.GetLocalizedString(), 1f);
 
             var anchorPosY = healthSliderRect.anchoredPosition.y;
             healthSliderCanvasGroup.alpha = 0;

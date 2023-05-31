@@ -52,6 +52,10 @@ MonoBehaviour:
     m_Localized: close
     m_Metadata:
       m_Items: []
+  - m_Id: 4263695671296
+    m_Localized: Grandpa
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
