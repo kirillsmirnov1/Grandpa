@@ -17549,7 +17549,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 1BitPack_828
+      name: 1BitPack_828_settings
       rect:
         serializedVersion: 2
         x: 720
@@ -23064,6 +23064,7 @@ TextureImporter:
       1BitPack_232: -1389032257
       1BitPack_70: -1128679471
       1BitPack_428: 1937870541
+      1BitPack_828_settings: -594420819
       1BitPack_304: 1192206628
       1BitPack_542: -729608671
       1BitPack_696: 720661528
@@ -23519,7 +23520,6 @@ TextureImporter:
       1BitPack_749: -1546694707
       1BitPack_250: 57438869
       1BitPack_593: -1170953188
-      1BitPack_828: -594420819
       1BitPack_693: -306959623
       1BitPack_558: 332435457
       1BitPack_720: 970980099
