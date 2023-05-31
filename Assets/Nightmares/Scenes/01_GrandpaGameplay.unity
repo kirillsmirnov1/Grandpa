@@ -21121,6 +21121,38 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: -30.71997
       objectReference: {fileID: 0}
+    - target: {fileID: 7273261367523563342, guid: 7d847ccaf1270494ca745285e8f0e4ae, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7273261367523563342, guid: 7d847ccaf1270494ca745285e8f0e4ae, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7273261367523563342, guid: 7d847ccaf1270494ca745285e8f0e4ae, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 391106774469741089}
+    - target: {fileID: 7273261367523563342, guid: 7d847ccaf1270494ca745285e8f0e4ae, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7273261367523563342, guid: 7d847ccaf1270494ca745285e8f0e4ae, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetActive
+      objectReference: {fileID: 0}
+    - target: {fileID: 7273261367523563342, guid: 7d847ccaf1270494ca745285e8f0e4ae, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UnityEngine.GameObject, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 7273261367523563342, guid: 7d847ccaf1270494ca745285e8f0e4ae, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7273261367523563342, guid: 7d847ccaf1270494ca745285e8f0e4ae, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 7675715510752170675, guid: 7d847ccaf1270494ca745285e8f0e4ae, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
@@ -21219,6 +21251,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7d847ccaf1270494ca745285e8f0e4ae, type: 3}
+--- !u!1 &391106774469741089 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4485580528181245202, guid: 7d847ccaf1270494ca745285e8f0e4ae, type: 3}
+  m_PrefabInstance: {fileID: 391106774469741088}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1460443841455249811
 PrefabInstance:
   m_ObjectHideFlags: 0
