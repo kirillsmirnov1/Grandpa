@@ -1,9 +1,11 @@
 using System.Collections.Generic;
+using TMPro;
+using UnityEngine;
+using UnityEngine.Localization;
 using UnityEngine.Localization.Settings;
 using UnityEngine.ResourceManagement.AsyncOperations;
-using TMPro;
 
-namespace UnityEngine.Localization.Samples
+namespace Nightmares.Code.UI
 {
     /// <summary>
     /// This example shows how a language selection menu can be implemented using UGUI.
