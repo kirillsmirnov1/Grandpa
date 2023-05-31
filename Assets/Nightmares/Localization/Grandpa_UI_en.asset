@@ -17,7 +17,41 @@ MonoBehaviour:
   m_SharedData: {fileID: 11400000, guid: cf0cda665b23b47478e7b39a00dec78e, type: 2}
   m_Metadata:
     m_Items: []
-  m_TableData: []
+  m_TableData:
+  - m_Id: 1747436232704
+    m_Localized: You won!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1874901131264
+    m_Localized: You lost!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1985030971392
+    m_Localized: 'score: {0}
+
+      difficulty: {1}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2252644343808
+    m_Localized: ENDURED TORMENTS
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2571981873152
+    m_Localized: GRANDPA
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2651942084608
+    m_Localized: difficulty
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2749824557056
+    m_Localized: start
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2873573302272
+    m_Localized: close
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

@@ -16,7 +16,13 @@ MonoBehaviour:
   m_Data:
     m_SerializedData: []
   m_GUID: 9c991020a81b0b246aa59e0fb8e793dc
-  m_SerializeEntries: []
+  m_SerializeEntries:
+  - m_GUID: 088578a4fed0e064db11ac626df1beb0
+    m_Address: Grandpa_UI_en
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    - Preload
   m_ReadOnly: 1
   m_Settings: {fileID: 11400000, guid: 654270073f7127242b396bcdfe7bd6fc, type: 2}
   m_SchemaSet:

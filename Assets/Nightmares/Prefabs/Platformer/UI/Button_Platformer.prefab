@@ -7,6 +7,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 963546879153131518, guid: f24762e019b978f4086be6f50dae57a3, type: 3}
+      propertyPath: m_StringReference.m_TableReference.m_TableCollectionName
+      value: GUID:cf0cda665b23b47478e7b39a00dec78e
+      objectReference: {fileID: 0}
     - target: {fileID: 995866901567395381, guid: f24762e019b978f4086be6f50dae57a3, type: 3}
       propertyPath: m_Type
       value: 1
@@ -105,7 +109,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6966325922631499131, guid: f24762e019b978f4086be6f50dae57a3, type: 3}
       propertyPath: m_fontSize
-      value: 70.2
+      value: 43.4
       objectReference: {fileID: 0}
     - target: {fileID: 6966325922631499131, guid: f24762e019b978f4086be6f50dae57a3, type: 3}
       propertyPath: m_fontAsset

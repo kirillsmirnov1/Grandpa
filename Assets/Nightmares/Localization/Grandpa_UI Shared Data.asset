@@ -14,7 +14,39 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_TableCollectionName: Grandpa_UI
   m_TableCollectionNameGuidString: cf0cda665b23b47478e7b39a00dec78e
-  m_Entries: []
+  m_Entries:
+  - m_Id: 1747436232704
+    m_Key: You_Won
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1874901131264
+    m_Key: You_Lost
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1985030971392
+    m_Key: GameOver_Body
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2252644343808
+    m_Key: Torments_Endured
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2571981873152
+    m_Key: Start_Header
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2651942084608
+    m_Key: Difficulty_Header
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2749824557056
+    m_Key: button_start
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2873573302272
+    m_Key: button_close
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
