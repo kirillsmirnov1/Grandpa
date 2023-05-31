@@ -1,30 +1,27 @@
-#if PACKAGE_UGUI
-
 using System.Collections.Generic;
 using UnityEngine.Localization.Settings;
 using UnityEngine.ResourceManagement.AsyncOperations;
-using UnityEngine.UI;
+using TMPro;
 
 namespace UnityEngine.Localization.Samples
 {
     /// <summary>
     /// This example shows how a language selection menu can be implemented using UGUI.
     /// </summary>
-    [RequireComponent(typeof(Dropdown))]
     public class LanguageSelectionMenuUGUIDropdown : MonoBehaviour
     {
-        Dropdown m_Dropdown;
+        TMP_Dropdown m_Dropdown;
         AsyncOperationHandle m_InitializeOperation;
 
         void Start()
         {
             // First we setup the dropdown component.
-            m_Dropdown = GetComponent<Dropdown>();
+            m_Dropdown = GetComponent<TMP_Dropdown>();
             m_Dropdown.onValueChanged.AddListener(OnSelectionChanged);
 
             // Clear the options an add a loading message while we wait for the localization system to initialize.
             m_Dropdown.ClearOptions();
-            m_Dropdown.options.Add(new Dropdown.OptionData("Loading..."));
+            m_Dropdown.options.Add(new TMP_Dropdown.OptionData("Loading..."));
             m_Dropdown.interactable = false;
 
             // SelectedLocaleAsync will ensure that the locales have been initialized and a locale has been selected.
@@ -93,5 +90,3 @@ namespace UnityEngine.Localization.Samples
         }
     }
 }
-
-#endif
