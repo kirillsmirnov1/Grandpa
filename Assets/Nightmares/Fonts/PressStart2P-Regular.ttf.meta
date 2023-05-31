@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 2bd41977864452940adedc242847cce7
+guid: 3e6136b3aeb64a0498937e4a4996ce44
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -9,7 +9,7 @@ TrueTypeFontImporter:
   characterPadding: 1
   includeFontData: 1
   fontNames:
-  - Kenney Mini
+  - Press Start 2P
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0

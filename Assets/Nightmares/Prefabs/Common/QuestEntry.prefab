@@ -384,7 +384,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Text_QuestDescription
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4857836718481899320, guid: 3bac9a2692da32a4e95709534cd97b5e, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 3bac9a2692da32a4e95709534cd97b5e, type: 3}
 --- !u!224 &1671693714196795205 stripped
 RectTransform:

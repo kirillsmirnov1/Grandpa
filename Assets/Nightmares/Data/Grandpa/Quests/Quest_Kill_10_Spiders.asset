@@ -12,7 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7afca1fbd901428a80d4b98991007ae3, type: 3}
   m_Name: Quest_Kill_10_Spiders
   m_EditorClassIdentifier: 
-  displayName: Kill 10 Spiders in a single run
+  description:
+    m_TableReference:
+      m_TableCollectionName: GUID:9d6881e2ad053f849b1b76d809a72eb0
+    m_TableEntryReference:
+      m_KeyId: 545587781632
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   minLevel: 0
   tasks:
   - resetAtSessionStart: 1
@@ -21,3 +29,6 @@ MonoBehaviour:
     comparison: 3
     intTarget: 10
   guid: 919e3978e4fb9ac439eda5f83642ddf0
+  references:
+    version: 2
+    RefIds: []
