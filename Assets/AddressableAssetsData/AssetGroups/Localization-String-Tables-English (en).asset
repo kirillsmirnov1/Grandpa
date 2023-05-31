@@ -23,6 +23,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Locale-en
     - Preload
+  - m_GUID: 4df99a79c3f71b64a9548225a1f90f68
+    m_Address: Grandpa_Quests_en
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    - Preload
   m_ReadOnly: 1
   m_Settings: {fileID: 11400000, guid: 654270073f7127242b396bcdfe7bd6fc, type: 2}
   m_SchemaSet:
