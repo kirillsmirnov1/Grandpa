@@ -21105,10 +21105,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1177258465357426125, guid: 7d847ccaf1270494ca745285e8f0e4ae, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1512073111635043714, guid: 7d847ccaf1270494ca745285e8f0e4ae, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 320371697}
+    - target: {fileID: 1937836394032875555, guid: 7d847ccaf1270494ca745285e8f0e4ae, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3336573045155373424, guid: 7d847ccaf1270494ca745285e8f0e4ae, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -30.71997
+      objectReference: {fileID: 0}
+    - target: {fileID: 7675715510752170675, guid: 7d847ccaf1270494ca745285e8f0e4ae, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7901615865550095701, guid: 7d847ccaf1270494ca745285e8f0e4ae, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -75.32837
