@@ -55,6 +55,10 @@ MonoBehaviour:
     m_Key: TORMENTS_ENDURED
     m_Metadata:
       m_Items: []
+  - m_Id: 10146647433216
+    m_Key: GameOver_Continue
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

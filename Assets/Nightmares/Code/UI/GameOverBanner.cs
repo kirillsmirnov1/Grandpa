@@ -20,7 +20,6 @@ namespace Nightmares.Code.UI
         [SerializeField] private TextMeshProUGUI headerText;
         [SerializeField] private TextMeshProUGUI bodyTextScore;
         [SerializeField] private QuestListView questListView;
-        [SerializeField] private TextMeshProUGUI buttonText;
 
         [Header("Strings")]
         [SerializeField] private LocalizedString youWonText;
@@ -42,8 +41,6 @@ namespace Nightmares.Code.UI
             {
                 questListView.Show(completedQuests);
             }
-
-            buttonText.text = "continue";
         }
     }
 }

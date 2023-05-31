@@ -60,6 +60,10 @@ MonoBehaviour:
     m_Localized: ENDURED TORMENTS
     m_Metadata:
       m_Items: []
+  - m_Id: 10146647433216
+    m_Localized: continue
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

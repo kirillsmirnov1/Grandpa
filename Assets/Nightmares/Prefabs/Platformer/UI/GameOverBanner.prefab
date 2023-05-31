@@ -575,7 +575,6 @@ MonoBehaviour:
   headerText: {fileID: 8220303083411256064}
   bodyTextScore: {fileID: 864037991085157260}
   questListView: {fileID: 9075159030244587527}
-  buttonText: {fileID: 6312232626034843197}
   youWonText:
     m_TableReference:
       m_TableCollectionName: GUID:cf0cda665b23b47478e7b39a00dec78e
@@ -627,11 +626,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 619717447100104794, guid: 09458aa28b53b5a4da42d02fa75d764f, type: 3}
       propertyPath: m_text
-      value: TORMENTS ENDURED
+      value: "\u041F\u0415\u0420\u0415\u0416\u0418\u0422\u042B\u0415 \u041C\u0423\u041A\u0418"
       objectReference: {fileID: 0}
     - target: {fileID: 619717447100104794, guid: 09458aa28b53b5a4da42d02fa75d764f, type: 3}
       propertyPath: m_fontSize
-      value: 53.85
+      value: 61.5
       objectReference: {fileID: 0}
     - target: {fileID: 619717447100104794, guid: 09458aa28b53b5a4da42d02fa75d764f, type: 3}
       propertyPath: m_enableAutoSizing
@@ -1087,6 +1086,10 @@ PrefabInstance:
       propertyPath: m_PixelsPerUnitMultiplier
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3589217428499281532, guid: f168954fbd4e12648bbe6bbbb5c38ae2, type: 3}
+      propertyPath: m_StringReference.m_TableEntryReference.m_KeyId
+      value: 10146647433216
+      objectReference: {fileID: 0}
     - target: {fileID: 5967784391379609358, guid: f168954fbd4e12648bbe6bbbb5c38ae2, type: 3}
       propertyPath: m_Name
       value: Button_Platformer
@@ -1102,14 +1105,3 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 3131548381579764144, guid: f168954fbd4e12648bbe6bbbb5c38ae2, type: 3}
   m_PrefabInstance: {fileID: 838954109397064388}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &6312232626034843197 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6646502093585073401, guid: f168954fbd4e12648bbe6bbbb5c38ae2, type: 3}
-  m_PrefabInstance: {fileID: 838954109397064388}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
