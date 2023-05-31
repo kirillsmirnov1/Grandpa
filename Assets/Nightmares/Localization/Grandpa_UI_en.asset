@@ -19,11 +19,11 @@ MonoBehaviour:
     m_Items: []
   m_TableData:
   - m_Id: 1747436232704
-    m_Localized: You won!
+    m_Localized: Victory!
     m_Metadata:
       m_Items: []
   - m_Id: 1874901131264
-    m_Localized: You lost!
+    m_Localized: Oh no..
     m_Metadata:
       m_Items: []
   - m_Id: 1985030971392
@@ -41,7 +41,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 2651942084608
-    m_Localized: difficulty
+    m_Localized: level
     m_Metadata:
       m_Items: []
   - m_Id: 2749824557056
