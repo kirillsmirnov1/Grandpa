@@ -30,6 +30,7 @@ namespace Nightmares.Code.UI
         private void Animate(bool show, Action callback = null) // TODO extract as a component 
         {
             _animSeq?.Complete();
+            gameObject.SetActive(true);
          
             canvasGroup.alpha = show ? 0f : 1f;
             var dY = panel.rect.height * lowering;
