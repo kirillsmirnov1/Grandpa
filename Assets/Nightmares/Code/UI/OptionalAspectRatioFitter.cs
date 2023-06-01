@@ -8,11 +8,13 @@ namespace Nightmares.Code.UI
     public class OptionalAspectRatioFitter : MonoBehaviour
     {
         [SerializeField] private AspectRatioFitter fitter;
+        [SerializeField] private RectTransform rect;
         [SerializeField] private Mode mode;
         
         private void OnValidate()
         {
             fitter ??= GetComponent<AspectRatioFitter>();
+            rect ??= GetComponent<RectTransform>();
             
             if (fitter.aspectMode != AspectRatioFitter.AspectMode.HeightControlsWidth
                 && fitter.aspectMode != AspectRatioFitter.AspectMode.WidthControlsHeight)
@@ -29,7 +31,7 @@ namespace Nightmares.Code.UI
         private void OnEnable()
         {
             var targetRatio = fitter.aspectRatio;
-            var actualRatio = Screen.width * 1f / Screen.height;
+            var actualRatio = rect.rect.width / rect.rect.height;
 
             switch (mode)
             {
