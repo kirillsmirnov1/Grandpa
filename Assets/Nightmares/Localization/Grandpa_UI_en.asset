@@ -68,6 +68,10 @@ MonoBehaviour:
     m_Localized: Options
     m_Metadata:
       m_Items: []
+  - m_Id: 393741723557888
+    m_Localized: 'Language: '
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
