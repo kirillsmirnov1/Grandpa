@@ -32,7 +32,7 @@ namespace Nightmares.Code.Model
         private void EnableMobileCanvas()
         {
 #if UNITY_WEBGL
-            forceEnableMobileControlsButton.gameObject.SetActive(true);
+            forceEnableMobileControlsButton.gameObject.SetActive(!forceMobileControls);
             forceEnableMobileControlsButton.onClick.AddListener(OnForceEnableMobileControlsButtonClick);
 #else
             forceEnableMobileControlsButton.gameObject.SetActive(false);
