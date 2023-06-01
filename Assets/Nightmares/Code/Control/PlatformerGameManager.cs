@@ -146,7 +146,8 @@ namespace Nightmares.Code.Control
 
                 if (victory)
                 {
-                    maxUnlockedDifficulty.Value = Mathf.Min(maxUnlockedDifficulty.Value + 1, Constants.GrandpaMaxDifficulty);
+                    var nextDiff = Mathf.Min(currentDifficulty.Value + 1, Constants.GrandpaMaxDifficulty);
+                    maxUnlockedDifficulty.Value = Mathf.Max(nextDiff, maxUnlockedDifficulty);
                 }
             }, 1.5f);
         }
