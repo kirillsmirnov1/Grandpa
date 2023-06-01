@@ -63,7 +63,6 @@ namespace Nightmares.Code.UI
         {
             if(Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D)) OnRightButtonClick();
             if(Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A)) OnLeftButtonClick();
-            if(Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return)) OnStartButtonClick();
 
             var wallDist = Time.deltaTime * wallSpeed;
             foreach (var wall in walls)
