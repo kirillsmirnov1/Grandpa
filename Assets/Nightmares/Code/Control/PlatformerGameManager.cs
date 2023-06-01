@@ -85,7 +85,7 @@ namespace Nightmares.Code.Control
             {
                 var topPlatform = gridGeneration.platforms[0];
                 player.transform.position =
-                    new Vector3((topPlatform.x + topPlatform.y) / 2f, topPlatform.y + 1);
+                    new Vector3((topPlatform.x + topPlatform.y) / 2f + .5f, 0);
             }
 
             player.gameObject.SetActive(true);
