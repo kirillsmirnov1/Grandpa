@@ -20678,6 +20678,7 @@ MonoBehaviour:
   grandpasRoomHeight: 13
   gridGeneration: {fileID: 943665382}
   grandpaWrap: {fileID: 1212598688}
+  bossTilemap: {fileID: 1222897657}
   enemySpawn: {fileID: 1656254755}
   gameOverBanner: {fileID: 2495314141536483020}
   cameraFollowsPlayer: {fileID: 31801218}
@@ -20803,6 +20804,11 @@ Transform:
 --- !u!483693784 &1222897654 stripped
 TilemapRenderer:
   m_CorrespondingSourceObject: {fileID: 1222897654, guid: dc66afbced7c18f4e94e8f345fd0cea1, type: 3}
+  m_PrefabInstance: {fileID: 1460443841455249811}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1839735485 &1222897657 stripped
+Tilemap:
+  m_CorrespondingSourceObject: {fileID: 1222897655, guid: dc66afbced7c18f4e94e8f345fd0cea1, type: 3}
   m_PrefabInstance: {fileID: 1460443841455249811}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1293545349

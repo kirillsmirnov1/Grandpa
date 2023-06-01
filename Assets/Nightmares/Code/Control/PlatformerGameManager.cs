@@ -9,6 +9,7 @@ using Nightmares.Code.Model.Quests;
 using Nightmares.Code.UI;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Tilemaps;
 using UnityEngine.UI;
 using UnityUtils.Variables;
 
@@ -34,6 +35,7 @@ namespace Nightmares.Code.Control
         [Header("Components")]
         [SerializeField] private GridGeneration gridGeneration;
         [SerializeField] private Transform grandpaWrap;
+        [SerializeField] private Tilemap bossTilemap;
         [SerializeField] private EnemySpawn enemySpawn;
         [SerializeField] private GameOverBanner gameOverBanner;
         [SerializeField] private CameraFollowsPlayer cameraFollowsPlayer;
@@ -91,6 +93,7 @@ namespace Nightmares.Code.Control
             player.gameObject.SetActive(true);
 
             grandpaWrap.position = new Vector3(0, -levelDimensions.y);
+            gridGeneration.MergeIn(bossTilemap);
             grandpaWrap.gameObject.SetActive(true);
 
             yield return null;

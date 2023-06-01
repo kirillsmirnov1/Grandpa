@@ -277,5 +277,23 @@ namespace Nightmares.Code.Control
 
             return maxPlatformWidth;
         }
+
+        public void MergeIn(Tilemap bossTilemap)
+        {
+            var bounds = bossTilemap.cellBounds;
+            for (int x = bounds.xMin; x <= bounds.xMax; x++)
+            {
+                for (int y = bounds.yMin; y <= bounds.yMax; y++)
+                {
+                    var pos = new Vector3Int(x, y);
+                    if (bossTilemap.HasTile(pos))
+                    {
+                        tilemap.SetTile(pos - new Vector3Int(0, _levelDimensions.y), bossTilemap.GetTile(pos));
+                    }
+                }
+            }
+            
+            bossTilemap.gameObject.SetActive(false);
+        }
     }
 }
