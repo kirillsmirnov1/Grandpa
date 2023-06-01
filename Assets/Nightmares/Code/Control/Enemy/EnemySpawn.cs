@@ -51,15 +51,24 @@ namespace Nightmares.Code.Control.Enemy
                         var nextPos = new Vector3Int(x, pos.y);
                         if(mainTileMap.HasTile(nextPos)) continue;
                         pos = nextPos;
-                        break;
+                        InstantiateEnemy(pos);
+                        return;
                     }
                 }
-                
-                Instantiate(
-                    enemyPrefabs[enemyIndex],
-                    pos,
-                    Quaternion.identity,
-                    transform);
+                else
+                {
+                    InstantiateEnemy(pos);
+                }
+
+                void InstantiateEnemy(Vector3Int tileCoordPos)
+                {
+                    var finPos = new Vector3(tileCoordPos.x + .5f, tileCoordPos.y + .5f);
+                    Instantiate(
+                        enemyPrefabs[enemyIndex],
+                        finPos,
+                        Quaternion.identity,
+                        transform);
+                }
             }
         }
     }

@@ -58,8 +58,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61f9cf87e59a0b04cba0921597c86c3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  debugDifficulty: 5
   operationStepDuration: 0
+  slowDown: 0
   tilemap: {fileID: 8432189614937608472}
   gameManager: {fileID: 0}
   wallRuleTile: {fileID: 11400000, guid: 6d5350c6f693f0b448a743ad6afea28c, type: 2}
@@ -3414,6 +3414,10 @@ PrefabInstance:
     - target: {fileID: 5247749419737346259, guid: 96f07eb955fb3014a97063e3cc6f4fb0, type: 3}
       propertyPath: m_Name
       value: Tilemap_Base
+      objectReference: {fileID: 0}
+    - target: {fileID: 5247749419737346271, guid: 96f07eb955fb3014a97063e3cc6f4fb0, type: 3}
+      propertyPath: m_UsedByComposite
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 96f07eb955fb3014a97063e3cc6f4fb0, type: 3}
