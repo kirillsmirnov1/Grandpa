@@ -23,7 +23,15 @@ namespace Nightmares.Code.UI.Quests
         public void Show(Quest[] questsToShow)
         {
             gameObject.SetActive(true);
-            SetEntries(questsToShow.Select(q => q.ToDisplayData(maxUnlockedLevel)).ToList());
+
+            var sortedQuests = questsToShow
+                .OrderBy(q => q.IsCompleted)
+                .ThenBy(q => q.minLevel);
+            var displayData = sortedQuests
+                .Select(q => q.ToDisplayData(maxUnlockedLevel))
+                .ToList(); 
+            
+            SetEntries(displayData);
 
             panelVisibilityAnimator.Show();
         }
