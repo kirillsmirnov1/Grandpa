@@ -13076,7 +13076,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 1BitPack_615
+      name: 1BitPack_615_snow
       rect:
         serializedVersion: 2
         x: 448
@@ -13097,7 +13097,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 1BitPack_616
+      name: 1BitPack_616_snow
       rect:
         serializedVersion: 2
         x: 464
@@ -13118,7 +13118,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 1BitPack_617
+      name: 1BitPack_617_snow
       rect:
         serializedVersion: 2
         x: 480
@@ -13139,7 +13139,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 1BitPack_618
+      name: 1BitPack_618_snow
       rect:
         serializedVersion: 2
         x: 496
@@ -22805,6 +22805,7 @@ TextureImporter:
       1BitPack_34: -1394733229
       1BitPack_872: 1852518085
       1BitPack_748: -497556283
+      1BitPack_617_snow: 1427870221
       1BitPack_479: -707346841
       1BitPack_726: 609184961
       1BitPack_146: -1788185365
@@ -22822,7 +22823,6 @@ TextureImporter:
       1BitPack_754: -879139455
       1BitPack_407: -1624560212
       1BitPack_689: -362529707
-      1BitPack_615: 1245398194
       1BitPack_313: 1200534104
       1BitPack_783: -1319052903
       1BitPack_530: 1313233537
@@ -22951,10 +22951,9 @@ TextureImporter:
       1BitPack_381: -579110420
       1BitPack_109: 1610693571
       1BitPack_253: -809530301
-      1BitPack_618: 1172393629
+      1BitPack_347: -2108202386
       1BitPack_173: 166088125
       1BitPack_286: -1780991927
-      1BitPack_347: -2108202386
       1BitPack_724: 566948113
       1BitPack_722: 1919095457
       1BitPack_1006: 45182427
@@ -23196,7 +23195,7 @@ TextureImporter:
       1BitPack_642: -1296225271
       1BitPack_478: -933571189
       1BitPack_386: -752629034
-      1BitPack_616: 257523283
+      1BitPack_914: 913991570
       1BitPack_714: 399146949
       1BitPack_359: -554599274
       1BitPack_23: -1599656816
@@ -23214,7 +23213,6 @@ TextureImporter:
       1BitPack_491: 1732463531
       1BitPack_860: -1032143938
       1BitPack_626: 1312029001
-      1BitPack_914: 913991570
       1BitPack_492: 1733827711
       1BitPack_694: -1613184442
       1BitPack_793: 494048128
@@ -23257,9 +23255,8 @@ TextureImporter:
       1BitPack_1067: 1994615091
       1BitPack_667: -2055097730
       1BitPack_48: -1056626474
-      1BitPack_617: 1427870221
-      1BitPack_83: -928047662
       1BitPack_646: 1333508693
+      1BitPack_83: -928047662
       1BitPack_582: -142688810
       1BitPack_322: -1236391734
       1BitPack_631: 369501113
@@ -23294,6 +23291,7 @@ TextureImporter:
       1BitPack_341: -2060954334
       1BitPack_127: -900625955
       1BitPack_89: -646383071
+      1BitPack_618_snow: 1172393629
       1BitPack_844: -1055380222
       1BitPack_613: 474382618
       1BitPack_680: -809533054
@@ -23544,6 +23542,7 @@ TextureImporter:
       1BitPack_470: -1172836567
       1BitPack_784: -1899596341
       1BitPack_364: -1191872399
+      1BitPack_616_snow: 257523283
       1BitPack_182: -768720669
       1BitPack_413: -1208829956
       1BitPack_738: 173085942
@@ -23861,6 +23860,7 @@ TextureImporter:
       1BitPack_838: 974014716
       1BitPack_563: 110839867
       1BitPack_750: 1642069715
+      1BitPack_615_snow: 1245398194
       1BitPack_760: 2036956055
       1BitPack_472: 962892977
       1BitPack_169: 1667072321
