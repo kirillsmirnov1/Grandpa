@@ -21407,6 +21407,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9107264050312500265, guid: 7d847ccaf1270494ca745285e8f0e4ae, type: 3}
+      propertyPath: m_SortingOrder
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 9107264050312500268, guid: 7d847ccaf1270494ca745285e8f0e4ae, type: 3}
       propertyPath: m_Name
       value: PlatformerCanvas_Height
@@ -21723,6 +21727,10 @@ PrefabInstance:
     - target: {fileID: 5097216556369359230, guid: d130e3f1026b1554596a52ded068a849, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5097216556369359231, guid: d130e3f1026b1554596a52ded068a849, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6572778145462748026, guid: d130e3f1026b1554596a52ded068a849, type: 3}
       propertyPath: m_SizeDelta.x
@@ -22170,6 +22178,10 @@ PrefabInstance:
     - target: {fileID: 8867303909757970588, guid: 550f7e321c7140d49acf41b3a5180033, type: 3}
       propertyPath: m_Name
       value: PlatformerCanvas_Width
+      objectReference: {fileID: 0}
+    - target: {fileID: 8867303909757970588, guid: 550f7e321c7140d49acf41b3a5180033, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8867303909757970590, guid: 550f7e321c7140d49acf41b3a5180033, type: 3}
       propertyPath: m_MatchWidthOrHeight
