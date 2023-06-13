@@ -9359,7 +9359,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 1BitPack_438
+      name: 1BitPack_438_page
       rect:
         serializedVersion: 2
         x: 752
@@ -9368,7 +9368,7 @@ TextureImporter:
         height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 4, y: 5, z: 4, w: 5}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -22944,10 +22944,9 @@ TextureImporter:
       1BitPack_202: -942106513
       1BitPack_184: 1142713184
       1BitPack_262: 273679732
-      1BitPack_438: -522756750
+      1BitPack_1043: 802905079
       1BitPack_211: 1005254756
       1BitPack_451: 579135905
-      1BitPack_1043: 802905079
       1BitPack_381: -579110420
       1BitPack_109: 1610693571
       1BitPack_253: -809530301
@@ -23121,6 +23120,7 @@ TextureImporter:
       1BitPack_995: 1615159573
       1BitPack_497: -1625373222
       1BitPack_938: 1893957818
+      1BitPack_438_page: -522756750
       1BitPack_218: 1957871308
       1BitPack_493: -809863950
       1BitPack_394: -770382903
