@@ -105,6 +105,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 130293968690941537, guid: 3bac9a2692da32a4e95709534cd97b5e, type: 3}
+      propertyPath: m_lineSpacing
+      value: -37.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 130293968690941537, guid: 3bac9a2692da32a4e95709534cd97b5e, type: 3}
       propertyPath: m_wordSpacing
       value: 39.3
       objectReference: {fileID: 0}
@@ -226,7 +230,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 130293968690941539, guid: 3bac9a2692da32a4e95709534cd97b5e, type: 3}
       propertyPath: m_Name
-      value: Text_Main
+      value: Text_Platformer_B
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4857836718481899320, guid: 3bac9a2692da32a4e95709534cd97b5e, type: 3}
