@@ -2592,7 +2592,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2120878667134908170, guid: 516820f8a6483a74cac7d9c330098f1b, type: 3}
       propertyPath: m_text
-      value: "= = \u043A\u043E\u0448\u043C\u0430\u0440 = ="
+      value: "= \xD7 \u043A\u043E\u0448\u043C\u0430\u0440 \xD7 ="
       objectReference: {fileID: 0}
     - target: {fileID: 2120878667134908170, guid: 516820f8a6483a74cac7d9c330098f1b, type: 3}
       propertyPath: m_fontSize
