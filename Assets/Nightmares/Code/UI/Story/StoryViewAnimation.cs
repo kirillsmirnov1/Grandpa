@@ -40,5 +40,23 @@ namespace Nightmares.Code.UI.Story
                 eventSystem.gameObject.SetActive(true);
             });
         }
+
+        [ContextMenu("Hide")]
+        public void Hide()
+        {
+            var anchorPos = viewport.anchoredPosition;
+            eventSystem.gameObject.SetActive(false);
+
+            DOTween.Sequence()
+                .Join(buttonFade.DOFade(0f, duration))
+                .Join(background.DOFade(0f, duration))
+                .Join(viewport.DOAnchorPosY(-viewport.rect.height, duration).SetEase(viewportEase))
+                .AppendCallback(() =>
+                {
+                    viewport.anchoredPosition = anchorPos;
+                    gameObject.SetActive(false);
+                    eventSystem.gameObject.SetActive(true);
+                });
+        }
     }
 }
