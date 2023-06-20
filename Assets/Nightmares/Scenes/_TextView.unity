@@ -142,6 +142,18 @@ PrefabInstance:
       propertyPath: m_BackGroundColor.a
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6997234214219401755, guid: d9eb32e56fbcf0745ab237947b4f60e9, type: 3}
+      propertyPath: m_BackGroundColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6997234214219401755, guid: d9eb32e56fbcf0745ab237947b4f60e9, type: 3}
+      propertyPath: m_BackGroundColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6997234214219401755, guid: d9eb32e56fbcf0745ab237947b4f60e9, type: 3}
+      propertyPath: m_BackGroundColor.r
+      value: 0.9689884
+      objectReference: {fileID: 0}
     - target: {fileID: 6997234214219401956, guid: d9eb32e56fbcf0745ab237947b4f60e9, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -607,5 +619,9 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6308596113781078910, guid: ae502ffb98b303a4aa4d79b3b8b09f82, type: 3}
+      propertyPath: eventSystem
+      value: 
+      objectReference: {fileID: 2049073742}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ae502ffb98b303a4aa4d79b3b8b09f82, type: 3}
