@@ -9,5 +9,6 @@ namespace Nightmares.Code.Model
         public string title; // TODO refactor to use localized strings 
         [TextArea(5, 25)]
         public string mainText;
+        public bool unlocked;
     }
 }

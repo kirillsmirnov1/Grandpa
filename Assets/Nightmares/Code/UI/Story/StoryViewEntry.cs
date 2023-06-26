@@ -9,11 +9,13 @@ namespace Nightmares.Code.UI.Story
     {
         [SerializeField] private TextMeshProUGUI header;
         [SerializeField] private TextMeshProUGUI mainText;
-
+        [SerializeField] private GameObject blurObject;
+        
         public override void Fill(StoryEntryData data)
         {
             header.text = data.title;
             mainText.text = data.mainText;
+            blurObject.SetActive(!data.unlocked);
             base.Fill(data);
         }
     }

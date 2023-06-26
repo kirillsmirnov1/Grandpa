@@ -1,7 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using System.Linq;
 using Nightmares.Code.Model;
+using Nightmares.Code.Model.Quests;
 using UnityEngine;
+using UnityUtils.Variables;
 using UnityUtils.View;
 
 namespace Nightmares.Code.UI.Story
@@ -10,9 +12,18 @@ namespace Nightmares.Code.UI.Story
     {
         [SerializeField] private List<StoryEntryData> dataEntries;
         [SerializeField] private CenterScroll centerScroll;
+        [SerializeField] private StringArrayVariable completedQuests;
         
         private void OnEnable()
         {
+            var questsCompleted = completedQuests.Length;
+            Debug.Log("Completed quests: " + questsCompleted);
+            for (int i = 0; i < dataEntries.Count; i++)
+            {
+                var de = dataEntries[i];
+                de.unlocked = i < questsCompleted;
+                dataEntries[i] = de;
+            }
             SetEntries(dataEntries);
         }
 
@@ -29,9 +40,6 @@ namespace Nightmares.Code.UI.Story
             else if (Input.GetKeyDown(KeyCode.Space))
             {
                 centerScroll.ScrollTo(0);
-            }
-            {
-                
             }
         }
     }
