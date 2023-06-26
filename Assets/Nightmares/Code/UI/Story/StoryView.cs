@@ -17,7 +17,6 @@ namespace Nightmares.Code.UI.Story
         private void OnEnable()
         {
             var questsCompleted = completedQuests.Length;
-            Debug.Log("Completed quests: " + questsCompleted);
             for (int i = 0; i < dataEntries.Count; i++)
             {
                 var de = dataEntries[i];
