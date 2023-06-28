@@ -19,18 +19,12 @@ namespace Nightmares.Code.UI
         
         private void Awake()
         {
-            _elements = new Transform[content.childCount];
-            for (int i = 0; i < content.childCount; i++)
-            {
-                _elements[i] = content.GetChild(i); 
-            }
-
-            _xMiddle = Screen.width / 2f;
+            Init();
         }
 
         private void Start()
         {
-            StartCoroutine(InitialCentering());
+            Init();
         }
 
         public void OnPointerDown(PointerEventData eventData)
@@ -41,6 +35,19 @@ namespace Nightmares.Code.UI
         public void OnPointerUp(PointerEventData eventData)
         {
             StartRecentering();
+        }
+
+        public void Init()
+        {
+            _elements = new Transform[content.childCount];
+            for (int i = 0; i < content.childCount; i++)
+            {
+                _elements[i] = content.GetChild(i);
+            }
+
+            _xMiddle = Screen.width / 2f;
+            
+            StartCoroutine(InitialCentering());
         }
 
         public void ScrollBy(int entriesToScroll)

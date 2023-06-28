@@ -16,7 +16,8 @@ namespace Nightmares.Code.UI.Story
         [SerializeField] private CanvasGroup buttonFade;
         [SerializeField] private Image background;
         [SerializeField] private EventSystem eventSystem;
-
+        [SerializeField] private CenterScroll centerScroll;
+        
         [ContextMenu("Show")]
         public void Show()
         {
@@ -38,6 +39,7 @@ namespace Nightmares.Code.UI.Story
             seq.AppendCallback(() =>
             {
                 eventSystem.gameObject.SetActive(true);
+                centerScroll.Init();
             });
         }
 
