@@ -25,6 +25,10 @@ MonoBehaviour:
     m_Address: Assets/Nightmares/Localization/Grandpa_Quests Shared Data.asset
     m_ReadOnly: 1
     m_SerializedLabels: []
+  - m_GUID: b0fa84a8b8b1c944785bb8fab2d4922f
+    m_Address: Assets/Nightmares/Localization/Grandpa_Story Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
   m_ReadOnly: 1
   m_Settings: {fileID: 11400000, guid: 654270073f7127242b396bcdfe7bd6fc, type: 2}
   m_SchemaSet:

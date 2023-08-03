@@ -29,6 +29,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Locale-en
     - Preload
+  - m_GUID: 93eb7b8cd4f164442912196b004784c7
+    m_Address: Grandpa_Story_en
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    - Preload
   m_ReadOnly: 1
   m_Settings: {fileID: 11400000, guid: 654270073f7127242b396bcdfe7bd6fc, type: 2}
   m_SchemaSet:
