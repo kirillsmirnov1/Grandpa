@@ -13,8 +13,8 @@ namespace Nightmares.Code.UI.Story
         
         public override void Fill(StoryEntryData data)
         {
-            header.text = data.title;
-            mainText.text = data.mainText;
+            header.text = data.title.GetLocalizedString();
+            mainText.text = data.mainText.GetLocalizedString();
             blurObject.SetActive(!data.unlocked);
             base.Fill(data);
         }
