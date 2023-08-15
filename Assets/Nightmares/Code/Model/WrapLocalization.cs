@@ -23,9 +23,10 @@ namespace Nightmares.Code.Model
                 var asset = subTable.asset as StringTable;
                 foreach (var kv in asset.Values)
                 {
-                    Debug.Log(kv.Value);
+                    if(!kv.Key.Contains("story")) continue;
                     foreach (var s in stringsToWrap)
                     {
+                        // TODO replace only first entry 
                         kv.Value = kv.Value.Replace(s, string.Format(wrap, s));
                     }
                 }
@@ -43,6 +44,7 @@ namespace Nightmares.Code.Model
             if (GUILayout.Button("Wrap"))
             {
                 (target as WrapLocalization).Wrap();
+                EditorUtility.SetDirty(target);
             }
         }
     }

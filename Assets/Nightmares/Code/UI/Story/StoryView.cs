@@ -18,7 +18,8 @@ namespace Nightmares.Code.UI.Story
             for (int i = 0; i < dataEntries.Count; i++)
             {
                 var de = dataEntries[i];
-                de.unlocked = i < questsCompleted;
+                // de.unlocked = i < questsCompleted;
+                de.unlocked = true;
                 dataEntries[i] = de;
             }
             SetEntries(dataEntries);
