@@ -11,6 +11,8 @@ namespace Nightmares.Code.UI.Story
         [SerializeField] private List<StoryEntryData> dataEntries;
         [SerializeField] private CenterScroll centerScroll;
         [SerializeField] private StringArrayVariable completedQuests;
+
+        private bool _resizedEntries;
         
         private void OnEnable()
         {
@@ -18,8 +20,7 @@ namespace Nightmares.Code.UI.Story
             for (int i = 0; i < dataEntries.Count; i++)
             {
                 var de = dataEntries[i];
-                // de.unlocked = i < questsCompleted;
-                de.unlocked = true;
+                de.unlocked = i < questsCompleted;
                 dataEntries[i] = de;
             }
             SetEntries(dataEntries);
@@ -38,6 +39,30 @@ namespace Nightmares.Code.UI.Story
             else if (Input.GetKeyDown(KeyCode.Space))
             {
                 centerScroll.ScrollTo(0);
+            }
+        }
+
+        protected override void SetEntries(List<StoryEntryData> data)
+        {
+            base.SetEntries(data);
+            Resize();
+        }
+
+        private void Resize()
+        {
+            if(_resizedEntries) return;
+            _resizedEntries = true;
+            
+            var parentsAspect = Screen.width * 1f / Screen.height;
+            if (parentsAspect < .7f)
+            {
+                var firstEntry = entries[0];
+                var newWidth = ((StoryViewEntry)firstEntry).rect.rect.height * parentsAspect;
+                foreach (var entry in entries)
+                {
+                    ((StoryViewEntry)entry).rect
+                        .SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, newWidth);
+                }
             }
         }
     }
