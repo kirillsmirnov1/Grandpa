@@ -1,9 +1,9 @@
-﻿using UnityEditor.Localization;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Localization.Tables;
 
 #if UNITY_EDITOR
 using UnityEditor;
+using UnityEditor.Localization;
 #endif
 
 namespace Nightmares.Code.Model
@@ -11,6 +11,7 @@ namespace Nightmares.Code.Model
     [CreateAssetMenu(fileName = "WrapLocalization", menuName = "Data/WrapLocalization", order = 0)]
     public class WrapLocalization : ScriptableObject
     {
+#if UNITY_EDITOR
         public string wrap = "a{0}b";
         public string[] stringsToWrap;
         public LocalizationTableCollection table;
@@ -32,6 +33,7 @@ namespace Nightmares.Code.Model
                 }
             }
         }
+#endif
     }
     
     #if UNITY_EDITOR
@@ -48,5 +50,5 @@ namespace Nightmares.Code.Model
             }
         }
     }
-#endif
+    #endif
 }
