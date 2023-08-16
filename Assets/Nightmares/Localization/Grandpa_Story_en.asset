@@ -19,7 +19,7 @@ MonoBehaviour:
     m_Items: []
   m_TableData:
   - m_Id: 21417222144
-    m_Localized: nightmare
+    m_Localized: = = nightmare = =
     m_Metadata:
       m_Items: []
   - m_Id: 46805344256
@@ -44,7 +44,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 6015534817280
-    m_Localized: alone
+    m_Localized: = = alone = =
     m_Metadata:
       m_Items: []
   - m_Id: 6015534817281
@@ -64,7 +64,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 6015539011584
-    m_Localized: spiders
+    m_Localized: = = spiders = =
     m_Metadata:
       m_Items: []
   - m_Id: 6015539011585
@@ -79,7 +79,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 6015539011586
-    m_Localized: dentures
+    m_Localized: = = dentures = =
     m_Metadata:
       m_Items: []
   - m_Id: 6015539011587
@@ -96,7 +96,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 6015539011588
-    m_Localized: cane
+    m_Localized: = = cane = =
     m_Metadata:
       m_Items: []
   - m_Id: 6015539011589
@@ -116,7 +116,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 6015539011590
-    m_Localized: pity
+    m_Localized: = = pity = =
     m_Metadata:
       m_Items: []
   - m_Id: 6015539011591
@@ -141,7 +141,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 6015539011592
-    m_Localized: fireworks
+    m_Localized: = = fireworks = =
     m_Metadata:
       m_Items: []
   - m_Id: 6015539011593
@@ -160,7 +160,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 6015539011594
-    m_Localized: wheelchair
+    m_Localized: = = wheelchair = =
     m_Metadata:
       m_Items: []
   - m_Id: 6015539011595
@@ -175,7 +175,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 6015539011596
-    m_Localized: 'spider '
+    m_Localized: = = spider = =
     m_Metadata:
       m_Items: []
   - m_Id: 6015539011597
@@ -193,7 +193,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 6015539011598
-    m_Localized: lot
+    m_Localized: = = lot = =
     m_Metadata:
       m_Items: []
   - m_Id: 6015539011599
@@ -205,7 +205,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 6015539011600
-    m_Localized: tiles
+    m_Localized: = = tiles = =
     m_Metadata:
       m_Items: []
   - m_Id: 6015539011601
@@ -234,7 +234,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 6015539011602
-    m_Localized: snowflakes
+    m_Localized: = = snowflakes = =
     m_Metadata:
       m_Items: []
   - m_Id: 6015539011603
@@ -245,7 +245,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 6015539011604
-    m_Localized: dream
+    m_Localized: = = dream = =
     m_Metadata:
       m_Items: []
   - m_Id: 6015539011605
@@ -274,7 +274,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 6015539011606
-    m_Localized: statue
+    m_Localized: = = statue = =
     m_Metadata:
       m_Items: []
   - m_Id: 6015539011607
@@ -289,7 +289,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 6015539011608
-    m_Localized: afterword
+    m_Localized: "\xD7 \xD7 afterword \xD7 \xD7"
     m_Metadata:
       m_Items: []
   - m_Id: 6015539011609

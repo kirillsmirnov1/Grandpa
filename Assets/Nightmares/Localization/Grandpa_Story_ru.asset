@@ -19,7 +19,7 @@ MonoBehaviour:
     m_Items: []
   m_TableData:
   - m_Id: 21417222144
-    m_Localized: "\u043A\u043E\u0448\u043C\u0430\u0440"
+    m_Localized: "= = \u043A\u043E\u0448\u043C\u0430\u0440 = ="
     m_Metadata:
       m_Items: []
   - m_Id: 46805344256
@@ -95,7 +95,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 6015534817280
-    m_Localized: "\u043E\u0434\u0438\u043D"
+    m_Localized: "= = \u043E\u0434\u0438\u043D = ="
     m_Metadata:
       m_Items: []
   - m_Id: 6015534817281
@@ -147,7 +147,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 6015539011584
-    m_Localized: "\u043F\u0430\u0443\u043A\u0438"
+    m_Localized: "= = \u043F\u0430\u0443\u043A\u0438 = ="
     m_Metadata:
       m_Items: []
   - m_Id: 6015539011585
@@ -183,7 +183,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 6015539011586
-    m_Localized: "\u0447\u0435\u043B\u044E\u0441\u0442\u044C"
+    m_Localized: "= = \u0447\u0435\u043B\u044E\u0441\u0442\u044C = ="
     m_Metadata:
       m_Items: []
   - m_Id: 6015539011587
@@ -224,7 +224,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 6015539011588
-    m_Localized: "\u043A\u043B\u044E\u043A\u0430"
+    m_Localized: "= = \u043A\u043B\u044E\u043A\u0430 = ="
     m_Metadata:
       m_Items: []
   - m_Id: 6015539011589
@@ -280,7 +280,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 6015539011590
-    m_Localized: "\u0436\u0430\u043B\u043A\u043E"
+    m_Localized: "= = \u0436\u0430\u043B\u043A\u043E = ="
     m_Metadata:
       m_Items: []
   - m_Id: 6015539011591
@@ -354,7 +354,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 6015539011592
-    m_Localized: "\u0444\u0435\u0439\u0435\u0440\u0432\u0435\u0440\u043A"
+    m_Localized: "= = \u0444\u0435\u0439\u0435\u0440\u0432\u0435\u0440\u043A = ="
     m_Metadata:
       m_Items: []
   - m_Id: 6015539011593
@@ -407,7 +407,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 6015539011594
-    m_Localized: "\u043A\u043E\u043B\u044F\u0441\u043A\u0430"
+    m_Localized: "= = \u043A\u043E\u043B\u044F\u0441\u043A\u0430 = ="
     m_Metadata:
       m_Items: []
   - m_Id: 6015539011595
@@ -442,7 +442,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 6015539011596
-    m_Localized: "\u043F\u0430\u0443\u043A "
+    m_Localized: "= = \u043F\u0430\u0443\u043A = ="
     m_Metadata:
       m_Items: []
   - m_Id: 6015539011597
@@ -488,7 +488,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 6015539011598
-    m_Localized: "\u0436\u0440\u0435\u0431\u0438\u0439"
+    m_Localized: "= = \u0436\u0440\u0435\u0431\u0438\u0439 = ="
     m_Metadata:
       m_Items: []
   - m_Id: 6015539011599
@@ -511,7 +511,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 6015539011600
-    m_Localized: "\u043A\u0430\u0444\u0435\u043B\u044C"
+    m_Localized: "= = \u043A\u0430\u0444\u0435\u043B\u044C = ="
     m_Metadata:
       m_Items: []
   - m_Id: 6015539011601
@@ -601,7 +601,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 6015539011602
-    m_Localized: "\u0441\u043D\u0435\u0436\u0438\u043D\u043A\u0438 "
+    m_Localized: "= = \u0441\u043D\u0435\u0436\u0438\u043D\u043A\u0438 = ="
     m_Metadata:
       m_Items: []
   - m_Id: 6015539011603
@@ -623,7 +623,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 6015539011604
-    m_Localized: "\u0441\u043E\u043D"
+    m_Localized: "= = \u0441\u043E\u043D = ="
     m_Metadata:
       m_Items: []
   - m_Id: 6015539011605
@@ -714,7 +714,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 6015539011606
-    m_Localized: "\u0438\u0441\u0442\u0443\u043A\u0430\u043D "
+    m_Localized: "= = \u0438\u0441\u0442\u0443\u043A\u0430\u043D = ="
     m_Metadata:
       m_Items: []
   - m_Id: 6015539011607
@@ -748,7 +748,8 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 6015539011608
-    m_Localized: "\u043F\u043E\u0441\u043B\u0435\u0441\u043B\u043E\u0432\u0438\u0435"
+    m_Localized: "\xD7 \xD7 \u043F\u043E\u0441\u043B\u0435\u0441\u043B\u043E\u0432\u0438\u0435
+      \xD7 \xD7"
     m_Metadata:
       m_Items: []
   - m_Id: 6015539011609
