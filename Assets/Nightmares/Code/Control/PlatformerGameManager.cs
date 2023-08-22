@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Linq;
 using DG.Tweening;
+using Nightmares.Code.Audio;
 using Nightmares.Code.Control.Enemy;
 using Nightmares.Code.Extensions;
 using Nightmares.Code.Model;
@@ -71,6 +72,8 @@ namespace Nightmares.Code.Control
         {
             questManager.PrepareForSession();
             startBanner.Show(() => StartCoroutine(StartGame()));
+            
+            AudioManager.Instance.PlayIdleMusic();
         }
 
         private IEnumerator StartGame()
@@ -101,6 +104,8 @@ namespace Nightmares.Code.Control
             enemySpawn.SpawnEnemies();
 
             LayoutRebuilder.ForceRebuildLayoutImmediate(mobileInputs);
+            
+            AudioManager.Instance.PlayActionMusic();
         }
 
         private void Update()
@@ -140,6 +145,7 @@ namespace Nightmares.Code.Control
                 callback?.Invoke();
                 ShowBanner(gameOverBanner.GetComponent<CanvasGroup>());
                 gameOverBanner.Set(victory, pointsCounter.Points, Difficulty, completedQuests);
+                AudioManager.Instance.PlayIdleMusic();
                 
                 var player = Player.Instance;
 

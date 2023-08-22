@@ -1,3 +1,4 @@
+using DG.Tweening;
 using Nightmares.Code.Control;
 using Nightmares.Code.Control.Enemy;
 using UnityEngine;
@@ -14,10 +15,17 @@ namespace Nightmares.Code.Audio
 
         [Header("Audio Sources")]
         [SerializeField] private AudioSource sfxAudioSource;
-        [SerializeField] private AudioSource musicSource;
+        [SerializeField] private AudioSource idleMusic;
+        [SerializeField] private AudioSource actionMusic;
+
+        private AudioSource _lastActiveMusicSource;
+        
+        public static AudioManager Instance { get; private set; }
         
         private void Awake()
         {
+            Instance = this;
+            
             Enemy.OnEnemyDamaged += PlayEnemyDamagedSound;
             PlatformerGameManager.OnWin += OnVictory;
             PlatformerGameManager.OnDefeat += OnDefeat;
@@ -32,6 +40,24 @@ namespace Nightmares.Code.Audio
             Player.OnPlayerDamage -= OnPlayerDamage;
         }
 
+        public void PlayActionMusic()
+        {
+            SwitchMusicSources(_lastActiveMusicSource, actionMusic, .4f);
+            _lastActiveMusicSource = actionMusic;
+        }
+
+        public void PlayIdleMusic()
+        {
+            SwitchMusicSources(_lastActiveMusicSource, idleMusic, 1f);
+            _lastActiveMusicSource = idleMusic;
+        }
+
+        private void SwitchMusicSources(AudioSource from, AudioSource to, float targetVolume)
+        {
+            from?.DOFade(0, .5f);
+            to?.DOFade(targetVolume, .5f);
+        }
+
         private void OnPlayerDamage()
         {
             sfxAudioSource.PlayOneShot(playerHitSound);
@@ -39,13 +65,11 @@ namespace Nightmares.Code.Audio
 
         private void OnDefeat()
         {
-            musicSource.Stop();
             sfxAudioSource.PlayOneShot(defeatSound);
         }
 
         private void OnVictory()
         {
-            musicSource.Stop();
             sfxAudioSource.PlayOneShot(winSound);
         }
 
