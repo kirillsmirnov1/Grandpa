@@ -20,7 +20,7 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
-  isReadable: 0
+  isReadable: 1
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
@@ -10724,7 +10724,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 1BitPack_503
+      name: 1BitPack_503_fire_0
       rect:
         serializedVersion: 2
         x: 224
@@ -10745,7 +10745,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 1BitPack_504
+      name: 1BitPack_504_fire
       rect:
         serializedVersion: 2
         x: 240
@@ -23203,7 +23203,7 @@ TextureImporter:
       1BitPack_865: 1931770343
       1BitPack_1023: -2033841277
       1BitPack_876: 1273037176
-      1BitPack_504: 1573116345
+      1BitPack_793: 494048128
       1BitPack_236: 879306770
       1BitPack_487: 607143826
       1BitPack_514: -667529914
@@ -23215,14 +23215,13 @@ TextureImporter:
       1BitPack_626: 1312029001
       1BitPack_492: 1733827711
       1BitPack_694: -1613184442
-      1BitPack_793: 494048128
+      1BitPack_957: 1862582558
       1BitPack_378: -1049848479
       1BitPack_500: -704006801
       1BitPack_931: -1562811616
       1BitPack_998: 2132114023
       1BitPack_522: -919373313
       1BitPack_1065: 1736121361
-      1BitPack_957: 1862582558
       1BitPack_929: -1001288474
       1BitPack_886: 707083174
       1BitPack_968: -1902065126
@@ -23839,7 +23838,6 @@ TextureImporter:
       1BitPack_709: -2066597762
       1BitPack_1068: -128408074
       1BitPack_999: -1158752495
-      1BitPack_503: 790325587
       1BitPack_967: 1643894564
       1BitPack_176: -1664990997
       1BitPack_890: 698178926
@@ -23852,6 +23850,7 @@ TextureImporter:
       1BitPack_727: -1242932298
       1BitPack_544: -585707619
       1BitPack_371: -144741810
+      1BitPack_503_fire_0: 790325587
       1BitPack_408: 137718359
       1BitPack_76: 857036814
       1BitPack_545: 1753678060
@@ -23863,6 +23862,7 @@ TextureImporter:
       1BitPack_615_snow: 1245398194
       1BitPack_760: 2036956055
       1BitPack_472: 962892977
+      1BitPack_504_fire: 1573116345
       1BitPack_169: 1667072321
   spritePackingTag: 
   pSDRemoveMatte: 0
