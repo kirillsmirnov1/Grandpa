@@ -3,6 +3,7 @@ using Nightmares.Code.Model;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Localization;
+using UnityEngine.UI;
 using UnityUtils.View;
 
 namespace Nightmares.Code.UI.Story
@@ -12,7 +13,7 @@ namespace Nightmares.Code.UI.Story
         [SerializeField] public RectTransform rect;
         [SerializeField] private TextMeshProUGUI header;
         [SerializeField] private TextMeshProUGUI mainText;
-        [SerializeField] private GameObject blurObject;
+        [SerializeField] private Image blurObject;
         [SerializeField] private LocalizedString mainTextSpacingStr;
 
         public override void Fill(StoryEntryData data)
@@ -22,8 +23,12 @@ namespace Nightmares.Code.UI.Story
 
             SetSpacings();
 
-            blurObject.SetActive(!data.unlocked);
+            blurObject.gameObject.SetActive(!data.unlocked);
             base.Fill(data);
+
+#if UNITY_WEBGL
+            blurObject.material = null;
+#endif
         }
 
         private void SetSpacings()
