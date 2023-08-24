@@ -9,5 +9,6 @@ namespace Nightmares.Code.Model
         public LocalizedString title; 
         public LocalizedString mainText;
         public bool unlocked;
+        public string lockedPrompt;
     }
 }

@@ -14,12 +14,14 @@ namespace Nightmares.Code.UI.Story
         [SerializeField] private TextMeshProUGUI header;
         [SerializeField] private TextMeshProUGUI mainText;
         [SerializeField] private Image blurObject;
+        [SerializeField] private TextMeshProUGUI lockPrompt;
         [SerializeField] private LocalizedString mainTextSpacingStr;
-
+        
         public override void Fill(StoryEntryData data)
         {
             header.text = data.title.GetLocalizedString();
             mainText.text = data.mainText.GetLocalizedString();
+            lockPrompt.text = data.lockedPrompt;
 
             SetSpacings();
 

@@ -71,6 +71,10 @@ MonoBehaviour:
     m_Key: Story_Text_Spacings
     m_Metadata:
       m_Items: []
+  - m_Id: 30771477717508096
+    m_Key: story_locked_prompts
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
