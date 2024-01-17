@@ -23,23 +23,23 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 462548951040
-    m_Localized: Kill 10 Flies in a single run
+    m_Localized: Kill 15 Flies in a single run
     m_Metadata:
       m_Items: []
   - m_Id: 545587781632
-    m_Localized: Kill 10 Spiders in a single run
+    m_Localized: Kill 5 Spiders in a single run
     m_Metadata:
       m_Items: []
   - m_Id: 794536501248
-    m_Localized: Kill 100 Eyes
+    m_Localized: Kill 66 Eyes
     m_Metadata:
       m_Items: []
   - m_Id: 874261831680
-    m_Localized: Kill 100 Flies
+    m_Localized: Kill 99 Flies
     m_Metadata:
       m_Items: []
   - m_Id: 979790520320
-    m_Localized: Kill 100 Spiders
+    m_Localized: Kill 33 Spiders
     m_Metadata:
       m_Items: []
   - m_Id: 2243999883264

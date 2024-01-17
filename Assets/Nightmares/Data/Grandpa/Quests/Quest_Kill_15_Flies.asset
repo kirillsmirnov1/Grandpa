@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7afca1fbd901428a80d4b98991007ae3, type: 3}
-  m_Name: Quest_Kill_10_Flies
+  m_Name: Quest_Kill_15_Flies
   m_EditorClassIdentifier: 
   description:
     m_TableReference:
@@ -27,7 +27,7 @@ MonoBehaviour:
     showProgress: 0
     value: {fileID: 11400000, guid: fe3680502e8d03f4e9afb1bc842eb5d5, type: 2}
     comparison: 3
-    intTarget: 10
+    intTarget: 15
   guid: c5eb2e16099b7c040aed3f176fa84925
   references:
     version: 2

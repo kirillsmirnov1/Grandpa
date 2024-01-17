@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7afca1fbd901428a80d4b98991007ae3, type: 3}
-  m_Name: Quest_Kill_10_Spiders
+  m_Name: Quest_Kill_5_Spiders
   m_EditorClassIdentifier: 
   description:
     m_TableReference:
@@ -27,7 +27,7 @@ MonoBehaviour:
     showProgress: 0
     value: {fileID: 11400000, guid: 5411154fc904c45469a03e9f91bcf710, type: 2}
     comparison: 3
-    intTarget: 10
+    intTarget: 5
   guid: 919e3978e4fb9ac439eda5f83642ddf0
   references:
     version: 2

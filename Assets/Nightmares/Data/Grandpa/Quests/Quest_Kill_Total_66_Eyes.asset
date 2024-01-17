@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7afca1fbd901428a80d4b98991007ae3, type: 3}
-  m_Name: Quest_Kill_Total_100_Flies
+  m_Name: Quest_Kill_Total_66_Eyes
   m_EditorClassIdentifier: 
   description:
     m_TableReference:
       m_TableCollectionName: GUID:9d6881e2ad053f849b1b76d809a72eb0
     m_TableEntryReference:
-      m_KeyId: 874261831680
+      m_KeyId: 794536501248
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0
@@ -25,10 +25,10 @@ MonoBehaviour:
   tasks:
   - resetAtSessionStart: 0
     showProgress: 1
-    value: {fileID: 11400000, guid: a50c058ccc275c442a1f063e0076dedb, type: 2}
+    value: {fileID: 11400000, guid: 0e92a7b15cd66dd43ac71fc1ff11eccf, type: 2}
     comparison: 3
-    intTarget: 100
-  guid: 3cdf8444ad16a9748ba25c53f21d3c29
+    intTarget: 66
+  guid: 2ce610f23c83b2c4bb39af4e6c777c65
   references:
     version: 2
     RefIds: []
