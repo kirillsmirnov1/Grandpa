@@ -54,7 +54,7 @@ namespace Nightmares.Code.Control
 
         public Vector2Int LevelDimensions => levelDimensions;
         public int GrandpasRoomHeight => grandpasRoomHeight;
-        public int StoriesUnlocked => questsCompleted.Length * 3;
+        public int StoriesUnlocked => Mathf.Min(questsCompleted.Length * 3, 15);
 #if UNITY_EDITOR
         public int Difficulty => debugDifficulty == 0 ? currentDifficulty.Value : debugDifficulty;
 #else
