@@ -1,4 +1,6 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
+using Nightmares.Code.Extensions;
 using Nightmares.Code.Model;
 using TMPro;
 using UnityEngine;
@@ -16,17 +18,38 @@ namespace Nightmares.Code.UI.Story
         [SerializeField] private Image blurObject;
         [SerializeField] private TextMeshProUGUI lockPrompt;
         [SerializeField] private LocalizedString mainTextSpacingStr;
-        
-        public override void Fill(StoryEntryData data)
+
+        private StoryEntryData data;
+        private bool shouldPerformVisibilityCheck = true;
+
+        private void Update()
         {
-            header.text = data.title.GetLocalizedString();
-            mainText.text = data.mainText.GetLocalizedString();
-            lockPrompt.text = data.lockedPrompt;
+            if(shouldPerformVisibilityCheck) PerformVisibilityCheck();
+        }
+
+        private void PerformVisibilityCheck()
+        {
+            if (rect.IsVisibleFrom(Camera.main))
+            {
+                // Object became visible, time to check things
+                Debug.Log($"{gameObject.name} became visible, unlocked: {data.unlocked}");
+                shouldPerformVisibilityCheck = false;
+            }
+        }
+
+        public override void Fill(StoryEntryData newData)
+        {
+            this.data = newData;
+            header.text = newData.title.GetLocalizedString();
+            mainText.text = newData.mainText.GetLocalizedString();
+            lockPrompt.text = newData.lockedPrompt;
 
             SetSpacings();
 
-            blurObject.gameObject.SetActive(!data.unlocked);
-            base.Fill(data);
+            blurObject.gameObject.SetActive(!newData.unlocked);
+            base.Fill(newData);
+
+            shouldPerformVisibilityCheck = data.unlocked;
 
 #if UNITY_WEBGL
             blurObject.material = null;

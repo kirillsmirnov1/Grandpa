@@ -296,6 +296,7 @@ MonoBehaviour:
   header: {fileID: 2120878667134908170}
   mainText: {fileID: 4083768780198758847}
   blurObject: {fileID: 1627621368392900451}
+  lockPrompt: {fileID: 7403469120797032191}
   mainTextSpacingStr:
     m_TableReference:
       m_TableCollectionName: GUID:cf0cda665b23b47478e7b39a00dec78e
@@ -305,7 +306,6 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
-  lockPrompt: {fileID: 7403469120797032191}
   references:
     version: 2
     RefIds: []
