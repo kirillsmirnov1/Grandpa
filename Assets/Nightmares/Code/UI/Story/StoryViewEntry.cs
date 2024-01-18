@@ -1,11 +1,11 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using Nightmares.Code.Extensions;
 using Nightmares.Code.Model;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Localization;
 using UnityEngine.UI;
+using UnityUtils.Variables;
 using UnityUtils.View;
 
 namespace Nightmares.Code.UI.Story
@@ -18,7 +18,8 @@ namespace Nightmares.Code.UI.Story
         [SerializeField] private Image blurObject;
         [SerializeField] private TextMeshProUGUI lockPrompt;
         [SerializeField] private LocalizedString mainTextSpacingStr;
-
+        [SerializeField] private IntVariable maxSeenStory;
+        
         private StoryEntryData data;
         private bool shouldPerformVisibilityCheck = true;
 
@@ -34,6 +35,10 @@ namespace Nightmares.Code.UI.Story
                 // Object became visible, time to check things
                 Debug.Log($"{gameObject.name} became visible, unlocked: {data.unlocked}");
                 shouldPerformVisibilityCheck = false;
+                if (transform.GetSiblingIndex() > maxSeenStory.Value)
+                {
+                    maxSeenStory.Value = transform.GetSiblingIndex();
+                }
             }
         }
 
