@@ -1,6 +1,5 @@
 using System;
 using Nightmares.Code.Extensions;
-using Nightmares.Code.Model;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
