@@ -354,6 +354,22 @@ MonoBehaviour:
   m_EffectColor: {r: 0, g: 0, b: 0, a: 0.4745098}
   m_EffectDistance: {x: 10, y: 10}
   m_UseGraphicAlpha: 1
+--- !u!114 &2971610702460194806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5775662303889443835}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5835c9b45fd94656bf5601e69157ca01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxSeenStory: {fileID: 11400000, guid: ed613afc036c1c048b4e7db344300ef3, type: 2}
+  sizeFromTo: {x: 1, y: 1.25}
+  tweenDuration: 0.5
+  ease: 8
 --- !u!1001 &213518607403744473
 PrefabInstance:
   m_ObjectHideFlags: 0

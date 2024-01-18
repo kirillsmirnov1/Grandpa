@@ -33,7 +33,6 @@ namespace Nightmares.Code.UI.Story
             if (rect.IsVisibleFrom(Camera.main))
             {
                 // Object became visible, time to check things
-                Debug.Log($"{gameObject.name} became visible, unlocked: {data.unlocked}");
                 shouldPerformVisibilityCheck = false;
                 if (transform.GetSiblingIndex() > maxSeenStory.Value)
                 {

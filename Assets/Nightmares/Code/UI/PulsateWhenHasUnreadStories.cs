@@ -35,6 +35,7 @@ namespace Nightmares.Code.UI
             {
                 if (!_runningAnimation)
                 {
+                    _runningAnimation = true;
                     _seq = DOTween.Sequence()
                         .Append(transform.DOScale(sizeFromTo.y, tweenDuration).SetEase(ease))
                         .Append(transform.DOScale(sizeFromTo.x, tweenDuration).SetEase(ease))
@@ -46,6 +47,7 @@ namespace Nightmares.Code.UI
             {
                 if (_runningAnimation)
                 {
+                    _runningAnimation = false;
                     _seq.Kill();
                 }
             }
