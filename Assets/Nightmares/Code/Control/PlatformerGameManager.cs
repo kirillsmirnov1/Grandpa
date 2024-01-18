@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections;
-using System.Linq;
 using DG.Tweening;
 using Nightmares.Code.Audio;
 using Nightmares.Code.Control.Enemy;
@@ -49,11 +48,13 @@ namespace Nightmares.Code.Control
         [SerializeField] private QuestManager questManager;
         [SerializeField] private IntVariable currentDifficulty;
         [SerializeField] private IntVariable maxUnlockedDifficulty;
+        [SerializeField] private StringArrayVariable questsCompleted;
         
         private bool _gameOverTriggered;
 
         public Vector2Int LevelDimensions => levelDimensions;
         public int GrandpasRoomHeight => grandpasRoomHeight;
+        public int StoriesUnlocked => questsCompleted.Length * 3;
 #if UNITY_EDITOR
         public int Difficulty => debugDifficulty == 0 ? currentDifficulty.Value : debugDifficulty;
 #else

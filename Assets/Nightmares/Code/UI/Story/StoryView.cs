@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
+using Nightmares.Code.Control;
 using Nightmares.Code.Model;
 using UnityEngine;
 using UnityEngine.Localization;
-using UnityUtils.Variables;
 using UnityUtils.View;
 
 namespace Nightmares.Code.UI.Story
@@ -11,7 +11,6 @@ namespace Nightmares.Code.UI.Story
     {
         [SerializeField] private List<StoryEntryData> dataEntries;
         [SerializeField] private CenterScroll centerScroll;
-        [SerializeField] private StringArrayVariable completedQuests;
         [SerializeField] private LocalizedString lockedStoriesPrompts;
         
         private bool _resizedEntries;
@@ -20,11 +19,11 @@ namespace Nightmares.Code.UI.Story
         {
             var prompts = lockedStoriesPrompts.GetLocalizedString().Split("\n");
             
-            var questsCompleted = completedQuests.Length;
+            var storiesUnlocked = PlatformerGameManager.Instance.StoriesUnlocked;
             for (int i = 0; i < dataEntries.Count; i++)
             {
                 var de = dataEntries[i];
-                de.unlocked = i < questsCompleted * 3;
+                de.unlocked = i < storiesUnlocked;
                 if (!de.unlocked)
                 {
                     de.lockedPrompt = prompts[Random.Range(0, prompts.Length)];

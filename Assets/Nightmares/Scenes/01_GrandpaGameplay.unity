@@ -20884,6 +20884,7 @@ MonoBehaviour:
   questManager: {fileID: 11400000, guid: 5e934a4898bcc7d4596bc8bc3c2a3f7b, type: 2}
   currentDifficulty: {fileID: 11400000, guid: 13fcc6e1703707a4d9837675154d32cb, type: 2}
   maxUnlockedDifficulty: {fileID: 11400000, guid: 8c715fbfd6b63504996668bf4afb4c9b, type: 2}
+  questsCompleted: {fileID: 11400000, guid: e7eb8f33655ba9445965e240179042a0, type: 2}
 --- !u!4 &320371698
 Transform:
   m_ObjectHideFlags: 0
